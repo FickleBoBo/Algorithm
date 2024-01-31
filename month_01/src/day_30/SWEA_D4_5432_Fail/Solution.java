@@ -1,4 +1,4 @@
-package day_30.SWEA_D4_5432;
+package day_30.SWEA_D4_5432_Fail;
 
 import java.io.*;
 import java.util.*;
