@@ -29,6 +29,6 @@ public class Solution {
             System.out.printf("#%d %.0f\n", tc, (double) (sum-max-min)/8);    // %.0f 로 반올림해서 정수 출력 가능한게 포인트~!
 
         }
-
+        sc.close();
     }
 }
