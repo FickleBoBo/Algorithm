@@ -17,5 +17,6 @@ public class Solution {
             }
             System.out.printf("#%d %d\n", tc, max);
         }
+        sc.close();
     }
 }
