@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Algorithm/Algorithm.iml" filepath="$PROJECT_DIR$/Algorithm/Algorithm.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Algorithm_WorkSpace.iml" filepath="$PROJECT_DIR$/.idea/Algorithm_WorkSpace.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Data_Structure/Data_Structure.iml" filepath="$PROJECT_DIR$/Data_Structure/Data_Structure.iml" />
       <module fileurl="file://$PROJECT_DIR$/Input_Output/Input_Output.iml" filepath="$PROJECT_DIR$/Input_Output/Input_Output.iml" />
       <module fileurl="file://$PROJECT_DIR$/month_01/month_01.iml" filepath="$PROJECT_DIR$/month_01/month_01.iml" />
       <module fileurl="file://$PROJECT_DIR$/month_02/month_02.iml" filepath="$PROJECT_DIR$/month_02/month_02.iml" />
       <module fileurl="file://$PROJECT_DIR$/month_03/month_03.iml" filepath="$PROJECT_DIR$/month_03/month_03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/알고리즘/알고리즘.iml" filepath="$PROJECT_DIR$/알고리즘/알고리즘.iml" />
+      <module fileurl="file://$PROJECT_DIR$/자료구조/자료구조.iml" filepath="$PROJECT_DIR$/자료구조/자료구조.iml" />
     </modules>
   </component>
 </project>
