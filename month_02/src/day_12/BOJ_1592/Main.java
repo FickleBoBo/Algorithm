@@ -1,4 +1,4 @@
-package day_12.BOJ_2292;
+package day_12.BOJ_1592;
 
 import java.util.Scanner;
 
@@ -7,16 +7,26 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
-        int N = sc.nextInt();            // N : 칸 수를 찾을 숫자 입력 받음(int형 범위 만족)
+        int N = sc.nextInt();
+        int M = sc.nextInt() - 1;           // 시작부터 1을 세므로 계산 편리를 위해 1을 빼줌
+        int L = sc.nextInt();
 
-        int n = 0;                       // n : 점화식의 항 숫자이자 이동 칸수
-        int Sn = 1;                      // Sn = 1 : 점화식의 첫번째 항
-        while (N > Sn) {                 // 조건에 등호를 넣어서 5분 정도 헤맴
-            n++;                         // 갱신
-            Sn = 3 * n * (n + 1) + 1;    // 갱신
-        }
+        int lcm = getLCM(N, L);             // 최소공배수 리턴
 
-        System.out.println(n + 1);       // 시작 칸부터 1을 세기 때문에 한 칸 더해줘야 함
+        System.out.println(lcm / L * M);    // 최소공배수를 이동거리로 나누면 이동 횟수가 되고 여기에 M을 곱하면 총 이동 횟수가 된다
+
         sc.close();
     }
+
+    public static int getGCD(int num1, int num2) {    // 최대 공약수 리턴
+        if (num1 % num2 == 0) {
+            return num2;
+        }
+        return getGCD(num2, num1 % num2);
+    }
+
+    public static int getLCM(int num1, int num2) {    // 최소 공배수 리턴
+        return num1 * num2 / getGCD(num1, num2);
+    }
+
 }
