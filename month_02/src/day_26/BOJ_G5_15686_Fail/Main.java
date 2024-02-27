@@ -8,6 +8,14 @@ public class Main {
 	
 	// 각각의 치킨집과 다른 모든 집과의 치킨 거리의 합 중 최댓값인 치킨집 색출
 	// 반례 찾아보니까 이게 무지성 최댓값을 찾으면 안됨
+	/*
+	* 2 1 0 1 2
+	* 0 0 0 0 0
+	* 0 0 2 0 0
+	* 0 0 0 0 0
+	* 2 1 0 1 2
+	* 답 : 4 <- 이거 안됨
+	* */
 	static int maxChickenDist(int[][] arr) {
 		int[] distSum = new int[arr[0].length];
 		
