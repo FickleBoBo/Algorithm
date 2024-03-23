@@ -1,4 +1,4 @@
-package day_21.BOJ_S3_15650;
+package day_23.BOJ_S3_15652;
 
 import java.util.Scanner;
 
@@ -11,6 +11,7 @@ public class Main {
     static int[] sel;
 
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
 
         N = sc.nextInt();
@@ -20,12 +21,11 @@ public class Main {
 
         combination(1, 0);
 
-        System.out.print(sb.toString());
+        System.out.println(sb.toString());
 
-        sc.close();
     }
 
-    static void combination(int idx, int sidx){
+    private static void combination(int idx, int sidx){
         if(sidx == M){
             for(int i=0 ; i<M ; i++){
                 sb.append(sel[i] + " ");
@@ -36,7 +36,7 @@ public class Main {
 
         for(int i=idx ; i<=N ; i++){
             sel[sidx] = i;
-            combination(i+1, sidx+1);
+            combination(i, sidx+1);
         }
 
     }

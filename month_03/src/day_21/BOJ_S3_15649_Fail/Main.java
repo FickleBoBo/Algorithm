@@ -1,14 +1,14 @@
-package day_21.BOJ_S3_15650;
+package day_21.BOJ_S3_15649_Fail;
 
 import java.util.Scanner;
 
 public class Main {
 
     static StringBuilder sb = new StringBuilder();
+    static int[] arr;
+    static int[] sArr;
     static int N;
     static int M;
-    static int[] arr;
-    static int[] sel;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -16,7 +16,7 @@ public class Main {
         N = sc.nextInt();
         M = sc.nextInt();
         arr = new int[N];
-        sel = new int[M];
+        sArr = new int[M];
 
         combination(1, 0);
 
@@ -27,18 +27,18 @@ public class Main {
 
     static void combination(int idx, int sidx){
         if(sidx == M){
-            for(int i=0 ; i<M ; i++){
-                sb.append(sel[i] + " ");
+            for(int i=0 ; i<sidx ; i++){
+                sb.append(sArr[i] + " ");
             }
             sb.append("\n");
             return;
         }
 
         for(int i=idx ; i<=N ; i++){
-            sel[sidx] = i;
-            combination(i+1, sidx+1);
+            sArr[sidx] = i;
+            if(sidx == i) combination(i+1, sidx+1);
+            else combination(i, sidx+1);
         }
-
     }
 
 }
