@@ -16,6 +16,8 @@ public class Main {
     static int[][] map;
 
     public static void main(String[] args) throws IOException {
+    	
+    	// step1 - 입력 받기
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String[] input = br.readLine().split(" ");
         N = Integer.parseInt(input[0]);
@@ -33,6 +35,7 @@ public class Main {
             }
         }
 
+        // step2 - 쭉 돌리기
         while(st.hasMoreTokens()){
             int num = Integer.parseInt(st.nextToken());
             int d = Integer.parseInt(st.nextToken());
@@ -40,17 +43,16 @@ public class Main {
 
             for(int n=1 ; n<=N ; n++){
                 if(n%num==0){
-                    rotateMap(n, d, k);
+                    rotateMap(n, d, k);    // 회전을 먼저 처리해주고
                 }
             }
-            boolean deleted = deleteNum();
+            boolean deleted = deleteNum();    // 삭제하는데 삭제됐는지 여부를 리턴
             if(!deleted){
-                reAdjust();
+                reAdjust();    // 삭제 안됐으면 재조정
             }
-
-//            System.out.println("---------------");
         }
 
+        // step3 - 남은 숫자 더하기
         int sum = 0;
         for(int i=1 ; i<=N ; i++){
             for(int j=0 ; j<M ; j++){
