@@ -4,7 +4,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main_test {
-	
+
+	static int[] p;
 	static int[] p1;
 	static int[] p2;
 	
@@ -17,7 +18,11 @@ public class Main_test {
 			int m = sc.nextInt();
 			
 			if(n==0 && m==0) break;
-			
+
+			p = new int[1+n];
+			for(int i=1 ; i<=n ; i++) {
+				p[i] = i;
+			}
 			p1 = new int[1+n];
 			for(int i=1 ; i<=n ; i++) {
 				p1[i] = i;
@@ -30,7 +35,11 @@ public class Main_test {
 			for(int i=0 ; i<m ; i++) {
 				int a = sc.nextInt();
 				int b = sc.nextInt();
-				
+
+				int x = find(a);
+				int y = find(b);
+				union(x, y);
+
 				int x1 = find_return_x(a);
 				int y1 = find_return_x(b);
 				union1(x1, y1);
@@ -39,7 +48,12 @@ public class Main_test {
 				int y2 = find_return_px(b);
 				union2(x2, y2);
 			}
-			
+
+			// [0, 1, 1, 1, 1, 5, 6]
+			// [0, 1, 1, 1, 1, 1, 1]
+			// [0, 1, 1, 1, 4, 4, 4]
+			System.out.println("처음했던거 : " + Arrays.toString(p));
+
 			// [0, 1, 1, 2, 3, 5, 6]
 			// [0, 1, 1, 2, 3, 4, 5]
 			// [0, 1, 1, 1, 6, 4, 5]
@@ -53,7 +67,14 @@ public class Main_test {
 
 		sc.close();
 	}
-	
+
+	private static int find(int x) {
+		if(p[x] == x) {
+			return x;
+		}
+		return find(p[x]);
+	}
+
 	private static int find_return_x(int x) {
 		if(p1[x] != x) {
 			p1[x] = find_return_x(p1[x]);
@@ -67,7 +88,11 @@ public class Main_test {
 		}
 		return p2[x];
 	}
-	
+
+	private static void union(int x, int y) {
+		p[y] = x;
+	}
+
 	private static void union1(int x, int y) {
 		p1[y] = x;
 	}
