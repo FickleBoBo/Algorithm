@@ -43,6 +43,6 @@
 //		sc.close();
 //	}
 //}
-package day_20.SWEA_D4_1251;
+package day_22.SWEA_D4_1251;
 
 
