@@ -28,14 +28,14 @@ public class Main2 {
             for(int i=1 ; i<=N ; i++){
                 adj[i] = new ArrayList<>();
             }
-            int[] degree = new int[1+N];    // 진입차수를 저장하는 배열
+            int[] indegree = new int[1+N];    // 진입차수를 저장하는 배열
 
             for(int i=0 ; i<K ; i++){
                 st = new StringTokenizer(br.readLine());
                 int X = Integer.parseInt(st.nextToken());
                 int Y = Integer.parseInt(st.nextToken());
                 adj[X].add(Y);
-                degree[Y]++;
+                indegree[Y]++;
             }
 
             int W = Integer.parseInt(br.readLine());    // 승리하기 위해 건설해야 할 건물의 번호
@@ -47,7 +47,7 @@ public class Main2 {
             int[] dp = new int[1+N];    // 건물을 건설하는데 걸리는 최소 시간을 저장하는 dp 테이블
 
             for(int i=1 ; i<=N ; i++){    // 진입차수가 0인 건물(=사전 작업이 없는)을 queue에 넣어줌
-                if(degree[i] == 0){
+                if(indegree[i] == 0){
                     q.offer(i);
                     dp[i] = Darr[i];    // 최소 시간을 해당 건물을 건설하는데 걸리는 시간
                 }
@@ -64,8 +64,8 @@ public class Main2 {
                     // A, B 중 더 작은 값이 해당 건물을 건설하기까지 걸리는 최소 시간
                     dp[next] = Math.max(dp[next], dp[item] + Darr[next]);
 
-                    degree[next]--;    // 진입차수를 하나 줄여줌
-                    if(degree[next] == 0){    // 진입차수가 0이 되면 queue에 넣어줌
+                    indegree[next]--;    // 진입차수를 하나 줄여줌
+                    if(indegree[next] == 0){    // 진입차수가 0이 되면 queue에 넣어줌
                         q.offer(next);
                     }
                 }
