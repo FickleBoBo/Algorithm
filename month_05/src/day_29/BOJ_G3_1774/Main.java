@@ -19,7 +19,7 @@ public class Main {
             this.v = v;
         }
 
-        // 간선 배열 정렬을 위해 Comparable 오버라이딩
+        // 간선 배열 정렬을 위해 compareTo 오버라이딩
         @Override
         public int compareTo(Edge o) {
             return Double.compare(this.v, o.v);
