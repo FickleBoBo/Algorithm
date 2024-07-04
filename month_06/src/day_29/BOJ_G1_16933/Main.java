@@ -70,9 +70,11 @@ public class Main {
 
                     if(nr>=0 && nr<N && nc>=0 && nc<M){
                         // 이동할 수 있는 칸이면 벽을 부순 횟수를 그대로 가져감
-                        if((map[nr][nc]=='0') && !visited[nr][nc][breakWall]){
-                            q.offer(new Node(nr, nc, breakWall));
-                            visited[nr][nc][breakWall] = true;
+                        if(map[nr][nc]=='0'){
+                            if(!visited[nr][nc][breakWall]){
+                                q.offer(new Node(nr, nc, breakWall));
+                                visited[nr][nc][breakWall] = true;
+                            }
                         }
                         // 밤이고 이동할 수 없는 칸이면 벽을 더 부술 수 있으면 부수고 이동
                         else{
