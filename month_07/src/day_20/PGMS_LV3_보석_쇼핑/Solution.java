@@ -1,4 +1,4 @@
-package day_19.PGMS_LV3_보석_쇼핑;
+package day_20.PGMS_LV3_보석_쇼핑;
 
 import java.util.*;
 
