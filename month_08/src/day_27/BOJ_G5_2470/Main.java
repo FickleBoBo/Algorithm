@@ -1,4 +1,4 @@
-package day_26.BOJ_G5_2467;
+package day_27.BOJ_G5_2470;
 
 import java.io.*;
 import java.util.*;
@@ -17,6 +17,8 @@ public class Main {
         for(int i=0 ; i<N ; i++){
             arr[i] = Integer.parseInt(st.nextToken());
         }
+
+        Arrays.sort(arr);
 
         int minSum = Integer.MAX_VALUE;
         int[] ans = new int[2];

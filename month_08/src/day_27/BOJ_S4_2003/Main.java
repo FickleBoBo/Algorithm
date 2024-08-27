@@ -1,4 +1,4 @@
-package day_26.BOJ_G5_2230;
+package day_27.BOJ_S4_2003;
 
 import java.io.*;
 import java.util.*;
@@ -12,29 +12,34 @@ public class Main {
         int M = Integer.parseInt(st.nextToken());
 
         int[] arr = new int[N];
+        st = new StringTokenizer(br.readLine());
         for(int i=0 ; i<N ; i++){
-            arr[i] = Integer.parseInt(br.readLine());
+            arr[i] = Integer.parseInt(st.nextToken());
         }
-        Arrays.sort(arr);
 
         int left = 0;
         int right = 0;
-        int ans = Integer.MAX_VALUE;
+        int sum = 0;
+        int cnt = 0;
 
         while(true){
-            int diff = arr[right] - arr[left];
-
-            if(diff >= M){
-                ans = Math.min(ans, diff);
+            if(sum < M){
+                sum += arr[right];
+                right++;
+            }
+            else if(sum > M){
+                sum -= arr[left];
                 left++;
             }
             else{
-                right++;
+                cnt++;
+                sum -= arr[left];
+                left++;
             }
 
-            if(right == N || left > right) break;
+            if(sum < M && right == N) break;
         }
 
-        System.out.println(ans);
+        System.out.println(cnt);
     }
 }
