@@ -18,15 +18,10 @@ public class Main {
         if (ccw(x1, y1, x2, y2, x3, y3) == 0) {
             System.out.println(-1);
         } else {
-            List<Double> dist = new ArrayList<>();
+            double[] dist = {distance(x1, y1, x2, y2), distance(x2, y2, x3, y3), distance(x3, y3, x1, y1)};
+            Arrays.sort(dist);
 
-            dist.add(distance(x1, y1, x2, y2));
-            dist.add(distance(x2, y2, x3, y3));
-            dist.add(distance(x3, y3, x1, y1));
-
-            dist.sort(Comparator.naturalOrder());
-
-            System.out.println((dist.get(2) - dist.get(0)) * 2);
+            System.out.println((dist[2] - dist[0]) * 2);
         }
     }
 
