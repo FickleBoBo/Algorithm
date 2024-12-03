@@ -10,26 +10,26 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        List<Integer> xpos = new ArrayList<>();
-        List<Integer> ypos = new ArrayList<>();
+        int[] xpos = new int[3];
+        int[] ypos = new int[3];
 
         st = new StringTokenizer(br.readLine());
-        xpos.add(Integer.parseInt(st.nextToken()));
-        ypos.add(Integer.parseInt(st.nextToken()));
+        xpos[0] = Integer.parseInt(st.nextToken());
+        ypos[0] = Integer.parseInt(st.nextToken());
 
         st = new StringTokenizer(br.readLine());
-        xpos.add(Integer.parseInt(st.nextToken()));
-        ypos.add(Integer.parseInt(st.nextToken()));
+        xpos[1] = Integer.parseInt(st.nextToken());
+        ypos[1] = Integer.parseInt(st.nextToken());
 
         st = new StringTokenizer(br.readLine());
-        xpos.add(Integer.parseInt(st.nextToken()));
-        ypos.add(Integer.parseInt(st.nextToken()));
+        xpos[2] = Integer.parseInt(st.nextToken());
+        ypos[2] = Integer.parseInt(st.nextToken());
 
-        xpos.sort(Comparator.naturalOrder());
-        ypos.sort(Comparator.naturalOrder());
+        Arrays.sort(xpos);
+        Arrays.sort(ypos);
 
-        int x4 = Objects.equals(xpos.get(1), xpos.get(0)) ? xpos.get(2) : xpos.get(0);
-        int y4 = Objects.equals(ypos.get(1), ypos.get(0)) ? ypos.get(2) : ypos.get(0);
+        int x4 = xpos[1] == xpos[0] ? xpos[2] : xpos[0];
+        int y4 = ypos[1] == ypos[0] ? ypos[2] : ypos[0];
 
         sb.append(x4).append(" ").append(y4);
 
