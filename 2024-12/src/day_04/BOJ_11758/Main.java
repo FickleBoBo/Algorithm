@@ -23,6 +23,7 @@ public class Main {
         System.out.println(ccw(x1, y1, x2, y2, x3, y3));
     }
 
+    // CCW 알고리즘
     private static int ccw(int x1, int y1, int x2, int y2, int x3, int y3) {
         int vector = (x1 * y2 - x2 * y1) + (x2 * y3 - x3 * y2) + (x3 * y1 - x1 * y3);
         return vector == 0 ? 0 : (vector / Math.abs(vector));
