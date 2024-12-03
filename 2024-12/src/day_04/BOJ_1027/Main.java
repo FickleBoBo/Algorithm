@@ -44,6 +44,7 @@ public class Main {
         return ccw(x1, y1, x2, y2, x3, y3) <= 0;
     }
 
+    // CCW 알고리즘
     private static long ccw(long x1, long y1, long x2, long y2, long x3, long y3) {
         return (x1 * y2 - x2 * y1) + (x2 * y3 - x3 * y2) + (x3 * y1 - x1 * y3);
     }
