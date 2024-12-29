@@ -3,13 +3,6 @@ package day_28.BOJ_13414;
 import java.io.*;
 import java.util.*;
 
-/**
- * 풀이 시간 : 20분
- * 시간 : 556ms
- * 메모리 : 66744KB
- * 코드 길이 : 1339B
- */
-
 public class Main {
 
     static class Student implements Comparable<Student> {
