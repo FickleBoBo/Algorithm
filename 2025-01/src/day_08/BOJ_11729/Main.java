@@ -13,7 +13,7 @@ public class Main {
 
         int N = Integer.parseInt(br.readLine());
 
-        dfs(N, 1, 2, 3);
+        recur(N, 1, 2, 3);
 
         bw.write(Integer.toString(cnt));
         bw.newLine();
@@ -21,13 +21,13 @@ public class Main {
         bw.flush();
     }
 
-    private static void dfs(int N, int from, int mid, int to) {
+    private static void recur(int N, int from, int mid, int to) {
         if (N == 0) return;
 
-        dfs(N - 1, from, to, mid);
+        recur(N - 1, from, to, mid);
         sb.append(from).append(" ").append(to).append("\n");
         cnt++;
-        dfs(N - 1, mid, from, to);
+        recur(N - 1, mid, from, to);
     }
 
 }
