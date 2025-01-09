@@ -17,12 +17,12 @@ public class Main {
 
         dp.put(0L, 1L);
 
-        System.out.println(dfs(N, P, Q));
+        System.out.println(recur(N, P, Q));
     }
 
-    private static long dfs(long N, int P, int Q) {
+    private static long recur(long N, int P, int Q) {
         if (dp.containsKey(N)) return dp.get(N);
-        dp.put(N, dfs(N / P, P, Q) + dfs(N / Q, P, Q));
+        dp.put(N, recur(N / P, P, Q) + recur(N / Q, P, Q));
         return dp.get(N);
     }
 
