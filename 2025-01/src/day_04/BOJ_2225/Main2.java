@@ -17,15 +17,15 @@ public class Main2 {
 
         dp = new int[2 + N][K];
 
-        System.out.println(dfs(N + 1, K - 1));
+        System.out.println(recur(N + 1, K - 1));
     }
 
-    private static int dfs(int N, int K) {
+    private static int recur(int N, int K) {
         if (N == 0) return 0;
         if (K == 0) return dp[N][K] = 1;
         if (dp[N][K] != 0) return dp[N][K];
 
-        return dp[N][K] = (dfs(N - 1, K) + dfs(N, K - 1)) % MOD;
+        return dp[N][K] = (recur(N - 1, K) + recur(N, K - 1)) % MOD;
     }
 
 }
