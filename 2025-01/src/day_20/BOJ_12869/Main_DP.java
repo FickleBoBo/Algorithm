@@ -5,6 +5,7 @@ import java.util.*;
 
 public class Main_DP {
 
+    // 공격 조합에 대한 탐색 배열
     private static final int[] d1 = {1, 1, 3, 3, 9, 9};
     private static final int[] d2 = {3, 9, 1, 9, 1, 3};
     private static final int[] d3 = {9, 3, 9, 1, 3, 1};
@@ -37,6 +38,7 @@ public class Main_DP {
         System.out.println(dp[arr[0]][arr[1]][arr[2]]);
     }
 
+    // SCV 체력을 담은 배열을 받아서 공격 후 변경된 체력을 배열로 반환
     private static int[] hit(int[] arr, int d1, int d2, int d3) {
         int[] tmp = arr.clone();
         tmp[0] = Math.max(tmp[0] - d1, 0);
