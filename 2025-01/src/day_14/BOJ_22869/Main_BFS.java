@@ -30,18 +30,18 @@ public class Main_BFS {
             }
         }
 
-        boolean flag = bfs(N, adj, 1);
+        boolean flag = bfs(N, adj);
 
         if (flag) System.out.println("YES");
         else System.out.println("NO");
     }
 
-    private static boolean bfs(int N, List<List<Integer>> adj, int start) {
+    private static boolean bfs(int N, List<List<Integer>> adj) {
         Queue<Integer> q = new ArrayDeque<>();
-        q.offer(start);
+        q.offer(1);
 
         boolean[] visited = new boolean[1 + N];
-        visited[start] = true;
+        visited[1] = true;
 
         while (!q.isEmpty()) {
             int node = q.poll();
