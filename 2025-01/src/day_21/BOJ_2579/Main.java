@@ -15,7 +15,7 @@ public class Main {
 
         int[] dp = new int[3 + N];
         for (int i = 3; i < N + 3; i++) {
-            dp[i] = Math.max(dp[i - 2] + arr[i], dp[i - 3] + arr[i - 1] + arr[i]);
+            dp[i] = Math.max(dp[i - 2], dp[i - 3] + arr[i - 1]) + arr[i];
         }
 
         System.out.println(dp[N + 2]);
