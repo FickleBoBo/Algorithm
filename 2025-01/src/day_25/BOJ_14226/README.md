@@ -3,7 +3,7 @@ https://www.acmicpc.net/problem/14226
 <img src="./assets/photo1.png" width="100%" />
 <img src="./assets/photo2.png" width="100%" />
 
-# 🔍 미로만들기
+# 🔍 이모티콘
 
 | 항목      | 내용                     |
 | --------- |------------------------|
