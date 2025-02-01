@@ -3,7 +3,7 @@ https://www.acmicpc.net/problem/11780
 <img src="./assets/photo1.png" width="100%" />
 <img src="./assets/photo2.png" width="100%" />
 
-# 🔍 플로이드
+# 🔍 플로이드 2
 
 | 항목    | 내용                     |
 |-------|------------------------|
