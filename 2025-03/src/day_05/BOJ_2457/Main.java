@@ -29,6 +29,7 @@ public class Main {
             int m2 = Integer.parseInt(st.nextToken());
             int d2 = Integer.parseInt(st.nextToken());
 
+            // 지는 날이 3월 이전이거나 피는 날이 12월이면 필요 없는 꽃
             if (m2 < 3 || m1 == 12) continue;
 
             days.add(new Day(m1 * 100 + d1, m2 * 100 + d2));
@@ -38,11 +39,13 @@ public class Main {
         int end = 301;
 
         while (!days.isEmpty()) {
+            // 임시 우선순위 큐
             PriorityQueue<Day> tmp = new PriorityQueue<>((o1, o2) -> Integer.compare(o2.end, o1.end));
             while (!days.isEmpty() && days.peek().start <= end) {
                 tmp.add(days.remove());
             }
 
+            // 임시 우선순위 큐가 비는 상황은 연속되게 피도록 선택할 수 없는 경우
             if (tmp.isEmpty()) break;
 
             end = tmp.remove().end;
