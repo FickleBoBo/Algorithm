@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6bb38e10-6d1c-48b5-9e59-6f566b458017" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../month_02/src/day_27/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../month_02/src/day_28/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_01/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_02/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_03/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_04/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_04/BOJ_10158/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_04/BOJ_10158/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_04/SWEA_D2_1859/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_04/SWEA_D2_1859/Solution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_04/SWEA_D2_1859/Solution2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_04/SWEA_D2_1859/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_04/SWEA_D2_1859/output.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_05/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_05/SWEA_D2_1989/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_05/SWEA_D2_1989/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_05/SWEA_D2_1989/output.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_05/SWEA_D3_1213/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_05/SWEA_D3_1213/output.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_05/SWEA_D3_1213/test_input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_05/SWEA_D3_1215/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_05/SWEA_D3_1215/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_05/SWEA_D3_1215/output.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_05/SWEA_D3_1216/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_05/SWEA_D3_1216/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_05/SWEA_D3_1216/output.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_06/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_07/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_08/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_09/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_10/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_11/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_12/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_13/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_14/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_15/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_16/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_17/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_18/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_19/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_20/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_21/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_22/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_23/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_24/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_25/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_26/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_27/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_28/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_29/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_30/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day_31/.gitkeep" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="2bwcNad8G0PUFl3qQvOuijvTGzV" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="openDirectoriesWithSingleClick" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/mwzz6/Desktop/Algorithm_WorkSpace/month_03/src"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mwzz6\Desktop\Algorithm_WorkSpace\month_03\src" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6bb38e10-6d1c-48b5-9e59-6f566b458017" name="Changes" comment="" />
+      <created>1707129542921</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1707129542921</updated>
+    </task>
+    <servers />
+  </component>
+</project>
