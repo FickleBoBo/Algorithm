@@ -53,8 +53,6 @@ ISBN 13자리 숫자가 입력된다. 훼손된 숫자는 \*로 표시한다. (�
 ## 코드
 
 ```java
-package day_20.BOJ_14626;
-
 import java.io.*;
 
 public class Main {
