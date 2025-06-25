@@ -91,8 +91,6 @@ NO
 ## 코드
 
 ```java
-package day_19.BOJ_1874;
-
 import java.io.*;
 import java.util.*;
 
