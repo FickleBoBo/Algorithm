@@ -13,8 +13,8 @@ class Solution {
 
         // 서로 다른 옷의 조합은 각 종류별로 의상을 선택하는 경우의 수의 곱으로 계산(해당 의상을 안입는 경우 포함)
         int answer = 1;
-        for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            answer *= (entry.getValue() + 1);
+        for (int value : map.values()) {
+            answer *= value + 1;
         }
 
         // 모든 의상을 안입는 1가지 경우 제외
