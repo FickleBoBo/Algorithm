@@ -22,6 +22,7 @@ class Solution {
             if (entry.getValue() == 1) return entry.getKey();
         }
 
+        // 실제로 불가능한 상황
         return null;
     }
 }
