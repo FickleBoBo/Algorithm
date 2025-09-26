@@ -12,8 +12,8 @@ class Solution {
 
         // 해당 의상의 종류가 N개 있을 때 안 고르거나 N개 중 하나를 고를 수 있으므로 종류마다 종류의 수 + 1 가지 경우 존재
         int answer = 1;
-        for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            answer *= entry.getValue() + 1;
+        for (int v : map.values()) {
+            answer *= v + 1;
         }
 
         // 아무 의상도 선택하지 않은 한 가지 경우 제외
