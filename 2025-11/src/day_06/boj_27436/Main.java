@@ -8,10 +8,10 @@ public class Main {
 
         long N = Long.parseLong(br.readLine());
 
-        System.out.println(lowerBoundBinarySearch(N));
+        System.out.println(lowerBound(N));
     }
 
-    private static long lowerBoundBinarySearch(long key) {
+    private static long lowerBound(long key) {
         long left = 1;
         long right = 2_000_000_000;
 
