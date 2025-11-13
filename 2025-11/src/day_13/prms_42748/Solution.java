@@ -8,10 +8,10 @@ class Solution {
 
         for (int i = 0; i < commands.length; i++) {
             int[] command = commands[i];
-            int start = command[0] - 1;  // array에서 구간 시작 인덱스
-            int end = command[1] - 1;  // array에서 구간 끝 인덱스
+            int start = command[0] - 1;  // array에서 구간 시작 인덱스(포함)
+            int end = command[1];  // array에서 구간 끝 인덱스(미포함)
             int k = command[2] - 1;
-            int len = end - start + 1;  // 구간의 길이
+            int len = end - start;  // 구간의 길이
 
             int[] tmp = new int[len];
 
