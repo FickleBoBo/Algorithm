@@ -47,8 +47,8 @@ public class Main2 {
         }
 
         long max = 0;
-        for (int i = 1; i <= T; i++) {
-            max = Math.max(max, dp[i]);
+        for (int j = 1; j <= T; j++) {
+            max = Math.max(max, dp[j]);
         }
 
         System.out.println(max);
