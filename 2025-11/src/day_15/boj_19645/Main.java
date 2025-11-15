@@ -28,8 +28,6 @@ public class Main {
                     }
                 }
             }
-
-            print(dp);
         }
 
         int max = 0;
@@ -42,16 +40,5 @@ public class Main {
         }
 
         System.out.println(max);
-    }
-
-    private static void print(boolean[][] dp) {
-        for (int i = 0; i < dp.length; i++) {
-            for (int j = 0; j < dp[i].length; j++) {
-                if (dp[i][j]) {
-                    System.out.println(i + " " + j);
-                }
-            }
-        }
-        System.out.println();
     }
 }
