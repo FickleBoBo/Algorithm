@@ -24,7 +24,7 @@ public class Main {
             }
         }
 
-        sb.append(dp[N][M]).append("\n");
+        sb.append(dp[N][M]).append('\n');
 
         if (dp[N][M] != 0) {
             sb.append(traceback(str1, str2, N, M, dp));

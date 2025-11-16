@@ -20,7 +20,7 @@ public class Main2 {
         dp = new int[N][M];
         visited = new boolean[N][M];
 
-        sb.append(lcs(str1, N - 1, str2, M - 1)).append("\n");
+        sb.append(lcs(str1, N - 1, str2, M - 1)).append('\n');
 
         if (dp[N - 1][M - 1] != 0) {
             sb.append(traceback(str1, str2, N, M));
