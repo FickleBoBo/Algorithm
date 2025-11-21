@@ -36,7 +36,7 @@ public class Main {
             if (min == Integer.MAX_VALUE) {
                 sb.append("-1\n");
             } else {
-                sb.append(min).append(" ").append(max).append("\n");
+                sb.append(min).append(' ').append(max).append('\n');
             }
         }
 
