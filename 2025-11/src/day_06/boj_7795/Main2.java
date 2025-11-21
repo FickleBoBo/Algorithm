@@ -45,7 +45,7 @@ public class Main2 {
                 if (pivotA == N) break;
             }
 
-            sb.append(cnt).append("\n");
+            sb.append(cnt).append('\n');
         }
 
         bw.write(sb.toString());

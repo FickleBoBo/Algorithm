@@ -34,7 +34,7 @@ public class Main {
                 cnt += lowerBound(B, num);
             }
 
-            sb.append(cnt).append("\n");
+            sb.append(cnt).append('\n');
         }
 
         bw.write(sb.toString());
