@@ -16,7 +16,7 @@ public class Main {
             int A = Integer.parseInt(st.nextToken());
             int B = Integer.parseInt(st.nextToken());
 
-            sb.append(A + B).append("\n");
+            sb.append(A + B).append('\n');
         }
 
         bw.write(sb.toString());
