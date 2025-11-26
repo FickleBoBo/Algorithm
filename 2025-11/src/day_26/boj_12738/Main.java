@@ -1,0 +1,49 @@
+package day_26.boj_12738;
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st;
+
+        int N = Integer.parseInt(br.readLine());
+
+        int[] arr = new int[N];
+        st = new StringTokenizer(br.readLine());
+        for (int i = 0; i < N; i++) {
+            arr[i] = Integer.parseInt(st.nextToken());
+        }
+
+        int[] dp = new int[1 + N];
+        dp[0] = Integer.MIN_VALUE;
+        int len = 0;
+
+        for (int i = 0; i < N; i++) {
+            int idx = lowerBound(dp, len, arr[i]);
+
+            dp[idx] = arr[i];
+            if (idx == len + 1) len++;
+        }
+
+        System.out.println(len);
+    }
+
+    private static int lowerBound(int[] arr, int len, int key) {
+        int left = 1;
+        int right = len + 1;
+
+        while (left < right) {
+            int mid = (left + right) / 2;
+
+            if (arr[mid] < key) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+
+        return right;
+    }
+}
