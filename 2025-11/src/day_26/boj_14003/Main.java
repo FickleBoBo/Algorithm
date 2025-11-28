@@ -22,7 +22,7 @@ public class Main {
         dp[0] = Integer.MIN_VALUE;
         int len = 0;
 
-        int[] before = new int[N];
+        int[] prev = new int[N];
 
         for (int i = 0; i < N; i++) {
             int idx = lowerBound(dp, len, arr[i]);
@@ -30,7 +30,7 @@ public class Main {
             dp[idx] = arr[i];
             if (idx == len + 1) len++;
 
-            before[i] = idx;
+            prev[i] = idx;
         }
 
         sb.append(len).append('\n');
@@ -38,7 +38,7 @@ public class Main {
         Deque<Integer> stack = new ArrayDeque<>();
         int tmp = len;
         for (int i = N - 1; i >= 0; i--) {
-            if (before[i] == tmp) {
+            if (prev[i] == tmp) {
                 stack.push(arr[i]);
                 tmp--;
             }
