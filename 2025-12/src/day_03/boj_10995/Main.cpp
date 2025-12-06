@@ -5,11 +5,11 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int N;
-    cin >> N;
+    int n;
+    cin >> n;
 
-    for (int i = 1; i <= N; i++) {
-        for (int j = 1; j <= 2 * N; j++) {
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= 2 * n; j++) {
             if ((i + j) % 2 == 0) {
                 cout << '*';
             } else {
