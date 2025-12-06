@@ -5,10 +5,10 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int N;
-    cin >> N;
+    int n;
+    cin >> n;
 
-    vector<int> v(N);
+    vector<int> v(n);
     for (auto& num : v) cin >> num;
     int mx = *max_element(v.begin(), v.end());
 
@@ -17,5 +17,5 @@ int main() {
         sum += (double)num / mx * 100;
     }
 
-    cout << sum / N;
+    cout << sum / n;
 }
