@@ -5,10 +5,10 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int A, B, C;
-    cin >> A >> B >> C;
-    cout << (A + B) % C << '\n';
-    cout << ((A % C) + (B % C)) % C << '\n';
-    cout << (A * B) % C << '\n';
-    cout << ((A % C) * (B % C)) % C << '\n';
+    int a, b, c;
+    cin >> a >> b >> c;
+    cout << (a + b) % c << '\n';
+    cout << ((a % c) + (b % c)) % c << '\n';
+    cout << (a * b) % c << '\n';
+    cout << ((a % c) * (b % c)) % c << '\n';
 }
