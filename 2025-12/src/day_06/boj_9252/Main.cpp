@@ -1,0 +1,51 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+string traceback(const string& s1, const string& s2, const vector<vector<int>>& dp) {
+    string res;
+
+    int r = s1.size() - 1;
+    int c = s2.size() - 1;
+
+    while (r >= 0 && c >= 0) {
+        if (s1[r] == s2[c]) {
+            res.push_back(s1[r]);
+            r--;
+            c--;
+        } else {
+            if (dp[r][c + 1] > dp[r + 1][c]) {
+                r--;
+            } else {
+                c--;
+            }
+        }
+    }
+
+    reverse(res.begin(), res.end());
+    return res;
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    string s1, s2;
+    cin >> s1 >> s2;
+
+    int n = s1.size();
+    int m = s2.size();
+
+    vector<vector<int>> dp(1 + n, vector<int>(1 + m));
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            if (s1[i - 1] == s2[j - 1]) {
+                dp[i][j] = dp[i - 1][j - 1] + 1;
+            } else {
+                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
+            }
+        }
+    }
+
+    cout << dp[n][m] << '\n';
+    cout << traceback(s1, s2, dp);
+}
