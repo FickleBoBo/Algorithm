@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    string s1, s2, s3;
+    cin >> s1 >> s2 >> s3;
+
+    int l = s1.size();
+    int m = s2.size();
+    int n = s3.size();
+
+    vector<vector<vector<int>>> dp(1 + l, vector<vector<int>>(1 + m, vector<int>(1 + n)));
+    for (int i = 1; i <= l; i++) {
+        for (int j = 1; j <= m; j++) {
+            for (int k = 1; k <= n; k++) {
+                if (s1[i - 1] == s2[j - 1] && s2[j - 1] == s3[k - 1]) {
+                    dp[i][j][k] = dp[i - 1][j - 1][k - 1] + 1;
+                } else {
+                    dp[i][j][k] = max({dp[i - 1][j][k], dp[i][j - 1][k], dp[i][j][k - 1]});
+                }
+            }
+        }
+    }
+
+    cout << dp[l][m][n];
+}
