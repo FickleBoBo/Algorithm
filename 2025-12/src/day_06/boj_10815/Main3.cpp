@@ -23,7 +23,7 @@ int main() {
         int num;
         cin >> num;
 
-        if (st.find(num) != st.end()) {
+        if (st.count(num)) {
             cout << "1 ";
         } else {
             cout << "0 ";
