@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int n;
+    cin >> n;
+
+    vector<int> v(n);
+    for (auto& num : v) cin >> num;
+    sort(v.begin(), v.end());
+
+    int x;
+    cin >> x;
+
+    int l = 0;
+    int r = n - 1;
+    int cnt = 0;
+    while (l < r) {
+        if (v[l] + v[r] < x) {
+            l++;
+        } else if (v[l] + v[r] > x) {
+            r--;
+        } else {
+            cnt++;
+            l++;
+            r--;
+        }
+    }
+
+    cout << cnt;
+}
