@@ -23,7 +23,7 @@ int main() {
         int num;
         cin >> num;
 
-        if (mp.find(num) != mp.end()) {
+        if (mp.count(num)) {
             cout << mp[num] << ' ';
         } else {
             cout << "0 ";
