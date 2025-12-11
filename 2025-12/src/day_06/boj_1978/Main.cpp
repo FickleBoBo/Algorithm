@@ -10,15 +10,15 @@ int main() {
 
     int cnt = 0;
     for (int i = 0; i < n; i++) {
-        int n;
-        cin >> n;
+        int x;
+        cin >> x;
 
         bool flag = true;
 
-        if (n == 1) flag = false;
+        if (x == 1) flag = false;
 
-        for (int i = 2; i * i <= n; i++) {
-            if (n % i == 0) {
+        for (int i = 2; i * i <= x; i++) {
+            if (x % i == 0) {
                 flag = false;
                 break;
             }

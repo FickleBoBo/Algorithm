@@ -18,11 +18,11 @@ public class Main {
 
         int cnt = 0;
         out:
-        for (int num : arr) {
-            if (num == 1) continue;
+        for (int n : arr) {
+            if (n == 1) continue;
 
-            for (int i = 2; i * i <= num; i++) {
-                if (num % i == 0) continue out;
+            for (int i = 2; i * i <= n; i++) {
+                if (n % i == 0) continue out;
             }
 
             cnt++;
