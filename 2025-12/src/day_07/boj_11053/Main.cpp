@@ -9,7 +9,7 @@ int main() {
     cin >> n;
 
     vector<int> v(n);
-    for (auto& num : v) cin >> num;
+    for (int& x : v) cin >> x;
 
     vector<int> dp(n, 1);
     for (int i = 0; i < n; i++) {
