@@ -30,13 +30,13 @@ public class Main {
         }
 
         List<Integer> dp = new ArrayList<>();
-        for (int num : arr) {
-            int idx = lowerBound(dp, num);
+        for (int n : arr) {
+            int idx = lowerBound(dp, n);
 
             if (idx == dp.size()) {
-                dp.add(num);
+                dp.add(n);
             } else {
-                dp.set(idx, num);
+                dp.set(idx, n);
             }
         }
 

@@ -9,7 +9,7 @@ int main() {
     cin >> n;
 
     vector<int> a(n);
-    for (auto& num : a) cin >> num;
+    for (int& x : a) cin >> x;
 
     vector<pair<int, int>> b(n);
     for (int i = 0; i < n; i++) {
@@ -24,13 +24,13 @@ int main() {
     }
 
     vector<int> dp;
-    for (int num : v) {
-        auto it = lower_bound(dp.begin(), dp.end(), num);
+    for (int x : v) {
+        auto it = lower_bound(dp.begin(), dp.end(), x);
 
         if (it == dp.end()) {
-            dp.push_back(num);
+            dp.push_back(x);
         } else {
-            *it = num;
+            *it = x;
         }
     }
 
