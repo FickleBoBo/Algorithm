@@ -22,6 +22,7 @@ public class Main {
                     sb.append(" ");
                 }
             }
+
             sb.append("\n");
         }
 
