@@ -11,7 +11,6 @@ int main() {
     for (int tc = 1; tc <= t; tc++) {
         string s;
         cin >> s;
-
         cout << s.front() << s.back() << '\n';
     }
 }
