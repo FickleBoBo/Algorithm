@@ -13,15 +13,15 @@ public class Main {
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
 
-        int[] arr = new int[1 + N];
+        int[] arr = new int[N];
         st = new StringTokenizer(br.readLine());
-        for (int i = 1; i <= N; i++) {
+        for (int i = 0; i < N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
         int[] pSum = new int[1 + N];
         for (int i = 1; i <= N; i++) {
-            pSum[i] = pSum[i - 1] + arr[i];
+            pSum[i] = pSum[i - 1] + arr[i - 1];
         }
 
         for (int i = 0; i < M; i++) {
