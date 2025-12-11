@@ -9,7 +9,7 @@ int main() {
     cin >> n;
 
     vector<int> v(n);
-    for (auto& num : v) cin >> num;
+    for (int& x : v) cin >> x;
 
     int g = gcd(v[1] - v[0], v[2] - v[1]);
     for (int i = 3; i < n; i++) {
