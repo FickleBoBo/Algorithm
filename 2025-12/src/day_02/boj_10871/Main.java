@@ -19,8 +19,8 @@ public class Main {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        for (int num : arr) {
-            if (num < X) sb.append(num).append(" ");
+        for (int n : arr) {
+            if (n < X) sb.append(n).append(" ");
         }
 
         bw.write(sb.toString());
