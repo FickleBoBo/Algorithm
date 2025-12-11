@@ -9,10 +9,10 @@ int main() {
     cin >> n >> m;
 
     vector<int> v(n + m);
-    for (auto& num : v) cin >> num;
+    for (int& x : v) cin >> x;
     sort(v.begin(), v.end());
 
-    for (auto num : v) {
-        cout << num << ' ';
+    for (int x : v) {
+        cout << x << ' ';
     }
 }
