@@ -9,6 +9,7 @@ int main() {
     for (int i = 0; i < 10; i++) {
         int n;
         cin >> n;
+
         st.insert(n % 42);
     }
 
