@@ -1,0 +1,43 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int n, m;
+    cin >> n >> m;
+
+    vector<pair<int, int>> a;
+    for (int i = 0; i < n; i++) {
+        int v, c, k;
+        cin >> v >> c >> k;
+
+        // 이진 그룹핑
+        for (int bit = 1; bit <= k; bit <<= 1) {
+            a.emplace_back(v * bit, c * bit);
+            k -= bit;
+        }
+
+        // 나머지가 존재하면 그룹핑
+        if (k) {
+            a.emplace_back(v * k, c * k);
+        }
+    }
+
+    vector<vector<int>> dp(1 + a.size(), vector<int>(1 + m));
+    for (int i = 1; i <= a.size(); i++) {
+        int v = a[i - 1].first;
+        int c = a[i - 1].second;
+
+        for (int j = 1; j <= m; j++) {
+            if (j < v) {
+                dp[i][j] = dp[i - 1][j];
+            } else {
+                dp[i][j] = max(dp[i - 1][j - v] + c, dp[i - 1][j]);
+            }
+        }
+    }
+
+    cout << dp[a.size()][m];
+}
