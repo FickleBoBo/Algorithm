@@ -10,20 +10,20 @@ int main() {
 
     unordered_set<int> st;
     for (int i = 0; i < n; i++) {
-        int num;
-        cin >> num;
+        int x;
+        cin >> x;
 
-        st.insert(num);
+        st.insert(x);
     }
 
     int m;
     cin >> m;
 
     for (int i = 0; i < m; i++) {
-        int num;
-        cin >> num;
+        int x;
+        cin >> x;
 
-        if (st.count(num)) {
+        if (st.count(x)) {
             cout << "1 ";
         } else {
             cout << "0 ";
