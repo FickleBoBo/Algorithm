@@ -20,7 +20,7 @@ public class Main {
         System.out.println(upperBound(arr, M) - 1);
     }
 
-    static int upperBound(int[] arr, int M) {
+    static int upperBound(int[] arr, int key) {
         int left = 0;
         int right = 1_000_000_001;  // 나무의 길이가 최대 10^9까지라서 right의 상한을 10^9+1로 설정
 
@@ -32,7 +32,7 @@ public class Main {
                 sum += Math.max(n - mid, 0);
             }
 
-            if (sum >= M) {
+            if (sum >= key) {
                 left = mid + 1;
             } else {
                 right = mid;
