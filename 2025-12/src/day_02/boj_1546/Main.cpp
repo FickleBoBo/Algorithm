@@ -9,12 +9,12 @@ int main() {
     cin >> n;
 
     vector<int> v(n);
-    for (auto& num : v) cin >> num;
+    for (int& x : v) cin >> x;
     int mx = *max_element(v.begin(), v.end());
 
     double sum = 0;
-    for (auto num : v) {
-        sum += (double)num / mx * 100;
+    for (int x : v) {
+        sum += (double)x / mx * 100;
     }
 
     cout << sum / n;
