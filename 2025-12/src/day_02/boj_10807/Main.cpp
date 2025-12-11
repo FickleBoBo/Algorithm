@@ -9,10 +9,9 @@ int main() {
     cin >> n;
 
     vector<int> v(n);
-    for (auto& num : v) cin >> num;
+    for (int& x : v) cin >> x;
 
     int x;
     cin >> x;
-
     cout << count(v.begin(), v.end(), x);
 }
