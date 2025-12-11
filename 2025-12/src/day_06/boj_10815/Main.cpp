@@ -9,17 +9,17 @@ int main() {
     cin >> n;
 
     vector<int> v(n);
-    for (auto& num : v) cin >> num;
+    for (int& x : v) cin >> x;
     sort(v.begin(), v.end());
 
     int m;
     cin >> m;
 
     for (int i = 0; i < m; i++) {
-        int num;
-        cin >> num;
+        int x;
+        cin >> x;
 
-        if (binary_search(v.begin(), v.end(), num)) {
+        if (binary_search(v.begin(), v.end(), x)) {
             cout << "1 ";
         } else {
             cout << "0 ";

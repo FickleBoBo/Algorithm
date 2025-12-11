@@ -12,20 +12,20 @@ int main() {
 
     vector<bool> visited(MAX + 1 + MAX);
     for (int i = 0; i < n; i++) {
-        int num;
-        cin >> num;
+        int x;
+        cin >> x;
 
-        visited[num + MAX] = true;
+        visited[x + MAX] = true;
     }
 
     int m;
     cin >> m;
 
     for (int i = 0; i < m; i++) {
-        int num;
-        cin >> num;
+        int x;
+        cin >> x;
 
-        if (visited[num + MAX]) {
+        if (visited[x + MAX]) {
             cout << "1 ";
         } else {
             cout << "0 ";
