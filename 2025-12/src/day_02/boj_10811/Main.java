@@ -13,15 +13,15 @@ public class Main {
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
 
-        int[] arr = new int[1 + N];
-        for (int i = 1; i <= N; i++) {
-            arr[i] = i;
+        int[] arr = new int[N];
+        for (int i = 0; i < N; i++) {
+            arr[i] = i + 1;
         }
 
         for (int i = 0; i < M; i++) {
             st = new StringTokenizer(br.readLine());
-            int start = Integer.parseInt(st.nextToken());
-            int end = Integer.parseInt(st.nextToken());
+            int start = Integer.parseInt(st.nextToken()) - 1;
+            int end = Integer.parseInt(st.nextToken()) - 1;
 
             while (start < end) {
                 int tmp = arr[start];
@@ -33,8 +33,8 @@ public class Main {
             }
         }
 
-        for (int i = 1; i <= N; i++) {
-            sb.append(arr[i]).append(" ");
+        for (int n : arr) {
+            sb.append(n).append(" ");
         }
 
         bw.write(sb.toString());
