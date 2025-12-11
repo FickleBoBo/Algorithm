@@ -9,7 +9,7 @@ int main() {
     cin >> n >> m;
 
     vector<int> v(n);
-    for (auto& num : v) cin >> num;
+    for (int& x : v) cin >> x;
 
     int l = 0;
     int r = 0;
