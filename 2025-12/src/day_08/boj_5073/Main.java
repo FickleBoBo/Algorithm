@@ -11,17 +11,17 @@ public class Main {
 
         while (true) {
             st = new StringTokenizer(br.readLine());
-            int[] arr = {Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())};
-            Arrays.sort(arr);
+            int[] sides = {Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())};
+            Arrays.sort(sides);
 
-            if (arr[0] == 0) break;
+            if (sides[0] == 0) break;
 
-            if (arr[0] + arr[1] <= arr[2]) {
+            if (sides[0] + sides[1] <= sides[2]) {
                 bw.write("Invalid\n");
             } else {
-                if (arr[0] == arr[1] && arr[1] == arr[2]) {
+                if (sides[0] == sides[1] && sides[1] == sides[2]) {
                     bw.write("Equilateral\n");
-                } else if (arr[0] == arr[1] || arr[1] == arr[2] || arr[2] == arr[0]) {
+                } else if (sides[0] == sides[1] || sides[1] == sides[2] || sides[2] == sides[0]) {
                     bw.write("Isosceles\n");
                 } else {
                     bw.write("Scalene\n");
