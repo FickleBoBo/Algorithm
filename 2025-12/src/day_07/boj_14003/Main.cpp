@@ -21,21 +21,21 @@ int main() {
     cin >> n;
 
     vector<int> v(n);
-    for (auto& num : v) cin >> num;
+    for (int& x : v) cin >> x;
 
     vector<int> dp;
     vector<int> pos(n);
     vector<int> prev(n, -1);
 
     for (int i = 0; i < n; i++) {
-        int num = v[i];
-        auto it = lower_bound(dp.begin(), dp.end(), num);
+        int x = v[i];
+        auto it = lower_bound(dp.begin(), dp.end(), x);
         int idx = it - dp.begin();
 
         if (it == dp.end()) {
-            dp.push_back(num);
+            dp.push_back(x);
         } else {
-            *it = num;
+            *it = x;
         }
 
         pos[idx] = i;
@@ -45,7 +45,7 @@ int main() {
     cout << dp.size() << '\n';
 
     vector<int> lis = traceback(v, prev, pos[dp.size() - 1]);
-    for (auto num : lis) {
-        cout << num << ' ';
+    for (int x : lis) {
+        cout << x << ' ';
     }
 }
