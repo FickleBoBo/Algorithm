@@ -10,7 +10,7 @@ int main() {
     cin >> slen >> plen >> s;
 
     vector<int> cntArr(4);
-    for (auto& num : cntArr) cin >> num;
+    for (int& x : cntArr) cin >> x;
 
     // 알파벳과 인덱스 매핑
     int mp[128];

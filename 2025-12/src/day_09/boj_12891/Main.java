@@ -56,10 +56,9 @@ public class Main {
     }
 
     static boolean isPossible(int[] arr) {
-        for (int num : arr) {
-            if (num > 0) return false;
+        for (int n : arr) {
+            if (n > 0) return false;
         }
-
         return true;
     }
 }
