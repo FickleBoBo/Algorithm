@@ -9,7 +9,7 @@ int main() {
     cin >> n;
 
     vector<int> v(n);
-    for (auto& num : v) cin >> num;
+    for (int& x : v) cin >> x;
 
     vector<int> dp1(n, 1);  // 앞에서 뒤로 LIS
     vector<int> dp2(n, 1);  // 뒤에서 앞으로 LIS
