@@ -5,15 +5,15 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int n, x;
-    cin >> n >> x;
+    int n, k;
+    cin >> n >> k;
 
     vector<int> v(n);
-    for (auto& num : v) cin >> num;
+    for (int& x : v) cin >> x;
 
-    for (auto num : v) {
-        if (num < x) {
-            cout << num << ' ';
+    for (int x : v) {
+        if (x < k) {
+            cout << x << ' ';
         }
     }
 }
