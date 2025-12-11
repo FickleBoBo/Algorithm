@@ -29,6 +29,6 @@ public class Main {
     }
 
     static long lcm(int a, int b) {
-        return (long) a * b / gcd(a, b);
+        return (long) a / gcd(a, b) * b;
     }
 }
