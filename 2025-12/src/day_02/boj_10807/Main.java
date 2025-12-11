@@ -18,8 +18,8 @@ public class Main {
 
         int v = Integer.parseInt(br.readLine());
         int cnt = 0;
-        for (int num : arr) {
-            if (num == v) cnt++;
+        for (int n : arr) {
+            if (n == v) cnt++;
         }
 
         System.out.println(cnt);
