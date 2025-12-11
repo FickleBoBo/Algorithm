@@ -8,10 +8,9 @@ int main() {
     int arr[6] = {1, 1, 2, 2, 2, 8};
 
     for (int n : arr) {
-        int input;
-        cin >> input;
+        int x;
+        cin >> x;
 
-        n -= input;
-        cout << n << ' ';
+        cout << n - x << ' ';
     }
 }
