@@ -9,7 +9,7 @@ int main() {
     cin >> n >> m;
 
     vector<int> v(n);
-    for (auto& num : v) cin >> num;
+    for (int& x : v) cin >> x;
 
     // 초기 윈도우의 합 계산
     long long sum = 0;
