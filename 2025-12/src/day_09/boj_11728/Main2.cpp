@@ -9,11 +9,11 @@ int main() {
     cin >> n >> m;
 
     vector<int> v1(n);
-    for (auto& num : v1) cin >> num;
+    for (int& x : v1) cin >> x;
     sort(v1.begin(), v1.end());
 
     vector<int> v2(m);
-    for (auto& num : v2) cin >> num;
+    for (int& x : v2) cin >> x;
     sort(v2.begin(), v2.end());
 
     vector<int> ans;
@@ -31,7 +31,7 @@ int main() {
     ans.insert(ans.end(), v1.begin() + p1, v1.end());  // 남은 수 처리
     ans.insert(ans.end(), v2.begin() + p2, v2.end());  // 남은 수 처리
 
-    for (auto num : ans) {
-        cout << num << ' ';
+    for (int x : ans) {
+        cout << x << ' ';
     }
 }

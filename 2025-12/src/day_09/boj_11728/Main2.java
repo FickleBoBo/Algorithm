@@ -32,7 +32,7 @@ public class Main2 {
         int pivot1 = 0;  // arr1 포인터
         int pivot2 = 0;  // arr2 포인터
         int idx = 0;  // ans 포인터
-        while (pivot1 < N && pivot2 < M && idx < N + M) {
+        while (pivot1 < N && pivot2 < M) {
             if (arr1[pivot1] <= arr2[pivot2]) {
                 ans[idx++] = arr1[pivot1++];
             } else {
@@ -41,17 +41,17 @@ public class Main2 {
         }
 
         // 남은 수 처리
-        while (pivot1 == N && idx < N + M) {
+        while (pivot1 == N && pivot2 < M) {
             ans[idx++] = arr2[pivot2++];
         }
 
         // 남은 수 처리
-        while (pivot2 == M && idx < N + M) {
+        while (pivot2 == M && pivot1 < N) {
             ans[idx++] = arr1[pivot1++];
         }
 
-        for (int num : ans) {
-            sb.append(num).append(" ");
+        for (int n : ans) {
+            sb.append(n).append(" ");
         }
 
         bw.write(sb.toString());
