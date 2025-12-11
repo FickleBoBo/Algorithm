@@ -8,17 +8,17 @@ int main() {
     int n, m;
     cin >> n >> m;
 
-    vector<int> v(1 + n);
-    iota(v.begin(), v.end(), 0);
+    vector<int> v(n);
+    iota(v.begin(), v.end(), 1);
 
     for (int i = 0; i < m; i++) {
         int s, e;
         cin >> s >> e;
 
-        reverse(v.begin() + s, v.begin() + e + 1);
+        reverse(v.begin() + s - 1, v.begin() + e);
     }
 
-    for (int i = 1; i <= n; i++) {
-        cout << v[i] << ' ';
+    for (int x : v) {
+        cout << x << ' ';
     }
 }
