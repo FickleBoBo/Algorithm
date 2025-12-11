@@ -10,21 +10,22 @@ int main() {
 
     unordered_map<int, int> mp;
     for (int i = 0; i < n; i++) {
-        int num;
-        cin >> num;
+        int x;
+        cin >> x;
 
-        mp[num]++;
+        mp[x]++;
     }
 
     int m;
     cin >> m;
 
     for (int i = 0; i < m; i++) {
-        int num;
-        cin >> num;
+        int x;
+        cin >> x;
 
-        if (mp.count(num)) {
-            cout << mp[num] << ' ';
+        auto it = mp.find(x);
+        if (it != mp.end()) {
+            cout << it->second << ' ';
         } else {
             cout << "0 ";
         }
