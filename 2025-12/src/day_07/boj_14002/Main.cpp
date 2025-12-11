@@ -21,7 +21,7 @@ int main() {
     cin >> n;
 
     vector<int> v(n);
-    for (auto& num : v) cin >> num;
+    for (int& x : v) cin >> x;
 
     vector<int> dp(n, 1);
     vector<int> prev(n, -1);
@@ -47,7 +47,7 @@ int main() {
     cout << mx << '\n';
 
     vector<int> lis = traceback(v, prev, pos);
-    for (auto num : lis) {
-        cout << num << ' ';
+    for (int x : lis) {
+        cout << x << ' ';
     }
 }
