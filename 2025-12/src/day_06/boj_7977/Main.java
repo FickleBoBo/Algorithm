@@ -7,10 +7,10 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         int N = Integer.parseInt(br.readLine());
-        char[] str = br.readLine().toCharArray();
+        String str = br.readLine();
 
         int[] cntArr = new int[26];
-        for (char c : str) {
+        for (char c : str.toCharArray()) {
             cntArr[c - 'A']++;
         }
 
