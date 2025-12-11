@@ -9,7 +9,7 @@ int main() {
     cin >> n;
 
     vector<int> v(n);
-    for (auto& num : v) cin >> num;
+    for (int& x : v) cin >> x;
     sort(v.begin(), v.end());  // 역순 조회로 d를 발견하면 종료하기 위해 정렬
 
     vector<int> sumArr;
