@@ -25,18 +25,17 @@ public class Main {
         }
 
         sb.append(dp[N][M]).append("\n");
-        if (dp[N][M] != 0) sb.append(traceback(str1, str2, N, M, dp));
+        if (dp[N][M] != 0) sb.append(traceback(str1, str2, dp));
 
         bw.write(sb.toString());
         bw.flush();
     }
 
-    // 역추적
-    static String traceback(char[] str1, char[] str2, int N, int M, int[][] dp) {
+    static String traceback(char[] str1, char[] str2, int[][] dp) {
         StringBuilder sb = new StringBuilder();
 
-        int r = N - 1;
-        int c = M - 1;
+        int r = str1.length - 1;
+        int c = str2.length - 1;
 
         while (r >= 0 && c >= 0) {
             if (str1[r] == str2[c]) {
