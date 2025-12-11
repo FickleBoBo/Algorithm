@@ -12,18 +12,18 @@ int main() {
 
     vector<int> cntArr(MAX + 1 + MAX);
     for (int i = 0; i < n; i++) {
-        int num;
-        cin >> num;
+        int x;
+        cin >> x;
 
-        cntArr[num + MAX]++;
+        cntArr[x + MAX]++;
     }
 
     int m;
     cin >> m;
 
     for (int i = 0; i < m; i++) {
-        int num;
-        cin >> num;
-        cout << cntArr[num + MAX] << ' ';
+        int x;
+        cin >> x;
+        cout << cntArr[x + MAX] << ' ';
     }
 }

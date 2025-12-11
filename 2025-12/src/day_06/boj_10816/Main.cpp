@@ -9,15 +9,15 @@ int main() {
     cin >> n;
 
     vector<int> v(n);
-    for (auto& num : v) cin >> num;
+    for (int& x : v) cin >> x;
     sort(v.begin(), v.end());
 
     int m;
     cin >> m;
 
     for (int i = 0; i < m; i++) {
-        int num;
-        cin >> num;
-        cout << upper_bound(v.begin(), v.end(), num) - lower_bound(v.begin(), v.end(), num) << ' ';
+        int x;
+        cin >> x;
+        cout << upper_bound(v.begin(), v.end(), x) - lower_bound(v.begin(), v.end(), x) << ' ';
     }
 }
