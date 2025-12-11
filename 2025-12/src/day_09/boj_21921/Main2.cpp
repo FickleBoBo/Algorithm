@@ -9,7 +9,7 @@ int main() {
     cin >> n >> x;
 
     vector<int> v(n);
-    for (auto& num : v) cin >> num;
+    for (int& x : v) cin >> x;
 
     // 초기 윈도우의 방문자 수 합 계산
     int sum = 0;
