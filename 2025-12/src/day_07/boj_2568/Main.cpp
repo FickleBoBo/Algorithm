@@ -29,14 +29,14 @@ int main() {
     vector<int> prev(n, -1);
 
     for (int i = 0; i < n; i++) {
-        int num = v[i].second;
-        auto it = lower_bound(dp.begin(), dp.end(), num);
+        int x = v[i].second;
+        auto it = lower_bound(dp.begin(), dp.end(), x);
         int idx = it - dp.begin();
 
         if (it == dp.end()) {
-            dp.push_back(num);
+            dp.push_back(x);
         } else {
-            *it = num;
+            *it = x;
         }
 
         pos[idx] = i;
@@ -46,7 +46,7 @@ int main() {
     cout << n - dp.size() << '\n';
 
     set<int> nonLis = traceback(v, prev, pos[dp.size() - 1]);
-    for (auto num : nonLis) {
-        cout << num << '\n';
+    for (int x : nonLis) {
+        cout << x << '\n';
     }
 }
