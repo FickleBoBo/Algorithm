@@ -10,11 +10,11 @@ int main() {
     int n;
     cin >> n;
 
-    int cntArr[1 + MAX] = {};
+    vector<int> cntArr(1 + MAX);
     for (int i = 0; i < n; i++) {
-        int num;
-        cin >> num;
-        cntArr[num]++;
+        int x;
+        cin >> x;
+        cntArr[x]++;
     }
 
     for (int i = 1; i <= MAX; i++) {
