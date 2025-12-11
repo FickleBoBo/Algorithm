@@ -12,9 +12,10 @@ int main() {
     for (int k = 0; k < 2; k++) {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                int num;
-                cin >> num;
-                mat[i][j] += num;
+                int x;
+                cin >> x;
+
+                mat[i][j] += x;
             }
         }
     }
