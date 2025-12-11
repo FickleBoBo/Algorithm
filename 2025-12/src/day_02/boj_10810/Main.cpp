@@ -10,13 +10,13 @@ int main() {
 
     vector<int> v(n);
     for (int i = 0; i < m; i++) {
-        int s, e, num;
-        cin >> s >> e >> num;
+        int s, e, x;
+        cin >> s >> e >> x;
 
-        fill(v.begin() + s - 1, v.begin() + e, num);
+        fill(v.begin() + s - 1, v.begin() + e, x);
     }
 
-    for (auto num : v) {
-        cout << num << ' ';
+    for (int x : v) {
+        cout << x << ' ';
     }
 }
