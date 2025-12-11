@@ -19,7 +19,7 @@ public class Main {
         System.out.println(upperBound(arr, N) - 1);
     }
 
-    static long upperBound(int[] arr, int N) {
+    static long upperBound(int[] arr, int key) {
         long left = 1;
         long right = Integer.MAX_VALUE + 1L;  // 랜선의 길이가 최대 2^31-1까지라서 right의 상한을 2^31로 설정
 
@@ -31,7 +31,7 @@ public class Main {
                 cnt += n / mid;
             }
 
-            if (cnt >= N) {
+            if (cnt >= key) {
                 left = mid + 1;
             } else {
                 right = mid;

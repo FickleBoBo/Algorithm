@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-long long upper_bound_param(const vector<int>& v, int n) {
+long long upper_bound_param(const vector<int>& v, int key) {
     long long left = 1;
     long long right = INT_MAX + 1LL;  // 랜선의 길이가 최대 2^31-1까지라서 right의 상한을 2^31로 설정
 
@@ -9,11 +9,11 @@ long long upper_bound_param(const vector<int>& v, int n) {
         long long mid = (left + right) / 2;
 
         long long cnt = 0;
-        for (int num : v) {
-            cnt += num / mid;
+        for (int n : v) {
+            cnt += n / mid;
         }
 
-        if (cnt >= n) {
+        if (cnt >= key) {
             left = mid + 1;
         } else {
             right = mid;
@@ -31,7 +31,7 @@ int main() {
     cin >> k >> n;
 
     vector<int> v(k);
-    for (auto& num : v) cin >> num;
+    for (int& x : v) cin >> x;
 
     cout << upper_bound_param(v, n) - 1;
 }
