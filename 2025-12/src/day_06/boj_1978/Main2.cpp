@@ -27,10 +27,10 @@ int main() {
     int cnt = 0;
 
     for (int i = 0; i < n; i++) {
-        int n;
-        cin >> n;
+        int x;
+        cin >> x;
 
-        if (isPrime[n]) cnt++;
+        if (isPrime[x]) cnt++;
     }
 
     cout << cnt;
