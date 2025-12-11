@@ -9,7 +9,7 @@ int main() {
     cin >> n;
 
     vector<int> v(n);
-    for (auto& num : v) cin >> num;
+    for (int& x : v) cin >> x;
     sort(v.begin(), v.end());
 
     int diff = INT_MAX;  // 두 눈사람의 키 차이
