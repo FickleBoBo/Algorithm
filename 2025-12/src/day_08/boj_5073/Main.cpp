@@ -7,7 +7,7 @@ int main() {
 
     while (true) {
         vector<int> v(3);
-        for (auto& num : v) cin >> num;
+        for (int& x : v) cin >> x;
         sort(v.begin(), v.end());
 
         if (v[0] == 0) break;
