@@ -9,16 +9,16 @@ int main() {
     cin >> n;
 
     vector<int> v(n);
-    for (auto& num : v) cin >> num;
+    for (int& x : v) cin >> x;
 
     vector<int> dp;
-    for (int num : v) {
-        auto it = lower_bound(dp.begin(), dp.end(), num);
+    for (int x : v) {
+        auto it = lower_bound(dp.begin(), dp.end(), x);
 
         if (it == dp.end()) {
-            dp.push_back(num);
+            dp.push_back(x);
         } else {
-            *it = num;
+            *it = x;
         }
     }
 
