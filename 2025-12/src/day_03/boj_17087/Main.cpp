@@ -9,7 +9,7 @@ int main() {
     cin >> n >> s;
 
     vector<int> v(n);
-    for (auto& num : v) cin >> num;
+    for (int& x : v) cin >> x;
 
     int g = abs(s - v[0]);
     for (int i = 1; i < n; i++) {
