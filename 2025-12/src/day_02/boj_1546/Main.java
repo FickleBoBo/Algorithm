@@ -22,6 +22,7 @@ public class Main {
         for (int num : arr) {
             sum += (double) num / max * 100;
         }
+
         System.out.println(sum / N);
     }
 }
