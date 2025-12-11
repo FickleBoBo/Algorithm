@@ -16,14 +16,14 @@ public class Main {
     }
 
     static long modPow(long A, long B, long C) {
-        if (B == 0) return 1;
+        long res = 1;
 
-        long half = modPow(A, B / 2, C);
-
-        if (B % 2 == 0) {
-            return half * half % C;
-        } else {
-            return half * half % C * A % C;
+        while (B > 0) {
+            if ((B & 1) > 0) res = res * A % C;
+            A = A * A % C;
+            B >>= 1;
         }
+
+        return res;
     }
 }
