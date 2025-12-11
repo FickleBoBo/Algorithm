@@ -9,7 +9,7 @@ int main() {
     cin >> n;
 
     vector<int> v(n);
-    for (auto& num : v) cin >> num;
+    for (int& x : v) cin >> x;
 
     auto [mn_it, mx_it] = minmax_element(v.begin(), v.end());
     cout << *mn_it << ' ' << *mx_it;
