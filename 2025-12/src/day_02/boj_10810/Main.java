@@ -23,8 +23,8 @@ public class Main {
             Arrays.fill(arr, start - 1, end, num);
         }
 
-        for (int num : arr) {
-            sb.append(num).append(" ");
+        for (int n : arr) {
+            sb.append(n).append(" ");
         }
 
         bw.write(sb.toString());
