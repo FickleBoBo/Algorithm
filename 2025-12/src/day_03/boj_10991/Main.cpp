@@ -20,6 +20,7 @@ int main() {
                 cout << ' ';
             }
         }
+
         cout << '\n';
     }
 }
