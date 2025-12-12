@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+struct Item {
+    int m;
+    long long p;  // 점수 계산에서 오버플로우 방지
+    int r;
+};
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int n, t;
+    cin >> n >> t;
+
+    vector<Item> items(n);
+    for (int i = 0; i < n; i++) cin >> items[i].m;
+    for (int i = 0; i < n; i++) cin >> items[i].p;
+    for (int i = 0; i < n; i++) cin >> items[i].r;
+    sort(items.begin(), items.end(), [](const Item& a, const Item& b) {
+        return a.r * b.p < a.p * b.r;
+    });
+
+    vector<long long> dp(1 + t);
+    for (Item item : items) {
+        int m = item.m;
+        long long p = item.p;
+        int r = item.r;
+
+        for (int j = t; j >= r; j--) {
+            dp[j] = max(dp[j - r] + (m - j * p), dp[j]);
+        }
+    }
+
+    cout << *max_element(dp.begin() + 1, dp.end());
+}
