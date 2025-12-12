@@ -6,7 +6,7 @@ long long lower_bound_param(long long key) {
     long long right = sqrt(LLONG_MAX) + 1;
 
     while (left < right) {
-        long mid = (left + right) / 2;
+        long long mid = (left + right) / 2;
 
         if (mid * mid < key) {
             left = mid + 1;
