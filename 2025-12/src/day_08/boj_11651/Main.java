@@ -6,7 +6,6 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
@@ -19,15 +18,14 @@ public class Main {
             arr[i][1] = Integer.parseInt(st.nextToken());
         }
         Arrays.sort(arr, (o1, o2) -> {
-            if (o1[1] == o2[1]) return Integer.compare(o1[0], o2[0]);
-            return Integer.compare(o1[1], o2[1]);
+            if (o1[1] != o2[1]) return Integer.compare(o1[1], o2[1]);
+            return Integer.compare(o1[0], o2[0]);
         });
 
         for (int[] pos : arr) {
             sb.append(pos[0]).append(" ").append(pos[1]).append("\n");
         }
 
-        bw.write(sb.toString());
-        bw.flush();
+        System.out.println(sb);
     }
 }
