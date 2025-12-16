@@ -5,7 +5,6 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringBuilder sb = new StringBuilder();
 
         char[] str1 = br.readLine().toCharArray();
@@ -27,8 +26,7 @@ public class Main {
         sb.append(dp[N][M]).append("\n");
         if (dp[N][M] != 0) sb.append(traceback(str1, str2, dp));
 
-        bw.write(sb.toString());
-        bw.flush();
+        System.out.println(sb);
     }
 
     static String traceback(char[] str1, char[] str2, int[][] dp) {
