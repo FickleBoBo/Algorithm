@@ -6,7 +6,6 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringBuilder sb = new StringBuilder();
         StringTokenizer st = new StringTokenizer(br.readLine());
 
@@ -39,7 +38,6 @@ public class Main {
             sb.append(pSum[x2][y2] - pSum[x2][y1 - 1] - pSum[x1 - 1][y2] + pSum[x1 - 1][y1 - 1]).append("\n");
         }
 
-        bw.write(sb.toString());
-        bw.flush();
+        System.out.println(sb);
     }
 }
