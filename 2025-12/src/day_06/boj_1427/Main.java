@@ -6,7 +6,6 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringBuilder sb = new StringBuilder();
 
         char[] arr = br.readLine().toCharArray();
@@ -16,7 +15,6 @@ public class Main {
             sb.append(arr[i]);
         }
 
-        bw.write(sb.toString());
-        bw.flush();
+        System.out.println(sb);
     }
 }
