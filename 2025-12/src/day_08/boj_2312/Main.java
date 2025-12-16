@@ -9,7 +9,6 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringBuilder sb = new StringBuilder();
 
         List<Integer> primes = getPrimes(sieve(MAX));
@@ -33,8 +32,7 @@ public class Main {
             if (N > 1) sb.append(N).append(" 1\n");  // N이 처음부터 소수인 경우와 합성수를 소인수분해한 후 소수가 남은 경우
         }
 
-        bw.write(sb.toString());
-        bw.flush();
+        System.out.println(sb);
     }
 
     static boolean[] sieve(int N) {
