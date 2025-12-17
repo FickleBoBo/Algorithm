@@ -16,7 +16,8 @@ public class Main {
 
     static int sieve(int N, int K) {
         boolean[] isPrime = new boolean[1 + N];
-        Arrays.fill(isPrime, 2, N + 1, true);
+        Arrays.fill(isPrime, true);
+        isPrime[0] = isPrime[1] = false;
         int cnt = 0;
 
         for (int i = 2; i <= N; i++) {
