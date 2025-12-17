@@ -2,8 +2,8 @@
 using namespace std;
 
 int sieve(int n, int k) {
-    vector<bool> isPrime(1 + n);
-    fill(isPrime.begin() + 2, isPrime.end(), true);
+    vector<bool> isPrime(1 + n, true);
+    isPrime[0] = isPrime[1] = false;
     int cnt = 0;
 
     for (int i = 2; i <= n; i++) {
