@@ -28,7 +28,8 @@ public class Main2 {
 
     static boolean[] sieve(int N) {
         boolean[] isPrime = new boolean[1 + N];
-        Arrays.fill(isPrime, 2, N + 1, true);
+        Arrays.fill(isPrime, true);
+        isPrime[0] = isPrime[1] = false;
 
         for (int i = 2; i * i <= N; i++) {
             if (isPrime[i]) {
