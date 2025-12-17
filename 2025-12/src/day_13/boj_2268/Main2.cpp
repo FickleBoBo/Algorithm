@@ -15,7 +15,7 @@ struct Fenwick {
         }
     }
 
-    long long sum(int idx) const {
+    long long sum(int idx) {
         long long res = 0;
         while (idx > 0) {
             res += tree[idx];
@@ -24,7 +24,7 @@ struct Fenwick {
         return res;
     }
 
-    long long sum(int left, int right) const {
+    long long sum(int left, int right) {
         return sum(right) - sum(left - 1);
     }
 };
