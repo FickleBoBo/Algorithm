@@ -12,7 +12,7 @@ string solution(vector<int> numbers) {
     });
 
     string ans;
-    for (const string& s : v) {
+    for (string& s : v) {
         ans += s;
     }
 
