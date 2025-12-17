@@ -15,7 +15,7 @@ struct Fenwick {
         }
     }
 
-    long long query(int idx) const {
+    long long query(int idx) {
         long long res = 0;
         while (idx > 0) {
             res += tree[idx];
@@ -24,7 +24,7 @@ struct Fenwick {
         return res;
     }
 
-    long long query(int left, int right) const {
+    long long query(int left, int right) {
         return query(right) - query(left - 1);
     }
 };
