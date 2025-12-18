@@ -14,7 +14,7 @@ int main() {
         return a.first < b.first;
     });
 
-    for (auto& p : v) {
+    for (auto p : v) {
         cout << p.first << ' ' << p.second << '\n';
     }
 }
