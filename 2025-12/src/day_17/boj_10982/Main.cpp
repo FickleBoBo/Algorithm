@@ -18,7 +18,7 @@ int main() {
         int sum = 0;
         for (auto p : v) sum += p.first;
 
-        vector<vector<int>> dp(2, vector<int>(1 + sum));  // 토글링 dp
+        vector<vector<int>> dp(2, vector<int>(1 + sum));  // 롤링 배열
         int prev = 0;
         int cur = 1;
         for (int i = 0; i < n; i++) {
@@ -33,14 +33,14 @@ int main() {
                 }
             }
 
-            // 토글링
+            // 롤링
             prev ^= 1;
             cur ^= 1;
         }
 
         int mn = INT_MAX;
         for (int j = 0; j <= sum; j++) {
-            mn = min(mn, max(j, dp[prev][j]));  // 토글링 때문에 최신값이 prev에 있음
+            mn = min(mn, max(j, dp[prev][j]));  // 롤링 때문에 최신값이 prev에 있음
         }
 
         cout << mn << '\n';
