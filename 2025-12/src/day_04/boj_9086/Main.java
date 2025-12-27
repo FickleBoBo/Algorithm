@@ -10,7 +10,6 @@ public class Main {
         int T = Integer.parseInt(br.readLine());
         for (int tc = 1; tc <= T; tc++) {
             String str = br.readLine();
-
             sb.append(str.charAt(0)).append(str.charAt(str.length() - 1)).append("\n");
         }
 
