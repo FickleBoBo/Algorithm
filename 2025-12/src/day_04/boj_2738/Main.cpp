@@ -14,7 +14,6 @@ int main() {
             for (int j = 0; j < m; j++) {
                 int x;
                 cin >> x;
-
                 mat[i][j] += x;
             }
         }
