@@ -9,7 +9,6 @@ public class Main {
         boolean[] visited = new boolean[42];
         for (int i = 0; i < 10; i++) {
             int num = Integer.parseInt(br.readLine());
-
             visited[num % 42] = true;
         }
 
