@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-constexpr int MOD = 1000;
-
 using Matrix = vector<vector<int>>;
+
+constexpr int MOD = 1000;
 
 Matrix identity(int len) {
     Matrix id(len, vector<int>(len));
