@@ -43,12 +43,12 @@ int main() {
     int r = 0;
     int sum = 0;
     int cnt = 0;
+
     while (true) {
         if (sum < n) {
             sum += primes[r++];
         } else {
             if (sum == n) cnt++;
-
             sum -= primes[l++];
         }
 
