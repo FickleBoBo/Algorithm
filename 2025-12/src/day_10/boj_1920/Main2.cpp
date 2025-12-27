@@ -12,7 +12,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         int x;
         cin >> x;
-
         st.insert(x);
     }
 
@@ -22,11 +21,6 @@ int main() {
     for (int i = 0; i < m; i++) {
         int x;
         cin >> x;
-
-        if (st.count(x)) {
-            cout << 1 << '\n';
-        } else {
-            cout << 0 << '\n';
-        }
+        cout << st.count(x) << '\n';
     }
 }
