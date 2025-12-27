@@ -10,7 +10,6 @@ int main() {
     for (int n : arr) {
         int x;
         cin >> x;
-
         cout << n - x << ' ';
     }
 }
