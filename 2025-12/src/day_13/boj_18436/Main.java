@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
+
     static class SegmentTree {
         int n;
         int[] tree;
