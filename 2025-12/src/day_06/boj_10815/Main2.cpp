@@ -14,7 +14,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         int x;
         cin >> x;
-
         visited[x + MAX] = true;
     }
 
@@ -24,11 +23,6 @@ int main() {
     for (int i = 0; i < m; i++) {
         int x;
         cin >> x;
-
-        if (visited[x + MAX]) {
-            cout << "1 ";
-        } else {
-            cout << "0 ";
-        }
+        cout << visited[x + MAX] << ' ';
     }
 }
