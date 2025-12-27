@@ -19,6 +19,7 @@ public class Main {
         int numerator = A * D + B * C;  // 분자
         int denominator = B * D;  // 분모
         int gcd = gcd(numerator, denominator);
+
         System.out.printf("%d %d", numerator / gcd, denominator / gcd);
     }
 
