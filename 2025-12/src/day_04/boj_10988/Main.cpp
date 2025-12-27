@@ -10,9 +10,5 @@ int main() {
 
     string rs = string(s.rbegin(), s.rend());
 
-    if (s == rs) {
-        cout << 1;
-    } else {
-        cout << 0;
-    }
+    cout << (s == rs);
 }
