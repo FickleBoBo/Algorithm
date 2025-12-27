@@ -12,11 +12,9 @@ string solution(vector<int> numbers) {
     });
 
     string ans;
-    for (string& s : v) {
-        ans += s;
-    }
+    for (string& s : v) ans += s;
 
-    if (ans[0] == '0') {
+    if (ans.front() == '0') {
         return "0";
     } else {
         return ans;
