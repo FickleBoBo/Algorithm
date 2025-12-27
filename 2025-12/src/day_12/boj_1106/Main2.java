@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Main2 {
 
-    static final int MAX = 100_001;
+    static final int MAX = 100_000;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
