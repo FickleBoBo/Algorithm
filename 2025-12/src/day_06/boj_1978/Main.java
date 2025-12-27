@@ -17,6 +17,7 @@ public class Main {
         }
 
         int cnt = 0;
+
         out:
         for (int n : arr) {
             if (n == 1) continue;

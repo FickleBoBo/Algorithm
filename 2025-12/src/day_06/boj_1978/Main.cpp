@@ -14,7 +14,6 @@ int main() {
         cin >> x;
 
         bool flag = true;
-
         if (x == 1) flag = false;
 
         for (int i = 2; i * i <= x; i++) {
