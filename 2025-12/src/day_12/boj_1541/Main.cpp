@@ -16,7 +16,7 @@ int sum(const string& s) {
     v.push_back(cur);
 
     int res = 0;
-    for (string x : v) {
+    for (string& x : v) {
         res += stoi(x);
     }
 
