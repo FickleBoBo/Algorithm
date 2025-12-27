@@ -18,12 +18,12 @@ public class Main {
         int right = 0;
         int sum = 0;
         int cnt = 0;
+
         while (true) {
             if (sum < N) {
                 sum += primes.get(right++);
             } else {
                 if (sum == N) cnt++;
-
                 sum -= primes.get(left++);
             }
 
