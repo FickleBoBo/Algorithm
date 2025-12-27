@@ -11,7 +11,7 @@ int main() {
     vector<int> coins(n);
     for (int& x : coins) cin >> x;
 
-    vector<vector<int>> dp(2, vector<int>(1 + k));  // 토글링 dp
+    vector<vector<int>> dp(2, vector<int>(1 + k));  // 롤링 배열
     int prev = 0;
     int cur = 1;
     dp[0][0] = 1;  // 어떤 동전도 사용하지 않았을 때 0원을 만드는 경우는 1가지
@@ -24,7 +24,7 @@ int main() {
             }
         }
 
-        // 토글링
+        // 롤링
         prev ^= 1;
         cur ^= 1;
     }
