@@ -26,7 +26,6 @@ public class Main {
                 sum += arr[right++];
             } else {
                 min = Math.min(min, right - left);
-
                 sum -= arr[left++];
             }
 

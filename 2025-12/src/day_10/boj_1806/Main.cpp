@@ -20,7 +20,6 @@ int main() {
             sum += v[r++];
         } else {
             mn = min(mn, r - l);
-
             sum -= v[l++];
         }
 
