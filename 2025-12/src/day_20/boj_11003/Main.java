@@ -18,7 +18,7 @@ public class Main {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        // 단조 덱
+        // 단조 큐
         Deque<Integer> dq = new ArrayDeque<>();
         for (int i = 0; i < N; i++) {
             // 구간에서 나가는 인덱스 처리
