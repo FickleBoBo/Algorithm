@@ -9,10 +9,9 @@ public class Main {
         StringTokenizer st = new StringTokenizer(br.readLine());
 
         int[] arr = {1, 1, 2, 2, 2, 8};
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] -= Integer.parseInt(st.nextToken());
+        for (int num : arr) {
+            int x = Integer.parseInt(st.nextToken());
+            System.out.println(num - x);
         }
-
-        System.out.printf("%d %d %d %d %d %d", arr[0], arr[1], arr[2], arr[3], arr[4], arr[5]);
     }
 }
