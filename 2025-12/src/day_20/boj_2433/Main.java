@@ -19,8 +19,8 @@ public class Main {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        Deque<Integer> minDq = new ArrayDeque<>();  // 단조 증가 덱
-        Deque<Integer> maxDq = new ArrayDeque<>();  // 단조 감소 덱
+        Deque<Integer> minDq = new ArrayDeque<>();  // 단조 증가 큐
+        Deque<Integer> maxDq = new ArrayDeque<>();  // 단조 감소 큐
         for (int i = 1; i <= n; i++) {
             // 구간에서 나가는 인덱스 처리
             if (!minDq.isEmpty() && minDq.peekFirst() == (i - m)) {
