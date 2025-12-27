@@ -26,7 +26,6 @@ public class Main2 {
                 sum += arr[right++];
             } else {
                 if (sum == M) cnt++;
-
                 sum -= arr[left++];
             }
 

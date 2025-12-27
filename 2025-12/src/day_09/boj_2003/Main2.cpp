@@ -20,7 +20,6 @@ int main() {
             sum += v[r++];
         } else {
             if (sum == m) cnt++;
-
             sum -= v[l++];
         }
 
