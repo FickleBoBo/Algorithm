@@ -22,7 +22,7 @@ public class Main {
                 B[i] = Integer.parseInt(st.nextToken());
             }
 
-            int[][] dp = new int[2][1 + sumA];  // 토글링 dp
+            int[][] dp = new int[2][1 + sumA];  // 롤링 배열
             int prev = 0;
             int cur = 1;
             for (int i = 0; i < N; i++) {
@@ -37,14 +37,14 @@ public class Main {
                     }
                 }
 
-                // 토글링
+                // 롤링
                 prev ^= 1;
                 cur ^= 1;
             }
 
             int min = Integer.MAX_VALUE;
             for (int j = 0; j <= sumA; j++) {
-                min = Math.min(min, Math.max(j, dp[prev][j]));  // 토글링 때문에 최신값이 prev에 있음
+                min = Math.min(min, Math.max(j, dp[prev][j]));  // 롤링 때문에 최신값이 prev에 있음
             }
 
             sb.append(min).append("\n");
