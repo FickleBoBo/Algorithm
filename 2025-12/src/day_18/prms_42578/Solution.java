@@ -9,11 +9,11 @@ class Solution {
             map.put(c[1], map.getOrDefault(c[1], 0) + 1);
         }
 
-        int answer = 1;
-        for (int n : map.values()) {
-            answer *= n + 1;
+        int ans = 1;
+        for (int v : map.values()) {
+            ans *= v + 1;
         }
 
-        return answer - 1;
+        return ans - 1;
     }
 }
