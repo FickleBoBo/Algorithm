@@ -18,11 +18,6 @@ int main() {
     for (int i = 0; i < m; i++) {
         int x;
         cin >> x;
-
-        if (binary_search(v.begin(), v.end(), x)) {
-            cout << 1 << '\n';
-        } else {
-            cout << 0 << '\n';
-        }
+        cout << binary_search(v.begin(), v.end(), x) << '\n';
     }
 }
