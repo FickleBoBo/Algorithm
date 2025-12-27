@@ -14,14 +14,12 @@ class Solution {
             map.put(c, map.get(c) - 1);
         }
 
-        String answer = "";
-        for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            if (entry.getValue() == 1) {
-                answer = entry.getKey();
-                break;
+        for (Map.Entry<String, Integer> e : map.entrySet()) {
+            if (e.getValue() == 1) {
+                return e.getKey();
             }
         }
 
-        return answer;
+        return "";
     }
 }
