@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-constexpr int MAX = 1000000001;
+constexpr int MAX = 1000000000;
 
 struct SegTree {
     int n;

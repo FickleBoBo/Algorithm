@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Main {
 
-    static final int MAX = 1_000_000_001;
+    static final int MAX = 1_000_000_000;
 
     static class SegmentTree {
         int n;
