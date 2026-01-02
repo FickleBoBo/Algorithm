@@ -6,7 +6,7 @@ int main() {
     cin.tie(nullptr);
 
     int stack[1000000];
-    int peek = -1;
+    int top = -1;
 
     int n;
     cin >> n;
@@ -18,26 +18,26 @@ int main() {
         if (command == 1) {
             int x;
             cin >> x;
-            stack[++peek] = x;
+            stack[++top] = x;
         } else if (command == 2) {
-            if (peek == -1) {
+            if (top == -1) {
                 cout << -1 << '\n';
             } else {
-                cout << stack[peek--] << '\n';
+                cout << stack[top--] << '\n';
             }
         } else if (command == 3) {
-            cout << peek + 1 << '\n';
+            cout << top + 1 << '\n';
         } else if (command == 4) {
-            if (peek == -1) {
+            if (top == -1) {
                 cout << 1 << '\n';
             } else {
                 cout << 0 << '\n';
             }
         } else {
-            if (peek == -1) {
+            if (top == -1) {
                 cout << -1 << '\n';
             } else {
-                cout << stack[peek] << '\n';
+                cout << stack[top] << '\n';
             }
         }
     }
