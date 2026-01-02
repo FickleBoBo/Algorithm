@@ -10,7 +10,7 @@ public class Main {
         StringTokenizer st;
 
         int[] stack = new int[10000];
-        int peek = -1;
+        int top = -1;
 
         int N = Integer.parseInt(br.readLine());
         for (int i = 0; i < N; i++) {
@@ -19,26 +19,26 @@ public class Main {
 
             if (command.equals("push")) {
                 int x = Integer.parseInt(st.nextToken());
-                stack[++peek] = x;
+                stack[++top] = x;
             } else if (command.equals("pop")) {
-                if (peek == -1) {
+                if (top == -1) {
                     sb.append("-1\n");
                 } else {
-                    sb.append(stack[peek--]).append("\n");
+                    sb.append(stack[top--]).append("\n");
                 }
             } else if (command.equals("size")) {
-                sb.append(peek + 1).append("\n");
+                sb.append(top + 1).append("\n");
             } else if (command.equals("empty")) {
-                if (peek == -1) {
+                if (top == -1) {
                     sb.append("1\n");
                 } else {
                     sb.append("0\n");
                 }
             } else {
-                if (peek == -1) {
+                if (top == -1) {
                     sb.append("-1\n");
                 } else {
-                    sb.append(stack[peek]).append("\n");
+                    sb.append(stack[top]).append("\n");
                 }
             }
         }
