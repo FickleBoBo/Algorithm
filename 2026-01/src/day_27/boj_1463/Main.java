@@ -1,0 +1,27 @@
+package day_27.boj_1463;
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    static final int MAX = 100_000;
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int N = Integer.parseInt(br.readLine());
+
+        int[] dp = new int[1 + N * 3];
+        Arrays.fill(dp, MAX);
+        dp[1] = 0;
+
+        for (int i = 1; i <= N; i++) {
+            dp[i * 3] = Math.min(dp[i * 3], dp[i] + 1);
+            dp[i * 2] = Math.min(dp[i * 2], dp[i] + 1);
+            dp[i + 1] = Math.min(dp[i + 1], dp[i] + 1);
+        }
+
+        System.out.println(dp[N]);
+    }
+}
