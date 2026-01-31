@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<set<int>> adj;
+vector<set<int>> adj(1 + 1000);
 bool visited[1 + 1000];
 
 void dfs(int node) {
@@ -42,7 +42,6 @@ int main() {
     int n, m, v;
     cin >> n >> m >> v;
 
-    adj.resize(1 + n);
     for (int i = 0; i < m; i++) {
         int x, y;
         cin >> x >> y;
@@ -53,6 +52,6 @@ int main() {
     dfs(v);
     cout << '\n';
 
-    fill(begin(visited), end(visited), false);
+    memset(visited, 0, sizeof(visited));
     bfs(v);
 }
