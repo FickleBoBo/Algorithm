@@ -4,13 +4,15 @@ using namespace std;
 int dr[4] = {-1, 0, 1, 0};
 int dc[4] = {0, 1, 0, -1};
 
-int bfs(int n, int m, const vector<vector<char>>& grid, vector<bool>& hasKey) {
+char grid[1 + 100 + 1][1 + 100 + 1];
+bool visited[1 + 100 + 1][1 + 100 + 1];
+
+int bfs(int n, int m, vector<bool>& hasKey) {
     queue<pair<int, int>> q;
     q.push({0, 0});
 
     vector<queue<pair<int, int>>> doors(26);
 
-    vector<vector<bool>> visited(n, vector<bool>(m));
     visited[0][0] = true;
 
     int cnt = 0;
@@ -65,7 +67,8 @@ int main() {
         int n = h + 2;
         int m = w + 2;
 
-        vector<vector<char>> grid(n, vector<char>(m));
+        memset(grid, 0, sizeof(grid));
+        memset(visited, 0, sizeof(visited));
         for (int i = 0; i < n; i++) {
             grid[i][0] = grid[i][m - 1] = '.';
         }
@@ -92,7 +95,7 @@ int main() {
             }
         }
 
-        int cnt = bfs(n, m, grid, hasKey);
+        int cnt = bfs(n, m, hasKey);
         cout << cnt << '\n';
     }
 }
