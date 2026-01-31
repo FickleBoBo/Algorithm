@@ -5,7 +5,7 @@ int dr[4] = {-1, 0, 1, 0};
 int dc[4] = {0, 1, 0, -1};
 
 int n, m;
-vector<vector<bool>> grid;
+bool grid[50][50];
 
 void dfs(int r, int c) {
     grid[r][c] = false;
@@ -32,7 +32,7 @@ int main() {
         int k;
         cin >> m >> n >> k;
 
-        grid.assign(n, vector<bool>(m));
+        memset(grid, 0, sizeof(grid));
         for (int i = 0; i < k; i++) {
             int x, y;
             cin >> x >> y;
