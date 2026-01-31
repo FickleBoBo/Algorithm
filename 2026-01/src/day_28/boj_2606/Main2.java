@@ -22,8 +22,7 @@ public class Main2 {
             st = new StringTokenizer(br.readLine());
             int x = Integer.parseInt(st.nextToken());
             int y = Integer.parseInt(st.nextToken());
-            adj[x][y] = true;
-            adj[y][x] = true;
+            adj[x][y] = adj[y][x] = true;
         }
 
         visited = new boolean[1 + N];
