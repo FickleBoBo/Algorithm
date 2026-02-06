@@ -9,10 +9,10 @@ int main() {
     cin >> n;
 
     vector<pair<int, int>> v(n);
-    for (auto& p : v) cin >> p.second >> p.first;
+    for (auto& [y, x] : v) cin >> x >> y;
     sort(v.begin(), v.end());
 
-    for (auto p : v) {
-        cout << p.second << ' ' << p.first << '\n';
+    for (auto& [y, x] : v) {
+        cout << x << ' ' << y << '\n';
     }
 }

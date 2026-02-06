@@ -10,15 +10,15 @@ int main() {
     int n;
     cin >> n;
 
-    vector<int> cntArr(1 + MAX);
+    vector<int> cnt(1 + MAX);
     for (int i = 0; i < n; i++) {
         int x;
         cin >> x;
-        cntArr[x]++;
+        cnt[x]++;
     }
 
     for (int i = 1; i <= MAX; i++) {
-        for (int j = 1; j <= cntArr[i]; j++) {
+        for (int j = 1; j <= cnt[i]; j++) {
             cout << i << '\n';
         }
     }

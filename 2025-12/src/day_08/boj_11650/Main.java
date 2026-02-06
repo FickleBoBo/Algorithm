@@ -9,10 +9,10 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        int N = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
 
-        int[][] arr = new int[N][2];
-        for (int i = 0; i < N; i++) {
+        int[][] arr = new int[n][2];
+        for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
             arr[i][0] = Integer.parseInt(st.nextToken());
             arr[i][1] = Integer.parseInt(st.nextToken());
