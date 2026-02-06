@@ -5,34 +5,36 @@ import java.util.*;
 
 public class Main {
 
-    static final int[] dr = {-1, 0, 1, 0};
-    static final int[] dc = {0, 1, 0, -1};
+    static int[] dr = {-1, 0, 1, 0};
+    static int[] dc = {0, 1, 0, -1};
+    static int n, m;
+    static boolean[][] grid;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        int T = Integer.parseInt(br.readLine());
-        for (int tc = 1; tc <= T; tc++) {
+        int t = Integer.parseInt(br.readLine());
+        while (t-- > 0) {
             st = new StringTokenizer(br.readLine());
-            int M = Integer.parseInt(st.nextToken());
-            int N = Integer.parseInt(st.nextToken());
-            int K = Integer.parseInt(st.nextToken());
+            m = Integer.parseInt(st.nextToken());
+            n = Integer.parseInt(st.nextToken());
+            int k = Integer.parseInt(st.nextToken());
 
-            boolean[][] map = new boolean[N][M];
-            for (int i = 0; i < K; i++) {
+            grid = new boolean[n][m];
+            for (int i = 0; i < k; i++) {
                 st = new StringTokenizer(br.readLine());
-                int x = Integer.parseInt(st.nextToken());
-                int y = Integer.parseInt(st.nextToken());
-                map[y][x] = true;
+                int c = Integer.parseInt(st.nextToken());
+                int r = Integer.parseInt(st.nextToken());
+                grid[r][c] = true;
             }
 
             int cnt = 0;
-            for (int i = 0; i < N; i++) {
-                for (int j = 0; j < M; j++) {
-                    if (map[i][j]) {
-                        bfs(i, j, N, M, map);
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < m; j++) {
+                    if (grid[i][j]) {
+                        bfs(i, j);
                         cnt++;
                     }
                 }
@@ -44,11 +46,11 @@ public class Main {
         System.out.println(sb);
     }
 
-    static void bfs(int sr, int sc, int N, int M, boolean[][] map) {
+    static void bfs(int sr, int sc) {
         Queue<int[]> q = new ArrayDeque<>();
         q.offer(new int[]{sr, sc});
 
-        map[sr][sc] = false;
+        grid[sr][sc] = false;
 
         while (!q.isEmpty()) {
             int[] node = q.poll();
@@ -57,11 +59,11 @@ public class Main {
                 int nr = node[0] + dr[d];
                 int nc = node[1] + dc[d];
 
-                if (nr < 0 || nr >= N || nc < 0 || nc >= M) continue;
-                if (!map[nr][nc]) continue;
+                if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
+                if (!grid[nr][nc]) continue;
 
                 q.offer(new int[]{nr, nc});
-                map[nr][nc] = false;
+                grid[nr][nc] = false;
             }
         }
     }

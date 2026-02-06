@@ -5,30 +5,31 @@ import java.util.*;
 
 public class Main {
 
-    static final int[] dr = {-1, 0, 1, 0};
-    static final int[] dc = {0, 1, 0, -1};
+    static int[] dr = {-1, 0, 1, 0};
+    static int[] dc = {0, 1, 0, -1};
+    static int n, m;
+    static char[][] grid;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
+        n = Integer.parseInt(st.nextToken());
+        m = Integer.parseInt(st.nextToken());
 
-        char[][] map = new char[N][M];
-        for (int i = 0; i < N; i++) {
-            map[i] = br.readLine().toCharArray();
+        grid = new char[n][m];
+        for (int i = 0; i < n; i++) {
+            grid[i] = br.readLine().toCharArray();
         }
 
-        int dist = bfs(N, M, map);
-        System.out.println(dist);
+        System.out.println(bfs());
     }
 
-    static int bfs(int N, int M, char[][] map) {
+    static int bfs() {
         Queue<int[]> q = new ArrayDeque<>();
         q.offer(new int[]{0, 0});
 
-        boolean[][] visited = new boolean[N][M];
+        boolean[][] visited = new boolean[n][m];
         visited[0][0] = true;
 
         int dist = 1;
@@ -38,14 +39,14 @@ public class Main {
 
             while (size-- > 0) {
                 int[] node = q.poll();
-                if (node[0] == N - 1 && node[1] == M - 1) return dist;
+                if (node[0] == n - 1 && node[1] == m - 1) return dist;
 
                 for (int d = 0; d < 4; d++) {
                     int nr = node[0] + dr[d];
                     int nc = node[1] + dc[d];
 
-                    if (nr < 0 || nr >= N || nc < 0 || nc >= M) continue;
-                    if (map[nr][nc] == '0' || visited[nr][nc]) continue;
+                    if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
+                    if (grid[nr][nc] == '0' || visited[nr][nc]) continue;
 
                     q.offer(new int[]{nr, nc});
                     visited[nr][nc] = true;

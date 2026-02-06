@@ -8,10 +8,10 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
 
-        int N = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
 
         Queue<Integer> q = new ArrayDeque<>();
-        for (int i = 1; i <= N; i++) {
+        for (int i = 1; i <= n; i++) {
             q.offer(i);
         }
 

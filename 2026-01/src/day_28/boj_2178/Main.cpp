@@ -3,7 +3,7 @@ using namespace std;
 
 int dr[4] = {-1, 0, 1, 0};
 int dc[4] = {0, 1, 0, -1};
-
+int n, m;
 char grid[100][100];
 bool visited[100][100];
 
@@ -29,8 +29,7 @@ int bfs(int n, int m) {
                 int nc = c + dc[d];
 
                 if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
-                if (grid[nr][nc] != '1') continue;
-                if (visited[nr][nc]) continue;
+                if (grid[nr][nc] == '0' || visited[nr][nc]) continue;
 
                 q.push({nr, nc});
                 visited[nr][nc] = true;
@@ -47,7 +46,6 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int n, m;
     cin >> n >> m;
 
     for (int i = 0; i < n; i++) {
@@ -59,6 +57,5 @@ int main() {
         }
     }
 
-    int dist = bfs(n, m);
-    cout << dist;
+    cout << bfs(n, m);
 }

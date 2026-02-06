@@ -13,8 +13,8 @@ public class Main {
         int front = 0;
         int rear = 0;
 
-        int N = Integer.parseInt(br.readLine());
-        for (int i = 0; i < N; i++) {
+        int n = Integer.parseInt(br.readLine());
+        for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
             String command = st.nextToken();
 

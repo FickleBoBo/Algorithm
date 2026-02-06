@@ -4,35 +4,38 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
+
+    static int n;
+    static boolean[][] adj;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
 
-        int n = Integer.parseInt(br.readLine());
-        boolean[][] adj = new boolean[1 + n][1 + n];
+        n = Integer.parseInt(br.readLine());
+        adj = new boolean[1 + n][1 + n];
 
         st = new StringTokenizer(br.readLine());
-        int a = Integer.parseInt(st.nextToken());
-        int b = Integer.parseInt(st.nextToken());
+        int x = Integer.parseInt(st.nextToken());
+        int y = Integer.parseInt(st.nextToken());
 
         int m = Integer.parseInt(br.readLine());
         for (int i = 0; i < m; i++) {
             st = new StringTokenizer(br.readLine());
-            int x = Integer.parseInt(st.nextToken());
-            int y = Integer.parseInt(st.nextToken());
-            adj[x][y] = adj[y][x] = true;
+            int u = Integer.parseInt(st.nextToken());
+            int v = Integer.parseInt(st.nextToken());
+            adj[u][v] = adj[v][u] = true;
         }
 
-        int dist = bfs(a, b, n, adj);
-        System.out.println(dist);
+        System.out.println(bfs(x, y));
     }
 
-    static int bfs(int a, int b, int n, boolean[][] adj) {
+    static int bfs(int x, int y) {
         Queue<Integer> q = new ArrayDeque<>();
-        q.offer(a);
+        q.offer(x);
 
         boolean[] visited = new boolean[1 + n];
-        visited[a] = true;
+        visited[x] = true;
 
         int dist = 0;
 
@@ -41,13 +44,13 @@ public class Main {
 
             while (size-- > 0) {
                 int node = q.poll();
-                if (node == b) return dist;
+                if (node == y) return dist;
 
                 for (int next = 1; next <= n; next++) {
-                    if (adj[node][next] && !visited[next]) {
-                        q.offer(next);
-                        visited[next] = true;
-                    }
+                    if (!adj[node][next] || visited[next]) continue;
+
+                    q.offer(next);
+                    visited[next] = true;
                 }
             }
 

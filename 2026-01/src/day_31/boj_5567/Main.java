@@ -4,31 +4,34 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
+
+    static int n;
+    static List<Integer>[] adj;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
 
-        int n = Integer.parseInt(br.readLine());
+        n = Integer.parseInt(br.readLine());
         int m = Integer.parseInt(br.readLine());
 
-        List<List<Integer>> adj = new ArrayList<>();
-        for (int i = 0; i <= n; i++) {
-            adj.add(new ArrayList<>());
+        adj = new ArrayList[1 + n];
+        for (int i = 1; i <= n; i++) {
+            adj[i] = new ArrayList<>();
         }
 
         for (int i = 0; i < m; i++) {
             st = new StringTokenizer(br.readLine());
-            int a = Integer.parseInt(st.nextToken());
-            int b = Integer.parseInt(st.nextToken());
-            adj.get(a).add(b);
-            adj.get(b).add(a);
+            int u = Integer.parseInt(st.nextToken());
+            int v = Integer.parseInt(st.nextToken());
+            adj[u].add(v);
+            adj[v].add(u);
         }
 
-        int cnt = bfs(n, adj);
-        System.out.println(cnt);
+        System.out.println(bfs());
     }
 
-    static int bfs(int n, List<List<Integer>> adj) {
+    static int bfs() {
         Queue<Integer> q = new ArrayDeque<>();
         q.offer(1);
 
@@ -44,7 +47,7 @@ public class Main {
             while (size-- > 0) {
                 int node = q.poll();
 
-                for (int next : adj.get(node)) {
+                for (int next : adj[node]) {
                     if (visited[next]) continue;
 
                     q.offer(next);

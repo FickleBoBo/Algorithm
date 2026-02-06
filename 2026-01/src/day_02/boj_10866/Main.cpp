@@ -39,11 +39,7 @@ int main() {
         } else if (command == "size") {
             cout << back - front << '\n';
         } else if (command == "empty") {
-            if (front == back) {
-                cout << 1 << '\n';
-            } else {
-                cout << 0 << '\n';
-            }
+            cout << (front == back) << '\n';
         } else if (command == "front") {
             if (front == back) {
                 cout << -1 << '\n';

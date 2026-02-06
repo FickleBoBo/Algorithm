@@ -28,11 +28,7 @@ int main() {
         } else if (command == "size") {
             cout << top + 1 << '\n';
         } else if (command == "empty") {
-            if (top == -1) {
-                cout << 1 << '\n';
-            } else {
-                cout << 0 << '\n';
-            }
+            cout << (top == -1) << '\n';
         } else {
             if (top == -1) {
                 cout << -1 << '\n';
