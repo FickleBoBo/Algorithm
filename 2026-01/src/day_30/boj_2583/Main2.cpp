@@ -6,29 +6,18 @@ int dc[4] = {0, 1, 0, -1};
 int n, m;
 bool grid[100][100];
 
-int bfs(int sr, int sc) {
-    queue<pair<int, int>> q;
-    q.push({sr, sc});
-
-    grid[sr][sc] = true;
-
+int dfs(int r, int c) {
+    grid[r][c] = true;
     int cnt = 1;
 
-    while (!q.empty()) {
-        auto [r, c] = q.front();
-        q.pop();
+    for (int d = 0; d < 4; d++) {
+        int nr = r + dr[d];
+        int nc = c + dc[d];
 
-        for (int d = 0; d < 4; d++) {
-            int nr = r + dr[d];
-            int nc = c + dc[d];
+        if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
+        if (grid[nr][nc]) continue;
 
-            if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
-            if (grid[nr][nc]) continue;
-
-            q.push({nr, nc});
-            grid[nr][nc] = true;
-            cnt++;
-        }
+        cnt += dfs(nr, nc);
     }
 
     return cnt;
@@ -59,7 +48,7 @@ int main() {
         for (int j = 0; j < m; j++) {
             if (!grid[i][j]) {
                 cnt++;
-                v.push_back(bfs(i, j));
+                v.push_back(dfs(i, j));
             }
         }
     }

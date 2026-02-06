@@ -3,7 +3,7 @@ package day_30.boj_1926;
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class Main2 {
 
     static int[] dr = {-1, 0, 1, 0};
     static int[] dc = {0, 1, 0, -1};
@@ -32,7 +32,7 @@ public class Main {
             for (int j = 0; j < m; j++) {
                 if (grid[i][j] == 1) {
                     cnt++;
-                    max = Math.max(max, bfs(i, j));
+                    max = Math.max(max, dfs(i, j));
                 }
             }
         }
@@ -41,28 +41,18 @@ public class Main {
         System.out.println(max);
     }
 
-    static int bfs(int sr, int sc) {
-        Queue<int[]> q = new ArrayDeque<>();
-        q.offer(new int[]{sr, sc});
-
-        grid[sr][sc] = 0;
-
+    static int dfs(int r, int c) {
+        grid[r][c] = 0;
         int cnt = 1;
 
-        while (!q.isEmpty()) {
-            int[] node = q.poll();
+        for (int d = 0; d < 4; d++) {
+            int nr = r + dr[d];
+            int nc = c + dc[d];
 
-            for (int d = 0; d < 4; d++) {
-                int nr = node[0] + dr[d];
-                int nc = node[1] + dc[d];
+            if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
+            if (grid[nr][nc] == 0) continue;
 
-                if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
-                if (grid[nr][nc] == 0) continue;
-
-                q.offer(new int[]{nr, nc});
-                grid[nr][nc] = 0;
-                cnt++;
-            }
+            cnt += dfs(nr, nc);
         }
 
         return cnt;

@@ -8,15 +8,17 @@ int main() {
     int n;
     cin >> n;
 
-    deque<int> q(n);
-    iota(q.begin(), q.end(), 1);
+    queue<int> q;
+    for (int i = 1; i <= n; i++) {
+        q.push(i);
+    }
 
     while (q.size() > 1) {
         cout << q.front() << ' ';
-        q.pop_front();
+        q.pop();
 
-        q.push_back(q.front());
-        q.pop_front();
+        q.push(q.front());
+        q.pop();
     }
     cout << q.front();
 }

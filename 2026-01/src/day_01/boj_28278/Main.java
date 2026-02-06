@@ -12,8 +12,8 @@ public class Main {
         int[] stack = new int[1000000];
         int top = -1;
 
-        int N = Integer.parseInt(br.readLine());
-        for (int i = 0; i < N; i++) {
+        int n = Integer.parseInt(br.readLine());
+        for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
             int command = Integer.parseInt(st.nextToken());
 

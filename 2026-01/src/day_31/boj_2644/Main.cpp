@@ -2,14 +2,14 @@
 using namespace std;
 
 int n;
-bool adj[1 + 100][1 + 100];
-bool visited[1 + 100];
+bool adj[101][101];
+bool visited[101];
 
-int bfs(int a, int b) {
+int bfs(int x, int y) {
     queue<int> q;
-    q.push(a);
+    q.push(x);
 
-    visited[a] = true;
+    visited[x] = true;
 
     int dist = 0;
 
@@ -20,13 +20,13 @@ int bfs(int a, int b) {
             int node = q.front();
             q.pop();
 
-            if (node == b) return dist;
+            if (node == y) return dist;
 
             for (int next = 1; next <= n; next++) {
-                if (adj[node][next] && !visited[next]) {
-                    q.push(next);
-                    visited[next] = true;
-                }
+                if (!adj[node][next] || visited[next]) continue;
+
+                q.push(next);
+                visited[next] = true;
             }
         }
 
@@ -40,15 +40,14 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int a, b, m;
-    cin >> n >> a >> b >> m;
+    int x, y, m;
+    cin >> n >> x >> y >> m;
 
     for (int i = 0; i < m; i++) {
-        int x, y;
-        cin >> x >> y;
-        adj[x][y] = adj[y][x] = true;
+        int u, v;
+        cin >> u >> v;
+        adj[u][v] = adj[v][u] = true;
     }
 
-    int cnt = bfs(a, b);
-    cout << cnt;
+    cout << bfs(x, y);
 }

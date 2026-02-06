@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int n, m;
-vector<vector<int>> adj(1 + 500);
-bool visited[1 + 500];
+int n;
+vector<vector<int>> adj(501);
+bool visited[501];
 
 int bfs() {
     queue<int> q;
@@ -41,15 +41,15 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
+    int m;
     cin >> n >> m;
 
     for (int i = 0; i < m; i++) {
-        int a, b;
-        cin >> a >> b;
-        adj[a].push_back(b);
-        adj[b].push_back(a);
+        int u, v;
+        cin >> u >> v;
+        adj[u].push_back(v);
+        adj[v].push_back(u);
     }
 
-    int cnt = bfs();
-    cout << cnt;
+    cout << bfs();
 }

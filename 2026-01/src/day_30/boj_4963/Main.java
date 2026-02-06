@@ -5,8 +5,10 @@ import java.util.*;
 
 public class Main {
 
-    static final int[] dr = {-1, -1, -1, 0, 1, 1, 1, 0};
-    static final int[] dc = {-1, 0, 1, 1, 1, 0, -1, -1};
+    static int[] dr = {-1, -1, -1, 0, 1, 1, 1, 0};
+    static int[] dc = {-1, 0, 1, 1, 1, 0, -1, -1};
+    static int h, w;
+    static int[][] grid;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -15,26 +17,24 @@ public class Main {
 
         while (true) {
             st = new StringTokenizer(br.readLine());
-            int w = Integer.parseInt(st.nextToken());
-            int h = Integer.parseInt(st.nextToken());
+            w = Integer.parseInt(st.nextToken());
+            h = Integer.parseInt(st.nextToken());
 
             if (w == 0 || h == 0) break;
 
-            int[][] map = new int[h][w];
+            grid = new int[h][w];
             for (int i = 0; i < h; i++) {
                 st = new StringTokenizer(br.readLine());
-
                 for (int j = 0; j < w; j++) {
-                    map[i][j] = Integer.parseInt(st.nextToken());
+                    grid[i][j] = Integer.parseInt(st.nextToken());
                 }
             }
 
             int cnt = 0;
-
             for (int i = 0; i < h; i++) {
                 for (int j = 0; j < w; j++) {
-                    if (map[i][j] == 1) {
-                        bfs(i, j, h, w, map);
+                    if (grid[i][j] == 1) {
+                        bfs(i, j);
                         cnt++;
                     }
                 }
@@ -46,11 +46,11 @@ public class Main {
         System.out.println(sb);
     }
 
-    static void bfs(int sr, int sc, int h, int w, int[][] map) {
+    static void bfs(int sr, int sc) {
         Queue<int[]> q = new ArrayDeque<>();
         q.offer(new int[]{sr, sc});
 
-        map[sr][sc] = 0;
+        grid[sr][sc] = 0;
 
         while (!q.isEmpty()) {
             int[] node = q.poll();
@@ -60,10 +60,10 @@ public class Main {
                 int nc = node[1] + dc[d];
 
                 if (nr < 0 || nr >= h || nc < 0 || nc >= w) continue;
-                if (map[nr][nc] == 0) continue;
+                if (grid[nr][nc] == 0) continue;
 
-                q.add(new int[]{nr, nc});
-                map[nr][nc] = 0;
+                q.offer(new int[]{nr, nc});
+                grid[nr][nc] = 0;
             }
         }
     }

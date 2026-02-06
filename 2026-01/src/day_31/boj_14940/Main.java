@@ -5,37 +5,38 @@ import java.util.*;
 
 public class Main {
 
-    static final int[] dr = {-1, 0, 1, 0};
-    static final int[] dc = {0, 1, 0, -1};
+    static int[] dr = {-1, 0, 1, 0};
+    static int[] dc = {0, 1, 0, -1};
+    static int n, m;
+    static int[][] grid;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int n = Integer.parseInt(st.nextToken());
-        int m = Integer.parseInt(st.nextToken());
+        n = Integer.parseInt(st.nextToken());
+        m = Integer.parseInt(st.nextToken());
 
-        int[][] map = new int[n][m];
+        grid = new int[n][m];
         int sr = -1;
         int sc = -1;
 
         for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
-
             for (int j = 0; j < m; j++) {
-                map[i][j] = Integer.parseInt(st.nextToken());
-                if (map[i][j] == 2) {
+                grid[i][j] = Integer.parseInt(st.nextToken());
+                if (grid[i][j] == 2) {
                     sr = i;
                     sc = j;
                 }
             }
         }
 
-        int[][] result = bfs(sr, sc, n, m, map);
+        int[][] dist = bfs(sr, sc);
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                sb.append(result[i][j]).append(" ");
+                sb.append(dist[i][j]).append(" ");
             }
             sb.append("\n");
         }
@@ -43,7 +44,7 @@ public class Main {
         System.out.println(sb);
     }
 
-    static int[][] bfs(int sr, int sc, int n, int m, int[][] map) {
+    static int[][] bfs(int sr, int sc) {
         Queue<int[]> q = new ArrayDeque<>();
         q.offer(new int[]{sr, sc});
 
@@ -53,7 +54,7 @@ public class Main {
         int[][] dist = new int[n][m];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                dist[i][j] = -map[i][j];
+                dist[i][j] = -grid[i][j];
             }
         }
         dist[sr][sc] = 0;
@@ -69,7 +70,7 @@ public class Main {
                     int nc = node[1] + dc[d];
 
                     if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
-                    if (map[nr][nc] == 0 || visited[nr][nc]) continue;
+                    if (grid[nr][nc] == 0 || visited[nr][nc]) continue;
 
                     q.offer(new int[]{nr, nc});
                     visited[nr][nc] = true;

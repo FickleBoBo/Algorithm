@@ -3,7 +3,6 @@ using namespace std;
 
 int dr[8] = {-1, -1, -1, 0, 1, 1, 1, 0};
 int dc[8] = {-1, 0, 1, 1, 1, 0, -1, -1};
-
 int h, w;
 int grid[50][50];
 
@@ -37,7 +36,6 @@ int main() {
         }
 
         int cnt = 0;
-
         for (int i = 0; i < h; i++) {
             for (int j = 0; j < w; j++) {
                 if (grid[i][j] == 1) {

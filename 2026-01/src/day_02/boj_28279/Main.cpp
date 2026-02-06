@@ -39,11 +39,7 @@ int main() {
         } else if (command == 5) {
             cout << back - front << '\n';
         } else if (command == 6) {
-            if (front == back) {
-                cout << 1 << '\n';
-            } else {
-                cout << 0 << '\n';
-            }
+            cout << (front == back) << '\n';
         } else if (command == 7) {
             if (front == back) {
                 cout << -1 << '\n';

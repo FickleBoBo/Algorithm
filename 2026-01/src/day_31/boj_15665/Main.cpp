@@ -2,8 +2,8 @@
 using namespace std;
 
 int n, m;
-int arr[8];
-int sel[8];
+int arr[7];
+int sel[7];
 
 void dfs(int selIdx) {
     if (selIdx == m) {

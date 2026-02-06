@@ -3,7 +3,6 @@ using namespace std;
 
 int dr[4] = {-1, 0, 1, 0};
 int dc[4] = {0, 1, 0, -1};
-
 int n, m;
 bool grid[50][50];
 
@@ -37,15 +36,15 @@ int main() {
     int t;
     cin >> t;
 
-    for (int tc = 1; tc <= t; tc++) {
+    while (t--) {
         int k;
         cin >> m >> n >> k;
 
         memset(grid, 0, sizeof(grid));
         for (int i = 0; i < k; i++) {
-            int x, y;
-            cin >> x >> y;
-            grid[y][x] = true;
+            int c, r;
+            cin >> c >> r;
+            grid[r][c] = true;
         }
 
         int cnt = 0;

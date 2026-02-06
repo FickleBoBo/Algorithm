@@ -5,7 +5,7 @@ int bfs(int f, int s, int g, int u, int d) {
     queue<int> q;
     q.push(s);
 
-    vector<bool> visited(1 + f);
+    vector<char> visited(1 + f, false);
     visited[s] = true;
 
     int dist = 0;
@@ -45,10 +45,10 @@ int main() {
     int f, s, g, u, d;
     cin >> f >> s >> g >> u >> d;
 
-    int res = bfs(f, s, g, u, d);
-    if (res == -1) {
+    int dist = bfs(f, s, g, u, d);
+    if (dist == -1) {
         cout << "use the stairs";
     } else {
-        cout << res;
+        cout << dist;
     }
 }

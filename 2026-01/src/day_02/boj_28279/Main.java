@@ -13,8 +13,8 @@ public class Main {
         int front = 1000000;
         int back = 1000000;
 
-        int N = Integer.parseInt(br.readLine());
-        for (int i = 0; i < N; i++) {
+        int n = Integer.parseInt(br.readLine());
+        for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
             int command = Integer.parseInt(st.nextToken());
 
