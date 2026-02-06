@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-double PI = 3.141592;
+constexpr double PI = 3.141592;
 
 int main() {
     ios::sync_with_stdio(false);
