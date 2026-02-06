@@ -7,9 +7,9 @@ public class Main2 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        int N = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
 
-        bw.write("long ".repeat(N / 4) + "int");
+        bw.write("long ".repeat(n / 4) + "int");
         bw.flush();
     }
 }

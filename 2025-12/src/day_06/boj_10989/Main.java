@@ -4,21 +4,21 @@ import java.io.*;
 
 public class Main {
 
-    static final int MAX = 10_000;
+    static final int MAX = 10000;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
 
-        int N = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
 
-        int[] cntArr = new int[1 + MAX];
-        for (int i = 0; i < N; i++) {
-            cntArr[Integer.parseInt(br.readLine())]++;
+        int[] cnt = new int[1 + MAX];
+        for (int i = 0; i < n; i++) {
+            cnt[Integer.parseInt(br.readLine())]++;
         }
 
         for (int i = 1; i <= MAX; i++) {
-            for (int j = 1; j <= cntArr[i]; j++) {
+            for (int j = 1; j <= cnt[i]; j++) {
                 sb.append(i).append("\n");
             }
         }

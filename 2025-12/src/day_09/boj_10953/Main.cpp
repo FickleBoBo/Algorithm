@@ -8,7 +8,7 @@ int main() {
     int t;
     scanf("%d", &t);
 
-    for (int tc = 1; tc <= t; tc++) {
+    while (t--) {
         int a, b;
         scanf("%d,%d", &a, &b);
         cout << a + b << '\n';
