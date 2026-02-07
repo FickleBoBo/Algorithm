@@ -4,8 +4,8 @@ using namespace std;
 int dr[4] = {-1, 0, 1, 0};
 int dc[4] = {0, 1, 0, -1};
 int n, m;
-char grid[100][100];
-bool visited[100][100];
+char grid[101][101];
+bool visited[101][101];
 
 int bfs(int n, int m) {
     queue<pair<int, int>> q;
@@ -49,12 +49,7 @@ int main() {
     cin >> n >> m;
 
     for (int i = 0; i < n; i++) {
-        string s;
-        cin >> s;
-
-        for (int j = 0; j < m; j++) {
-            grid[i][j] = s[j];
-        }
+        cin >> grid[i];
     }
 
     cout << bfs(n, m);

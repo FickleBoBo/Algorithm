@@ -9,8 +9,8 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        int T = Integer.parseInt(br.readLine());
-        for (int tc = 1; tc <= T; tc++) {
+        int t = Integer.parseInt(br.readLine());
+        while (t-- > 0) {
             int sum = 0;
             int min = 100;
 

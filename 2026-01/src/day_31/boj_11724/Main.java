@@ -4,39 +4,42 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
+
+    static List<Integer>[] adj;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
 
-        List<List<Integer>> adj = new ArrayList<>();
-        for (int i = 0; i <= N; i++) {
-            adj.add(new ArrayList<>());
+        adj = new ArrayList[1 + n];
+        for (int i = 1; i <= n; i++) {
+            adj[i] = new ArrayList<>();
         }
 
-        for (int i = 0; i < M; i++) {
+        for (int i = 0; i < m; i++) {
             st = new StringTokenizer(br.readLine());
             int u = Integer.parseInt(st.nextToken());
             int v = Integer.parseInt(st.nextToken());
-            adj.get(u).add(v);
-            adj.get(v).add(u);
+            adj[u].add(v);
+            adj[v].add(u);
         }
 
-        boolean[] visited = new boolean[1 + N];
+        boolean[] visited = new boolean[1 + n];
         int cnt = 0;
-        for (int node = 1; node <= N; node++) {
+        for (int node = 1; node <= n; node++) {
             if (visited[node]) continue;
 
-            bfs(node, visited, adj);
+            bfs(node, visited);
             cnt++;
         }
 
         System.out.println(cnt);
     }
 
-    static void bfs(int start, boolean[] visited, List<List<Integer>> adj) {
+    static void bfs(int start, boolean[] visited) {
         Queue<Integer> q = new ArrayDeque<>();
         q.offer(start);
 
@@ -45,7 +48,7 @@ public class Main {
         while (!q.isEmpty()) {
             int node = q.poll();
 
-            for (int next : adj.get(node)) {
+            for (int next : adj[node]) {
                 if (visited[next]) continue;
 
                 q.offer(next);

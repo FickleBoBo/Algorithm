@@ -5,34 +5,35 @@ import java.util.*;
 
 public class Main {
 
-    static final int[] dh = {0, 0, 0, 0, -1, 1};
-    static final int[] dr = {-1, 0, 1, 0, 0, 0};
-    static final int[] dc = {0, 1, 0, -1, 0, 0};
+    static int[] dz = {0, 0, 0, 0, -1, 1};
+    static int[] dr = {-1, 0, 1, 0, 0, 0};
+    static int[] dc = {0, 1, 0, -1, 0, 0};
+    static int h, n, m;
+    static int[][][] grid;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int M = Integer.parseInt(st.nextToken());
-        int N = Integer.parseInt(st.nextToken());
-        int H = Integer.parseInt(st.nextToken());
+        m = Integer.parseInt(st.nextToken());
+        n = Integer.parseInt(st.nextToken());
+        h = Integer.parseInt(st.nextToken());
 
-        int[][][] map = new int[H][N][M];
+        grid = new int[h][n][m];
         Queue<int[]> q = new ArrayDeque<>();
-        boolean[][][] visited = new boolean[H][N][M];
+        boolean[][][] visited = new boolean[h][n][m];
         int cnt = 0;
 
-        for (int i = 0; i < H; i++) {
-            for (int j = 0; j < N; j++) {
+        for (int i = 0; i < h; i++) {
+            for (int j = 0; j < n; j++) {
                 st = new StringTokenizer(br.readLine());
+                for (int k = 0; k < m; k++) {
+                    grid[i][j][k] = Integer.parseInt(st.nextToken());
 
-                for (int k = 0; k < M; k++) {
-                    map[i][j][k] = Integer.parseInt(st.nextToken());
-
-                    if (map[i][j][k] == 1) {
+                    if (grid[i][j][k] == 1) {
                         q.offer(new int[]{i, j, k});
                         visited[i][j][k] = true;
-                    } else if (map[i][j][k] == 0) {
+                    } else if (grid[i][j][k] == 0) {
                         cnt++;
                     }
                 }
@@ -42,12 +43,11 @@ public class Main {
         if (cnt == 0) {
             System.out.println(cnt);
         } else {
-            int result = bfs(q, visited, cnt, H, N, M, map);
-            System.out.println(result);
+            System.out.println(bfs(q, visited, cnt));
         }
     }
 
-    static int bfs(Queue<int[]> q, boolean[][][] visited, int cnt, int H, int N, int M, int[][][] map) {
+    static int bfs(Queue<int[]> q, boolean[][][] visited, int cnt) {
         int dist = 0;
 
         while (!q.isEmpty()) {
@@ -57,15 +57,15 @@ public class Main {
                 int[] node = q.poll();
 
                 for (int d = 0; d < 6; d++) {
-                    int nh = node[0] + dh[d];
+                    int nz = node[0] + dz[d];
                     int nr = node[1] + dr[d];
                     int nc = node[2] + dc[d];
 
-                    if (nh < 0 || nh >= H || nr < 0 || nr >= N || nc < 0 || nc >= M) continue;
-                    if (map[nh][nr][nc] != 0 || visited[nh][nr][nc]) continue;
+                    if (nz < 0 || nz >= h || nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
+                    if (grid[nz][nr][nc] != 0 || visited[nz][nr][nc]) continue;
 
-                    q.offer(new int[]{nh, nr, nc});
-                    visited[nh][nr][nc] = true;
+                    q.offer(new int[]{nz, nr, nc});
+                    visited[nz][nr][nc] = true;
                     cnt--;
                 }
             }

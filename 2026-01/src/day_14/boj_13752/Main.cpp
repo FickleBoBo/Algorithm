@@ -11,10 +11,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         int k;
         cin >> k;
-
-        for (int j = 0; j < k; j++) {
-            cout << '=';
-        }
-        cout << '\n';
+        cout << string(k, '=') << '\n';
     }
 }

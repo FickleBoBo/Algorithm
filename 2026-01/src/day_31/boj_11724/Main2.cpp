@@ -1,16 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int n, m;
-vector<vector<int>> adj(1 + 1000);
-bool visited[1 + 1000];
+vector<int> adj[1001];
+bool visited[1001];
 
 void dfs(int node) {
     visited[node] = true;
 
     for (int next : adj[node]) {
         if (visited[next]) continue;
-
         dfs(next);
     }
 }
@@ -19,6 +17,7 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
+    int n, m;
     cin >> n >> m;
 
     for (int i = 0; i < m; i++) {

@@ -9,14 +9,14 @@ int main() {
     cin >> a >> b >> c;
 
     int res = a * b * c;
-    int cntArr[10] = {};
+    vector<int> cnt(10);
 
     while (res > 0) {
-        cntArr[res % 10]++;
+        cnt[res % 10]++;
         res /= 10;
     }
 
-    for (int cnt : cntArr) {
-        cout << cnt << '\n';
+    for (int x : cnt) {
+        cout << x << '\n';
     }
 }

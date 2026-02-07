@@ -2,19 +2,19 @@
 using namespace std;
 
 int n;
-bool adj[1 + 100][1 + 100];
-bool visited[1 + 100];
-int cnt = 0;
+bool adj[101][101];
+bool visited[101];
 
-void dfs(int node) {
+int dfs(int node) {
     visited[node] = true;
-    cnt++;
+    int cnt = 1;
 
     for (int next = 1; next <= n; next++) {
-        if (adj[node][next] && !visited[next]) {
-            dfs(next);
-        }
+        if (!adj[node][next] || visited[next]) continue;
+        cnt += dfs(next);
     }
+
+    return cnt;
 }
 
 int main() {
@@ -25,11 +25,10 @@ int main() {
     cin >> n >> m;
 
     for (int i = 0; i < m; i++) {
-        int x, y;
-        cin >> x >> y;
-        adj[x][y] = adj[y][x] = true;
+        int u, v;
+        cin >> u >> v;
+        adj[u][v] = adj[v][u] = true;
     }
 
-    dfs(1);
-    cout << cnt - 1 << '\n';
+    cout << dfs(1) - 1;
 }

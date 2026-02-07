@@ -5,7 +5,7 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int cntArr[5] = {};
+    vector<int> cnt(5);
 
     int n;
     cin >> n;
@@ -15,28 +15,28 @@ int main() {
         cin >> x >> y;
 
         if (x == 0 || y == 0) {
-            cntArr[0]++;
+            cnt[0]++;
             continue;
         }
 
         if (x > 0) {
             if (y > 0) {
-                cntArr[1]++;
+                cnt[1]++;
             } else {
-                cntArr[4]++;
+                cnt[4]++;
             }
         } else {
             if (y > 0) {
-                cntArr[2]++;
+                cnt[2]++;
             } else {
-                cntArr[3]++;
+                cnt[3]++;
             }
         }
     }
 
-    cout << "Q1: " << cntArr[1] << '\n';
-    cout << "Q2: " << cntArr[2] << '\n';
-    cout << "Q3: " << cntArr[3] << '\n';
-    cout << "Q4: " << cntArr[4] << '\n';
-    cout << "AXIS: " << cntArr[0] << '\n';
+    cout << "Q1: " << cnt[1] << '\n';
+    cout << "Q2: " << cnt[2] << '\n';
+    cout << "Q3: " << cnt[3] << '\n';
+    cout << "Q4: " << cnt[4] << '\n';
+    cout << "AXIS: " << cnt[0] << '\n';
 }

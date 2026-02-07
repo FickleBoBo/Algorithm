@@ -4,7 +4,7 @@ using namespace std;
 int dr[4] = {-1, 0, 1, 0};
 int dc[4] = {0, 1, 0, -1};
 int n;
-char grid[25][25];
+char grid[26][26];
 
 int bfs(int sr, int sc) {
     queue<pair<int, int>> q;
@@ -41,12 +41,7 @@ int main() {
     cin >> n;
 
     for (int i = 0; i < n; i++) {
-        string s;
-        cin >> s;
-
-        for (int j = 0; j < n; j++) {
-            grid[i][j] = s[j];
-        }
+        cin >> grid[i];
     }
 
     int cnt = 0;

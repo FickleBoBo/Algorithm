@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int N = sc.nextInt();
-        System.out.println(N - 1946);
+        int n = sc.nextInt();
+        System.out.println(n - 1946);
     }
 }

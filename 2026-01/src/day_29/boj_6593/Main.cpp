@@ -1,22 +1,22 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int dh[6] = {0, 0, 0, 0, -1, 1};
+int dz[6] = {0, 0, 0, 0, -1, 1};
 int dr[6] = {-1, 0, 1, 0, 0, 0};
 int dc[6] = {0, 1, 0, -1, 0, 0};
-
-char building[30][30][30];
+int h, n, m;
+char grid[30][30][30];
 bool visited[30][30][30];
 
 struct Node {
-    int h, r, c;
+    int z, r, c;
 };
 
-int bfs(const Node& s, const Node& e, int L, int R, int C) {
+int bfs(Node& s, Node& e) {
     queue<Node> q;
     q.push(s);
 
-    visited[s.h][s.r][s.c] = true;
+    visited[s.z][s.r][s.c] = true;
 
     int dist = 0;
 
@@ -24,21 +24,21 @@ int bfs(const Node& s, const Node& e, int L, int R, int C) {
         int sz = q.size();
 
         while (sz--) {
-            auto [h, r, c] = q.front();
+            auto [z, r, c] = q.front();
             q.pop();
 
-            if (h == e.h && r == e.r && c == e.c) return dist;
+            if (z == e.z && r == e.r && c == e.c) return dist;
 
             for (int d = 0; d < 6; d++) {
-                int nh = h + dh[d];
+                int nz = z + dz[d];
                 int nr = r + dr[d];
                 int nc = c + dc[d];
 
-                if (nh < 0 || nh >= L || nr < 0 || nr >= R || nc < 0 || nc >= C) continue;
-                if (building[nh][nr][nc] == '#' || visited[nh][nr][nc]) continue;
+                if (nz < 0 || nz >= h || nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
+                if (grid[nz][nr][nc] == '#' || visited[nz][nr][nc]) continue;
 
-                q.push({nh, nr, nc});
-                visited[nh][nr][nc] = true;
+                q.push({nz, nr, nc});
+                visited[nz][nr][nc] = true;
             }
         }
 
@@ -53,32 +53,31 @@ int main() {
     cin.tie(nullptr);
 
     while (true) {
-        int l, r, c;
-        cin >> l >> r >> c;
+        cin >> h >> n >> m;
 
-        if (l == 0 && r == 0 && c == 0) break;
+        if (h == 0 && n == 0 && m == 0) break;
 
-        memset(building, 0, sizeof(building));
         memset(visited, 0, sizeof(visited));
+
         Node s, e;
-        for (int i = 0; i < l; i++) {
-            for (int j = 0; j < r; j++) {
+        for (int i = 0; i < h; i++) {
+            for (int j = 0; j < n; j++) {
                 string input;
                 cin >> input;
 
-                for (int k = 0; k < c; k++) {
-                    building[i][j][k] = input[k];
+                for (int k = 0; k < m; k++) {
+                    grid[i][j][k] = input[k];
 
-                    if (building[i][j][k] == 'S') {
+                    if (grid[i][j][k] == 'S') {
                         s = {i, j, k};
-                    } else if (building[i][j][k] == 'E') {
+                    } else if (grid[i][j][k] == 'E') {
                         e = {i, j, k};
                     }
                 }
             }
         }
 
-        int dist = bfs(s, e, l, r, c);
+        int dist = bfs(s, e);
         if (dist == -1) {
             cout << "Trapped!\n";
         } else {

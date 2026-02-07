@@ -5,32 +5,32 @@ import java.util.*;
 
 public class Main2 {
 
-    static List<List<Integer>> adj;
+    static List<Integer>[] adj;
     static boolean[] visited;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
 
-        adj = new ArrayList<>();
-        for (int i = 0; i <= N; i++) {
-            adj.add(new ArrayList<>());
+        adj = new ArrayList[1 + n];
+        for (int i = 1; i <= n; i++) {
+            adj[i] = new ArrayList<>();
         }
 
-        for (int i = 0; i < M; i++) {
+        for (int i = 0; i < m; i++) {
             st = new StringTokenizer(br.readLine());
             int u = Integer.parseInt(st.nextToken());
             int v = Integer.parseInt(st.nextToken());
-            adj.get(u).add(v);
-            adj.get(v).add(u);
+            adj[u].add(v);
+            adj[v].add(u);
         }
 
-        visited = new boolean[1 + N];
+        visited = new boolean[1 + n];
         int cnt = 0;
-        for (int node = 1; node <= N; node++) {
+        for (int node = 1; node <= n; node++) {
             if (visited[node]) continue;
 
             dfs(node);
@@ -43,9 +43,8 @@ public class Main2 {
     static void dfs(int node) {
         visited[node] = true;
 
-        for (int next : adj.get(node)) {
+        for (int next : adj[node]) {
             if (visited[next]) continue;
-
             dfs(next);
         }
     }

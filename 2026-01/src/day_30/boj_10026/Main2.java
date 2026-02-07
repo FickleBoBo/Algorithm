@@ -4,63 +4,60 @@ import java.io.*;
 
 public class Main2 {
 
-    static final int[] dr = {-1, 0, 1, 0};
-    static final int[] dc = {0, 1, 0, -1};
-
-    static int N;
-    static char[][] map;
+    static int[] dr = {-1, 0, 1, 0};
+    static int[] dc = {0, 1, 0, -1};
+    static int n;
+    static char[][] grid;
     static boolean[][] visited;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
 
-        N = Integer.parseInt(br.readLine());
+        n = Integer.parseInt(br.readLine());
 
-        map = new char[N][N];
-        for (int i = 0; i < N; i++) {
-            map[i] = br.readLine().toCharArray();
+        grid = new char[n][n];
+        for (int i = 0; i < n; i++) {
+            grid[i] = br.readLine().toCharArray();
         }
 
+        boolean isBlind = false;
         for (int tc = 1; tc <= 2; tc++) {
-            visited = new boolean[N][N];
+            visited = new boolean[n][n];
             int cnt = 0;
 
-            for (int i = 0; i < N; i++) {
-                for (int j = 0; j < N; j++) {
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
                     if (visited[i][j]) continue;
 
-                    dfs(i, j);
+                    dfs(i, j, isBlind);
                     cnt++;
                 }
             }
             sb.append(cnt).append(" ");
-
-            shift(N, map);
+            isBlind = !isBlind;
         }
 
         System.out.println(sb);
     }
 
-    static void dfs(int r, int c) {
+    static void dfs(int r, int c, boolean isBlind) {
         visited[r][c] = true;
 
         for (int d = 0; d < 4; d++) {
             int nr = r + dr[d];
             int nc = c + dc[d];
 
-            if (nr < 0 || nr >= N || nc < 0 || nc >= N) continue;
-            if (map[nr][nc] != map[r][c] || visited[nr][nc]) continue;
+            if (nr < 0 || nr >= n || nc < 0 || nc >= n) continue;
+            if (!isSame(grid[r][c], grid[nr][nc], isBlind) || visited[nr][nc]) continue;
 
-            dfs(nr, nc);
+            dfs(nr, nc, isBlind);
         }
     }
 
-    static void shift(int N, char[][] map) {
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                if (map[i][j] == 'R') map[i][j] = 'G';
-            }
-        }
+    static boolean isSame(char c1, char c2, boolean isBlind) {
+        if (!isBlind) return c1 == c2;
+        if (c1 == 'B' || c2 == 'B') return c1 == c2;
+        return true;
     }
 }

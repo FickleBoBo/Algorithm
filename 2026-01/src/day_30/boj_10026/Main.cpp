@@ -3,12 +3,17 @@ using namespace std;
 
 int dr[4] = {-1, 0, 1, 0};
 int dc[4] = {0, 1, 0, -1};
-
 int n;
-char grid[100][100];
-bool visited[100][100];
+char grid[101][101];
+bool visited[101][101];
 
-void bfs(int sr, int sc) {
+bool isSame(char c1, char c2, bool isBlind) {
+    if (!isBlind) return c1 == c2;
+    if (c1 == 'B' || c2 == 'B') return c1 == c2;
+    return true;
+}
+
+void bfs(int sr, int sc, bool isBlind) {
     queue<pair<int, int>> q;
     q.push({sr, sc});
 
@@ -23,18 +28,10 @@ void bfs(int sr, int sc) {
             int nc = c + dc[d];
 
             if (nr < 0 || nr >= n || nc < 0 || nc >= n) continue;
-            if (grid[nr][nc] != grid[sr][sc] || visited[nr][nc]) continue;
+            if (!isSame(grid[sr][sc], grid[nr][nc], isBlind) || visited[nr][nc]) continue;
 
             q.push({nr, nc});
             visited[nr][nc] = true;
-        }
-    }
-}
-
-void shift() {
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (grid[i][j] == 'R') grid[i][j] = 'G';
         }
     }
 }
@@ -46,14 +43,10 @@ int main() {
     cin >> n;
 
     for (int i = 0; i < n; i++) {
-        string s;
-        cin >> s;
-
-        for (int j = 0; j < n; j++) {
-            grid[i][j] = s[j];
-        }
+        cin >> grid[i];
     }
 
+    bool isBlind = false;
     for (int tc = 1; tc <= 2; tc++) {
         memset(visited, 0, sizeof(visited));
         int cnt = 0;
@@ -62,13 +55,11 @@ int main() {
             for (int j = 0; j < n; j++) {
                 if (visited[i][j]) continue;
 
-                bfs(i, j);
+                bfs(i, j, isBlind);
                 cnt++;
             }
         }
-
         cout << cnt << ' ';
-
-        shift();
+        isBlind = !isBlind;
     }
 }

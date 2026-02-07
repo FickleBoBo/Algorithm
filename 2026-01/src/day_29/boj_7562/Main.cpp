@@ -3,14 +3,13 @@ using namespace std;
 
 int dr[8] = {-2, -2, -1, 1, 2, 2, 1, -1};
 int dc[8] = {-1, 1, 2, 2, 1, -1, -2, -2};
-
+int n;
 bool visited[300][300];
 
-int bfs(int sr, int sc, int er, int ec, int len) {
+int bfs(int sr, int sc, int er, int ec) {
     queue<pair<int, int>> q;
     q.push({sr, sc});
 
-    memset(visited, 0, sizeof(visited));
     visited[sr][sc] = true;
 
     int dist = 0;
@@ -28,7 +27,7 @@ int bfs(int sr, int sc, int er, int ec, int len) {
                 int nr = r + dr[d];
                 int nc = c + dc[d];
 
-                if (nr < 0 || nr >= len || nc < 0 || nc >= len) continue;
+                if (nr < 0 || nr >= n || nc < 0 || nc >= n) continue;
                 if (visited[nr][nc]) continue;
 
                 q.push({nr, nc});
@@ -49,11 +48,12 @@ int main() {
     int t;
     cin >> t;
 
-    for (int tc = 1; tc <= t; tc++) {
-        int len, sr, sc, er, ec;
-        cin >> len >> sr >> sc >> er >> ec;
+    while (t--) {
+        int sr, sc, er, ec;
+        cin >> n >> sr >> sc >> er >> ec;
 
-        int dist = bfs(sr, sc, er, ec, len);
-        cout << dist << '\n';
+        memset(visited, 0, sizeof(visited));
+
+        cout << bfs(sr, sc, er, ec) << '\n';
     }
 }
