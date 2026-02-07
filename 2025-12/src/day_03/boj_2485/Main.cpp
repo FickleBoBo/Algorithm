@@ -11,8 +11,8 @@ int main() {
     vector<int> v(n);
     for (int& x : v) cin >> x;
 
-    int g = gcd(v[1] - v[0], v[2] - v[1]);
-    for (int i = 3; i < n; i++) {
+    int g = v[1] - v[0];
+    for (int i = 2; i < n; i++) {
         g = gcd(g, v[i] - v[i - 1]);
     }
 

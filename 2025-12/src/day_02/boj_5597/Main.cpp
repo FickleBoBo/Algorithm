@@ -1,11 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+bool visited[31];
+
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    bool visited[1 + 30] = {};
     for (int i = 0; i < 28; i++) {
         int n;
         cin >> n;
