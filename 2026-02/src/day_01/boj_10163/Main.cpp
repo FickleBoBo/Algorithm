@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int MAXN = 1001;
-int grid[1001][1001];
-int cntArr[1001];
+constexpr int MAX = 1001;
+int grid[MAX][MAX];
+int cnt[MAX];
 
 int main() {
     ios::sync_with_stdio(false);
@@ -23,13 +23,13 @@ int main() {
         }
     }
 
-    for (int i = 0; i < MAXN; i++) {
-        for (int j = 0; j < MAXN; j++) {
-            cntArr[grid[i][j]]++;
+    for (int i = 0; i < MAX; i++) {
+        for (int j = 0; j < MAX; j++) {
+            cnt[grid[i][j]]++;
         }
     }
 
     for (int i = 1; i <= n; i++) {
-        cout << cntArr[i] << '\n';
+        cout << cnt[i] << '\n';
     }
 }

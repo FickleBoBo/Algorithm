@@ -9,32 +9,32 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        int[][] map = new int[1001][1001];
+        int[][] grid = new int[1001][1001];
 
-        int N = Integer.parseInt(br.readLine());
-        for (int i = 1; i <= N; i++) {
+        int n = Integer.parseInt(br.readLine());
+        for (int i = 1; i <= n; i++) {
             st = new StringTokenizer(br.readLine());
             int sr = Integer.parseInt(st.nextToken());
             int sc = Integer.parseInt(st.nextToken());
-            int rLen = Integer.parseInt(st.nextToken());
-            int cLen = Integer.parseInt(st.nextToken());
+            int rlen = Integer.parseInt(st.nextToken());
+            int clen = Integer.parseInt(st.nextToken());
 
-            for (int r = sr; r < sr + rLen; r++) {
-                for (int c = sc; c < sc + cLen; c++) {
-                    map[r][c] = i;
+            for (int r = sr; r < sr + rlen; r++) {
+                for (int c = sc; c < sc + clen; c++) {
+                    grid[r][c] = i;
                 }
             }
         }
 
-        int[] cntArr = new int[1 + N];
+        int[] cnt = new int[1 + n];
         for (int i = 0; i <= 1000; i++) {
             for (int j = 0; j <= 1000; j++) {
-                cntArr[map[i][j]]++;
+                cnt[grid[i][j]]++;
             }
         }
 
-        for (int i = 1; i <= N; i++) {
-            sb.append(cntArr[i]).append("\n");
+        for (int i = 1; i <= n; i++) {
+            sb.append(cnt[i]).append("\n");
         }
 
         System.out.print(sb);
