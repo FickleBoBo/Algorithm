@@ -9,22 +9,22 @@ public class Main {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st;
 
-        int T = Integer.parseInt(br.readLine());
-        for (int tc = 1; tc <= T; tc++) {
-            int sumY = 0;
-            int sumK = 0;
+        int t = Integer.parseInt(br.readLine());
+        while (t-- > 0) {
+            int ysum = 0;
+            int ksum = 0;
 
             for (int i = 0; i < 9; i++) {
                 st = new StringTokenizer(br.readLine());
                 int y = Integer.parseInt(st.nextToken());
                 int k = Integer.parseInt(st.nextToken());
-                sumY += y;
-                sumK += k;
+                ysum += y;
+                ksum += k;
             }
 
-            if (sumY > sumK) {
+            if (ysum > ksum) {
                 bw.write("Yonsei\n");
-            } else if (sumY < sumK) {
+            } else if (ysum < ksum) {
                 bw.write("Korea\n");
             } else {
                 bw.write("Draw\n");

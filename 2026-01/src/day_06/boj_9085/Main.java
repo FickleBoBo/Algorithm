@@ -9,13 +9,13 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        int T = Integer.parseInt(br.readLine());
-        for (int tc = 1; tc <= T; tc++) {
-            int N = Integer.parseInt(br.readLine());
+        int t = Integer.parseInt(br.readLine());
+        while (t-- > 0) {
+            int n = Integer.parseInt(br.readLine());
 
             int sum = 0;
             st = new StringTokenizer(br.readLine());
-            for (int i = 0; i < N; i++) {
+            for (int i = 0; i < n; i++) {
                 sum += Integer.parseInt(st.nextToken());
             }
 

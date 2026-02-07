@@ -40,7 +40,6 @@ int main() {
         int k;
         cin >> m >> n >> k;
 
-        memset(grid, 0, sizeof(grid));
         for (int i = 0; i < k; i++) {
             int c, r;
             cin >> c >> r;

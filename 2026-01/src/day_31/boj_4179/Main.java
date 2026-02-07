@@ -5,35 +5,36 @@ import java.util.*;
 
 public class Main {
 
-    static final int[] dr = {-1, 0, 1, 0};
-    static final int[] dc = {0, 1, 0, -1};
+    static int[] dr = {-1, 0, 1, 0};
+    static int[] dc = {0, 1, 0, -1};
+    static int h, w;
+    static char[][] grid;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int R = Integer.parseInt(st.nextToken());
-        int C = Integer.parseInt(st.nextToken());
+        h = Integer.parseInt(st.nextToken());
+        w = Integer.parseInt(st.nextToken());
 
-        char[][] map = new char[R][C];
+        grid = new char[h][w];
         int sr = -1;
         int sc = -1;
         Queue<int[]> q = new ArrayDeque<>();
 
-        for (int i = 0; i < R; i++) {
-            map[i] = br.readLine().toCharArray();
-
-            for (int j = 0; j < C; j++) {
-                if (map[i][j] == 'J') {
+        for (int i = 0; i < h; i++) {
+            grid[i] = br.readLine().toCharArray();
+            for (int j = 0; j < w; j++) {
+                if (grid[i][j] == 'J') {
                     sr = i;
                     sc = j;
-                } else if (map[i][j] == 'F') {
+                } else if (grid[i][j] == 'F') {
                     q.offer(new int[]{i, j});
                 }
             }
         }
 
-        int result = bfs(sr, sc, q, R, C, map);
+        int result = bfs(sr, sc, q);
         if (result == -1) {
             System.out.println("IMPOSSIBLE");
         } else {
@@ -41,7 +42,7 @@ public class Main {
         }
     }
 
-    static int bfs(int sr, int sc, Queue<int[]> fire, int h, int w, char[][] map) {
+    static int bfs(int sr, int sc, Queue<int[]> fire) {
         Queue<int[]> q = new ArrayDeque<>();
         q.offer(new int[]{sr, sc});
 
@@ -61,10 +62,10 @@ public class Main {
                     int nc = node[1] + dc[d];
 
                     if (nr < 0 || nr >= h || nc < 0 || nc >= w) continue;
-                    if (map[nr][nc] == '#' || map[nr][nc] == 'F') continue;
+                    if (grid[nr][nc] == '#' || grid[nr][nc] == 'F') continue;
 
                     fire.offer(new int[]{nr, nc});
-                    map[nr][nc] = 'F';
+                    grid[nr][nc] = 'F';
                 }
             }
 
@@ -78,7 +79,7 @@ public class Main {
                     int nc = node[1] + dc[d];
 
                     if (nr < 0 || nr >= h || nc < 0 || nc >= w) continue;
-                    if (map[nr][nc] != '.' || visited[nr][nc]) continue;
+                    if (grid[nr][nc] != '.' || visited[nr][nc]) continue;
 
                     q.offer(new int[]{nr, nc});
                     visited[nr][nc] = true;

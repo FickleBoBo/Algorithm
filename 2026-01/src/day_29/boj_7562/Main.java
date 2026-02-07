@@ -5,17 +5,18 @@ import java.util.*;
 
 public class Main {
 
-    static final int[] dr = {-2, -2, -1, 1, 2, 2, 1, -1};
-    static final int[] dc = {-1, 1, 2, 2, 1, -1, -2, -2};
+    static int[] dr = {-2, -2, -1, 1, 2, 2, 1, -1};
+    static int[] dc = {-1, 1, 2, 2, 1, -1, -2, -2};
+    static int n;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        int T = Integer.parseInt(br.readLine());
-        for (int tc = 1; tc <= T; tc++) {
-            int len = Integer.parseInt(br.readLine());
+        int t = Integer.parseInt(br.readLine());
+        while (t-- > 0) {
+            n = Integer.parseInt(br.readLine());
 
             st = new StringTokenizer(br.readLine());
             int sr = Integer.parseInt(st.nextToken());
@@ -25,18 +26,17 @@ public class Main {
             int er = Integer.parseInt(st.nextToken());
             int ec = Integer.parseInt(st.nextToken());
 
-            int dist = bfs(sr, sc, er, ec, len);
-            sb.append(dist).append("\n");
+            sb.append(bfs(sr, sc, er, ec)).append("\n");
         }
 
         System.out.print(sb);
     }
 
-    static int bfs(int sr, int sc, int er, int ec, int len) {
+    static int bfs(int sr, int sc, int er, int ec) {
         Queue<int[]> q = new ArrayDeque<>();
         q.offer(new int[]{sr, sc});
 
-        boolean[][] visited = new boolean[len][len];
+        boolean[][] visited = new boolean[n][n];
         visited[sr][sc] = true;
 
         int dist = 0;
@@ -52,7 +52,7 @@ public class Main {
                     int nr = node[0] + dr[d];
                     int nc = node[1] + dc[d];
 
-                    if (nr < 0 || nr >= len || nc < 0 || nc >= len) continue;
+                    if (nr < 0 || nr >= n || nc < 0 || nc >= n) continue;
                     if (visited[nr][nc]) continue;
 
                     q.offer(new int[]{nr, nc});

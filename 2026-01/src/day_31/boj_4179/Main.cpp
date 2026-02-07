@@ -3,10 +3,9 @@ using namespace std;
 
 int dr[4] = {-1, 0, 1, 0};
 int dc[4] = {0, 1, 0, -1};
-
 int h, w;
-char grid[1000][1000];
-bool visited[1000][1000];
+char grid[1001][1001];
+bool visited[1001][1001];
 
 int bfs(int sr, int sc, queue<pair<int, int>>& fire) {
     queue<pair<int, int>> q;
@@ -70,12 +69,8 @@ int main() {
     queue<pair<int, int>> q;
 
     for (int i = 0; i < h; i++) {
-        string s;
-        cin >> s;
-
+        cin >> grid[i];
         for (int j = 0; j < w; j++) {
-            grid[i][j] = s[j];
-
             if (grid[i][j] == 'J') {
                 sr = i;
                 sc = j;

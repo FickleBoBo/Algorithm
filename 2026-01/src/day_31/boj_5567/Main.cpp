@@ -2,7 +2,7 @@
 using namespace std;
 
 int n;
-vector<vector<int>> adj(501);
+vector<int> adj[501];
 bool visited[501];
 
 int bfs() {

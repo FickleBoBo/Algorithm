@@ -26,7 +26,6 @@ public class Main {
             sel = new int[6];
 
             dfs(0, 0);
-
             sb.append("\n");
         }
 

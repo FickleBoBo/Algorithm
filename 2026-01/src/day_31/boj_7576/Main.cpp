@@ -3,7 +3,6 @@ using namespace std;
 
 int dr[4] = {-1, 0, 1, 0};
 int dc[4] = {0, 1, 0, -1};
-
 int n, m;
 int grid[1000][1000];
 bool visited[1000][1000];
@@ -63,7 +62,6 @@ int main() {
     if (cnt == 0) {
         cout << cnt;
     } else {
-        int res = bfs(cnt);
-        cout << res;
+        cout << bfs(cnt);
     }
 }

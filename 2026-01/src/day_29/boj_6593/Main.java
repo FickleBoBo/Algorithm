@@ -5,9 +5,11 @@ import java.util.*;
 
 public class Main {
 
-    static final int[] dh = {0, 0, 0, 0, -1, 1};
-    static final int[] dr = {-1, 0, 1, 0, 0, 0};
-    static final int[] dc = {0, 1, 0, -1, 0, 0};
+    static int[] dz = {0, 0, 0, 0, -1, 1};
+    static int[] dr = {-1, 0, 1, 0, 0, 0};
+    static int[] dc = {0, 1, 0, -1, 0, 0};
+    static int h, n, m;
+    static char[][][] grid;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -16,25 +18,23 @@ public class Main {
 
         while (true) {
             st = new StringTokenizer(br.readLine());
-            int L = Integer.parseInt(st.nextToken());
-            int R = Integer.parseInt(st.nextToken());
-            int C = Integer.parseInt(st.nextToken());
+            h = Integer.parseInt(st.nextToken());
+            n = Integer.parseInt(st.nextToken());
+            m = Integer.parseInt(st.nextToken());
 
-            if (L == 0 && R == 0 && C == 0) break;
+            if (h == 0 && n == 0 && m == 0) break;
 
-            char[][][] building = new char[L][R][C];
+            grid = new char[h][n][m];
             int[] start = new int[3];
             int[] end = new int[3];
-            for (int i = 0; i < L; i++) {
-                for (int j = 0; j < R; j++) {
-                    String input = br.readLine();
 
-                    for (int k = 0; k < C; k++) {
-                        building[i][j][k] = input.charAt(k);
-
-                        if (building[i][j][k] == 'S') {
+            for (int i = 0; i < h; i++) {
+                for (int j = 0; j < n; j++) {
+                    grid[i][j] = br.readLine().toCharArray();
+                    for (int k = 0; k < m; k++) {
+                        if (grid[i][j][k] == 'S') {
                             start = new int[]{i, j, k};
-                        } else if (building[i][j][k] == 'E') {
+                        } else if (grid[i][j][k] == 'E') {
                             end = new int[]{i, j, k};
                         }
                     }
@@ -42,7 +42,7 @@ public class Main {
                 br.readLine();
             }
 
-            int dist = bfs(start, end, L, R, C, building);
+            int dist = bfs(start, end);
             if (dist == -1) {
                 sb.append("Trapped!\n");
             } else {
@@ -53,11 +53,11 @@ public class Main {
         System.out.println(sb);
     }
 
-    static int bfs(int[] start, int[] end, int L, int R, int C, char[][][] building) {
+    static int bfs(int[] start, int[] end) {
         Queue<int[]> q = new ArrayDeque<>();
         q.offer(start);
 
-        boolean[][][] visited = new boolean[L][R][C];
+        boolean[][][] visited = new boolean[h][n][m];
         visited[start[0]][start[1]][start[2]] = true;
 
         int dist = 0;
@@ -70,15 +70,15 @@ public class Main {
                 if (node[0] == end[0] && node[1] == end[1] && node[2] == end[2]) return dist;
 
                 for (int d = 0; d < 6; d++) {
-                    int nh = node[0] + dh[d];
+                    int nz = node[0] + dz[d];
                     int nr = node[1] + dr[d];
                     int nc = node[2] + dc[d];
 
-                    if (nh < 0 || nh >= L || nr < 0 || nr >= R || nc < 0 || nc >= C) continue;
-                    if (building[nh][nr][nc] == '#' || visited[nh][nr][nc]) continue;
+                    if (nz < 0 || nz >= h || nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
+                    if (grid[nz][nr][nc] == '#' || visited[nz][nr][nc]) continue;
 
-                    q.offer(new int[]{nh, nr, nc});
-                    visited[nh][nr][nc] = true;
+                    q.offer(new int[]{nz, nr, nc});
+                    visited[nz][nr][nc] = true;
                 }
             }
 

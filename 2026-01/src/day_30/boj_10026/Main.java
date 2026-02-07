@@ -5,41 +5,43 @@ import java.util.*;
 
 public class Main {
 
-    static final int[] dr = {-1, 0, 1, 0};
-    static final int[] dc = {0, 1, 0, -1};
+    static int[] dr = {-1, 0, 1, 0};
+    static int[] dc = {0, 1, 0, -1};
+    static int n;
+    static char[][] grid;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
 
-        int N = Integer.parseInt(br.readLine());
+        n = Integer.parseInt(br.readLine());
 
-        char[][] map = new char[N][N];
-        for (int i = 0; i < N; i++) {
-            map[i] = br.readLine().toCharArray();
+        grid = new char[n][n];
+        for (int i = 0; i < n; i++) {
+            grid[i] = br.readLine().toCharArray();
         }
 
+        boolean isBlind = false;
         for (int tc = 1; tc <= 2; tc++) {
-            boolean[][] visited = new boolean[N][N];
+            boolean[][] visited = new boolean[n][n];
             int cnt = 0;
 
-            for (int i = 0; i < N; i++) {
-                for (int j = 0; j < N; j++) {
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
                     if (visited[i][j]) continue;
 
-                    bfs(i, j, N, map, visited);
+                    bfs(i, j, visited, isBlind);
                     cnt++;
                 }
             }
             sb.append(cnt).append(" ");
-
-            shift(N, map);
+            isBlind = !isBlind;
         }
 
         System.out.println(sb);
     }
 
-    static void bfs(int sr, int sc, int N, char[][] map, boolean[][] visited) {
+    static void bfs(int sr, int sc, boolean[][] visited, boolean isBlind) {
         Queue<int[]> q = new ArrayDeque<>();
         q.offer(new int[]{sr, sc});
 
@@ -52,8 +54,8 @@ public class Main {
                 int nr = node[0] + dr[d];
                 int nc = node[1] + dc[d];
 
-                if (nr < 0 || nr >= N || nc < 0 || nc >= N) continue;
-                if (map[nr][nc] != map[sr][sc] || visited[nr][nc]) continue;
+                if (nr < 0 || nr >= n || nc < 0 || nc >= n) continue;
+                if (!isSame(grid[sr][sc], grid[nr][nc], isBlind) || visited[nr][nc]) continue;
 
                 q.offer(new int[]{nr, nc});
                 visited[nr][nc] = true;
@@ -61,11 +63,9 @@ public class Main {
         }
     }
 
-    static void shift(int N, char[][] map) {
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                if (map[i][j] == 'R') map[i][j] = 'G';
-            }
-        }
+    static boolean isSame(char c1, char c2, boolean isBlind) {
+        if (!isBlind) return c1 == c2;
+        if (c1 == 'B' || c2 == 'B') return c1 == c2;
+        return true;
     }
 }

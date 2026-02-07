@@ -8,7 +8,7 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
 
-        int[] cntArr = new int[5];
+        int[] cnt = new int[5];
 
         int n = Integer.parseInt(br.readLine());
         for (int i = 0; i < n; i++) {
@@ -17,29 +17,29 @@ public class Main {
             int y = Integer.parseInt(st.nextToken());
 
             if (x == 0 || y == 0) {
-                cntArr[0]++;
+                cnt[0]++;
                 continue;
             }
 
             if (x > 0) {
                 if (y > 0) {
-                    cntArr[1]++;
+                    cnt[1]++;
                 } else {
-                    cntArr[4]++;
+                    cnt[4]++;
                 }
             } else {
                 if (y > 0) {
-                    cntArr[2]++;
+                    cnt[2]++;
                 } else {
-                    cntArr[3]++;
+                    cnt[3]++;
                 }
             }
         }
 
-        System.out.println("Q1: " + cntArr[1]);
-        System.out.println("Q2: " + cntArr[2]);
-        System.out.println("Q3: " + cntArr[3]);
-        System.out.println("Q4: " + cntArr[4]);
-        System.out.println("AXIS: " + cntArr[0]);
+        System.out.println("Q1: " + cnt[1]);
+        System.out.println("Q2: " + cnt[2]);
+        System.out.println("Q3: " + cnt[3]);
+        System.out.println("Q4: " + cnt[4]);
+        System.out.println("AXIS: " + cnt[0]);
     }
 }

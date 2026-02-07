@@ -8,20 +8,20 @@ int main() {
     int t;
     cin >> t;
 
-    for (int tc = 1; tc <= t; tc++) {
-        int sumY = 0;
-        int sumK = 0;
+    while (t--) {
+        int ysum = 0;
+        int ksum = 0;
 
         for (int i = 0; i < 9; i++) {
             int y, k;
             cin >> y >> k;
-            sumY += y;
-            sumK += k;
+            ysum += y;
+            ksum += k;
         }
 
-        if (sumY > sumK) {
+        if (ysum > ksum) {
             cout << "Yonsei\n";
-        } else if (sumY < sumK) {
+        } else if (ysum < ksum) {
             cout << "Korea\n";
         } else {
             cout << "Draw\n";

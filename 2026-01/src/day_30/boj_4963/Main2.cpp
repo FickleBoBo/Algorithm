@@ -28,7 +28,6 @@ int main() {
         cin >> w >> h;
         if (w == 0 || h == 0) break;
 
-        memset(grid, 0, sizeof(grid));
         for (int i = 0; i < h; i++) {
             for (int j = 0; j < w; j++) {
                 cin >> grid[i][j];

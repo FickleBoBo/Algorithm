@@ -4,31 +4,33 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
+
+    static int n;
+    static boolean[][] adj;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
 
-        int N = Integer.parseInt(br.readLine());
+        n = Integer.parseInt(br.readLine());
+        adj = new boolean[1 + n][1 + n];
 
-        boolean[][] adj = new boolean[1 + N][1 + N];
-
-        int M = Integer.parseInt(br.readLine());
-        for (int i = 0; i < M; i++) {
+        int m = Integer.parseInt(br.readLine());
+        for (int i = 0; i < m; i++) {
             st = new StringTokenizer(br.readLine());
-            int x = Integer.parseInt(st.nextToken());
-            int y = Integer.parseInt(st.nextToken());
-            adj[x][y] = adj[y][x] = true;
+            int u = Integer.parseInt(st.nextToken());
+            int v = Integer.parseInt(st.nextToken());
+            adj[u][v] = adj[v][u] = true;
         }
 
-        int result = bfs(N, adj);
-        System.out.println(result);
+        System.out.println(bfs());
     }
 
-    static int bfs(int N, boolean[][] adj) {
+    static int bfs() {
         Queue<Integer> q = new ArrayDeque<>();
         q.offer(1);
 
-        boolean[] visited = new boolean[1 + N];
+        boolean[] visited = new boolean[1 + n];
         visited[1] = true;
 
         int cnt = 0;
@@ -36,12 +38,12 @@ public class Main {
         while (!q.isEmpty()) {
             int node = q.poll();
 
-            for (int next = 1; next <= N; next++) {
-                if (adj[node][next] && !visited[next]) {
-                    q.offer(next);
-                    visited[next] = true;
-                    cnt++;
-                }
+            for (int next = 1; next <= n; next++) {
+                if (!adj[node][next] || visited[next]) continue;
+
+                q.offer(next);
+                visited[next] = true;
+                cnt++;
             }
         }
 

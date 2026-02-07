@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int p[1 + 1000];
+int p[1001];
 
 void make(int n) {
     for (int i = 1; i <= n; i++) p[i] = i;
