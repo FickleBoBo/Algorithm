@@ -1,16 +1,16 @@
-package day_01.boj_1008;
+package day_05.boj_33964;
 
 import java.io.*;
 import java.util.*;
 
-public class Main2 {
+public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        double A = Double.parseDouble(st.nextToken());
-        double B = Double.parseDouble(st.nextToken());
+        int x = Integer.parseInt(st.nextToken());
+        int y = Integer.parseInt(st.nextToken());
 
-        System.out.println(A / B);
+        System.out.println("1".repeat(Math.abs(x - y)) + "2".repeat(Math.min(x, y)));
     }
 }
