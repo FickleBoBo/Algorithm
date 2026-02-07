@@ -5,10 +5,10 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int n;
-    cin >> n;
+    int t;
+    cin >> t;
 
-    for (int tc = 1; tc <= n; tc++) {
+    while (t--) {
         long long a, b;
         cin >> a >> b;
         cout << lcm(a, b) << '\n';

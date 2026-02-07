@@ -6,19 +6,19 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int N = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
 
-        int[] arr = new int[N];
-        for (int i = 0; i < N; i++) {
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(br.readLine());
         }
 
-        int gcd = gcd(arr[1] - arr[0], arr[2] - arr[1]);
-        for (int i = 3; i < N; i++) {
+        int gcd = arr[1] - arr[0];
+        for (int i = 2; i < n; i++) {
             gcd = gcd(gcd, arr[i] - arr[i - 1]);
         }
 
-        System.out.println((arr[N - 1] - arr[0]) / gcd + 1 - N);
+        System.out.println((arr[n - 1] - arr[0]) / gcd + 1 - n);
     }
 
     static int gcd(int a, int b) {
