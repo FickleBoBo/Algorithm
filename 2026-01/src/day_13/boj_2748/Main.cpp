@@ -1,9 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-constexpr int MAXN = 90;
-
-long long dp[1 + MAXN] = {0, 1};
+long long dp[91] = {0, 1};
 
 int main() {
     ios::sync_with_stdio(false);

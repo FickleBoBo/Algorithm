@@ -8,23 +8,23 @@ public class Main2 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int A = Integer.parseInt(st.nextToken());
-        int B = Integer.parseInt(st.nextToken());
+        int a = Integer.parseInt(st.nextToken());
+        int b = Integer.parseInt(st.nextToken());
 
         boolean flag = false;
         int cnt = 1;
         while (true) {
-            if (A == B) {
+            if (a == b) {
                 flag = true;
                 break;
-            } else if (A > B) {
+            } else if (a > b) {
                 break;
             }
 
-            if (B % 2 == 0) {
-                B /= 2;
-            } else if (B % 10 == 1) {
-                B /= 10;
+            if (b % 2 == 0) {
+                b /= 2;
+            } else if (b % 10 == 1) {
+                b /= 10;
             } else {
                 break;
             }

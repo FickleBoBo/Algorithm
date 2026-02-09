@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int board[2187][2187];
-int cntArr[3];
+int grid[2187][2187];
+int cnt[3];
 
 bool check(int r1, int c1, int r2, int c2) {
     for (int i = r1; i < r2; i++) {
         for (int j = c1; j < c2; j++) {
-            if (board[i][j] != board[r1][c1]) return false;
+            if (grid[i][j] != grid[r1][c1]) return false;
         }
     }
 
@@ -16,7 +16,7 @@ bool check(int r1, int c1, int r2, int c2) {
 
 void recur(int r1, int c1, int r2, int c2) {
     if (check(r1, c1, r2, c2)) {
-        cntArr[board[r1][c1] + 1]++;
+        cnt[grid[r1][c1] + 1]++;
     } else {
         int mr1 = r1 + (r2 - r1) / 3;
         int mc1 = c1 + (c2 - c1) / 3;
@@ -44,13 +44,13 @@ int main() {
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            cin >> board[i][j];
+            cin >> grid[i][j];
         }
     }
 
     recur(0, 0, n, n);
 
-    cout << cntArr[0] << '\n';
-    cout << cntArr[1] << '\n';
-    cout << cntArr[2] << '\n';
+    cout << cnt[0] << '\n';
+    cout << cnt[1] << '\n';
+    cout << cnt[2] << '\n';
 }

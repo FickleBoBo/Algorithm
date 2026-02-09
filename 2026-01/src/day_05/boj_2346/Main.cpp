@@ -16,20 +16,20 @@ int main() {
     }
 
     while (true) {
-        auto p = dq.front();
+        auto [num, value] = dq.front();
         dq.pop_front();
 
-        cout << p.first << ' ';
+        cout << num << ' ';
 
         if (dq.empty()) break;
 
-        if (p.second > 0) {
-            for (int i = 1; i < p.second; i++) {
+        if (value > 0) {
+            for (int i = 1; i < value; i++) {
                 dq.push_back(dq.front());
                 dq.pop_front();
             }
         } else {
-            for (int i = 1; i <= -p.second; i++) {
+            for (int i = 1; i <= -value; i++) {
                 dq.push_front(dq.back());
                 dq.pop_back();
             }

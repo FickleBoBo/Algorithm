@@ -3,7 +3,6 @@ using namespace std;
 
 int dr[4] = {-1, 0, 1, 0};
 int dc[4] = {0, 1, 0, -1};
-
 int n, m;
 int grid[100][100];
 bool visited[100][100];
@@ -13,10 +12,8 @@ bool bfs() {
     queue<pair<int, int>> q;
     q.push({0, 0});
 
-    memset(visited, 0, sizeof(visited));
     visited[0][0] = true;
 
-    memset(check, 0, sizeof(check));
     vector<pair<int, int>> v;
 
     while (!q.empty()) {
@@ -66,6 +63,9 @@ int main() {
 
     int time = 0;
     while (true) {
+        memset(visited, 0, sizeof(visited));
+        memset(check, 0, sizeof(check));
+
         bool flag = bfs();
 
         if (!flag) break;

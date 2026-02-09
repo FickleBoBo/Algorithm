@@ -1,9 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-constexpr int MAXN = 20;
-
-int dp[1 + MAXN] = {0, 1};
+int dp[21] = {0, 1};
 
 int main() {
     ios::sync_with_stdio(false);

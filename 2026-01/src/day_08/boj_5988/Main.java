@@ -7,11 +7,11 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        int N = Integer.parseInt(br.readLine());
-        for (int i = 0; i < N; i++) {
-            String K = br.readLine();
+        int n = Integer.parseInt(br.readLine());
+        for (int i = 0; i < n; i++) {
+            String k = br.readLine();
 
-            if ((K.charAt(K.length() - 1) - '0') % 2 == 0) {
+            if ((k.charAt(k.length() - 1) - '0') % 2 == 0) {
                 bw.write("even\n");
             } else {
                 bw.write("odd\n");

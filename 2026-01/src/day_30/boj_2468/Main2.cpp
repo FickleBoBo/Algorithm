@@ -3,7 +3,6 @@ using namespace std;
 
 int dr[4] = {-1, 0, 1, 0};
 int dc[4] = {0, 1, 0, -1};
-
 int n;
 int grid[100][100];
 bool visited[100][100];

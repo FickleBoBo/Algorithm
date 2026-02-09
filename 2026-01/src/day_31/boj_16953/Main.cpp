@@ -42,7 +42,5 @@ int main() {
 
     int a, b;
     cin >> a >> b;
-
-    int res = bfs(a, b);
-    cout << res;
+    cout << bfs(a, b);
 }

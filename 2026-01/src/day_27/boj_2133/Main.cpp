@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int dp[1 + 30] = {0, 0, 3};
+int dp[31] = {0, 0, 3};
 
 int main() {
     ios::sync_with_stdio(false);

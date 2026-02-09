@@ -27,13 +27,13 @@ public class Main {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
 
         Map<String, Integer> map = new HashMap<>();
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             String str = br.readLine();
-            if (str.length() < M) continue;
+            if (str.length() < m) continue;
 
             map.put(str, map.getOrDefault(str, 0) + 1);
         }
@@ -48,6 +48,7 @@ public class Main {
             bw.write(node.str);
             bw.newLine();
         }
+
         bw.flush();
     }
 }
