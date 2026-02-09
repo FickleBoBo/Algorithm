@@ -1,8 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<bool> sieve(int n) {
-    vector<bool> isPrime(1 + n, true);
+bool isPrime[1000001];
+
+void sieve(int n) {
+    fill(isPrime, isPrime + n + 1, true);
     isPrime[0] = isPrime[1] = false;
 
     for (int i = 2; i * i <= n; i++) {
@@ -12,8 +14,6 @@ vector<bool> sieve(int n) {
             }
         }
     }
-
-    return isPrime;
 }
 
 int main() {
@@ -23,7 +23,8 @@ int main() {
     int m, n;
     cin >> m >> n;
 
-    vector<bool> isPrime = sieve(n);
+    sieve(n);
+
     for (int i = m; i <= n; i++) {
         if (isPrime[i]) {
             cout << i << '\n';

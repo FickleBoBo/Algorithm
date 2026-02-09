@@ -9,19 +9,21 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        int N = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
 
-        int[] arr = new int[N];
+        int[] arr = new int[n];
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
         Arrays.sort(arr);
 
-        br.readLine();
+        int m = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
-        while (st.hasMoreTokens()) {
-            if (Arrays.binarySearch(arr, Integer.parseInt(st.nextToken())) >= 0) {
+        for (int i = 0; i < m; i++) {
+            int x = Integer.parseInt(st.nextToken());
+
+            if (Arrays.binarySearch(arr, x) >= 0) {
                 sb.append("1 ");
             } else {
                 sb.append("0 ");

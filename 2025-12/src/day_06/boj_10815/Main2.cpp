@@ -2,6 +2,7 @@
 using namespace std;
 
 constexpr int MAX = 10000000;
+bool visited[20000001];
 
 int main() {
     ios::sync_with_stdio(false);
@@ -10,7 +11,6 @@ int main() {
     int n;
     cin >> n;
 
-    vector<bool> visited(MAX + 1 + MAX);
     for (int i = 0; i < n; i++) {
         int x;
         cin >> x;

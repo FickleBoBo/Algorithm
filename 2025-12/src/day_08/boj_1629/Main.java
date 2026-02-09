@@ -8,20 +8,20 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int A = Integer.parseInt(st.nextToken());
-        int B = Integer.parseInt(st.nextToken());
-        int C = Integer.parseInt(st.nextToken());
+        int a = Integer.parseInt(st.nextToken());
+        int b = Integer.parseInt(st.nextToken());
+        int c = Integer.parseInt(st.nextToken());
 
-        System.out.println(modPow(A, B, C));
+        System.out.println(modPow(a, b, c));
     }
 
-    static long modPow(long A, long B, long C) {
+    static long modPow(long a, long b, long c) {
         long res = 1;
 
-        while (B > 0) {
-            if ((B & 1) > 0) res = res * A % C;
-            A = A * A % C;
-            B >>= 1;
+        while (b > 0) {
+            if ((b & 1) > 0) res = res * a % c;
+            a = a * a % c;
+            b >>= 1;
         }
 
         return res;

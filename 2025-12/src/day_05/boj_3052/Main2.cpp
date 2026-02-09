@@ -7,9 +7,9 @@ int main() {
 
     unordered_set<int> st;
     for (int i = 0; i < 10; i++) {
-        int n;
-        cin >> n;
-        st.insert(n % 42);
+        int x;
+        cin >> x;
+        st.insert(x % 42);
     }
 
     cout << st.size();

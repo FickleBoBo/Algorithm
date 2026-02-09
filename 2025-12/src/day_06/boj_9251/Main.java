@@ -8,12 +8,12 @@ public class Main {
 
         char[] str1 = br.readLine().toCharArray();
         char[] str2 = br.readLine().toCharArray();
-        int N = str1.length;
-        int M = str2.length;
+        int n = str1.length;
+        int m = str2.length;
 
-        int[][] dp = new int[1 + N][1 + M];
-        for (int i = 1; i <= N; i++) {
-            for (int j = 1; j <= M; j++) {
+        int[][] dp = new int[1 + n][1 + m];
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
                 if (str1[i - 1] == str2[j - 1]) {
                     dp[i][j] = dp[i - 1][j - 1] + 1;
                 } else {
@@ -22,6 +22,6 @@ public class Main {
             }
         }
 
-        System.out.println(dp[N][M]);
+        System.out.println(dp[n][m]);
     }
 }

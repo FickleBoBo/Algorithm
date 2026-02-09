@@ -6,8 +6,8 @@ public class Main2 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int X = Integer.parseInt(br.readLine());
+        int x = Integer.parseInt(br.readLine());
 
-        System.out.println(Integer.bitCount(X));
+        System.out.println(Integer.bitCount(x));
     }
 }

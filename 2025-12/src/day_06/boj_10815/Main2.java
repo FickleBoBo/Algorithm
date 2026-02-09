@@ -12,17 +12,21 @@ public class Main2 {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        br.readLine();
         boolean[] visited = new boolean[MAX + 1 + MAX];
+
+        int n = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
-        while (st.hasMoreTokens()) {
-            visited[Integer.parseInt(st.nextToken()) + MAX] = true;
+        for (int i = 0; i < n; i++) {
+            int x = Integer.parseInt(st.nextToken());
+            visited[x + MAX] = true;
         }
 
-        br.readLine();
+        int m = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
-        while (st.hasMoreTokens()) {
-            if (visited[Integer.parseInt(st.nextToken()) + MAX]) {
+        for (int i = 0; i < m; i++) {
+            int x = Integer.parseInt(st.nextToken());
+
+            if (visited[x + MAX]) {
                 sb.append("1 ");
             } else {
                 sb.append("0 ");

@@ -9,25 +9,25 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int M = Integer.parseInt(st.nextToken());
-        int N = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
 
-        boolean[] isPrime = sieve(N);
-        for (int i = M; i <= N; i++) {
+        boolean[] isPrime = sieve(n);
+        for (int i = m; i <= n; i++) {
             if (isPrime[i]) sb.append(i).append("\n");
         }
 
         System.out.println(sb);
     }
 
-    static boolean[] sieve(int N) {
-        boolean[] isPrime = new boolean[1 + N];
+    static boolean[] sieve(int n) {
+        boolean[] isPrime = new boolean[1 + n];
         Arrays.fill(isPrime, true);
         isPrime[0] = isPrime[1] = false;
 
-        for (int i = 2; i * i <= N; i++) {
+        for (int i = 2; i * i <= n; i++) {
             if (isPrime[i]) {
-                for (int j = i * i; j <= N; j += i) {
+                for (int j = i * i; j <= n; j += i) {
                     isPrime[j] = false;
                 }
             }

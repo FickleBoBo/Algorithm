@@ -2,20 +2,19 @@
 using namespace std;
 
 constexpr int MAX = 7368787;
+bool isPrime[1 + MAX];
 
-vector<bool> sieve(int n) {
-    vector<bool> isPrime(1 + n, true);
+void sieve() {
+    fill(isPrime, isPrime + MAX + 1, true);
     isPrime[0] = isPrime[1] = false;
 
-    for (int i = 2; i * i <= n; i++) {
+    for (int i = 2; i * i <= MAX; i++) {
         if (isPrime[i]) {
-            for (int j = i * i; j <= n; j += i) {
+            for (int j = i * i; j <= MAX; j += i) {
                 isPrime[j] = false;
             }
         }
     }
-
-    return isPrime;
 }
 
 int main() {
@@ -25,7 +24,7 @@ int main() {
     int k;
     cin >> k;
 
-    vector<bool> isPrime = sieve(MAX);
+    sieve();
     int cnt = 0;
 
     for (int i = 2; i <= MAX; i++) {

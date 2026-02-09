@@ -12,17 +12,20 @@ public class Main2 {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        br.readLine();
-        int[] cntArr = new int[MAX + 1 + MAX];
+        int[] cnt = new int[MAX + 1 + MAX];
+
+        int n = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
-        while (st.hasMoreTokens()) {
-            cntArr[Integer.parseInt(st.nextToken()) + MAX]++;
+        for (int i = 0; i < n; i++) {
+            int x = Integer.parseInt(st.nextToken());
+            cnt[x + MAX]++;
         }
 
-        br.readLine();
+        int m = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
-        while (st.hasMoreTokens()) {
-            sb.append(cntArr[Integer.parseInt(st.nextToken()) + MAX]).append(" ");
+        for (int i = 0; i < m; i++) {
+            int x = Integer.parseInt(st.nextToken());
+            sb.append(cnt[x + MAX]).append(" ");
         }
 
         System.out.println(sb);

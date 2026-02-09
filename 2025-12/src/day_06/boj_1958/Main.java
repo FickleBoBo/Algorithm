@@ -9,14 +9,14 @@ public class Main {
         char[] str1 = br.readLine().toCharArray();
         char[] str2 = br.readLine().toCharArray();
         char[] str3 = br.readLine().toCharArray();
-        int L = str1.length;
-        int M = str2.length;
-        int N = str3.length;
+        int l = str1.length;
+        int m = str2.length;
+        int n = str3.length;
 
-        int[][][] dp = new int[1 + L][1 + M][1 + N];
-        for (int i = 1; i <= L; i++) {
-            for (int j = 1; j <= M; j++) {
-                for (int k = 1; k <= N; k++) {
+        int[][][] dp = new int[1 + l][1 + m][1 + n];
+        for (int i = 1; i <= l; i++) {
+            for (int j = 1; j <= m; j++) {
+                for (int k = 1; k <= n; k++) {
                     if (str1[i - 1] == str2[j - 1] && str2[j - 1] == str3[k - 1]) {
                         dp[i][j][k] = dp[i - 1][j - 1][k - 1] + 1;
                     } else {
@@ -26,6 +26,6 @@ public class Main {
             }
         }
 
-        System.out.println(dp[L][M][N]);
+        System.out.println(dp[l][m][n]);
     }
 }

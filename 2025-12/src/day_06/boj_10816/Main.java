@@ -9,20 +9,20 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        int N = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
 
-        int[] arr = new int[N];
+        int[] arr = new int[n];
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
         Arrays.sort(arr);
 
-        br.readLine();
+        int m = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
-        while (st.hasMoreTokens()) {
-            int num = Integer.parseInt(st.nextToken());
-            sb.append(upperBound(arr, num) - lowerBound(arr, num)).append(" ");
+        for (int i = 0; i < m; i++) {
+            int x = Integer.parseInt(st.nextToken());
+            sb.append(upperBound(arr, x) - lowerBound(arr, x)).append(" ");
         }
 
         System.out.println(sb);

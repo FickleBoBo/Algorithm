@@ -6,8 +6,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int N = Integer.parseInt(br.readLine());
-        for (int i = 1; i <= N; i++) {
+        int n = Integer.parseInt(br.readLine());
+        for (int i = 1; i <= n; i++) {
             int num = i;
             int sum = num;
             while (num > 0) {
@@ -15,7 +15,7 @@ public class Main {
                 num /= 10;
             }
 
-            if (sum == N) {
+            if (sum == n) {
                 System.out.println(i);
                 return;
             }

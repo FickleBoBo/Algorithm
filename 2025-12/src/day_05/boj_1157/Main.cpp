@@ -8,17 +8,17 @@ int main() {
     string s;
     cin >> s;
 
-    vector<int> cntArr(26);
+    vector<int> cnt(26);
     for (char c : s) {
-        cntArr[tolower(c) - 'a']++;
+        cnt[tolower(c) - 'a']++;
     }
 
-    int mx = *max_element(cntArr.begin(), cntArr.end());
+    int mx = *max_element(cnt.begin(), cnt.end());
 
-    if (count(cntArr.begin(), cntArr.end(), mx) > 1)
+    if (count(cnt.begin(), cnt.end(), mx) > 1)
         cout << '?';
     else {
-        int idx = max_element(cntArr.begin(), cntArr.end()) - cntArr.begin();
+        int idx = max_element(cnt.begin(), cnt.end()) - cnt.begin();
         cout << char(idx + 'A');
     }
 }

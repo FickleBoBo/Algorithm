@@ -11,7 +11,7 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
 
-        boolean[] isPrime = sieve(MAX);
+        boolean[] isPrime = sieve();
 
         while (true) {
             int n = Integer.parseInt(br.readLine());
@@ -28,14 +28,14 @@ public class Main {
         System.out.println(sb);
     }
 
-    static boolean[] sieve(int N) {
-        boolean[] isPrime = new boolean[1 + N];
+    static boolean[] sieve() {
+        boolean[] isPrime = new boolean[1 + MAX];
         Arrays.fill(isPrime, true);
         isPrime[0] = isPrime[1] = false;
 
-        for (int i = 2; i * i <= N; i++) {
+        for (int i = 2; i * i <= MAX; i++) {
             if (isPrime[i]) {
-                for (int j = i * i; j <= N; j += i) {
+                for (int j = i * i; j <= MAX; j += i) {
                     isPrime[j] = false;
                 }
             }

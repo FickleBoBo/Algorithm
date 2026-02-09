@@ -7,10 +7,10 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         String str = br.readLine();
-        int[] cntArr = new int[26];
+        int[] cnt = new int[26];
 
         for (char c : str.toCharArray()) {
-            cntArr[Character.toLowerCase(c) - 'a']++;
+            cnt[Character.toLowerCase(c) - 'a']++;
         }
 
         int maxIdx = -1;
@@ -18,11 +18,11 @@ public class Main {
         int maxCnt = 0;
 
         for (int i = 0; i < 26; i++) {
-            if (cntArr[i] > max) {
+            if (cnt[i] > max) {
                 maxIdx = i;
-                max = cntArr[i];
+                max = cnt[i];
                 maxCnt = 1;
-            } else if (cntArr[i] == max) {
+            } else if (cnt[i] == max) {
                 maxCnt++;
             }
         }

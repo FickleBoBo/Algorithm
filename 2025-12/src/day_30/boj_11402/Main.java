@@ -8,37 +8,37 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        long N = Long.parseLong(st.nextToken());
-        long K = Long.parseLong(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
+        long n = Long.parseLong(st.nextToken());
+        long k = Long.parseLong(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
 
-        int[][] dp = new int[1 + M][1 + M];
-        for (int i = 0; i <= M; i++) {
+        int[][] dp = new int[1 + m][1 + m];
+        for (int i = 0; i <= m; i++) {
             dp[i][0] = 1;
 
             for (int j = 1; j <= i; j++) {
-                dp[i][j] = (dp[i - 1][j] + dp[i - 1][j - 1]) % M;
+                dp[i][j] = (dp[i - 1][j] + dp[i - 1][j - 1]) % m;
             }
         }
 
         long ans = 1;
 
         // 뤼카의 정리
-        while (N > 0) {
+        while (n > 0) {
             // N, K를 M진법으로 변환시 자릿수
-            int ni = (int) (N % M);
-            int ki = (int) (K % M);
+            int ni = (int) (n % m);
+            int ki = (int) (k % m);
 
             if (ni < ki) {
                 ans = 0;
                 break;
             }
 
-            ans = ans * dp[ni][ki] % M;
+            ans = ans * dp[ni][ki] % m;
 
             // 다음 자릿수로 이동하는 효과
-            N = N / M;
-            K = K / M;
+            n = n / m;
+            k = k / m;
         }
 
         System.out.println(ans);

@@ -9,22 +9,21 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
 
-        int[][] mat = new int[N][M];
+        int[][] mat = new int[n][m];
         for (int k = 0; k < 2; k++) {
-            for (int i = 0; i < N; i++) {
+            for (int i = 0; i < n; i++) {
                 st = new StringTokenizer(br.readLine());
-
-                for (int j = 0; j < M; j++) {
+                for (int j = 0; j < m; j++) {
                     mat[i][j] += Integer.parseInt(st.nextToken());
                 }
             }
         }
 
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < M; j++) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
                 sb.append(mat[i][j]).append(" ");
             }
             sb.append("\n");

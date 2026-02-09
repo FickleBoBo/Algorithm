@@ -10,28 +10,28 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int K = Integer.parseInt(br.readLine());
-        boolean[] isPrime = sieve(MAX);
+        int k = Integer.parseInt(br.readLine());
+        boolean[] isPrime = sieve();
         int cnt = 0;
 
         for (int i = 2; i <= MAX; i++) {
             if (isPrime[i]) cnt++;
 
-            if (cnt == K) {
+            if (cnt == k) {
                 System.out.println(i);
                 break;
             }
         }
     }
 
-    static boolean[] sieve(int N) {
-        boolean[] isPrime = new boolean[1 + N];
+    static boolean[] sieve() {
+        boolean[] isPrime = new boolean[1 + MAX];
         Arrays.fill(isPrime, true);
         isPrime[0] = isPrime[1] = false;
 
-        for (int i = 2; i * i <= N; i++) {
+        for (int i = 2; i * i <= MAX; i++) {
             if (isPrime[i]) {
-                for (int j = i * i; j <= N; j += i) {
+                for (int j = i * i; j <= MAX; j += i) {
                     isPrime[j] = false;
                 }
             }

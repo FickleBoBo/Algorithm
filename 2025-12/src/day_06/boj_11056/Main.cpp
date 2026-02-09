@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int dp[1001][1001];
+
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -11,7 +13,6 @@ int main() {
     int n = s1.size();
     int m = s2.size();
 
-    vector<vector<int>> dp(1 + n, vector<int>(1 + m));
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (s1[i - 1] == s2[j - 1]) {

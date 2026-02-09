@@ -7,40 +7,40 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int N = Integer.parseInt(br.readLine());
-        if (N == 1) {
+        int n = Integer.parseInt(br.readLine());
+        if (n == 1) {
             System.out.println(0);
             return;
         }
 
-        List<Integer> primes = getPrimes(sieve(N));
+        List<Integer> primes = getPrimes(sieve(n));
         int left = 0;
         int right = 0;
         int sum = 0;
         int cnt = 0;
 
         while (true) {
-            if (sum < N) {
+            if (sum < n) {
                 sum += primes.get(right++);
             } else {
-                if (sum == N) cnt++;
+                if (sum == n) cnt++;
                 sum -= primes.get(left++);
             }
 
-            if (right == primes.size() && sum < N) break;
+            if (right == primes.size() && sum < n) break;
         }
 
         System.out.println(cnt);
     }
 
-    static boolean[] sieve(int N) {
-        boolean[] isPrime = new boolean[1 + N];
+    static boolean[] sieve(int n) {
+        boolean[] isPrime = new boolean[1 + n];
         Arrays.fill(isPrime, true);
         isPrime[0] = isPrime[1] = false;
 
-        for (int i = 2; i * i <= N; i++) {
+        for (int i = 2; i * i <= n; i++) {
             if (isPrime[i]) {
-                for (int j = i * i; j <= N; j += i) {
+                for (int j = i * i; j <= n; j += i) {
                     isPrime[j] = false;
                 }
             }

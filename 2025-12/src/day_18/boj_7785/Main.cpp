@@ -5,7 +5,7 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    set<string, greater<string>> st;
+    set<string, greater<>> st;
 
     int n;
     cin >> n;

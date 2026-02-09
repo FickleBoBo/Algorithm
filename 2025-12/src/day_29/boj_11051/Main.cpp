@@ -2,6 +2,7 @@
 using namespace std;
 
 constexpr int MOD = 10007;
+int dp[1001][1001];
 
 int main() {
     ios::sync_with_stdio(false);
@@ -10,7 +11,6 @@ int main() {
     int n, k;
     cin >> n >> k;
 
-    vector<vector<int>> dp(1 + n, vector<int>(1 + k));
     for (int i = 0; i <= n; i++) {
         dp[i][0] = 1;
 
