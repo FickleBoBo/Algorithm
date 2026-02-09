@@ -6,11 +6,11 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int N = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
         int cnt = 0;
 
         out:
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             String str = br.readLine();
             boolean[] visited = new boolean[26];
             char prev = '\u0000';

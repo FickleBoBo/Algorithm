@@ -11,17 +11,18 @@ public class Main3 {
 
         Map<Integer, Integer> map = new HashMap<>();
 
-        br.readLine();
+        int n = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
-        while (st.hasMoreTokens()) {
-            int num = Integer.parseInt(st.nextToken());
-            map.put(num, map.getOrDefault(num, 0) + 1);
+        for (int i = 0; i < n; i++) {
+            int x = Integer.parseInt(st.nextToken());
+            map.put(x, map.getOrDefault(x, 0) + 1);
         }
 
-        br.readLine();
+        int m = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
-        while (st.hasMoreTokens()) {
-            sb.append(map.getOrDefault(Integer.parseInt(st.nextToken()), 0)).append(" ");
+        for (int i = 0; i < m; i++) {
+            int x = Integer.parseInt(st.nextToken());
+            sb.append(map.getOrDefault(x, 0)).append(" ");
         }
 
         System.out.println(sb);

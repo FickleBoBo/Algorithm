@@ -1,11 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+bool visited[100][100];
+
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-
-    bool visited[100][100] = {};
 
     int n;
     cin >> n;

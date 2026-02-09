@@ -8,21 +8,21 @@ public class Main2 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int A = Integer.parseInt(st.nextToken());
-        int B = Integer.parseInt(st.nextToken());
-        int C = Integer.parseInt(st.nextToken());
+        int a = Integer.parseInt(st.nextToken());
+        int b = Integer.parseInt(st.nextToken());
+        int c = Integer.parseInt(st.nextToken());
 
-        System.out.println(modPow(A, B, C));
+        System.out.println(modPow(a, b, c));
     }
 
-    static long modPow(long A, long B, long C) {
-        if (B == 0) return 1;
+    static long modPow(long a, long b, long c) {
+        if (b == 0) return 1;
 
-        long half = modPow(A, B / 2, C);
-        if (B % 2 == 1) {
-            return half * half % C * A % C;
+        long half = modPow(a, b / 2, c);
+        if (b % 2 == 1) {
+            return half * half % c * a % c;
         } else {
-            return half * half % C;
+            return half * half % c;
         }
     }
 }

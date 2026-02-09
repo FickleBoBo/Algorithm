@@ -12,15 +12,15 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        boolean[] isPrime = sieve(MAX);
+        boolean[] isPrime = sieve();
 
-        int T = Integer.parseInt(br.readLine());
-        for (int tc = 1; tc <= T; tc++) {
+        int t = Integer.parseInt(br.readLine());
+        while (t-- > 0) {
             st = new StringTokenizer(br.readLine());
-            int A = Integer.parseInt(st.nextToken());
-            int B = Integer.parseInt(st.nextToken());
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
 
-            int dist = bfs(A, B, isPrime);
+            int dist = bfs(a, b, isPrime);
             if (dist == -1) {
                 sb.append("Impossible\n");
             } else {
@@ -31,14 +31,14 @@ public class Main {
         System.out.println(sb);
     }
 
-    static boolean[] sieve(int N) {
-        boolean[] isPrime = new boolean[1 + N];
+    static boolean[] sieve() {
+        boolean[] isPrime = new boolean[1 + MAX];
         Arrays.fill(isPrime, true);
         isPrime[0] = isPrime[1] = false;
 
-        for (int i = 2; i * i <= N; i++) {
+        for (int i = 2; i * i <= MAX; i++) {
             if (isPrime[i]) {
-                for (int j = i * i; j <= N; j += i) {
+                for (int j = i * i; j <= MAX; j += i) {
                     isPrime[j] = false;
                 }
             }
@@ -47,12 +47,12 @@ public class Main {
         return isPrime;
     }
 
-    static int bfs(int A, int B, boolean[] isPrime) {
+    static int bfs(int a, int b, boolean[] isPrime) {
         Queue<Integer> q = new ArrayDeque<>();
-        q.offer(A);
+        q.offer(a);
 
         boolean[] visited = new boolean[MAX];
-        visited[A] = true;
+        visited[a] = true;
 
         int dist = 0;
 
@@ -61,7 +61,7 @@ public class Main {
 
             while (size-- > 0) {
                 int node = q.poll();
-                if (node == B) return dist;
+                if (node == b) return dist;
 
                 for (int i = 0; i < 10; i++) {
                     int num1 = node / 10 * 10 + i;  // 일의 자리 변경

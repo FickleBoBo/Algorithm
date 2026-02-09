@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int dp[1 + 2000][1 + 2000];
+int dp[2001][2001];
 
 int main() {
     ios::sync_with_stdio(false);

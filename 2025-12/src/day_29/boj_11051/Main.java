@@ -11,18 +11,18 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(st.nextToken());
-        int K = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
+        int k = Integer.parseInt(st.nextToken());
 
-        int[][] dp = new int[1 + N][1 + K];
-        for (int n = 0; n <= N; n++) {
-            dp[n][0] = 1;
+        int[][] dp = new int[1 + n][1 + k];
+        for (int i = 0; i <= n; i++) {
+            dp[i][0] = 1;
 
-            for (int r = 1; r <= Math.min(n, K); r++) {
-                dp[n][r] = (dp[n - 1][r] + dp[n - 1][r - 1]) % MOD;
+            for (int j = 1; j <= Math.min(i, k); j++) {
+                dp[i][j] = (dp[i - 1][j] + dp[i - 1][j - 1]) % MOD;
             }
         }
 
-        System.out.println(dp[N][K]);
+        System.out.println(dp[n][k]);
     }
 }

@@ -2,42 +2,36 @@
 using namespace std;
 
 constexpr int MAX = 100000;
+bool isPrime[1 + MAX];
+vector<int> primes;
 
-vector<bool> sieve(int n) {
-    vector<bool> isPrime(1 + n, true);
+void sieve() {
+    fill(isPrime, isPrime + MAX + 1, true);
     isPrime[0] = isPrime[1] = false;
 
-    for (int i = 2; i * i <= n; i++) {
+    for (int i = 2; i * i <= MAX; i++) {
         if (isPrime[i]) {
-            for (int j = i * i; j <= n; j += i) {
+            for (int j = i * i; j <= MAX; j += i) {
                 isPrime[j] = false;
             }
         }
     }
 
-    return isPrime;
-}
-
-vector<int> prime_list(const vector<bool>& isPrime) {
-    vector<int> v;
-
-    for (int i = 2; i < isPrime.size(); i++) {
-        if (isPrime[i]) v.push_back(i);
+    for (int i = 2; i <= MAX; i++) {
+        if (isPrime[i]) primes.push_back(i);
     }
-
-    return v;
 }
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    vector<int> primes = prime_list(sieve(MAX));
+    sieve();
 
     int t;
     cin >> t;
 
-    for (int tc = 1; tc <= t; tc++) {
+    while (t--) {
         int n;
         cin >> n;
 

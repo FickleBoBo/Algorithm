@@ -9,14 +9,14 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        int T = Integer.parseInt(br.readLine());
-        for (int tc = 1; tc <= T; tc++) {
+        int t = Integer.parseInt(br.readLine());
+        while (t-- > 0) {
             st = new StringTokenizer(br.readLine());
-            int R = Integer.parseInt(st.nextToken());
-            String S = st.nextToken();
+            int r = Integer.parseInt(st.nextToken());
+            String str = st.nextToken();
 
-            for (char c : S.toCharArray()) {
-                sb.append(String.valueOf(c).repeat(R));
+            for (char c : str.toCharArray()) {
+                sb.append(String.valueOf(c).repeat(r));
             }
             sb.append("\n");
         }

@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+bool visited[26];
+
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -14,7 +16,7 @@ int main() {
         string s;
         cin >> s;
 
-        bool visited[26] = {};
+        memset(visited, 0, sizeof(visited));
         char prev = '\0';
         bool flag = true;
 

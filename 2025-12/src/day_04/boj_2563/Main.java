@@ -10,8 +10,8 @@ public class Main {
 
         boolean[][] visited = new boolean[100][100];
 
-        int N = Integer.parseInt(br.readLine());
-        for (int i = 0; i < N; i++) {
+        int n = Integer.parseInt(br.readLine());
+        for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
             int row = Integer.parseInt(st.nextToken());
             int col = Integer.parseInt(st.nextToken());

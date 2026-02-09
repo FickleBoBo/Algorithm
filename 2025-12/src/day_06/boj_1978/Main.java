@@ -8,22 +8,22 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
 
-        int N = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
 
-        int[] arr = new int[N];
+        int[] arr = new int[n];
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
         int cnt = 0;
 
         out:
-        for (int n : arr) {
-            if (n == 1) continue;
+        for (int x : arr) {
+            if (x == 1) continue;
 
-            for (int i = 2; i * i <= n; i++) {
-                if (n % i == 0) continue out;
+            for (int i = 2; i * i <= x; i++) {
+                if (x % i == 0) continue out;
             }
 
             cnt++;

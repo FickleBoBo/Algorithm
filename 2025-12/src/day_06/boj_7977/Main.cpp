@@ -1,10 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-string get_dna(int n, const int cntArr[], int mn) {
-    if (cntArr[0] == mn) return string(n, 'A');
-    if (cntArr[2] == mn) return string(n, 'C');
-    if (cntArr[6] == mn) return string(n, 'G');
+int cnt[26];
+
+string get_dna(int n, int mn) {
+    if (cnt[0] == mn) return string(n, 'A');
+    if (cnt[2] == mn) return string(n, 'C');
+    if (cnt[6] == mn) return string(n, 'G');
     return string(n, 'T');
 }
 
@@ -16,13 +18,12 @@ int main() {
     string s;
     cin >> n >> s;
 
-    int cntArr[26] = {};
     for (char c : s) {
-        cntArr[c - 'A']++;
+        cnt[c - 'A']++;
     }
 
-    int mn = min({cntArr[0], cntArr[2], cntArr[6], cntArr[19]});
+    int mn = min({cnt[0], cnt[2], cnt[6], cnt[19]});
 
     cout << mn << '\n';
-    cout << get_dna(n, cntArr, mn);
+    cout << get_dna(n, mn);
 }

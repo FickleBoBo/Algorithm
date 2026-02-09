@@ -1,7 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-string traceback(const string& s1, const string& s2, const vector<vector<int>>& dp) {
+int dp[1001][1001];
+
+string traceback(string& s1, string& s2) {
     string res;
 
     int r = s1.size() - 1;
@@ -35,7 +37,6 @@ int main() {
     int n = s1.size();
     int m = s2.size();
 
-    vector<vector<int>> dp(1 + n, vector<int>(1 + m));
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (s1[i - 1] == s2[j - 1]) {
@@ -47,5 +48,5 @@ int main() {
     }
 
     cout << dp[n][m] << '\n';
-    cout << traceback(s1, s2, dp);
+    cout << traceback(s1, s2);
 }

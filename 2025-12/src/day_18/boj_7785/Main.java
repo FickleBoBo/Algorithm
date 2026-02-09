@@ -9,10 +9,10 @@ public class Main {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st;
 
-        Set<String> set = new TreeSet<>(Collections.reverseOrder());
+        Set<String> set = new TreeSet<>(Comparator.reverseOrder());
 
-        int N = Integer.parseInt(br.readLine());
-        for (int i = 0; i < N; i++) {
+        int n = Integer.parseInt(br.readLine());
+        for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
             String name = st.nextToken();
             String type = st.nextToken();

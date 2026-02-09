@@ -7,9 +7,9 @@ int main() {
 
     vector<bool> visited(42);
     for (int i = 0; i < 10; i++) {
-        int n;
-        cin >> n;
-        visited[n % 42] = true;
+        int x;
+        cin >> x;
+        visited[x % 42] = true;
     }
 
     cout << count(visited.begin(), visited.end(), true);

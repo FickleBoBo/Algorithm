@@ -1,8 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<bool> sieve(int n) {
-    vector<bool> isPrime(1 + n, true);
+bool isPrime[4000001];
+vector<int> primes;
+
+void sieve(int n) {
+    fill(isPrime, isPrime + n + 1, true);
     isPrime[0] = isPrime[1] = false;
 
     for (int i = 2; i * i <= n; i++) {
@@ -13,17 +16,9 @@ vector<bool> sieve(int n) {
         }
     }
 
-    return isPrime;
-}
-
-vector<int> prime_list(const vector<bool>& isPrime) {
-    vector<int> v;
-
-    for (int i = 2; i < isPrime.size(); i++) {
-        if (isPrime[i]) v.push_back(i);
+    for (int i = 2; i <= n; i++) {
+        if (isPrime[i]) primes.push_back(i);
     }
-
-    return v;
 }
 
 int main() {
@@ -38,7 +33,7 @@ int main() {
         return 0;
     }
 
-    vector<int> primes = prime_list(sieve(n));
+    sieve(n);
     int l = 0;
     int r = 0;
     int sum = 0;

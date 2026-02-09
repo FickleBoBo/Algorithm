@@ -11,15 +11,15 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
 
-        boolean[] isPrime = sieve(MAX);
+        boolean[] isPrime = sieve();
 
-        int T = Integer.parseInt(br.readLine());
-        for (int tc = 1; tc <= T; tc++) {
-            int N = Integer.parseInt(br.readLine());
+        int t = Integer.parseInt(br.readLine());
+        while (t-- > 0) {
+            int n = Integer.parseInt(br.readLine());
 
             int cnt = 0;
-            for (int i = 2; i <= N / 2; i++) {
-                if (isPrime[i] && isPrime[N - i]) cnt++;
+            for (int i = 2; i <= n / 2; i++) {
+                if (isPrime[i] && isPrime[n - i]) cnt++;
             }
 
             sb.append(cnt).append("\n");
@@ -28,14 +28,14 @@ public class Main {
         System.out.print(sb);
     }
 
-    static boolean[] sieve(int N) {
-        boolean[] isPrime = new boolean[1 + N];
+    static boolean[] sieve() {
+        boolean[] isPrime = new boolean[1 + MAX];
         Arrays.fill(isPrime, true);
         isPrime[0] = isPrime[1] = false;
 
-        for (int i = 2; i * i <= N; i++) {
+        for (int i = 2; i * i <= MAX; i++) {
             if (isPrime[i]) {
-                for (int j = i * i; j <= N; j += i) {
+                for (int j = i * i; j <= MAX; j += i) {
                     isPrime[j] = false;
                 }
             }

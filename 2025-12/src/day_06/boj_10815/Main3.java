@@ -11,16 +11,19 @@ public class Main3 {
 
         Set<Integer> set = new HashSet<>();
 
-        br.readLine();
+        int n = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
-        while (st.hasMoreTokens()) {
-            set.add(Integer.parseInt(st.nextToken()));
+        for (int i = 0; i < n; i++) {
+            int x = Integer.parseInt(st.nextToken());
+            set.add(x);
         }
 
-        br.readLine();
+        int m = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
-        while (st.hasMoreTokens()) {
-            if (set.contains(Integer.parseInt(st.nextToken()))) {
+        for (int i = 0; i < m; i++) {
+            int x = Integer.parseInt(st.nextToken());
+
+            if (set.contains(x)) {
                 sb.append("1 ");
             } else {
                 sb.append("0 ");

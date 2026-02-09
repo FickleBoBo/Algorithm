@@ -1,8 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+bool isPrime[1001];
+
 int sieve(int n, int k) {
-    vector<bool> isPrime(1 + n, true);
+    fill(isPrime, isPrime + n + 1, true);
     isPrime[0] = isPrime[1] = false;
     int cnt = 0;
 

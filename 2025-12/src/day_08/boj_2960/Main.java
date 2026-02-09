@@ -8,29 +8,29 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(st.nextToken());
-        int K = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
+        int k = Integer.parseInt(st.nextToken());
 
-        System.out.println(sieve(N, K));
+        System.out.println(sieve(n, k));
     }
 
-    static int sieve(int N, int K) {
-        boolean[] isPrime = new boolean[1 + N];
+    static int sieve(int n, int k) {
+        boolean[] isPrime = new boolean[1 + n];
         Arrays.fill(isPrime, true);
         isPrime[0] = isPrime[1] = false;
         int cnt = 0;
 
-        for (int i = 2; i <= N; i++) {
+        for (int i = 2; i <= n; i++) {
             if (isPrime[i]) {
                 cnt++;
-                if (cnt == K) return i;
+                if (cnt == k) return i;
 
-                for (int j = i * i; j <= N; j += i) {
+                for (int j = i * i; j <= n; j += i) {
                     if (isPrime[j]) {
                         isPrime[j] = false;
 
                         cnt++;
-                        if (cnt == K) return j;
+                        if (cnt == k) return j;
                     }
                 }
             }

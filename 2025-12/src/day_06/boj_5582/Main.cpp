@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int dp[4001][4001];
+
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -11,7 +13,6 @@ int main() {
     int n = s1.size();
     int m = s2.size();
 
-    vector<vector<int>> dp(1 + n, vector<int>(1 + m));
     int mx = 0;
 
     for (int i = 1; i <= n; i++) {

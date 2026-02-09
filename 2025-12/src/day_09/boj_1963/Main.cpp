@@ -2,23 +2,22 @@
 using namespace std;
 
 constexpr int MAX = 10000;
+bool isPrime[MAX];
 
-vector<bool> sieve(int n) {
-    vector<bool> isPrime(1 + n, true);
+void sieve() {
+    fill(isPrime, isPrime + MAX + 1, true);
     isPrime[0] = isPrime[1] = false;
 
-    for (int i = 2; i * i <= n; i++) {
+    for (int i = 2; i * i <= MAX; i++) {
         if (isPrime[i]) {
-            for (int j = i * i; j <= n; j += i) {
+            for (int j = i * i; j <= MAX; j += i) {
                 isPrime[j] = false;
             }
         }
     }
-
-    return isPrime;
 }
 
-int bfs(int a, int b, const vector<bool>& isPrime) {
+int bfs(int a, int b) {
     queue<int> q;
     q.push(a);
 
@@ -74,16 +73,16 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    vector<bool> isPrime = sieve(MAX);
+    sieve();
 
     int t;
     cin >> t;
 
-    for (int tc = 1; tc <= t; tc++) {
+    while (t--) {
         int a, b;
         cin >> a >> b;
 
-        int dist = bfs(a, b, isPrime);
+        int dist = bfs(a, b);
         if (dist == -1) {
             cout << "Impossible\n";
         } else {
