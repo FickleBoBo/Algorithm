@@ -18,13 +18,13 @@ public class Main {
             }
         }
 
-        int T = Integer.parseInt(br.readLine());
-        for (int tc = 1; tc <= T; tc++) {
+        int t = Integer.parseInt(br.readLine());
+        while (t-- > 0) {
             st = new StringTokenizer(br.readLine());
-            int N = Integer.parseInt(st.nextToken());
-            int M = Integer.parseInt(st.nextToken());
+            int n = Integer.parseInt(st.nextToken());
+            int m = Integer.parseInt(st.nextToken());
 
-            sb.append(dp[M][N]).append("\n");
+            sb.append(dp[m][n]).append("\n");
         }
 
         System.out.print(sb);

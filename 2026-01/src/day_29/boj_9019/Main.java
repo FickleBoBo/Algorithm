@@ -9,25 +9,24 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        int T = Integer.parseInt(br.readLine());
-        for (int tc = 1; tc <= T; tc++) {
+        int t = Integer.parseInt(br.readLine());
+        while (t-- > 0) {
             st = new StringTokenizer(br.readLine());
-            int A = Integer.parseInt(st.nextToken());
-            int B = Integer.parseInt(st.nextToken());
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
 
-            String result = bfs(A, B);
-            sb.append(result).append("\n");
+            sb.append(bfs(a, b)).append("\n");
         }
 
         System.out.print(sb);
     }
 
-    static String bfs(int A, int B) {
+    static String bfs(int a, int b) {
         Queue<Integer> q = new ArrayDeque<>();
-        q.offer(A);
+        q.offer(a);
 
         boolean[] visited = new boolean[10000];
-        visited[A] = true;
+        visited[a] = true;
 
         int[] prev = new int[10000];
         Arrays.fill(prev, -1);
@@ -35,7 +34,7 @@ public class Main {
 
         while (!q.isEmpty()) {
             int node = q.poll();
-            if (node == B) {
+            if (node == b) {
                 StringBuilder sb = new StringBuilder();
 
                 while (prev[node] != -1) {

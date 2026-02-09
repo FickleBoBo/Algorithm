@@ -7,8 +7,8 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        int N = Integer.parseInt(br.readLine());
-        for (int i = 0; i < N; i++) {
+        int n = Integer.parseInt(br.readLine());
+        for (int i = 0; i < n; i++) {
             String str = br.readLine();
 
             if (6 <= str.length() && str.length() <= 9) {

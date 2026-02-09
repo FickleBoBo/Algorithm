@@ -70,11 +70,10 @@ int main() {
     int t;
     cin >> t;
 
-    for (int tc = 1; tc <= t; tc++) {
+    while (t--) {
         int a, b;
         cin >> a >> b;
 
-        string res = bfs(a, b);
-        cout << res << '\n';
+        cout << bfs(a, b) << '\n';
     }
 }

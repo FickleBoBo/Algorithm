@@ -10,8 +10,8 @@ public class Main {
 
         PriorityQueue<Integer> pq = new PriorityQueue<>();
 
-        int N = Integer.parseInt(br.readLine());
-        for (int i = 0; i < N; i++) {
+        int n = Integer.parseInt(br.readLine());
+        for (int i = 0; i < n; i++) {
             int x = Integer.parseInt(br.readLine());
 
             if (x == 0) {

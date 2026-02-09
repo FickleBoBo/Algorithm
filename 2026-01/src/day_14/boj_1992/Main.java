@@ -5,30 +5,31 @@ import java.io.*;
 public class Main {
 
     static StringBuilder sb = new StringBuilder();
+    static char[][] grid;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int N = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
 
-        char[][] map = new char[N][N];
-        for (int i = 0; i < N; i++) {
-            map[i] = br.readLine().toCharArray();
+        grid = new char[n][n];
+        for (int i = 0; i < n; i++) {
+            grid[i] = br.readLine().toCharArray();
         }
 
-        recur(map, 0, 0, N, N);
+        recur(0, 0, n, n);
 
         System.out.println(sb);
     }
 
-    static void recur(char[][] map, int r1, int c1, int r2, int c2) {
+    static void recur(int r1, int c1, int r2, int c2) {
         boolean flag = true;
-        int color = map[r1][c1];
+        int color = grid[r1][c1];
 
         out:
         for (int i = r1; i < r2; i++) {
             for (int j = c1; j < c2; j++) {
-                if (map[i][j] != color) {
+                if (grid[i][j] != color) {
                     flag = false;
                     break out;
                 }
@@ -36,17 +37,17 @@ public class Main {
         }
 
         if (flag) {
-            sb.append(map[r1][c1]);
+            sb.append(grid[r1][c1]);
         } else {
             sb.append("(");
 
             int mr = (r1 + r2) / 2;
             int mc = (c1 + c2) / 2;
 
-            recur(map, r1, c1, mr, mc);
-            recur(map, r1, mc, mr, c2);
-            recur(map, mr, c1, r2, mc);
-            recur(map, mr, mc, r2, c2);
+            recur(r1, c1, mr, mc);
+            recur(r1, mc, mr, c2);
+            recur(mr, c1, r2, mc);
+            recur(mr, mc, r2, c2);
 
             sb.append(")");
         }

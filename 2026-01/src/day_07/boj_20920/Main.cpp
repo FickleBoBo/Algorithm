@@ -17,17 +17,17 @@ int main() {
         mp[s]++;
     }
 
-    vector<pair<string, int>> v;
-    for (auto& [key, value] : mp) {
-        v.emplace_back(key, value);
+    vector<pair<string, int>> list;
+    for (auto& [k, v] : mp) {
+        list.push_back({k, v});
     }
-    sort(v.begin(), v.end(), [](auto& a, auto& b) {
+    sort(list.begin(), list.end(), [](auto& a, auto& b) {
         if (a.second != b.second) return a.second > b.second;
         if (a.first.size() != b.first.size()) return a.first.size() > b.first.size();
         return a.first < b.first;
     });
 
-    for (auto& x : v) {
+    for (auto& x : list) {
         cout << x.first << '\n';
     }
 }
