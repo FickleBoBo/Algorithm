@@ -5,14 +5,11 @@ int dr[4] = {-1, 0, 1, 0};
 int dc[4] = {0, 1, 0, -1};
 int n, m;
 int grid[1000][1000];
-bool visited[1000][1000];
 int dist[1000][1000];
 
 void bfs(int sr, int sc) {
     queue<pair<int, int>> q;
     q.push({sr, sc});
-
-    visited[sr][sc] = true;
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
@@ -33,10 +30,9 @@ void bfs(int sr, int sc) {
                 int nc = c + dc[d];
 
                 if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
-                if (grid[nr][nc] == 0 || visited[nr][nc]) continue;
+                if (grid[nr][nc] == 0 || dist[nr][nc] != -1) continue;
 
                 q.push({nr, nc});
-                visited[nr][nc] = true;
                 dist[nr][nc] = dist[r][c] + 1;
             }
         }

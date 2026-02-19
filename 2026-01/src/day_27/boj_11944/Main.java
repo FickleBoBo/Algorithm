@@ -8,11 +8,11 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
 
-        String str = String.valueOf(N).repeat(N);
+        String str = String.valueOf(n).repeat(n);
 
-        System.out.println(str.substring(0, Math.min(str.length(), M)));
+        System.out.println(str.substring(0, Math.min(str.length(), m)));
     }
 }

@@ -13,7 +13,7 @@ Matrix base_matrix() {
     return {{1, 1}, {1, 0}};
 }
 
-Matrix multiply(const Matrix& m1, const Matrix& m2) {
+Matrix multiply(Matrix& m1, Matrix& m2) {
     return {{(m1[0][0] * m2[0][0] + m1[0][1] * m2[1][0]) % MOD, (m1[0][0] * m2[0][1] + m1[0][1] * m2[1][1]) % MOD},
             {(m1[1][0] * m2[0][0] + m1[1][1] * m2[1][0]) % MOD, (m1[1][0] * m2[0][1] + m1[1][1] * m2[1][1]) % MOD}};
 }

@@ -9,13 +9,13 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        long N = Long.parseLong(br.readLine());
-        if (N == 0) {
+        long n = Long.parseLong(br.readLine());
+        if (n == 0) {
             System.out.println(0);
             return;
         }
 
-        long[][] res = binPow(baseMatrix(), N - 1);
+        long[][] res = binPow(baseMatrix(), n - 1);
         System.out.println(res[0][0]);
     }
 

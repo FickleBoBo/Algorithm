@@ -3,9 +3,8 @@ using namespace std;
 
 int dr[4] = {-1, 0, 1, 0};
 int dc[4] = {0, 1, 0, -1};
-
-char grid[1 + 100 + 1][1 + 100 + 1];
-bool visited[1 + 100 + 1][1 + 100 + 1];
+char grid[102][102];
+bool visited[102][102];
 
 int bfs(int n, int m, vector<bool>& hasKey) {
     queue<pair<int, int>> q;
@@ -60,14 +59,13 @@ int main() {
     int t;
     cin >> t;
 
-    for (int tc = 1; tc <= t; tc++) {
+    while (t--) {
         int h, w;
         cin >> h >> w;
 
         int n = h + 2;
         int m = w + 2;
 
-        memset(grid, 0, sizeof(grid));
         memset(visited, 0, sizeof(visited));
         for (int i = 0; i < n; i++) {
             grid[i][0] = grid[i][m - 1] = '.';
@@ -75,6 +73,7 @@ int main() {
         for (int j = 0; j < m; j++) {
             grid[0][j] = grid[n - 1][j] = '.';
         }
+
         for (int i = 1; i <= h; i++) {
             string s;
             cin >> s;
@@ -95,7 +94,6 @@ int main() {
             }
         }
 
-        int cnt = bfs(n, m, hasKey);
-        cout << cnt << '\n';
+        cout << bfs(n, m, hasKey) << '\n';
     }
 }

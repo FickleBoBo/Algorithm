@@ -8,9 +8,9 @@ int main() {
     int t;
     cin >> t;
 
-    for (int tc = 1; tc <= t; tc++) {
+    while (t--) {
         vector<pair<long long, long long>> v(4);
-        for (auto& p : v) cin >> p.first >> p.second;
+        for (auto& [x, y] : v) cin >> x >> y;
         sort(v.begin(), v.end());
 
         long long side1 = (v[0].first - v[1].first) * (v[0].first - v[1].first) +

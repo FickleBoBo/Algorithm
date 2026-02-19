@@ -8,7 +8,7 @@ int main() {
     int t;
     cin >> t;
 
-    for (int tc = 1; tc <= t; tc++) {
+    while (t--) {
         int n;
         cin >> n;
 
@@ -18,7 +18,7 @@ int main() {
             int amount;
             cin >> name >> amount;
 
-            v.emplace_back(amount, name);
+            v.push_back({amount, name});
         }
         sort(v.begin(), v.end());
 

@@ -8,10 +8,10 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
 
-        int N = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
 
-        int[][] map = new int[N][2];
-        for (int i = 0; i < N; i++) {
+        int[][] map = new int[n][2];
+        for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
             map[i][0] = Integer.parseInt(st.nextToken());
             map[i][1] = Integer.parseInt(st.nextToken());
@@ -23,7 +23,7 @@ public class Main {
 
         int end = 0;
         int cnt = 0;
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             if (map[i][0] < end) continue;
 
             end = map[i][1];

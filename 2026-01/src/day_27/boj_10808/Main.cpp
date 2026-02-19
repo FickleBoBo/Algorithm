@@ -8,13 +8,13 @@ int main() {
     string s;
     cin >> s;
 
-    vector<int> cntArr(26);
+    vector<int> cnt(26);
 
     for (char c : s) {
-        cntArr[c - 'a']++;
+        cnt[c - 'a']++;
     }
 
-    for (int cnt : cntArr) {
-        cout << cnt << ' ';
+    for (int x : cnt) {
+        cout << x << ' ';
     }
 }
