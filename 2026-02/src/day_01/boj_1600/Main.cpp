@@ -5,7 +5,6 @@ int dr[4] = {-1, 0, 1, 0};
 int dc[4] = {0, 1, 0, -1};
 int drh[8] = {-1, -2, -2, -1, 1, 2, 2, 1};
 int dch[8] = {-2, -1, 1, 2, 2, 1, -1, -2};
-
 int k, h, w;
 int grid[200][200];
 bool visited[200][200][31];
@@ -34,13 +33,12 @@ int bfs() {
             for (int d = 0; d < 4; d++) {
                 int nr = r + dr[d];
                 int nc = c + dc[d];
-                int nt = t;
 
                 if (nr < 0 || nr >= h || nc < 0 || nc >= w) continue;
-                if (grid[nr][nc] == 1 || visited[nr][nc][nt]) continue;
+                if (grid[nr][nc] == 1 || visited[nr][nc][t]) continue;
 
-                q.push({nr, nc, nt});
-                visited[nr][nc][nt] = true;
+                q.push({nr, nc, t});
+                visited[nr][nc][t] = true;
             }
 
             if (t == k) continue;
@@ -48,13 +46,12 @@ int bfs() {
             for (int d = 0; d < 8; d++) {
                 int nr = r + drh[d];
                 int nc = c + dch[d];
-                int nt = t + 1;
 
                 if (nr < 0 || nr >= h || nc < 0 || nc >= w) continue;
-                if (grid[nr][nc] == 1 || visited[nr][nc][nt]) continue;
+                if (grid[nr][nc] == 1 || visited[nr][nc][t + 1]) continue;
 
-                q.push({nr, nc, nt});
-                visited[nr][nc][nt] = true;
+                q.push({nr, nc, t + 1});
+                visited[nr][nc][t + 1] = true;
             }
         }
 
@@ -76,6 +73,5 @@ int main() {
         }
     }
 
-    int res = bfs();
-    cout << res;
+    cout << bfs();
 }
