@@ -1,8 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-constexpr int MAX = 10000;
-bool isPrime[MAX];
+constexpr int MAX = 9999;
+bool isPrime[1 + MAX];
+bool visited[1 + MAX];
 
 void sieve() {
     fill(isPrime, isPrime + MAX + 1, true);
@@ -21,7 +22,6 @@ int bfs(int a, int b) {
     queue<int> q;
     q.push(a);
 
-    vector<bool> visited(MAX);
     visited[a] = true;
 
     int dist = 0;
@@ -81,6 +81,8 @@ int main() {
     while (t--) {
         int a, b;
         cin >> a >> b;
+
+        memset(visited, 0, sizeof(visited));
 
         int dist = bfs(a, b);
         if (dist == -1) {

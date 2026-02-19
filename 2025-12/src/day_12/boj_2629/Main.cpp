@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+bool dp[31][1 + 500 * 30];
+
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -20,7 +22,6 @@ int main() {
     vector<int> ba(m);
     for (int& x : ba) cin >> x;
 
-    vector<vector<bool>> dp(1 + n, vector<bool>(1 + sum));
     dp[0][0] = true;  // 추가 주어지지 않아도 구슬의 무게가 0이면 측정 가능
     for (int i = 1; i <= n; i++) {
         int w = wa[i - 1];

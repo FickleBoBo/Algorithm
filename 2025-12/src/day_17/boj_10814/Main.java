@@ -20,14 +20,14 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        int N = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
 
-        User[] users = new User[N];
-        for (int i = 0; i < N; i++) {
+        User[] users = new User[n];
+        for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
             users[i] = new User(Integer.parseInt(st.nextToken()), st.nextToken());
         }
-        Arrays.sort(users, ((o1, o2) -> Integer.compare(o1.age, o2.age)));
+        Arrays.sort(users, (o1, o2) -> Integer.compare(o1.age, o2.age));
 
         for (User user : users) {
             sb.append(user.age).append(" ").append(user.name).append("\n");

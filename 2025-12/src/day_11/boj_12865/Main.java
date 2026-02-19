@@ -8,23 +8,23 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(st.nextToken());
-        int K = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
+        int k = Integer.parseInt(st.nextToken());
 
-        int[] W = new int[1 + N];
-        int[] V = new int[1 + N];
-        for (int i = 1; i <= N; i++) {
+        int[] warr = new int[1 + n];
+        int[] varr = new int[1 + n];
+        for (int i = 1; i <= n; i++) {
             st = new StringTokenizer(br.readLine());
-            W[i] = Integer.parseInt(st.nextToken());
-            V[i] = Integer.parseInt(st.nextToken());
+            warr[i] = Integer.parseInt(st.nextToken());
+            varr[i] = Integer.parseInt(st.nextToken());
         }
 
-        int[][] dp = new int[1 + N][1 + K];
-        for (int i = 1; i <= N; i++) {
-            int w = W[i];
-            int v = V[i];
+        int[][] dp = new int[1 + n][1 + k];
+        for (int i = 1; i <= n; i++) {
+            int w = warr[i];
+            int v = varr[i];
 
-            for (int j = 1; j <= K; j++) {
+            for (int j = 1; j <= k; j++) {
                 if (j < w) {
                     dp[i][j] = dp[i - 1][j];
                 } else {
@@ -33,6 +33,6 @@ public class Main {
             }
         }
 
-        System.out.println(dp[N][K]);
+        System.out.println(dp[n][k]);
     }
 }

@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int dp[100001];
+
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -8,21 +10,18 @@ int main() {
     int t;
     cin >> t;
 
-    for (int tc = 1; tc <= t; tc++) {
+    while (t--) {
         int n;
         cin >> n;
 
         vector<pair<int, int>> v(n);
-        for (auto& p : v) cin >> p.first >> p.second;
+        for (auto& [a, b] : v) cin >> a >> b;
 
         int sum = 0;
-        for (auto p : v) sum += p.first;
+        for (auto [a, b] : v) sum += a;
 
-        vector<int> dp(1 + sum);
-        for (auto p : v) {
-            int a = p.first;
-            int b = p.second;
-
+        memset(dp, 0, sizeof(dp));
+        for (auto [a, b] : v) {
             for (int j = sum; j >= 0; j--) {
                 if (j < a) {
                     dp[j] += b;

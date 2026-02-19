@@ -9,12 +9,12 @@ int main() {
     cin >> n;
 
     vector<pair<int, string>> v(n);
-    for (auto& p : v) cin >> p.first >> p.second;
+    for (auto& [age, name] : v) cin >> age >> name;
     stable_sort(v.begin(), v.end(), [](const auto& a, const auto& b) {
         return a.first < b.first;
     });
 
-    for (auto& p : v) {
-        cout << p.first << ' ' << p.second << '\n';
+    for (auto& [age, name] : v) {
+        cout << age << ' ' << name << '\n';
     }
 }

@@ -8,27 +8,27 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(st.nextToken());
-        int K = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
+        int k = Integer.parseInt(st.nextToken());
 
-        int[] arr = new int[N];
+        int[] arr = new int[n];
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
         int left = 0;
         int right = 0;
         int max = 0;  // 최대 길이
-        int[] cntArr = new int[1 + 100_000];  // 카운팅 배열
+        int[] cnt = new int[100001];  // 카운팅 배열
 
-        while (right < N) {
-            if (cntArr[arr[right]] < K) {
-                cntArr[arr[right]]++;
+        while (right < n) {
+            if (cnt[arr[right]] < k) {
+                cnt[arr[right]]++;
                 right++;
                 max = Math.max(max, right - left);
             } else {
-                cntArr[arr[left]]--;
+                cnt[arr[left]]--;
                 left++;
             }
         }

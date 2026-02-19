@@ -8,20 +8,21 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
 
-        int N = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
 
-        int[] arr = new int[N];
+        int[] arr = new int[n];
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        int[] dp = new int[N];
-        int[] prev = new int[N];
+        int[] dp = new int[n];
         Arrays.fill(dp, 1);
+
+        int[] prev = new int[n];
         Arrays.fill(prev, -1);
 
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             for (int j = 0; j < i; j++) {
                 if (arr[i] > arr[j] && dp[j] + 1 > dp[i]) {
                     dp[i] = dp[j] + 1;
@@ -32,7 +33,7 @@ public class Main {
 
         int max = 0;
         int pos = 0;
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             if (dp[i] > max) {
                 max = dp[i];
                 pos = i;

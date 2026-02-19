@@ -5,8 +5,8 @@ import java.util.*;
 
 public class Main {
 
-    static int N;
-    static int M;
+    static int n;
+    static int m;
     static int[] days;
     static int[] pages;
     static int max = 0;
@@ -15,12 +15,12 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        N = Integer.parseInt(st.nextToken());
-        M = Integer.parseInt(st.nextToken());
+        n = Integer.parseInt(st.nextToken());
+        m = Integer.parseInt(st.nextToken());
 
-        days = new int[M];
-        pages = new int[M];
-        for (int i = 0; i < M; i++) {
+        days = new int[m];
+        pages = new int[m];
+        for (int i = 0; i < m; i++) {
             st = new StringTokenizer(br.readLine());
             days[i] = Integer.parseInt(st.nextToken());
             pages[i] = Integer.parseInt(st.nextToken());
@@ -32,9 +32,9 @@ public class Main {
     }
 
     static void dfs(int idx, int daySum, int pageSum) {
-        if (daySum > N) return;  // 읽는데 소요된 일수의 합이 N보다 크면 불가능한 경우
+        if (daySum > n) return;  // 읽는데 소요된 일수의 합이 N보다 크면 불가능한 경우
 
-        if (idx == M) {
+        if (idx == m) {
             max = Math.max(max, pageSum);
             return;
         }

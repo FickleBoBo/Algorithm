@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int dp[10001];
+
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -17,7 +19,6 @@ int main() {
     int sum = 0;
     for (int x : ca) sum += x;
 
-    vector<int> dp(1 + sum);
     for (int i = 0; i < n; i++) {
         int mi = ma[i];
         int ci = ca[i];

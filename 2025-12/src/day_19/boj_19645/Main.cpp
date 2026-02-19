@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+bool dp[2501][2501];
+
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -14,7 +16,6 @@ int main() {
     int sum = 0;
     for (int x : v) sum += x;
 
-    vector<vector<bool>> dp(1 + sum, vector<bool>(1 + sum));
     dp[0][0] = true;  // 세 명 다 어떤 햄버거도 먹지 않았음
     for (int x : v) {
         for (int i = sum; i >= 0; i--) {

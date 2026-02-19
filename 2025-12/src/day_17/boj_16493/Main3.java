@@ -8,27 +8,27 @@ public class Main3 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
 
-        int[] days = new int[M];
-        int[] pages = new int[M];
-        for (int i = 0; i < M; i++) {
+        int[] days = new int[m];
+        int[] pages = new int[m];
+        for (int i = 0; i < m; i++) {
             st = new StringTokenizer(br.readLine());
             days[i] = Integer.parseInt(st.nextToken());
             pages[i] = Integer.parseInt(st.nextToken());
         }
 
-        int[] dp = new int[1 + N];
-        for (int i = 0; i < M; i++) {
+        int[] dp = new int[1 + n];
+        for (int i = 0; i < m; i++) {
             int day = days[i];
             int page = pages[i];
 
-            for (int j = N; j >= day; j--) {
+            for (int j = n; j >= day; j--) {
                 dp[j] = Math.max(dp[j - day] + page, dp[j]);
             }
         }
 
-        System.out.println(dp[N]);
+        System.out.println(dp[n]);
     }
 }

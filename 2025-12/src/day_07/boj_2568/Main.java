@@ -8,10 +8,10 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
 
-        int N = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
 
-        int[][] map = new int[N][2];
-        for (int i = 0; i < N; i++) {
+        int[][] map = new int[n][2];
+        for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
             map[i][0] = Integer.parseInt(st.nextToken());
             map[i][1] = Integer.parseInt(st.nextToken());
@@ -20,11 +20,11 @@ public class Main {
 
         List<Integer> dp = new ArrayList<>();
 
-        int[] pos = new int[N];
-        int[] prev = new int[N];
+        int[] pos = new int[n];
+        int[] prev = new int[n];
         Arrays.fill(prev, -1);
 
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             int num = map[i][0];
             int idx = lowerBound(dp, num);
 
@@ -38,7 +38,7 @@ public class Main {
             if (idx > 0) prev[i] = pos[idx - 1];
         }
 
-        System.out.println(N - dp.size());
+        System.out.println(n - dp.size());
         System.out.println(traceback(map, prev, pos[dp.size() - 1]));
     }
 

@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Main {
 
-    static final int MAX = 10_000;
+    static final int MAX = 9999;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -51,7 +51,7 @@ public class Main {
         Queue<Integer> q = new ArrayDeque<>();
         q.offer(a);
 
-        boolean[] visited = new boolean[MAX];
+        boolean[] visited = new boolean[1 + MAX];
         visited[a] = true;
 
         int dist = 0;

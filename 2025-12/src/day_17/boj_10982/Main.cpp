@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int dp[2][100001];  // 롤링 배열
+
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -8,23 +10,20 @@ int main() {
     int t;
     cin >> t;
 
-    for (int tc = 1; tc <= t; tc++) {
+    while (t--) {
         int n;
         cin >> n;
 
         vector<pair<int, int>> v(n);
-        for (auto& p : v) cin >> p.first >> p.second;
+        for (auto& [a, b] : v) cin >> a >> b;
 
         int sum = 0;
-        for (auto p : v) sum += p.first;
+        for (auto [a, b] : v) sum += a;
 
-        vector<vector<int>> dp(2, vector<int>(1 + sum));  // 롤링 배열
+        memset(dp, 0, sizeof(dp));
         int prev = 0;
         int cur = 1;
-        for (int i = 0; i < n; i++) {
-            int a = v[i].first;
-            int b = v[i].second;
-
+        for (auto [a, b] : v) {
             for (int j = 0; j <= sum; j++) {
                 if (j < a) {
                     dp[cur][j] = dp[prev][j] + b;

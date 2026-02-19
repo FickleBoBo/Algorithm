@@ -8,26 +8,26 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
+        int k = Integer.parseInt(st.nextToken());
 
-        int[] mArr = new int[1 + N];
+        int[] marr = new int[1 + n];
         st = new StringTokenizer(br.readLine());
-        for (int i = 1; i <= N; i++) {
-            mArr[i] = Integer.parseInt(st.nextToken());
+        for (int i = 1; i <= n; i++) {
+            marr[i] = Integer.parseInt(st.nextToken());
         }
 
-        int[] cArr = new int[1 + N];
+        int[] carr = new int[1 + n];
         int sum = 0;
         st = new StringTokenizer(br.readLine());
-        for (int i = 1; i <= N; i++) {
-            sum += cArr[i] = Integer.parseInt(st.nextToken());
+        for (int i = 1; i <= n; i++) {
+            sum += carr[i] = Integer.parseInt(st.nextToken());
         }
 
-        int[][] dp = new int[1 + N][1 + sum];
-        for (int i = 1; i <= N; i++) {
-            int m = mArr[i];
-            int c = cArr[i];
+        int[][] dp = new int[1 + n][1 + sum];
+        for (int i = 1; i <= n; i++) {
+            int m = marr[i];
+            int c = carr[i];
 
             for (int j = 0; j <= sum; j++) {
                 if (j < c) {
@@ -39,7 +39,7 @@ public class Main {
         }
 
         for (int j = 0; j <= sum; j++) {
-            if (dp[N][j] >= M) {
+            if (dp[n][j] >= k) {
                 System.out.println(j);
                 return;
             }

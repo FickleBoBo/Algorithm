@@ -15,21 +15,18 @@ int main() {
 
         // 이진 그룹핑
         for (int bit = 1; bit <= k; bit <<= 1) {
-            a.emplace_back(v * bit, c * bit);
+            a.push_back({v * bit, c * bit});
             k -= bit;
         }
 
         // 나머지가 존재하면 그룹핑
         if (k) {
-            a.emplace_back(v * k, c * k);
+            a.push_back({v * k, c * k});
         }
     }
 
     vector<int> dp(1 + m);
-    for (auto p : a) {
-        int v = p.first;
-        int c = p.second;
-
+    for (auto [v, c] : a) {
         for (int j = m; j >= v; j--) {
             dp[j] = max(dp[j - v] + c, dp[j]);
         }

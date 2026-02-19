@@ -8,21 +8,21 @@ public class Main2 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
 
-        int N = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
 
-        int[] A = new int[N];
-        int[] B = new int[N];
+        int[] aarr = new int[n];
+        int[] barr = new int[n];
         int sumA = 0;
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
-            sumA += A[i] = Integer.parseInt(st.nextToken());
-            B[i] = Integer.parseInt(st.nextToken());
+            sumA += aarr[i] = Integer.parseInt(st.nextToken());
+            barr[i] = Integer.parseInt(st.nextToken());
         }
 
         int[] dp = new int[1 + sumA];
-        for (int i = 0; i < N; i++) {
-            int a = A[i];
-            int b = B[i];
+        for (int i = 0; i < n; i++) {
+            int a = aarr[i];
+            int b = barr[i];
 
             for (int j = sumA; j >= 0; j--) {
                 if (j < a) {

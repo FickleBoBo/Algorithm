@@ -9,7 +9,7 @@ int main() {
     cin >> n;
 
     vector<pair<int, int>> v(n);
-    for (auto& p : v) cin >> p.first >> p.second;
+    for (auto& [a, b] : v) cin >> a >> b;
     sort(v.begin(), v.end());
 
     vector<int> dp(n, 1);

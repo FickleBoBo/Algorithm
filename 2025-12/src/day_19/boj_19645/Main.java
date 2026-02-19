@@ -8,23 +8,23 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
 
-        int N = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
 
-        int[] arr = new int[N];
+        int[] arr = new int[n];
         int sum = 0;
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             sum += arr[i] = Integer.parseInt(st.nextToken());
         }
 
         boolean[][] dp = new boolean[1 + sum][1 + sum];
         dp[0][0] = true;  // 세 명 다 어떤 햄버거도 먹지 않았음
-        for (int n : arr) {
+        for (int x : arr) {
             for (int i = sum; i >= 0; i--) {
                 for (int j = sum; j >= 0; j--) {
                     if (dp[i][j]) {
-                        dp[i + n][j] = true;
-                        dp[i][j + n] = true;
+                        dp[i + x][j] = true;
+                        dp[i][j + x] = true;
                     }
                 }
             }

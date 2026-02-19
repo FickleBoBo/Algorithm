@@ -9,7 +9,7 @@ int main() {
     cin >> n >> k;
 
     vector<pair<int, int>> input(n);  // 양동이의 얼음의 양과 좌표를 임시 저장
-    for (auto& p : input) cin >> p.second >> p.first;
+    for (auto& [a, b] : input) cin >> b >> a;
     sort(input.begin(), input.end());  // 양동이의 좌표를 기준으로 정렬
 
     int l = 0;

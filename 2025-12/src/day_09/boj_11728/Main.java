@@ -9,22 +9,22 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
 
-        int[] arr = new int[N + M];
+        int[] arr = new int[n + m];
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
         st = new StringTokenizer(br.readLine());
-        for (int i = N; i < N + M; i++) {
+        for (int i = n; i < n + m; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
         Arrays.sort(arr);
 
-        for (int n : arr) {
-            sb.append(n).append(" ");
+        for (int x : arr) {
+            sb.append(x).append(" ");
         }
 
         System.out.println(sb);

@@ -17,42 +17,42 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int S = Integer.parseInt(st.nextToken());
-        int P = Integer.parseInt(st.nextToken());
+        int s = Integer.parseInt(st.nextToken());
+        int p = Integer.parseInt(st.nextToken());
 
         char[] str = br.readLine().toCharArray();
 
-        int[] cntArr = new int[4];
+        int[] cnt = new int[4];
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < 4; i++) {
-            cntArr[i] = Integer.parseInt(st.nextToken());
+            cnt[i] = Integer.parseInt(st.nextToken());
         }
 
         // 만들 수 있는 비밀번호의 종류의 수
-        int cnt = 0;
+        int result = 0;
 
         // 초기 윈도우에 대해 카운팅 배열 갱신
-        for (int i = 0; i < P; i++) {
-            cntArr[map.get(str[i])]--;
+        for (int i = 0; i < p; i++) {
+            cnt[map.get(str[i])]--;
         }
 
         // 초기 윈도우로 만들 수 있는 비밀번호면 카운팅
-        if (isPossible(cntArr)) {
-            cnt++;
+        if (isPossible(cnt)) {
+            result++;
         }
 
-        for (int i = 0; i < S - P; i++) {
+        for (int i = 0; i < s - p; i++) {
             // 윈도우 이동
-            cntArr[map.get(str[i])]++;
-            cntArr[map.get(str[i + P])]--;
+            cnt[map.get(str[i])]++;
+            cnt[map.get(str[i + p])]--;
 
             // 이동 후 만들 수 있는 비밀번호면 카운팅
-            if (isPossible(cntArr)) {
-                cnt++;
+            if (isPossible(cnt)) {
+                result++;
             }
         }
 
-        System.out.println(cnt);
+        System.out.println(result);
     }
 
     static boolean isPossible(int[] arr) {

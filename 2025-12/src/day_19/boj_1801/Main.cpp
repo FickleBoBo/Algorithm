@@ -52,8 +52,8 @@ int main() {
         }
 
         // 가능한 후보들로 dp 갱신
-        for (auto& s : tmp) {
-            dp[s.a][s.b][s.c][s.d] = true;
+        for (auto [a, b, c, d] : tmp) {
+            dp[a][b][c][d] = true;
         }
     }
 

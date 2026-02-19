@@ -10,15 +10,15 @@ int main() {
 
     vector<pair<int, int>> input(n);  // 양동이의 얼음의 양과 좌표를 임시 저장
     int maxLen = 0;                   // 양동이의 좌표의 최댓값
-    for (auto& p : input) {
-        cin >> p.first >> p.second;
-        maxLen = max(maxLen, p.second);
+    for (auto& [a, b] : input) {
+        cin >> a >> b;
+        maxLen = max(maxLen, b);
     }
 
     // 인덱스에 양동이의 좌표, 값에 양동이의 얼음의 양 저장
     vector<int> v(1 + maxLen);
-    for (auto p : input) {
-        v[p.second] = p.first;
+    for (auto [a, b] : input) {
+        v[b] = a;
     }
 
     // 윈도우의 크기

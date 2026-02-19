@@ -6,22 +6,22 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int N = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
         int k = Integer.parseInt(br.readLine());
 
-        System.out.println(lowerBound(N, k));
+        System.out.println(lowerBound(n, k));
     }
 
-    static int lowerBound(int N, int k) {
+    static int lowerBound(int n, int k) {
         int left = 1;
-        int right = (int) Math.min(1_000_000_000, (long) N * N);
+        int right = (int) Math.min(1_000_000_000, (long) n * n);
 
         while (left < right) {
             int mid = (left + right) / 2;
 
             long cnt = 0;
-            for (int i = 1; i <= N; i++) {
-                cnt += Math.min(mid / i, N);
+            for (int i = 1; i <= n; i++) {
+                cnt += Math.min(mid / i, n);
             }
 
             if (cnt < k) {

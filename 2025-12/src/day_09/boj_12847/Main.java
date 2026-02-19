@@ -8,23 +8,23 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
 
-        int[] arr = new int[N];
+        int[] arr = new int[n];
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        long[] pSum = new long[1 + N];
-        for (int i = 1; i <= N; i++) {
-            pSum[i] = pSum[i - 1] + arr[i - 1];
+        long[] psum = new long[1 + n];
+        for (int i = 1; i <= n; i++) {
+            psum[i] = psum[i - 1] + arr[i - 1];
         }
 
         long max = 0;
-        for (int i = 0; i <= N - M; i++) {
-            max = Math.max(max, pSum[i + M] - pSum[i]);
+        for (int i = 0; i <= n - m; i++) {
+            max = Math.max(max, psum[i + m] - psum[i]);
         }
 
         System.out.println(max);

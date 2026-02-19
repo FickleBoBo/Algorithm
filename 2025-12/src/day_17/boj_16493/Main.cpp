@@ -2,8 +2,8 @@
 using namespace std;
 
 int n, m, mx;
-vector<int> days;
-vector<int> pages;
+int days[20];
+int pages[20];
 
 void dfs(int idx, int dsum, int psum) {
     if (dsum > n) return;  // 읽는데 소요된 일수의 합이 n보다 크면 불가능한 경우
@@ -22,8 +22,6 @@ int main() {
     cin.tie(nullptr);
 
     cin >> n >> m;
-    days.resize(m);
-    pages.resize(m);
 
     for (int i = 0; i < m; i++) {
         cin >> days[i] >> pages[i];

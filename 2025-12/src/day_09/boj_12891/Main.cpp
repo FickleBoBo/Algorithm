@@ -9,8 +9,8 @@ int main() {
     string s;
     cin >> slen >> plen >> s;
 
-    vector<int> cntArr(4);
-    for (int& x : cntArr) cin >> x;
+    vector<int> cnt(4);
+    for (int& x : cnt) cin >> x;
 
     // 알파벳과 인덱스 매핑
     int mp[128];
@@ -20,28 +20,28 @@ int main() {
     mp['T'] = 3;
 
     // 만들 수 있는 비밀번호의 종류의 수
-    int cnt = 0;
+    int result = 0;
 
     // 초기 윈도우에 대해 카운팅 배열 갱신
     for (int i = 0; i < plen; i++) {
-        cntArr[mp[s[i]]]--;
+        cnt[mp[s[i]]]--;
     }
 
     // 초기 윈도우로 만들 수 있는 비밀번호면 카운팅
-    if (*max_element(cntArr.begin(), cntArr.end()) <= 0) {
-        cnt++;
+    if (*max_element(cnt.begin(), cnt.end()) <= 0) {
+        result++;
     }
 
     for (int i = 0; i < slen - plen; i++) {
         // 윈도우 이동
-        cntArr[mp[s[i]]]++;
-        cntArr[mp[s[i + plen]]]--;
+        cnt[mp[s[i]]]++;
+        cnt[mp[s[i + plen]]]--;
 
         // 이동 후 만들 수 있는 비밀번호면 카운팅
-        if (*max_element(cntArr.begin(), cntArr.end()) <= 0) {
-            cnt++;
+        if (*max_element(cnt.begin(), cnt.end()) <= 0) {
+            result++;
         }
     }
 
-    cout << cnt;
+    cout << result;
 }

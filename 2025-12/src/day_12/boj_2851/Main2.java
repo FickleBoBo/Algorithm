@@ -11,17 +11,17 @@ public class Main2 {
             arr[i] = Integer.parseInt(br.readLine());
         }
 
-        int[] pSum = new int[1 + 10];
+        int[] psum = new int[1 + 10];
         for (int i = 1; i <= 10; i++) {
-            pSum[i] = pSum[i - 1] + arr[i - 1];
+            psum[i] = psum[i - 1] + arr[i - 1];
         }
 
         int ans = 0;
         int diff = 1_000;
         for (int i = 1; i <= 10; i++) {
-            if (Math.abs(pSum[i] - 100) <= diff) {
-                ans = pSum[i];
-                diff = Math.abs(pSum[i] - 100);
+            if (Math.abs(psum[i] - 100) <= diff) {
+                ans = psum[i];
+                diff = Math.abs(psum[i] - 100);
             }
         }
 

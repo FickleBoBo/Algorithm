@@ -6,12 +6,12 @@ import java.util.*;
 public class Main {
 
     static class Item {
-        int V;
-        int C;
+        int v;
+        int c;
 
-        public Item(int V, int C) {
-            this.V = V;
-            this.C = C;
+        public Item(int v, int c) {
+            this.v = v;
+            this.c = c;
         }
     }
 
@@ -19,34 +19,34 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
 
         List<Item> items = new ArrayList<>();
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
-            int V = Integer.parseInt(st.nextToken());
-            int C = Integer.parseInt(st.nextToken());
-            int K = Integer.parseInt(st.nextToken());
+            int v = Integer.parseInt(st.nextToken());
+            int c = Integer.parseInt(st.nextToken());
+            int k = Integer.parseInt(st.nextToken());
 
             // 이진 그룹핑
-            for (int bit = 1; bit <= K; bit <<= 1) {
-                items.add(new Item(V * bit, C * bit));
-                K -= bit;
+            for (int bit = 1; bit <= k; bit <<= 1) {
+                items.add(new Item(v * bit, c * bit));
+                k -= bit;
             }
 
             // 나머지가 존재하면 그룹핑
-            if (K != 0) {
-                items.add(new Item(V * K, C * K));
+            if (k != 0) {
+                items.add(new Item(v * k, c * k));
             }
         }
 
-        int[][] dp = new int[1 + items.size()][1 + M];
+        int[][] dp = new int[1 + items.size()][1 + m];
         for (int i = 1; i <= items.size(); i++) {
-            int v = items.get(i - 1).V;
-            int c = items.get(i - 1).C;
+            int v = items.get(i - 1).v;
+            int c = items.get(i - 1).c;
 
-            for (int j = 1; j <= M; j++) {
+            for (int j = 1; j <= m; j++) {
                 if (j < v) {
                     dp[i][j] = dp[i - 1][j];
                 } else {
@@ -55,6 +55,6 @@ public class Main {
             }
         }
 
-        System.out.println(dp[items.size()][M]);
+        System.out.println(dp[items.size()][m]);
     }
 }
