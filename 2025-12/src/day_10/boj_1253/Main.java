@@ -8,18 +8,18 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
 
-        int N = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
 
-        int[] arr = new int[N];
+        int[] arr = new int[n];
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
         Arrays.sort(arr);
 
         int cnt = 0;
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
                 if (i == j) continue;
 
                 // 이분 탐색으로 찾으면 좋은 수

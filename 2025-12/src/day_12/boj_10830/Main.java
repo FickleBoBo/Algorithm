@@ -12,21 +12,20 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(st.nextToken());
-        long B = Long.parseLong(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
+        long b = Long.parseLong(st.nextToken());
 
-        int[][] mat = new int[N][N];
-        for (int i = 0; i < N; i++) {
+        int[][] mat = new int[n][n];
+        for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
-
-            for (int j = 0; j < N; j++) {
+            for (int j = 0; j < n; j++) {
                 mat[i][j] = Integer.parseInt(st.nextToken());
             }
         }
 
-        int[][] result = binPow(mat, B);
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
+        int[][] result = binPow(mat, b);
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
                 sb.append(result[i][j]).append(" ");
             }
             sb.append("\n");

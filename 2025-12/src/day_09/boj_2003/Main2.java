@@ -8,12 +8,12 @@ public class Main2 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
 
-        int[] arr = new int[N];
+        int[] arr = new int[n];
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
@@ -22,14 +22,14 @@ public class Main2 {
         int sum = 0;
         int cnt = 0;
         while (true) {
-            if (sum < M) {
+            if (sum < m) {
                 sum += arr[right++];
             } else {
-                if (sum == M) cnt++;
+                if (sum == m) cnt++;
                 sum -= arr[left++];
             }
 
-            if (right == N && sum < M) break;
+            if (right == n && sum < m) break;
         }
 
         System.out.println(cnt);

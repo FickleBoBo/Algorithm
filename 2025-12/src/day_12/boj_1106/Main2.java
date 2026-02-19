@@ -11,30 +11,30 @@ public class Main2 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int C = Integer.parseInt(st.nextToken());
-        int N = Integer.parseInt(st.nextToken());
+        int c = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
 
-        int[] costs = new int[N];
-        int[] people = new int[N];
-        for (int i = 0; i < N; i++) {
+        int[] costs = new int[n];
+        int[] people = new int[n];
+        for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
             costs[i] = Integer.parseInt(st.nextToken());
             people[i] = Integer.parseInt(st.nextToken());
         }
 
-        int[] dp = new int[1 + C + 100];
+        int[] dp = new int[1 + c + 100];
         Arrays.fill(dp, 1, dp.length, MAX);
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             int cost = costs[i];
             int person = people[i];
 
-            for (int j = person; j <= C + 100; j++) {
+            for (int j = person; j <= c + 100; j++) {
                 dp[j] = Math.min(dp[j - person] + cost, dp[j]);
             }
         }
 
         int min = MAX;
-        for (int j = C; j <= C + 100; j++) {
+        for (int j = c; j <= c + 100; j++) {
             min = Math.min(min, dp[j]);
         }
 

@@ -8,19 +8,19 @@ public class Main2 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
 
-        int N = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
 
-        int[] arr = new int[N];
+        int[] arr = new int[n];
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
         Arrays.sort(arr);
 
         int cnt = 0;
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             int left = 0;
-            int right = N - 1;
+            int right = n - 1;
 
             while (left < right) {
                 // 왼쪽 포인터가 i면 넘어감

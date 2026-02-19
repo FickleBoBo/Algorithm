@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-set<int> traceback(const vector<pair<int, int>>& v, const vector<int>& prev, int pos) {
+set<int> traceback(vector<pair<int, int>>& v, vector<int>& prev, int pos) {
     set<int> st;
     for (auto p : v) st.insert(p.second);
 
@@ -21,7 +21,7 @@ int main() {
     cin >> n;
 
     vector<pair<int, int>> v(n);
-    for (auto& p : v) cin >> p.second >> p.first;
+    for (auto& [a, b] : v) cin >> b >> a;
     sort(v.begin(), v.end());
 
     vector<int> dp;

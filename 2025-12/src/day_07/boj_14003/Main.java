@@ -8,21 +8,21 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
 
-        int N = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
 
-        int[] arr = new int[N];
+        int[] arr = new int[n];
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
         List<Integer> dp = new ArrayList<>();
 
-        int[] pos = new int[N];
-        int[] prev = new int[N];
+        int[] pos = new int[n];
+        int[] prev = new int[n];
         Arrays.fill(prev, -1);
 
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             int num = arr[i];
             int idx = lowerBound(dp, num);
 

@@ -9,29 +9,29 @@ public class Main2 {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
 
-        int[] arr1 = new int[N];
+        int[] arr1 = new int[n];
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             arr1[i] = Integer.parseInt(st.nextToken());
         }
         Arrays.sort(arr1);
 
-        int[] arr2 = new int[M];
+        int[] arr2 = new int[m];
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < M; i++) {
+        for (int i = 0; i < m; i++) {
             arr2[i] = Integer.parseInt(st.nextToken());
         }
         Arrays.sort(arr2);
 
-        int[] ans = new int[N + M];
+        int[] ans = new int[n + m];
 
         int pivot1 = 0;  // arr1 포인터
         int pivot2 = 0;  // arr2 포인터
         int idx = 0;  // ans 포인터
-        while (pivot1 < N && pivot2 < M) {
+        while (pivot1 < n && pivot2 < m) {
             if (arr1[pivot1] <= arr2[pivot2]) {
                 ans[idx++] = arr1[pivot1++];
             } else {
@@ -40,17 +40,17 @@ public class Main2 {
         }
 
         // 남은 수 처리
-        while (pivot1 == N && pivot2 < M) {
+        while (pivot1 == n && pivot2 < m) {
             ans[idx++] = arr2[pivot2++];
         }
 
         // 남은 수 처리
-        while (pivot2 == M && pivot1 < N) {
+        while (pivot2 == m && pivot1 < n) {
             ans[idx++] = arr1[pivot1++];
         }
 
-        for (int n : ans) {
-            sb.append(n).append(" ");
+        for (int x : ans) {
+            sb.append(x).append(" ");
         }
 
         System.out.println(sb);

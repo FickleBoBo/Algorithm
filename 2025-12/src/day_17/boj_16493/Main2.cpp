@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int dp[21][201];
+
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -9,12 +11,10 @@ int main() {
     cin >> n >> m;
 
     vector<pair<int, int>> a(m);
-    for (auto& p : a) cin >> p.first >> p.second;
+    for (auto& [day, page] : a) cin >> day >> page;
 
-    vector<vector<int>> dp(1 + m, vector<int>(1 + n));
     for (int i = 1; i <= m; i++) {
-        int day = a[i - 1].first;
-        int page = a[i - 1].second;
+        auto [day, page] = a[i - 1];
 
         for (int j = 1; j <= n; j++) {
             if (j < day) {

@@ -8,15 +8,15 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int K = Integer.parseInt(st.nextToken());
-        int N = Integer.parseInt(st.nextToken());
+        int k = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
 
-        int[] arr = new int[K];
-        for (int i = 0; i < K; i++) {
+        int[] arr = new int[k];
+        for (int i = 0; i < k; i++) {
             arr[i] = Integer.parseInt(br.readLine());
         }
 
-        System.out.println(upperBound(arr, N) - 1);
+        System.out.println(upperBound(arr, n) - 1);
     }
 
     static long upperBound(int[] arr, int key) {

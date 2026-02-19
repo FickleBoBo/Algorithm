@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<int> traceback(const vector<int>& v, const vector<int>& prev, int pos) {
+vector<int> traceback(vector<int>& v, vector<int>& prev, int pos) {
     vector<int> lis;
 
     while (pos != -1) {

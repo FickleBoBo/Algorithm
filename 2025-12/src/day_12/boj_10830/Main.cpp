@@ -13,7 +13,7 @@ Matrix identity(int len) {
     return id;
 }
 
-Matrix multiply(const Matrix& a, const Matrix& b) {
+Matrix multiply(Matrix& a, Matrix& b) {
     int len = a.size();
     Matrix res(len, vector<int>(len));
 

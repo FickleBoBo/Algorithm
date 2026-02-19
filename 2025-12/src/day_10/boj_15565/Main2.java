@@ -8,12 +8,12 @@ public class Main2 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(st.nextToken());
-        int K = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
+        int k = Integer.parseInt(st.nextToken());
 
-        int[] arr = new int[N];
+        int[] arr = new int[n];
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
@@ -23,17 +23,17 @@ public class Main2 {
         int min = Integer.MAX_VALUE;  // 조건을 만족하는 구간의 길이의 최솟값
 
         while (true) {
-            if (cnt < K) {
+            if (cnt < k) {
                 if (arr[right++] == 1) cnt++;
             } else {
-                if (cnt == K) {
+                if (cnt == k) {
                     min = Math.min(min, right - left);
                 }
 
                 if (arr[left++] == 1) cnt--;
             }
 
-            if (right == N && cnt < K) break;
+            if (right == n && cnt < k) break;
         }
 
         if (min == Integer.MAX_VALUE) {

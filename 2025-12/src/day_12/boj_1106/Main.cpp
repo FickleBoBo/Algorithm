@@ -2,6 +2,7 @@
 using namespace std;
 
 constexpr int MAX = 100000;
+int dp[21][1101];
 
 int main() {
     ios::sync_with_stdio(false);
@@ -11,13 +12,11 @@ int main() {
     cin >> c >> n;
 
     vector<pair<int, int>> a(n);
-    for (auto& p : a) cin >> p.first >> p.second;
+    for (auto& [cost, person] : a) cin >> cost >> person;
 
-    vector<vector<int>> dp(1 + n, vector<int>(1 + c + 100));
-    fill(dp[0].begin() + 1, dp[0].end(), MAX);
+    fill(dp[0] + 1, dp[0] + 1101, MAX);
     for (int i = 1; i <= n; i++) {
-        int cost = a[i - 1].first;
-        int person = a[i - 1].second;
+        auto [cost, person] = a[i - 1];
 
         for (int j = 1; j <= c + 100; j++) {
             if (j < person) {
@@ -28,5 +27,10 @@ int main() {
         }
     }
 
-    cout << *min_element(dp[n].begin() + c, dp[n].end());
+    int mn = MAX;
+    for (int j = c; j <= c + 100; j++) {
+        mn = min(mn, dp[n][j]);
+    }
+
+    cout << mn;
 }

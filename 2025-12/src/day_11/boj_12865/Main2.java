@@ -8,27 +8,27 @@ public class Main2 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(st.nextToken());
-        int K = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
+        int k = Integer.parseInt(st.nextToken());
 
-        int[] W = new int[N];
-        int[] V = new int[N];
-        for (int i = 0; i < N; i++) {
+        int[] warr = new int[n];
+        int[] varr = new int[n];
+        for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
-            W[i] = Integer.parseInt(st.nextToken());
-            V[i] = Integer.parseInt(st.nextToken());
+            warr[i] = Integer.parseInt(st.nextToken());
+            varr[i] = Integer.parseInt(st.nextToken());
         }
 
-        int[] dp = new int[1 + K];
-        for (int i = 0; i < N; i++) {
-            int w = W[i];
-            int v = V[i];
+        int[] dp = new int[1 + k];
+        for (int i = 0; i < n; i++) {
+            int w = warr[i];
+            int v = varr[i];
 
-            for (int j = K; j >= w; j--) {
+            for (int j = k; j >= w; j--) {
                 dp[j] = Math.max(dp[j - w] + v, dp[j]);
             }
         }
 
-        System.out.println(dp[K]);
+        System.out.println(dp[k]);
     }
 }

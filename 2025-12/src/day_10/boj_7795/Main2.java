@@ -9,32 +9,32 @@ public class Main2 {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        int T = Integer.parseInt(br.readLine());
-        for (int tc = 1; tc <= T; tc++) {
+        int t = Integer.parseInt(br.readLine());
+        while (t-- > 0) {
             st = new StringTokenizer(br.readLine());
-            int N = Integer.parseInt(st.nextToken());
-            int M = Integer.parseInt(st.nextToken());
+            int n = Integer.parseInt(st.nextToken());
+            int m = Integer.parseInt(st.nextToken());
 
-            int[] A = new int[N];
+            int[] a = new int[n];
             st = new StringTokenizer(br.readLine());
-            for (int i = 0; i < N; i++) {
-                A[i] = Integer.parseInt(st.nextToken());
+            for (int i = 0; i < n; i++) {
+                a[i] = Integer.parseInt(st.nextToken());
             }
-            Arrays.sort(A);
+            Arrays.sort(a);
 
-            int[] B = new int[M];
+            int[] b = new int[m];
             st = new StringTokenizer(br.readLine());
-            for (int i = 0; i < M; i++) {
-                B[i] = Integer.parseInt(st.nextToken());
+            for (int i = 0; i < m; i++) {
+                b[i] = Integer.parseInt(st.nextToken());
             }
-            Arrays.sort(B);
+            Arrays.sort(b);
 
             int pivotA = 0;  // A의 포인터
             int pivotB = 0;  // B의 포인터
             int cnt = 0;
 
-            while (pivotA < N) {
-                if (pivotB < M && A[pivotA] > B[pivotB]) {
+            while (pivotA < n) {
+                if (pivotB < m && a[pivotA] > b[pivotB]) {
                     pivotB++;
                 } else {
                     cnt += pivotB;

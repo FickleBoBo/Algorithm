@@ -8,25 +8,25 @@ public class Main2 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(st.nextToken());
-        int K = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
+        int k = Integer.parseInt(st.nextToken());
 
-        int[] arr = new int[N];
+        int[] arr = new int[n];
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
         // 초기 윈도우의 합 계산
         int sum = 0;
-        for (int i = 0; i < K; i++) {
+        for (int i = 0; i < k; i++) {
             sum += arr[i];
         }
 
         // 윈도우를 이동하며 최댓값 반복 갱신
         int max = sum;
-        for (int i = 0; i < N - K; i++) {
-            sum = sum - arr[i] + arr[i + K];
+        for (int i = 0; i < n - k; i++) {
+            sum = sum - arr[i] + arr[i + k];
             max = Math.max(max, sum);
         }
 

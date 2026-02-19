@@ -8,23 +8,23 @@ public class Main2 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
 
-        int[] days = new int[1 + M];
-        int[] pages = new int[1 + M];
-        for (int i = 1; i <= M; i++) {
+        int[] days = new int[1 + m];
+        int[] pages = new int[1 + m];
+        for (int i = 1; i <= m; i++) {
             st = new StringTokenizer(br.readLine());
             days[i] = Integer.parseInt(st.nextToken());
             pages[i] = Integer.parseInt(st.nextToken());
         }
 
-        int[][] dp = new int[1 + M][1 + N];
-        for (int i = 1; i <= M; i++) {
+        int[][] dp = new int[1 + m][1 + n];
+        for (int i = 1; i <= m; i++) {
             int day = days[i];
             int page = pages[i];
 
-            for (int j = 1; j <= N; j++) {
+            for (int j = 1; j <= n; j++) {
                 if (j < day) {
                     dp[i][j] = dp[i - 1][j];
                 } else {
@@ -33,6 +33,6 @@ public class Main2 {
             }
         }
 
-        System.out.println(dp[M][N]);
+        System.out.println(dp[m][n]);
     }
 }

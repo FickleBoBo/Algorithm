@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-long long upper_bound_param(const vector<int>& v, int key) {
+long long upper_bound_param(vector<int>& v, int key) {
     long long left = 1;
     long long right = INT_MAX + 1LL;  // 랜선의 길이가 최대 2^31-1까지라서 right의 상한을 2^31로 설정
 

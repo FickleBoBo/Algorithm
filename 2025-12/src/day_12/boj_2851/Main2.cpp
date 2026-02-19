@@ -6,7 +6,7 @@ int main() {
     cin.tie(nullptr);
 
     vector<int> v(10);
-    for (auto& x : v) cin >> x;
+    for (int& x : v) cin >> x;
 
     vector<int> psum(1 + 10);
     for (int i = 1; i <= 10; i++) {

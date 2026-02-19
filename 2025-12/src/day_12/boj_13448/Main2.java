@@ -21,32 +21,32 @@ public class Main2 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(st.nextToken());
-        int T = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
+        int t = Integer.parseInt(st.nextToken());
 
-        String[] M = br.readLine().split(" ");
-        String[] P = br.readLine().split(" ");
-        String[] R = br.readLine().split(" ");
+        String[] marr = br.readLine().split(" ");
+        String[] parr = br.readLine().split(" ");
+        String[] rarr = br.readLine().split(" ");
 
-        Item[] items = new Item[N];
-        for (int i = 0; i < N; i++) {
-            items[i] = new Item(Integer.parseInt(M[i]), Long.parseLong(P[i]), Integer.parseInt(R[i]));
+        Item[] items = new Item[n];
+        for (int i = 0; i < n; i++) {
+            items[i] = new Item(Integer.parseInt(marr[i]), Long.parseLong(parr[i]), Integer.parseInt(rarr[i]));
         }
         Arrays.sort(items, (o1, o2) -> Long.compare(o1.r * o2.p, o1.p * o2.r));
 
-        long[] dp = new long[1 + T];
+        long[] dp = new long[1 + t];
         for (Item item : items) {
             int m = item.m;
             long p = item.p;
             int r = item.r;
 
-            for (int j = T; j >= r; j--) {
+            for (int j = t; j >= r; j--) {
                 dp[j] = Math.max(dp[j - r] + (m - j * p), dp[j]);
             }
         }
 
         long max = 0;
-        for (int j = 1; j <= T; j++) {
+        for (int j = 1; j <= t; j++) {
             max = Math.max(max, dp[j]);
         }
 
