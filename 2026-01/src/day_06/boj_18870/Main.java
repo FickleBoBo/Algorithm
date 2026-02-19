@@ -9,24 +9,24 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        int N = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
 
-        int[] arr = new int[N];
+        int[] arr = new int[n];
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
         Set<Integer> set = new HashSet<>();
-        for (int n : arr) {
-            set.add(n);
+        for (int x : arr) {
+            set.add(x);
         }
 
         List<Integer> xs = new ArrayList<>(set);
         xs.sort(Comparator.naturalOrder());
 
-        for (int n : arr) {
-            sb.append(Collections.binarySearch(xs, n)).append(" ");
+        for (int x : arr) {
+            sb.append(Collections.binarySearch(xs, x)).append(" ");
         }
 
         System.out.println(sb);

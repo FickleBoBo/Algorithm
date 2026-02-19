@@ -9,8 +9,8 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        int T = Integer.parseInt(br.readLine());
-        for (int tc = 1; tc <= T; tc++) {
+        int t = Integer.parseInt(br.readLine());
+        while (t-- > 0) {
             long[][] pos = new long[4][2];
             for (int i = 0; i < 4; i++) {
                 st = new StringTokenizer(br.readLine());

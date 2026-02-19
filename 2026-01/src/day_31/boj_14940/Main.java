@@ -48,9 +48,6 @@ public class Main {
         Queue<int[]> q = new ArrayDeque<>();
         q.offer(new int[]{sr, sc});
 
-        boolean[][] visited = new boolean[n][m];
-        visited[sr][sc] = true;
-
         int[][] dist = new int[n][m];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
@@ -70,10 +67,9 @@ public class Main {
                     int nc = node[1] + dc[d];
 
                     if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
-                    if (grid[nr][nc] == 0 || visited[nr][nc]) continue;
+                    if (grid[nr][nc] == 0 || dist[nr][nc] != -1) continue;
 
                     q.offer(new int[]{nr, nc});
-                    visited[nr][nc] = true;
                     dist[nr][nc] = dist[node[0]][node[1]] + 1;
                 }
             }

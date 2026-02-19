@@ -14,9 +14,9 @@ public class Main {
 
         boolean[] visited = new boolean[MAX + 1 + MAX];
 
-        int N = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             int x = Integer.parseInt(st.nextToken());
             visited[MAX + x] = true;
         }

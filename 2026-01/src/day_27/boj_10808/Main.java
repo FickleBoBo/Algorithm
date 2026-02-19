@@ -7,15 +7,15 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
 
-        String S = br.readLine();
-        int[] cntArr = new int[26];
+        String str = br.readLine();
+        int[] cnt = new int[26];
 
-        for (char c : S.toCharArray()) {
-            cntArr[c - 'a']++;
+        for (char c : str.toCharArray()) {
+            cnt[c - 'a']++;
         }
 
-        for (int cnt : cntArr) {
-            sb.append(cnt).append(" ");
+        for (int x : cnt) {
+            sb.append(x).append(" ");
         }
 
         System.out.println(sb);

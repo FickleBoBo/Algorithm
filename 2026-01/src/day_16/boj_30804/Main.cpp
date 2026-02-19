@@ -13,18 +13,18 @@ int main() {
 
     int l = 0;
     int r = 0;
-    int cntArr[10] = {};
+    vector<int> cnt(10);
     int type = 0;
     int mx = 0;
 
     while (true) {
         if (type > 2) {
-            cntArr[v[l]]--;
-            if (cntArr[v[l]] == 0) type--;
+            cnt[v[l]]--;
+            if (cnt[v[l]] == 0) type--;
             l++;
         } else {
-            if (cntArr[v[r]] == 0) type++;
-            cntArr[v[r]]++;
+            if (cnt[v[r]] == 0) type++;
+            cnt[v[r]]++;
             r++;
         }
 

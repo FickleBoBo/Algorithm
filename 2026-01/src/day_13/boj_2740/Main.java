@@ -9,32 +9,30 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
 
-        int[][] A = new int[N][M];
-        for (int i = 0; i < N; i++) {
+        int[][] a = new int[n][m];
+        for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
-
-            for (int j = 0; j < M; j++) {
-                A[i][j] = Integer.parseInt(st.nextToken());
+            for (int j = 0; j < m; j++) {
+                a[i][j] = Integer.parseInt(st.nextToken());
             }
         }
 
         st = new StringTokenizer(br.readLine());
-        M = Integer.parseInt(st.nextToken());
-        int K = Integer.parseInt(st.nextToken());
+        m = Integer.parseInt(st.nextToken());
+        int t = Integer.parseInt(st.nextToken());
 
-        int[][] B = new int[M][K];
-        for (int i = 0; i < M; i++) {
+        int[][] b = new int[m][t];
+        for (int i = 0; i < m; i++) {
             st = new StringTokenizer(br.readLine());
-
-            for (int j = 0; j < K; j++) {
-                B[i][j] = Integer.parseInt(st.nextToken());
+            for (int j = 0; j < t; j++) {
+                b[i][j] = Integer.parseInt(st.nextToken());
             }
         }
 
-        int[][] res = multiply(A, B, N, M, K);
+        int[][] res = multiply(a, b, n, m, t);
         for (int i = 0; i < res.length; i++) {
             for (int j = 0; j < res[i].length; j++) {
                 sb.append(res[i][j]).append(" ");
@@ -45,13 +43,13 @@ public class Main {
         System.out.print(sb);
     }
 
-    static int[][] multiply(int[][] A, int[][] B, int N, int M, int K) {
-        int[][] res = new int[N][K];
+    static int[][] multiply(int[][] a, int[][] b, int n, int m, int t) {
+        int[][] res = new int[n][t];
 
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < K; j++) {
-                for (int k = 0; k < M; k++) {
-                    res[i][j] += A[i][k] * B[k][j];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < t; j++) {
+                for (int k = 0; k < m; k++) {
+                    res[i][j] += a[i][k] * b[k][j];
                 }
             }
         }

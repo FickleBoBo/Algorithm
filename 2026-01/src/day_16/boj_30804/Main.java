@@ -8,34 +8,34 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
 
-        int N = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
 
-        int[] arr = new int[N];
+        int[] arr = new int[n];
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
         int left = 0;
         int right = 0;
-        int[] cntArr = new int[10];
+        int[] cnt = new int[10];
         int typeCnt = 0;
         int max = 0;
 
         while (true) {
             if (typeCnt > 2) {
-                cntArr[arr[left]]--;
-                if (cntArr[arr[left]] == 0) typeCnt--;
+                cnt[arr[left]]--;
+                if (cnt[arr[left]] == 0) typeCnt--;
                 left++;
             } else {
-                if (cntArr[arr[right]] == 0) typeCnt++;
-                cntArr[arr[right]]++;
+                if (cnt[arr[right]] == 0) typeCnt++;
+                cnt[arr[right]]++;
                 right++;
             }
 
             if (typeCnt <= 2) max = Math.max(max, right - left);
 
-            if (right == N && typeCnt <= 2) break;
+            if (right == n && typeCnt <= 2) break;
         }
 
         System.out.println(max);

@@ -10,9 +10,9 @@ int main() {
 
     vector<int> v(n);
     for (int& x : v) cin >> x;
-    sort(v.begin(), v.end());
+    sort(v.rbegin(), v.rend());
 
-    for (int i = n - 1; i >= 0; i--) {
-        cout << v[i] << '\n';
+    for (int x : v) {
+        cout << x << '\n';
     }
 }

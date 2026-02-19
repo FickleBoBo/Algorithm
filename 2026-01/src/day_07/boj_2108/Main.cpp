@@ -17,24 +17,24 @@ int main() {
     int sum = 0;
     for (int x : v) sum += x;
 
-    vector<int> cntArr(MAX + 1 + MAX);
-    for (int x : v) cntArr[x + MAX]++;
+    vector<int> cnt(MAX + 1 + MAX);
+    for (int x : v) cnt[x + MAX]++;
 
     int mx = 0;     // 최빈값의 최댓값
     int cntMx = 0;  // 최빈값의 최댓값이 등장한 횟수
-    for (int cnt : cntArr) {
-        if (cnt > mx) {
-            mx = cnt;
+    for (int x : cnt) {
+        if (x > mx) {
+            mx = x;
             cntMx = 1;
-        } else if (cnt == mx) {
+        } else if (x == mx) {
             cntMx++;
         }
     }
     cntMx = min(cntMx, 2);
 
     int mode = 0;  // 최빈값
-    for (int i = 0; i < cntArr.size(); i++) {
-        if (cntArr[i] == mx) cntMx--;
+    for (int i = 0; i < cnt.size(); i++) {
+        if (cnt[i] == mx) cntMx--;
         if (cntMx == 0) {
             mode = i - MAX;
             break;

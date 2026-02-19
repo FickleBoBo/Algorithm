@@ -3,7 +3,7 @@ using namespace std;
 
 int n, m;
 int sel[8];
-bool visited[1 + 8];
+bool visited[9];
 
 void dfs(int selIdx) {
     if (selIdx == m) {
