@@ -1,40 +1,40 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+int dq[2000000];
+int front = 1000000;
+int back = 1000000;
 
-    int deque[2000000];
-    int front = 1000000;
-    int back = 1000000;
+int main() {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
     int n;
     cin >> n;
 
-    for (int i = 0; i < n; i++) {
+    while (n--) {
         int command;
         cin >> command;
 
         if (command == 1) {
             int x;
             cin >> x;
-            deque[--front] = x;
+            dq[--front] = x;
         } else if (command == 2) {
             int x;
             cin >> x;
-            deque[back++] = x;
+            dq[back++] = x;
         } else if (command == 3) {
             if (front == back) {
                 cout << -1 << '\n';
             } else {
-                cout << deque[front++] << '\n';
+                cout << dq[front++] << '\n';
             }
         } else if (command == 4) {
             if (front == back) {
                 cout << -1 << '\n';
             } else {
-                cout << deque[--back] << '\n';
+                cout << dq[--back] << '\n';
             }
         } else if (command == 5) {
             cout << back - front << '\n';
@@ -44,13 +44,13 @@ int main() {
             if (front == back) {
                 cout << -1 << '\n';
             } else {
-                cout << deque[front] << '\n';
+                cout << dq[front] << '\n';
             }
         } else {
             if (front == back) {
                 cout << -1 << '\n';
             } else {
-                cout << deque[back - 1] << '\n';
+                cout << dq[back - 1] << '\n';
             }
         }
     }
