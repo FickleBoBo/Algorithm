@@ -1,29 +1,29 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+int st[10000];
+int top = -1;
 
-    int stack[10000];
-    int top = -1;
+int main() {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
     int n;
     cin >> n;
 
-    for (int i = 0; i < n; i++) {
+    while (n--) {
         string command;
         cin >> command;
 
         if (command == "push") {
             int x;
             cin >> x;
-            stack[++top] = x;
+            st[++top] = x;
         } else if (command == "pop") {
             if (top == -1) {
                 cout << -1 << '\n';
             } else {
-                cout << stack[top--] << '\n';
+                cout << st[top--] << '\n';
             }
         } else if (command == "size") {
             cout << top + 1 << '\n';
@@ -33,7 +33,7 @@ int main() {
             if (top == -1) {
                 cout << -1 << '\n';
             } else {
-                cout << stack[top] << '\n';
+                cout << st[top] << '\n';
             }
         }
     }
