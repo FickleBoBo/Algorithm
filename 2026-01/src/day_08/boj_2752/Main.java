@@ -14,8 +14,8 @@ public class Main {
         }
         Arrays.sort(arr);
 
-        for (int i = 0; i < 3; i++) {
-            System.out.print(arr[i] + " ");
+        for (int x : arr) {
+            System.out.print(x + " ");
         }
     }
 }
