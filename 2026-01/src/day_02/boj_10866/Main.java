@@ -14,7 +14,7 @@ public class Main {
         int back = 10000;
 
         int n = Integer.parseInt(br.readLine());
-        for (int i = 0; i < n; i++) {
+        while (n-- > 0) {
             st = new StringTokenizer(br.readLine());
             String command = st.nextToken();
 
