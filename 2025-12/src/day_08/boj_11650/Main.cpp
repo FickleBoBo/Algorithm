@@ -2,8 +2,8 @@
 using namespace std;
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
     int n;
     cin >> n;
@@ -12,7 +12,7 @@ int main() {
     for (auto& [x, y] : v) cin >> x >> y;
     sort(v.begin(), v.end());
 
-    for (auto& [x, y] : v) {
+    for (auto [x, y] : v) {
         cout << x << ' ' << y << '\n';
     }
 }
