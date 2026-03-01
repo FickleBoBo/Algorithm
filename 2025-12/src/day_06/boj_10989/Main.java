@@ -13,7 +13,7 @@ public class Main {
         int n = Integer.parseInt(br.readLine());
 
         int[] cnt = new int[1 + MAX];
-        for (int i = 0; i < n; i++) {
+        while (n-- > 0) {
             cnt[Integer.parseInt(br.readLine())]++;
         }
 
