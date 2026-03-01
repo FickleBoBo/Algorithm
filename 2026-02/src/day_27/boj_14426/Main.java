@@ -1,0 +1,29 @@
+package day_27.boj_14426;
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
+        Set<String> set = new HashSet<>();
+
+        while (n-- > 0) {
+            String s = br.readLine();
+            for (int i = 0; i < s.length(); i++) {
+                set.add(s.substring(0, i + 1));
+            }
+        }
+
+        int cnt = 0;
+        while (m-- > 0) {
+            if (set.contains(br.readLine())) cnt++;
+        }
+
+        System.out.println(cnt);
+    }
+}
