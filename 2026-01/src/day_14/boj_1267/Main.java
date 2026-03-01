@@ -13,7 +13,7 @@ public class Main {
 
         int n = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < n; i++) {
+        while (n-- > 0) {
             int x = Integer.parseInt(st.nextToken());
 
             ys += (x / 30 + 1) * 10;
