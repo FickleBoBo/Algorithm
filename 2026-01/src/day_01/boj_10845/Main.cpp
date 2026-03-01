@@ -1,30 +1,30 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+int q[10000];
+int front = 0;
+int rear = 0;
 
-    int queue[10000];
-    int front = 0;
-    int rear = 0;
+int main() {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
     int n;
     cin >> n;
 
-    for (int i = 0; i < n; i++) {
+    while (n--) {
         string command;
         cin >> command;
 
         if (command == "push") {
             int x;
             cin >> x;
-            queue[rear++] = x;
+            q[rear++] = x;
         } else if (command == "pop") {
             if (front == rear) {
                 cout << -1 << '\n';
             } else {
-                cout << queue[front++] << '\n';
+                cout << q[front++] << '\n';
             }
         } else if (command == "size") {
             cout << rear - front << '\n';
@@ -34,13 +34,13 @@ int main() {
             if (front == rear) {
                 cout << -1 << '\n';
             } else {
-                cout << queue[front] << '\n';
+                cout << q[front] << '\n';
             }
         } else {
             if (front == rear) {
                 cout << -1 << '\n';
             } else {
-                cout << queue[rear - 1] << '\n';
+                cout << q[rear - 1] << '\n';
             }
         }
     }
