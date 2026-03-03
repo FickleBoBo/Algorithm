@@ -10,7 +10,7 @@ public class Main {
         Deque<Integer> stack = new ArrayDeque<>();
 
         int k = Integer.parseInt(br.readLine());
-        for (int i = 0; i < k; i++) {
+        while (k-- > 0) {
             int n = Integer.parseInt(br.readLine());
 
             if (n == 0) {
