@@ -4,7 +4,7 @@
 
 using namespace std;
 
-constexpr int MAX = 1000000;
+const int MAX = 1000000;
 
 int solution(int x, int y, int n) {
     vector<int> dp(1 + y * 3, MAX);
