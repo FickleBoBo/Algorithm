@@ -14,7 +14,6 @@ public class Main {
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < 5; i++) {
             int x = Integer.parseInt(st.nextToken());
-
             if (n == x) cnt++;
         }
 
