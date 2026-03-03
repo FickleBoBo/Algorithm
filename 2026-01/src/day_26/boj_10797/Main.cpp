@@ -2,17 +2,16 @@
 using namespace std;
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
     int n;
     cin >> n;
 
-    vector<int> v(5);
-    for (int& x : v) cin >> x;
-
     int cnt = 0;
-    for (int x : v) {
+    for (int i = 0; i < 5; i++) {
+        int x;
+        cin >> x;
         if (n == x) cnt++;
     }
 
