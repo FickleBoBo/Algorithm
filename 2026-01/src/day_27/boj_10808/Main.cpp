@@ -1,14 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int cnt[26];
+
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
     string s;
     cin >> s;
-
-    vector<int> cnt(26);
 
     for (char c : s) {
         cnt[c - 'a']++;
