@@ -11,7 +11,7 @@ public class Main {
         int[] arr = {1, 1, 2, 2, 2, 8};
         for (int num : arr) {
             int x = Integer.parseInt(st.nextToken());
-            System.out.println(num - x);
+            System.out.print((num - x) + " ");
         }
     }
 }
