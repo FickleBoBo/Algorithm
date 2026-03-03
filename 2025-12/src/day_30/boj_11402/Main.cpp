@@ -4,8 +4,8 @@ using namespace std;
 int dp[2001][2001];
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
     long long n, k;
     int m;
