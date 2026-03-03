@@ -11,7 +11,7 @@ public class Main {
         PriorityQueue<Integer> pq = new PriorityQueue<>();
 
         int n = Integer.parseInt(br.readLine());
-        for (int i = 0; i < n; i++) {
+        while (n-- > 0) {
             int x = Integer.parseInt(br.readLine());
 
             if (x == 0) {
