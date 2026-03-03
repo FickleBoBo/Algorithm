@@ -1,12 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-constexpr int MOD = 10007;
+const int MOD = 10007;
 int dp[1001][1001];
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
     int n, k;
     cin >> n >> k;
