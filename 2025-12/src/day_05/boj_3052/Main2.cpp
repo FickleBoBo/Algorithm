@@ -2,8 +2,8 @@
 using namespace std;
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
     unordered_set<int> st;
     for (int i = 0; i < 10; i++) {
