@@ -12,7 +12,7 @@ public class Main {
         Set<String> set = new TreeSet<>(Comparator.reverseOrder());
 
         int n = Integer.parseInt(br.readLine());
-        for (int i = 0; i < n; i++) {
+        while (n-- > 0) {
             st = new StringTokenizer(br.readLine());
             String name = st.nextToken();
             String type = st.nextToken();
