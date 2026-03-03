@@ -11,11 +11,10 @@ public class Main {
         int x = Integer.parseInt(br.readLine());
         int n = Integer.parseInt(br.readLine());
 
-        for (int i = 0; i < n; i++) {
+        while (n-- > 0) {
             st = new StringTokenizer(br.readLine());
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
-
             x -= a * b;
         }
 
