@@ -2,8 +2,8 @@
 using namespace std;
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
     cout << "    8888888888  888    88888" << '\n';
     cout << "   88     88   88 88   88  88" << '\n';
