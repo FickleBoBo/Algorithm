@@ -8,7 +8,7 @@ public class Main {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int n = Integer.parseInt(br.readLine());
-        for (int i = 0; i < n; i++) {
+        while (n-- > 0) {
             String k = br.readLine();
 
             if ((k.charAt(k.length() - 1) - '0') % 2 == 0) {
