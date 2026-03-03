@@ -8,9 +8,8 @@ public class Main {
         StringBuilder sb = new StringBuilder();
 
         int n = Integer.parseInt(br.readLine());
-        for (int i = 0; i < n; i++) {
+        while (n-- > 0) {
             int k = Integer.parseInt(br.readLine());
-
             sb.append("=".repeat(k)).append("\n");
         }
 
