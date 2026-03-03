@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-constexpr int MOD = 1000000007;
+const int MOD = 1000000007;
 long long fact[4000001] = {1};  // 팩토리얼 배열
 long long invFact[4000001];     // 역팩토리얼 배열
 
@@ -18,8 +18,8 @@ long long modpow(long a, int b) {
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
     int n, k;
     cin >> n >> k;
