@@ -14,7 +14,6 @@ public class Main {
             st = new StringTokenizer(br.readLine());
             int x = Integer.parseInt(st.nextToken());
             int y = Integer.parseInt(st.nextToken());
-
             sb.append(x + y).append("\n");
         }
 
