@@ -8,7 +8,7 @@ public class Main {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int n = Integer.parseInt(br.readLine());
-        for (int i = 0; i < n; i++) {
+        while (n-- > 0) {
             String str = br.readLine();
 
             bw.write(Character.toUpperCase(str.charAt(0)));
