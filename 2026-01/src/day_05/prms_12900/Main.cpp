@@ -3,7 +3,7 @@
 
 using namespace std;
 
-constexpr int MOD = 1000000007;
+const int MOD = 1000000007;
 int dp[60001] = {0, 1, 2};
 
 int solution(int n) {
