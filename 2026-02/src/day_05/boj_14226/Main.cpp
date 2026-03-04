@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-constexpr int MAX = 1000;
+const int MAX = 1000;
 bool visited[1 + MAX][1 + MAX];
 
 int bfs(int s) {
@@ -44,8 +44,8 @@ int bfs(int s) {
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
     int s;
     cin >> s;
