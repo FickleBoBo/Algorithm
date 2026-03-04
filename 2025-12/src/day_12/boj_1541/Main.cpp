@@ -2,7 +2,7 @@
 using namespace std;
 
 // 숫자와 +로만 이루어진 식의 합 리턴
-int sum(const string& s) {
+int sum(string& s) {
     vector<string> v;
     string cur;
     for (char c : s) {
@@ -24,8 +24,8 @@ int sum(const string& s) {
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
     string s;
     cin >> s;
