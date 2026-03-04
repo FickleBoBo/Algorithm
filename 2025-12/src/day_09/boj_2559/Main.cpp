@@ -2,8 +2,8 @@
 using namespace std;
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
     int n, k;
     cin >> n >> k;
@@ -16,7 +16,7 @@ int main() {
         psum[i] = psum[i - 1] + v[i - 1];
     }
 
-    // 누적합의 차로 구간합 계산 및 최댓값 갱신
+    // 누적 합의 차로 구간합 계산 및 최댓값 갱신
     int mx = INT_MIN;
     for (int i = 0; i <= n - k; i++) {
         mx = max(mx, psum[i + k] - psum[i]);

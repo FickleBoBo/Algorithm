@@ -22,7 +22,7 @@ public class Main {
             psum[i] = psum[i - 1] + arr[i - 1];
         }
 
-        // 누적합의 차로 구간합 계산 및 최댓값 갱신
+        // 누적 합의 차로 구간합 계산 및 최댓값 갱신
         int max = Integer.MIN_VALUE;
         for (int i = 0; i <= n - k; i++) {
             max = Math.max(max, psum[i + k] - psum[i]);
