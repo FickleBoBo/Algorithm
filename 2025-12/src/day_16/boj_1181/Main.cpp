@@ -2,15 +2,15 @@
 using namespace std;
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
     int n;
     cin >> n;
 
     vector<string> v(n);
     for (string& x : v) cin >> x;
-    sort(v.begin(), v.end(), [](const string& a, const string& b) {
+    sort(v.begin(), v.end(), [](string& a, string& b) {
         if (a.size() != b.size()) return a.size() < b.size();
         return a < b;
     });
