@@ -5,8 +5,8 @@ int grid[1024][1024];
 int psum[1025][1025];
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
     int n, m;
     cin >> n >> m;
