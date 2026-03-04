@@ -4,8 +4,8 @@ using namespace std;
 int dp[30][30];
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
     for (int i = 0; i < 30; i++) {
         dp[i][0] = 1;
