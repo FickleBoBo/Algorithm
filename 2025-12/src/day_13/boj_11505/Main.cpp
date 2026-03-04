@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-constexpr int MOD = 1000000007;
+const int MOD = 1000000007;
 int arr[1000001];
 long long tree[4 * 1000000];
 
@@ -46,8 +46,8 @@ long long queryMul(int node, int start, int end, int left, int right) {
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
     int n, m, k;
     cin >> n >> m >> k;
