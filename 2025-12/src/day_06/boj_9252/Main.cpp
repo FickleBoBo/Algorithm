@@ -28,8 +28,8 @@ string traceback(string& s1, string& s2) {
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
     string s1, s2;
     cin >> s1 >> s2;
