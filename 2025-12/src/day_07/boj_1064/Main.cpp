@@ -1,11 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-double dist(int x1, int y1, int x2, int y2) { return sqrt(pow(x1 - x2, 2) + pow(y1 - y2, 2)); }
+double dist(int x1, int y1, int x2, int y2) {
+    return sqrt(pow(x1 - x2, 2) + pow(y1 - y2, 2));
+}
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
     int xa, ya, xb, yb, xc, yc;
     cin >> xa >> ya >> xb >> yb >> xc >> yc;
