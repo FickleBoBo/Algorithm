@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-constexpr int MAX = 100000;
+const int MAX = 100000;
 bool isPrime[1 + MAX];
 vector<int> primes;
 
@@ -23,8 +23,8 @@ void sieve() {
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
     sieve();
 
