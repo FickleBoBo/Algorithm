@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-constexpr int MAX = 1000000;
+const int MAX = 1000000;
 int tree[4 * MAX];
 
 void update(int node, int start, int end, int idx, int delta) {
@@ -33,8 +33,8 @@ int queryKth(int node, int start, int end, int k) {
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
     int n;
     cin >> n;
