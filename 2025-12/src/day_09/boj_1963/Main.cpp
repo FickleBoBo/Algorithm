@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-constexpr int MAX = 9999;
+const int MAX = 9999;
 bool isPrime[1 + MAX];
 bool visited[1 + MAX];
 
@@ -70,8 +70,8 @@ int bfs(int a, int b) {
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
     sieve();
 
