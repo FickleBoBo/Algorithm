@@ -3,7 +3,7 @@ using namespace std;
 
 using Matrix = vector<vector<int>>;
 
-constexpr int MOD = 1000;
+const int MOD = 1000;
 
 Matrix identity(int len) {
     Matrix id(len, vector<int>(len));
@@ -43,8 +43,8 @@ Matrix binpow(Matrix mat, long long n) {
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
     int n;
     long long b;
