@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-constexpr int MAX = 1000000001;
+const int MAX = 1000000001;
 int arr[100001];
 pair<int, int> tree[4 * 100000];
 
@@ -51,8 +51,8 @@ pair<int, int> query(int node, int start, int end, int left, int right) {
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
     int n;
     cin >> n;
