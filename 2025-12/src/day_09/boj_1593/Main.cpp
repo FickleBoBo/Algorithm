@@ -2,8 +2,8 @@
 using namespace std;
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
     int wlen, slen;  // 단어 W의 길이, 문자열 S의 길이
     string w, s;
