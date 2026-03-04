@@ -8,8 +8,8 @@ bool solve(const vector<int>& v, int p1, int p2, int key) {
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
     int n;
     cin >> n;
