@@ -14,8 +14,8 @@ vector<int> traceback(vector<int>& v, vector<int>& prev, int pos) {
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
     int n;
     cin >> n;
