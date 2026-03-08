@@ -50,11 +50,11 @@ public class Main {
         int cnt = 1;
 
         while (!q.isEmpty()) {
-            int[] node = q.poll();
+            int[] cur = q.poll();
 
             for (int d = 0; d < 4; d++) {
-                int nr = node[0] + dr[d];
-                int nc = node[1] + dc[d];
+                int nr = cur[0] + dr[d];
+                int nc = cur[1] + dc[d];
 
                 if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
                 if (grid[nr][nc] == 0) continue;

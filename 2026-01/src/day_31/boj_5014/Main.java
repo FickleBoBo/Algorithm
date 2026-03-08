@@ -26,8 +26,8 @@ public class Main {
         Queue<Integer> q = new ArrayDeque<>();
         q.offer(s);
 
-        boolean[] visited = new boolean[1 + f];
-        visited[s] = true;
+        boolean[] vis = new boolean[1 + f];
+        vis[s] = true;
 
         int dist = 0;
 
@@ -35,19 +35,19 @@ public class Main {
             int size = q.size();
 
             while (size-- > 0) {
-                int node = q.poll();
-                if (node == g) return dist;
+                int cur = q.poll();
+                if (cur == g) return dist;
 
-                int up = node + u;
-                if (up <= f && !visited[up]) {
+                int up = cur + u;
+                if (up <= f && !vis[up]) {
                     q.offer(up);
-                    visited[up] = true;
+                    vis[up] = true;
                 }
 
-                int down = node - d;
-                if (down >= 1 && !visited[down]) {
+                int down = cur - d;
+                if (down >= 1 && !vis[down]) {
                     q.offer(down);
-                    visited[down] = true;
+                    vis[down] = true;
                 }
             }
 

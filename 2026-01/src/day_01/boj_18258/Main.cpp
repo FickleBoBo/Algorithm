@@ -1,9 +1,33 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int q[2000000];
-int front = 0;
-int rear = 0;
+const int MX = 2000000;
+int q[MX];
+int s = 0, e = 0;
+
+void push(int x) {
+    q[e++] = x;
+}
+
+void pop() {
+    s++;
+}
+
+int size() {
+    return e - s;
+}
+
+bool empty() {
+    return s == e;
+}
+
+int front() {
+    return q[s];
+}
+
+int back() {
+    return q[e - 1];
+}
 
 int main() {
     ios::sync_with_stdio(0);
@@ -13,34 +37,35 @@ int main() {
     cin >> n;
 
     while (n--) {
-        string command;
-        cin >> command;
+        string c;
+        cin >> c;
 
-        if (command == "push") {
+        if (c == "push") {
             int x;
             cin >> x;
-            q[rear++] = x;
-        } else if (command == "pop") {
-            if (front == rear) {
+            push(x);
+        } else if (c == "pop") {
+            if (empty()) {
                 cout << -1 << '\n';
             } else {
-                cout << q[front++] << '\n';
+                cout << front() << '\n';
+                pop();
             }
-        } else if (command == "size") {
-            cout << rear - front << '\n';
-        } else if (command == "empty") {
-            cout << (front == rear) << '\n';
-        } else if (command == "front") {
-            if (front == rear) {
+        } else if (c == "size") {
+            cout << size() << '\n';
+        } else if (c == "empty") {
+            cout << empty() << '\n';
+        } else if (c == "front") {
+            if (empty()) {
                 cout << -1 << '\n';
             } else {
-                cout << q[front] << '\n';
+                cout << front() << '\n';
             }
         } else {
-            if (front == rear) {
+            if (empty()) {
                 cout << -1 << '\n';
             } else {
-                cout << q[rear - 1] << '\n';
+                cout << back() << '\n';
             }
         }
     }

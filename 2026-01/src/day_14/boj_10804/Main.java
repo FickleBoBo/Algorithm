@@ -9,20 +9,23 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
+        int[] arr = new int[20];
+        for (int i = 0; i < 20; i++) {
+            arr[i] = i + 1;
+        }
 
         for (int i = 0; i < 10; i++) {
             st = new StringTokenizer(br.readLine());
-            int start = Integer.parseInt(st.nextToken()) - 1;
-            int end = Integer.parseInt(st.nextToken()) - 1;
+            int s = Integer.parseInt(st.nextToken()) - 1;
+            int e = Integer.parseInt(st.nextToken()) - 1;
 
-            while (start < end) {
-                int tmp = arr[start];
-                arr[start] = arr[end];
-                arr[end] = tmp;
+            while (s < e) {
+                int tmp = arr[s];
+                arr[s] = arr[e];
+                arr[e] = tmp;
 
-                start++;
-                end--;
+                s++;
+                e--;
             }
         }
 

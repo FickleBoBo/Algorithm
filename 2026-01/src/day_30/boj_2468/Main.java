@@ -9,7 +9,7 @@ public class Main {
     static int[] dc = {0, 1, 0, -1};
     static int n;
     static int[][] grid;
-    static boolean[][] visited;
+    static boolean[][] vis;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -27,12 +27,12 @@ public class Main {
 
         int max = 0;
         for (int h = 0; h < 100; h++) {
-            visited = new boolean[n][n];
+            vis = new boolean[n][n];
             int cnt = 0;
 
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {
-                    if (grid[i][j] <= h || visited[i][j]) continue;
+                    if (grid[i][j] <= h || vis[i][j]) continue;
 
                     bfs(i, j, h);
                     cnt++;
@@ -49,20 +49,20 @@ public class Main {
         Queue<int[]> q = new ArrayDeque<>();
         q.offer(new int[]{sr, sc});
 
-        visited[sr][sc] = true;
+        vis[sr][sc] = true;
 
         while (!q.isEmpty()) {
-            int[] node = q.poll();
+            int[] cur = q.poll();
 
             for (int d = 0; d < 4; d++) {
-                int nr = node[0] + dr[d];
-                int nc = node[1] + dc[d];
+                int nr = cur[0] + dr[d];
+                int nc = cur[1] + dc[d];
 
                 if (nr < 0 || nr >= n || nc < 0 || nc >= n) continue;
-                if (grid[nr][nc] <= h || visited[nr][nc]) continue;
+                if (grid[nr][nc] <= h || vis[nr][nc]) continue;
 
                 q.offer(new int[]{nr, nc});
-                visited[nr][nc] = true;
+                vis[nr][nc] = true;
             }
         }
     }

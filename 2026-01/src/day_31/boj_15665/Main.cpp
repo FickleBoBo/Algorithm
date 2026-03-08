@@ -5,8 +5,8 @@ int n, m;
 int arr[7];
 int sel[7];
 
-void dfs(int selIdx) {
-    if (selIdx == m) {
+void dfs(int sidx) {
+    if (sidx == m) {
         for (int i = 0; i < m; i++) {
             cout << sel[i] << ' ';
         }
@@ -14,12 +14,12 @@ void dfs(int selIdx) {
         return;
     }
 
-    int prev = 0;
+    int prv = 0;
     for (int i = 0; i < n; i++) {
-        if (arr[i] == prev) continue;
+        if (arr[i] == prv) continue;
 
-        prev = sel[selIdx] = arr[i];
-        dfs(selIdx + 1);
+        prv = sel[sidx] = arr[i];
+        dfs(sidx + 1);
     }
 }
 

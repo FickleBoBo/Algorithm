@@ -8,7 +8,7 @@ public class Main {
     static StringBuilder sb = new StringBuilder();
     static int n, m;
     static int[] sel;
-    static boolean[] visited;
+    static boolean[] vis;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -17,14 +17,14 @@ public class Main {
         n = Integer.parseInt(st.nextToken());
         m = Integer.parseInt(st.nextToken());
         sel = new int[m];
-        visited = new boolean[1 + n];
+        vis = new boolean[1 + n];
 
         dfs(0);
         System.out.println(sb);
     }
 
-    static void dfs(int selIdx) {
-        if (selIdx == m) {
+    static void dfs(int sidx) {
+        if (sidx == m) {
             for (int x : sel) {
                 sb.append(x).append(" ");
             }
@@ -33,12 +33,12 @@ public class Main {
         }
 
         for (int i = 1; i <= n; i++) {
-            if (visited[i]) continue;
+            if (vis[i]) continue;
 
-            sel[selIdx] = i;
-            visited[i] = true;
-            dfs(selIdx + 1);
-            visited[i] = false;
+            sel[sidx] = i;
+            vis[i] = true;
+            dfs(sidx + 1);
+            vis[i] = false;
         }
     }
 }

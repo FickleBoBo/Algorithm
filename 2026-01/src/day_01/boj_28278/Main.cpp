@@ -1,8 +1,29 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int st[1000000];
-int top = -1;
+const int MX = 1000000;
+int st[MX];
+int pos = 0;
+
+void push(int x) {
+    st[pos++] = x;
+}
+
+void pop() {
+    pos--;
+}
+
+int size() {
+    return pos;
+}
+
+bool empty() {
+    return pos == 0;
+}
+
+int top() {
+    return st[pos - 1];
+}
 
 int main() {
     ios::sync_with_stdio(0);
@@ -12,28 +33,29 @@ int main() {
     cin >> n;
 
     while (n--) {
-        int command;
-        cin >> command;
+        int c;
+        cin >> c;
 
-        if (command == 1) {
+        if (c == 1) {
             int x;
             cin >> x;
-            st[++top] = x;
-        } else if (command == 2) {
-            if (top == -1) {
+            push(x);
+        } else if (c == 2) {
+            if (empty()) {
                 cout << -1 << '\n';
             } else {
-                cout << st[top--] << '\n';
+                cout << top() << '\n';
+                pop();
             }
-        } else if (command == 3) {
-            cout << top + 1 << '\n';
-        } else if (command == 4) {
-            cout << (top == -1) << '\n';
+        } else if (c == 3) {
+            cout << size() << '\n';
+        } else if (c == 4) {
+            cout << empty() << '\n';
         } else {
-            if (top == -1) {
+            if (empty()) {
                 cout << -1 << '\n';
             } else {
-                cout << st[top] << '\n';
+                cout << top() << '\n';
             }
         }
     }

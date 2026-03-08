@@ -5,13 +5,13 @@ int dr[4] = {-1, 0, 1, 0};
 int dc[4] = {0, 1, 0, -1};
 int n;
 int grid[100][100];
-bool visited[100][100];
+bool vis[100][100];
 
 void bfs(int sr, int sc, int h) {
     queue<pair<int, int>> q;
     q.push({sr, sc});
 
-    visited[sr][sc] = true;
+    vis[sr][sc] = true;
 
     while (!q.empty()) {
         auto [r, c] = q.front();
@@ -22,10 +22,10 @@ void bfs(int sr, int sc, int h) {
             int nc = c + dc[d];
 
             if (nr < 0 || nr >= n || nc < 0 || nc >= n) continue;
-            if (grid[nr][nc] <= h || visited[nr][nc]) continue;
+            if (grid[nr][nc] <= h || vis[nr][nc]) continue;
 
             q.push({nr, nc});
-            visited[nr][nc] = true;
+            vis[nr][nc] = true;
         }
     }
 }
@@ -44,12 +44,12 @@ int main() {
 
     int mx = 0;
     for (int h = 0; h < 100; h++) {
-        memset(visited, 0, sizeof(visited));
+        memset(vis, 0, sizeof(vis));
         int cnt = 0;
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                if (grid[i][j] <= h || visited[i][j]) continue;
+                if (grid[i][j] <= h || vis[i][j]) continue;
 
                 bfs(i, j, h);
                 cnt++;

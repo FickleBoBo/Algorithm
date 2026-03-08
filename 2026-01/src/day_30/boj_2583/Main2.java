@@ -20,7 +20,7 @@ public class Main2 {
         int k = Integer.parseInt(st.nextToken());
 
         grid = new boolean[n][m];
-        for (int i = 0; i < k; i++) {
+        while (k-- > 0) {
             st = new StringTokenizer(br.readLine());
             int sr = Integer.parseInt(st.nextToken());
             int sc = Integer.parseInt(st.nextToken());

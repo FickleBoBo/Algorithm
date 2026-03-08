@@ -11,12 +11,12 @@ public class Main {
 
         int k = Integer.parseInt(br.readLine());
         while (k-- > 0) {
-            int n = Integer.parseInt(br.readLine());
+            int x = Integer.parseInt(br.readLine());
 
-            if (n == 0) {
+            if (x == 0) {
                 stack.pop();
             } else {
-                stack.push(n);
+                stack.push(x);
             }
         }
 

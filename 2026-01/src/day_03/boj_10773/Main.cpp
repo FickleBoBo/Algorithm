@@ -11,13 +11,13 @@ int main() {
     cin >> k;
 
     while (k--) {
-        int n;
-        cin >> n;
+        int x;
+        cin >> x;
 
-        if (n == 0) {
+        if (x == 0) {
             st.pop();
         } else {
-            st.push(n);
+            st.push(x);
         }
     }
 

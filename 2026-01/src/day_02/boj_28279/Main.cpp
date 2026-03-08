@@ -1,9 +1,41 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int dq[2000000];
-int front = 1000000;
-int back = 1000000;
+const int MX = 2000000;
+int dq[MX];
+int s = MX / 2, e = MX / 2;
+
+void push_front(int x) {
+    dq[--s] = x;
+}
+
+void push_back(int x) {
+    dq[e++] = x;
+}
+
+void pop_front() {
+    s++;
+}
+
+void pop_back() {
+    e--;
+}
+
+int size() {
+    return e - s;
+}
+
+bool empty() {
+    return s == e;
+}
+
+int front() {
+    return dq[s];
+}
+
+int back() {
+    return dq[e - 1];
+}
 
 int main() {
     ios::sync_with_stdio(0);
@@ -13,44 +45,46 @@ int main() {
     cin >> n;
 
     while (n--) {
-        int command;
-        cin >> command;
+        int c;
+        cin >> c;
 
-        if (command == 1) {
+        if (c == 1) {
             int x;
             cin >> x;
-            dq[--front] = x;
-        } else if (command == 2) {
+            push_front(x);
+        } else if (c == 2) {
             int x;
             cin >> x;
-            dq[back++] = x;
-        } else if (command == 3) {
-            if (front == back) {
+            push_back(x);
+        } else if (c == 3) {
+            if (empty()) {
                 cout << -1 << '\n';
             } else {
-                cout << dq[front++] << '\n';
+                cout << front() << '\n';
+                pop_front();
             }
-        } else if (command == 4) {
-            if (front == back) {
+        } else if (c == 4) {
+            if (empty()) {
                 cout << -1 << '\n';
             } else {
-                cout << dq[--back] << '\n';
+                cout << back() << '\n';
+                pop_back();
             }
-        } else if (command == 5) {
-            cout << back - front << '\n';
-        } else if (command == 6) {
-            cout << (front == back) << '\n';
-        } else if (command == 7) {
-            if (front == back) {
+        } else if (c == 5) {
+            cout << size() << '\n';
+        } else if (c == 6) {
+            cout << empty() << '\n';
+        } else if (c == 7) {
+            if (empty()) {
                 cout << -1 << '\n';
             } else {
-                cout << dq[front] << '\n';
+                cout << front() << '\n';
             }
         } else {
-            if (front == back) {
+            if (empty()) {
                 cout << -1 << '\n';
             } else {
-                cout << dq[back - 1] << '\n';
+                cout << back() << '\n';
             }
         }
     }

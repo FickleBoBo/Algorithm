@@ -10,11 +10,11 @@ public class Main {
         int min = 100;
 
         for (int i = 0; i < 7; i++) {
-            int n = Integer.parseInt(br.readLine());
+            int x = Integer.parseInt(br.readLine());
 
-            if (n % 2 == 1) {
-                sum += n;
-                min = Math.min(min, n);
+            if (x % 2 == 1) {
+                sum += x;
+                min = Math.min(min, x);
             }
         }
 

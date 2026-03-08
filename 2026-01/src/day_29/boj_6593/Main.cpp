@@ -5,29 +5,28 @@ int dz[6] = {0, 0, 0, 0, -1, 1};
 int dr[6] = {-1, 0, 1, 0, 0, 0};
 int dc[6] = {0, 1, 0, -1, 0, 0};
 int h, n, m;
-char grid[30][30][30];
-bool visited[30][30][30];
+char grid[31][31][31];
+bool vis[31][31][31];
 
-struct Node {
-    int z, r, c;
-};
+int bfs(auto s, auto e) {
+    auto [sz, sr, sc] = s;
+    auto [ez, er, ec] = e;
 
-int bfs(Node& s, Node& e) {
-    queue<Node> q;
+    queue<tuple<int, int, int>> q;
     q.push(s);
 
-    visited[s.z][s.r][s.c] = true;
+    vis[sz][sr][sc] = true;
 
     int dist = 0;
 
     while (!q.empty()) {
-        int sz = q.size();
+        int qsz = q.size();
 
-        while (sz--) {
+        while (qsz--) {
             auto [z, r, c] = q.front();
             q.pop();
 
-            if (z == e.z && r == e.r && c == e.c) return dist;
+            if (z == ez && r == er && c == ec) return dist;
 
             for (int d = 0; d < 6; d++) {
                 int nz = z + dz[d];
@@ -35,10 +34,10 @@ int bfs(Node& s, Node& e) {
                 int nc = c + dc[d];
 
                 if (nz < 0 || nz >= h || nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
-                if (grid[nz][nr][nc] == '#' || visited[nz][nr][nc]) continue;
+                if (grid[nz][nr][nc] == '#' || vis[nz][nr][nc]) continue;
 
                 q.push({nz, nr, nc});
-                visited[nz][nr][nc] = true;
+                vis[nz][nr][nc] = true;
             }
         }
 
@@ -54,20 +53,15 @@ int main() {
 
     while (true) {
         cin >> h >> n >> m;
-
         if (h == 0 && n == 0 && m == 0) break;
 
-        memset(visited, 0, sizeof(visited));
+        memset(vis, 0, sizeof(vis));
+        tuple<int, int, int> s, e;
 
-        Node s, e;
         for (int i = 0; i < h; i++) {
             for (int j = 0; j < n; j++) {
-                string input;
-                cin >> input;
-
+                cin >> grid[i][j];
                 for (int k = 0; k < m; k++) {
-                    grid[i][j][k] = input[k];
-
                     if (grid[i][j][k] == 'S') {
                         s = {i, j, k};
                     } else if (grid[i][j][k] == 'E') {

@@ -1,12 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int bfs(int f, int s, int g, int u, int d) {
+int f, s, g, u, d;
+
+int bfs() {
     queue<int> q;
     q.push(s);
 
-    vector<char> visited(1 + f, false);
-    visited[s] = true;
+    vector<bool> vis(1 + f);
+    vis[s] = true;
 
     int dist = 0;
 
@@ -14,21 +16,21 @@ int bfs(int f, int s, int g, int u, int d) {
         int sz = q.size();
 
         while (sz--) {
-            int node = q.front();
+            int cur = q.front();
             q.pop();
 
-            if (node == g) return dist;
+            if (cur == g) return dist;
 
-            int up = node + u;
-            if (up <= f && !visited[up]) {
+            int up = cur + u;
+            if (up <= f && !vis[up]) {
                 q.push(up);
-                visited[up] = true;
+                vis[up] = true;
             }
 
-            int down = node - d;
-            if (down >= 1 && !visited[down]) {
+            int down = cur - d;
+            if (down >= 1 && !vis[down]) {
                 q.push(down);
-                visited[down] = true;
+                vis[down] = true;
             }
         }
 
@@ -42,10 +44,9 @@ int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
 
-    int f, s, g, u, d;
     cin >> f >> s >> g >> u >> d;
 
-    int dist = bfs(f, s, g, u, d);
+    int dist = bfs();
     if (dist == -1) {
         cout << "use the stairs";
     } else {

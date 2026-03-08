@@ -8,20 +8,23 @@ public class Main {
     static int[] dz = {0, 0, 0, 0, -1, 1};
     static int[] dr = {-1, 0, 1, 0, 0, 0};
     static int[] dc = {0, 1, 0, -1, 0, 0};
-    static int h, n, m;
-    static int[][][] grid;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        m = Integer.parseInt(st.nextToken());
-        n = Integer.parseInt(st.nextToken());
-        h = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
+        int h = Integer.parseInt(st.nextToken());
 
-        grid = new int[h][n][m];
+        int[][][] grid = new int[h][n][m];
         Queue<int[]> q = new ArrayDeque<>();
-        boolean[][][] visited = new boolean[h][n][m];
+        int[][][] dist = new int[h][n][m];
+        for (int i = 0; i < h; i++) {
+            for (int j = 0; j < n; j++) {
+                Arrays.fill(dist[i][j], -1);
+            }
+        }
         int cnt = 0;
 
         for (int i = 0; i < h; i++) {
@@ -32,7 +35,7 @@ public class Main {
 
                     if (grid[i][j][k] == 1) {
                         q.offer(new int[]{i, j, k});
-                        visited[i][j][k] = true;
+                        dist[i][j][k] = 0;
                     } else if (grid[i][j][k] == 0) {
                         cnt++;
                     }
@@ -41,39 +44,40 @@ public class Main {
         }
 
         if (cnt == 0) {
-            System.out.println(cnt);
-        } else {
-            System.out.println(bfs(q, visited, cnt));
+            System.out.println(0);
+            return;
         }
-    }
-
-    static int bfs(Queue<int[]> q, boolean[][][] visited, int cnt) {
-        int dist = 0;
 
         while (!q.isEmpty()) {
-            int size = q.size();
+            int[] cur = q.poll();
 
-            while (size-- > 0) {
-                int[] node = q.poll();
+            for (int d = 0; d < 6; d++) {
+                int nz = cur[0] + dz[d];
+                int nr = cur[1] + dr[d];
+                int nc = cur[2] + dc[d];
 
-                for (int d = 0; d < 6; d++) {
-                    int nz = node[0] + dz[d];
-                    int nr = node[1] + dr[d];
-                    int nc = node[2] + dc[d];
+                if (nz < 0 || nz >= h || nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
+                if (grid[nz][nr][nc] != 0 || dist[nz][nr][nc] != -1) continue;
 
-                    if (nz < 0 || nz >= h || nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
-                    if (grid[nz][nr][nc] != 0 || visited[nz][nr][nc]) continue;
-
-                    q.offer(new int[]{nz, nr, nc});
-                    visited[nz][nr][nc] = true;
-                    cnt--;
-                }
+                q.offer(new int[]{nz, nr, nc});
+                dist[nz][nr][nc] = dist[cur[0]][cur[1]][cur[2]] + 1;
             }
-
-            dist++;
-            if (cnt == 0) return dist;
         }
 
-        return -1;
+        int max = -1;
+        for (int i = 0; i < h; i++) {
+            for (int j = 0; j < n; j++) {
+                for (int k = 0; k < m; k++) {
+                    if (grid[i][j][k] == 0 && dist[i][j][k] == -1) {
+                        System.out.println(-1);
+                        return;
+                    }
+
+                    max = Math.max(max, dist[i][j][k]);
+                }
+            }
+        }
+
+        System.out.println(max);
     }
 }

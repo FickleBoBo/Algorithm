@@ -21,7 +21,6 @@ public class Main {
             h = Integer.parseInt(st.nextToken());
             n = Integer.parseInt(st.nextToken());
             m = Integer.parseInt(st.nextToken());
-
             if (h == 0 && n == 0 && m == 0) break;
 
             grid = new char[h][n][m];
@@ -57,8 +56,8 @@ public class Main {
         Queue<int[]> q = new ArrayDeque<>();
         q.offer(start);
 
-        boolean[][][] visited = new boolean[h][n][m];
-        visited[start[0]][start[1]][start[2]] = true;
+        boolean[][][] vis = new boolean[h][n][m];
+        vis[start[0]][start[1]][start[2]] = true;
 
         int dist = 0;
 
@@ -66,19 +65,19 @@ public class Main {
             int size = q.size();
 
             while (size-- > 0) {
-                int[] node = q.poll();
-                if (node[0] == end[0] && node[1] == end[1] && node[2] == end[2]) return dist;
+                int[] cur = q.poll();
+                if (cur[0] == end[0] && cur[1] == end[1] && cur[2] == end[2]) return dist;
 
                 for (int d = 0; d < 6; d++) {
-                    int nz = node[0] + dz[d];
-                    int nr = node[1] + dr[d];
-                    int nc = node[2] + dc[d];
+                    int nz = cur[0] + dz[d];
+                    int nr = cur[1] + dr[d];
+                    int nc = cur[2] + dc[d];
 
                     if (nz < 0 || nz >= h || nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
-                    if (grid[nz][nr][nc] == '#' || visited[nz][nr][nc]) continue;
+                    if (grid[nz][nr][nc] == '#' || vis[nz][nr][nc]) continue;
 
                     q.offer(new int[]{nz, nr, nc});
-                    visited[nz][nr][nc] = true;
+                    vis[nz][nr][nc] = true;
                 }
             }
 

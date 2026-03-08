@@ -9,12 +9,12 @@ int main() {
     int mn = 100;
 
     for (int i = 0; i < 7; i++) {
-        int n;
-        cin >> n;
+        int x;
+        cin >> x;
 
-        if (n % 2) {
-            sum += n;
-            mn = min(mn, n);
+        if (x % 2) {
+            sum += x;
+            mn = min(mn, x);
         }
     }
 

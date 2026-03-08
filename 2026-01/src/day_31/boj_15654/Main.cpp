@@ -4,10 +4,10 @@ using namespace std;
 int n, m;
 int arr[8];
 int sel[8];
-bool visited[8];
+bool vis[8];
 
-void dfs(int selIdx) {
-    if (selIdx == m) {
+void dfs(int sidx) {
+    if (sidx == m) {
         for (int i = 0; i < m; i++) {
             cout << sel[i] << ' ';
         }
@@ -16,12 +16,12 @@ void dfs(int selIdx) {
     }
 
     for (int i = 0; i < n; i++) {
-        if (visited[i]) continue;
+        if (vis[i]) continue;
 
-        sel[selIdx] = arr[i];
-        visited[i] = true;
-        dfs(selIdx + 1);
-        visited[i] = false;
+        sel[sidx] = arr[i];
+        vis[i] = true;
+        dfs(sidx + 1);
+        vis[i] = false;
     }
 }
 

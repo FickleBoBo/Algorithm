@@ -4,57 +4,90 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
+
+    static final int MX = 20000;
+    static int[] deque = new int[MX];
+    static int front = MX / 2, rear = MX / 2;
+
+    static void push_front(int x) {
+        deque[--front] = x;
+    }
+
+    static void push_back(int x) {
+        deque[rear++] = x;
+    }
+
+    static int pop_front() {
+        return deque[front++];
+    }
+
+    static int pop_back() {
+        return deque[--rear];
+    }
+
+    static int size() {
+        return rear - front;
+    }
+
+    static boolean empty() {
+        return front == rear;
+    }
+
+    static int front() {
+        return deque[front];
+    }
+
+    static int back() {
+        return deque[rear - 1];
+    }
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        int[] deque = new int[20000];
-        int front = 10000;
-        int back = 10000;
-
         int n = Integer.parseInt(br.readLine());
         while (n-- > 0) {
             st = new StringTokenizer(br.readLine());
-            String command = st.nextToken();
+            String c = st.nextToken();
 
-            if (command.equals("push_front")) {
+            if (c.equals("push_front")) {
                 int x = Integer.parseInt(st.nextToken());
-                deque[--front] = x;
-            } else if (command.equals("push_back")) {
+                push_front(x);
+            } else if (c.equals("push_back")) {
                 int x = Integer.parseInt(st.nextToken());
-                deque[back++] = x;
-            } else if (command.equals("pop_front")) {
-                if (front == back) {
+                push_back(x);
+            } else if (c.equals("pop_front")) {
+                if (empty()) {
                     sb.append("-1\n");
                 } else {
-                    sb.append(deque[front++]).append("\n");
+                    sb.append(pop_front()).append("\n");
                 }
-            } else if (command.equals("pop_back")) {
-                if (front == back) {
+            } else if (c.equals("pop_back")) {
+                if (empty()) {
                     sb.append("-1\n");
                 } else {
-                    sb.append(deque[--back]).append("\n");
+                    sb.append(pop_back()).append("\n");
                 }
-            } else if (command.equals("size")) {
-                sb.append(back - front).append("\n");
-            } else if (command.equals("empty")) {
-                if (front == back) {
+            } else if (c.equals("size")) {
+                sb.append(size()).append("\n");
+            } else if (c.equals("empty")) {
+                if (empty()) {
                     sb.append("1\n");
                 } else {
                     sb.append("0\n");
                 }
-            } else if (command.equals("front")) {
-                if (front == back) {
+            } else if (c.equals("front")) {
+                if (empty()) {
                     sb.append("-1\n");
                 } else {
-                    sb.append(deque[front]).append("\n");
+                    sb.append(front()).append("\n");
                 }
             } else {
-                if (front == back) {
+                if (empty()) {
                     sb.append("-1\n");
                 } else {
-                    sb.append(deque[back - 1]).append("\n");
+                    sb.append(back()).append("\n");
                 }
             }
         }

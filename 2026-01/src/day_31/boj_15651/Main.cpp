@@ -4,8 +4,8 @@ using namespace std;
 int n, m;
 int sel[7];
 
-void dfs(int selIdx) {
-    if (selIdx == m) {
+void dfs(int sidx) {
+    if (sidx == m) {
         for (int i = 0; i < m; i++) {
             cout << sel[i] << ' ';
         }
@@ -14,8 +14,8 @@ void dfs(int selIdx) {
     }
 
     for (int i = 1; i <= n; i++) {
-        sel[selIdx] = i;
-        dfs(selIdx + 1);
+        sel[sidx] = i;
+        dfs(sidx + 1);
     }
 }
 

@@ -30,8 +30,8 @@ public class Main {
         System.out.println(sb);
     }
 
-    static void dfs(int idx, int selIdx) {
-        if (selIdx == m) {
+    static void dfs(int idx, int sidx) {
+        if (sidx == m) {
             for (int x : sel) {
                 sb.append(x).append(" ");
             }
@@ -40,8 +40,8 @@ public class Main {
         }
 
         for (int i = idx; i < n; i++) {
-            sel[selIdx] = arr[i];
-            dfs(i + 1, selIdx + 1);
+            sel[sidx] = arr[i];
+            dfs(i + 1, sidx + 1);
         }
     }
 }

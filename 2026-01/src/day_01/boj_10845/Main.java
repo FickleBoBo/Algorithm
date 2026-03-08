@@ -4,48 +4,73 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
+
+    static final int MX = 10000;
+    static int[] queue = new int[MX];
+    static int front = 0, rear = 0;
+
+    static void push(int x) {
+        queue[rear++] = x;
+    }
+
+    static int pop() {
+        return queue[front++];
+    }
+
+    static int size() {
+        return rear - front;
+    }
+
+    static boolean empty() {
+        return front == rear;
+    }
+
+    static int front() {
+        return queue[front];
+    }
+
+    static int back() {
+        return queue[rear - 1];
+    }
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        int[] queue = new int[10000];
-        int front = 0;
-        int rear = 0;
-
         int n = Integer.parseInt(br.readLine());
         while (n-- > 0) {
             st = new StringTokenizer(br.readLine());
-            String command = st.nextToken();
+            String c = st.nextToken();
 
-            if (command.equals("push")) {
+            if (c.equals("push")) {
                 int x = Integer.parseInt(st.nextToken());
-                queue[rear++] = x;
-            } else if (command.equals("pop")) {
-                if (front == rear) {
+                push(x);
+            } else if (c.equals("pop")) {
+                if (empty()) {
                     sb.append("-1\n");
                 } else {
-                    sb.append(queue[front++]).append("\n");
+                    sb.append(pop()).append("\n");
                 }
-            } else if (command.equals("size")) {
-                sb.append(rear - front).append("\n");
-            } else if (command.equals("empty")) {
-                if (front == rear) {
+            } else if (c.equals("size")) {
+                sb.append(size()).append("\n");
+            } else if (c.equals("empty")) {
+                if (empty()) {
                     sb.append("1\n");
                 } else {
                     sb.append("0\n");
                 }
-            } else if (command.equals("front")) {
-                if (front == rear) {
+            } else if (c.equals("front")) {
+                if (empty()) {
                     sb.append("-1\n");
                 } else {
-                    sb.append(queue[front]).append("\n");
+                    sb.append(front()).append("\n");
                 }
             } else {
-                if (front == rear) {
+                if (empty()) {
                     sb.append("-1\n");
                 } else {
-                    sb.append(queue[rear - 1]).append("\n");
+                    sb.append(back()).append("\n");
                 }
             }
         }

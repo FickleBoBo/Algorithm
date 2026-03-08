@@ -1,9 +1,41 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int dq[20000];
-int front = 10000;
-int back = 10000;
+const int MX = 20000;
+int dq[MX];
+int s = MX / 2, e = MX / 2;
+
+void push_front(int x) {
+    dq[--s] = x;
+}
+
+void push_back(int x) {
+    dq[e++] = x;
+}
+
+void pop_front() {
+    s++;
+}
+
+void pop_back() {
+    e--;
+}
+
+int size() {
+    return e - s;
+}
+
+bool empty() {
+    return s == e;
+}
+
+int front() {
+    return dq[s];
+}
+
+int back() {
+    return dq[e - 1];
+}
 
 int main() {
     ios::sync_with_stdio(0);
@@ -13,44 +45,46 @@ int main() {
     cin >> n;
 
     while (n--) {
-        string command;
-        cin >> command;
+        string c;
+        cin >> c;
 
-        if (command == "push_front") {
+        if (c == "push_front") {
             int x;
             cin >> x;
-            dq[--front] = x;
-        } else if (command == "push_back") {
+            push_front(x);
+        } else if (c == "push_back") {
             int x;
             cin >> x;
-            dq[back++] = x;
-        } else if (command == "pop_front") {
-            if (front == back) {
+            push_back(x);
+        } else if (c == "pop_front") {
+            if (empty()) {
                 cout << -1 << '\n';
             } else {
-                cout << dq[front++] << '\n';
+                cout << front() << '\n';
+                pop_front();
             }
-        } else if (command == "pop_back") {
-            if (front == back) {
+        } else if (c == "pop_back") {
+            if (empty()) {
                 cout << -1 << '\n';
             } else {
-                cout << dq[--back] << '\n';
+                cout << back() << '\n';
+                pop_back();
             }
-        } else if (command == "size") {
-            cout << back - front << '\n';
-        } else if (command == "empty") {
-            cout << (front == back) << '\n';
-        } else if (command == "front") {
-            if (front == back) {
+        } else if (c == "size") {
+            cout << size() << '\n';
+        } else if (c == "empty") {
+            cout << empty() << '\n';
+        } else if (c == "front") {
+            if (empty()) {
                 cout << -1 << '\n';
             } else {
-                cout << dq[front] << '\n';
+                cout << front() << '\n';
             }
         } else {
-            if (front == back) {
+            if (empty()) {
                 cout << -1 << '\n';
             } else {
-                cout << dq[back - 1] << '\n';
+                cout << back() << '\n';
             }
         }
     }

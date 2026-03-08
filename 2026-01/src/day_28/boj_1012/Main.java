@@ -23,7 +23,7 @@ public class Main {
             int k = Integer.parseInt(st.nextToken());
 
             grid = new boolean[n][m];
-            for (int i = 0; i < k; i++) {
+            while (k-- > 0) {
                 st = new StringTokenizer(br.readLine());
                 int c = Integer.parseInt(st.nextToken());
                 int r = Integer.parseInt(st.nextToken());
@@ -53,11 +53,11 @@ public class Main {
         grid[sr][sc] = false;
 
         while (!q.isEmpty()) {
-            int[] node = q.poll();
+            int[] cur = q.poll();
 
             for (int d = 0; d < 4; d++) {
-                int nr = node[0] + dr[d];
-                int nc = node[1] + dc[d];
+                int nr = cur[0] + dr[d];
+                int nc = cur[1] + dc[d];
 
                 if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
                 if (!grid[nr][nc]) continue;

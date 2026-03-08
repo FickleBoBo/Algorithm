@@ -32,8 +32,8 @@ public class Main {
         System.out.println(sb);
     }
 
-    static void dfs(int idx, int selIdx) {
-        if (selIdx == 6) {
+    static void dfs(int idx, int sidx) {
+        if (sidx == 6) {
             for (int x : sel) {
                 sb.append(x).append(" ");
             }
@@ -42,8 +42,8 @@ public class Main {
         }
 
         for (int i = idx; i < k; i++) {
-            sel[selIdx] = arr[i];
-            dfs(i + 1, selIdx + 1);
+            sel[sidx] = arr[i];
+            dfs(i + 1, sidx + 1);
         }
     }
 }

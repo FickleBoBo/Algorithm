@@ -4,41 +4,63 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
+
+    static final int MX = 1000000;
+    static int[] stack = new int[MX];
+    static int pos = 0;
+
+    static void push(int x) {
+        stack[pos++] = x;
+    }
+
+    static int pop() {
+        return stack[--pos];
+    }
+
+    static int size() {
+        return pos;
+    }
+
+    static boolean empty() {
+        return pos == 0;
+    }
+
+    static int top() {
+        return stack[pos - 1];
+    }
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        int[] stack = new int[1000000];
-        int top = -1;
-
         int n = Integer.parseInt(br.readLine());
         while (n-- > 0) {
             st = new StringTokenizer(br.readLine());
-            int command = Integer.parseInt(st.nextToken());
+            int c = Integer.parseInt(st.nextToken());
 
-            if (command == 1) {
+            if (c == 1) {
                 int x = Integer.parseInt(st.nextToken());
-                stack[++top] = x;
-            } else if (command == 2) {
-                if (top == -1) {
+                push(x);
+            } else if (c == 2) {
+                if (empty()) {
                     sb.append("-1\n");
                 } else {
-                    sb.append(stack[top--]).append("\n");
+                    sb.append(pop()).append("\n");
                 }
-            } else if (command == 3) {
-                sb.append(top + 1).append("\n");
-            } else if (command == 4) {
-                if (top == -1) {
+            } else if (c == 3) {
+                sb.append(size()).append("\n");
+            } else if (c == 4) {
+                if (empty()) {
                     sb.append("1\n");
                 } else {
                     sb.append("0\n");
                 }
             } else {
-                if (top == -1) {
+                if (empty()) {
                     sb.append("-1\n");
                 } else {
-                    sb.append(stack[top]).append("\n");
+                    sb.append(top()).append("\n");
                 }
             }
         }

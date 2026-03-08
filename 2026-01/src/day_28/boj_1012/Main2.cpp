@@ -31,7 +31,7 @@ int main() {
         int k;
         cin >> m >> n >> k;
 
-        for (int i = 0; i < k; i++) {
+        while (k--) {
             int c, r;
             cin >> c >> r;
             grid[r][c] = true;

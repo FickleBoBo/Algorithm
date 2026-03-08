@@ -9,7 +9,7 @@ public class Main {
     static int n, m;
     static int[] arr;
     static int[] sel;
-    static boolean[] visited;
+    static boolean[] vis;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -26,14 +26,14 @@ public class Main {
         Arrays.sort(arr);
 
         sel = new int[m];
-        visited = new boolean[n];
+        vis = new boolean[n];
 
         dfs(0);
         System.out.println(sb);
     }
 
-    static void dfs(int selIdx) {
-        if (selIdx == m) {
+    static void dfs(int sidx) {
+        if (sidx == m) {
             for (int x : sel) {
                 sb.append(x).append(" ");
             }
@@ -41,15 +41,15 @@ public class Main {
             return;
         }
 
-        int prev = 0;
+        int prv = 0;
         for (int i = 0; i < n; i++) {
-            if (visited[i]) continue;
-            if (arr[i] == prev) continue;
+            if (vis[i]) continue;
+            if (arr[i] == prv) continue;
 
-            prev = sel[selIdx] = arr[i];
-            visited[i] = true;
-            dfs(selIdx + 1);
-            visited[i] = false;
+            prv = sel[sidx] = arr[i];
+            vis[i] = true;
+            dfs(sidx + 1);
+            vis[i] = false;
         }
     }
 }

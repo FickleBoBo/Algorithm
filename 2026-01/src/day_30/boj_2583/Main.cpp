@@ -41,7 +41,7 @@ int main() {
     int k;
     cin >> m >> n >> k;
 
-    for (int i = 0; i < k; i++) {
+    while (k--) {
         int sr, sc, er, ec;
         cin >> sr >> sc >> er >> ec;
 
