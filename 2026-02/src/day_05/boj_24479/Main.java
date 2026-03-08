@@ -7,7 +7,7 @@ public class Main {
 
     static int n;
     static List<Integer>[] adj;
-    static boolean[] visited;
+    static boolean[] vis;
     static int[] order;
     static int cnt = 1;
 
@@ -25,7 +25,7 @@ public class Main {
             adj[i] = new ArrayList<>();
         }
 
-        for (int i = 0; i < m; i++) {
+        while (m-- > 0) {
             st = new StringTokenizer(br.readLine());
             int u = Integer.parseInt(st.nextToken());
             int v = Integer.parseInt(st.nextToken());
@@ -37,7 +37,7 @@ public class Main {
             adj[i].sort(Comparator.naturalOrder());
         }
 
-        visited = new boolean[1 + n];
+        vis = new boolean[1 + n];
         order = new int[1 + n];
 
         dfs(r);
@@ -49,13 +49,13 @@ public class Main {
         System.out.println(sb);
     }
 
-    static void dfs(int node) {
-        visited[node] = true;
-        order[node] = cnt++;
+    static void dfs(int cur) {
+        vis[cur] = true;
+        order[cur] = cnt++;
 
-        for (int next : adj[node]) {
-            if (visited[next]) continue;
-            dfs(next);
+        for (int nxt : adj[cur]) {
+            if (vis[nxt]) continue;
+            dfs(nxt);
         }
     }
 }

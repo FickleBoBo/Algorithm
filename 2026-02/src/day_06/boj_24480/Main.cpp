@@ -1,19 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int n;
-vector<int> adj[100001];
-bool visited[100001];
-int order[100001];
+const int MX = 100000;
+vector<int> adj[1 + MX];
+bool vis[1 + MX];
+int order[1 + MX];
 int cnt = 1;
 
-void dfs(int node) {
-    visited[node] = true;
-    order[node] = cnt++;
+void dfs(int cur) {
+    vis[cur] = true;
+    order[cur] = cnt++;
 
-    for (int next : adj[node]) {
-        if (visited[next]) continue;
-        dfs(next);
+    for (int nxt : adj[cur]) {
+        if (vis[nxt]) continue;
+        dfs(nxt);
     }
 }
 
@@ -21,10 +21,10 @@ int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
 
-    int m, r;
+    int n, m, r;
     cin >> n >> m >> r;
 
-    for (int i = 0; i < m; i++) {
+    while (m--) {
         int u, v;
         cin >> u >> v;
         adj[u].push_back(v);
