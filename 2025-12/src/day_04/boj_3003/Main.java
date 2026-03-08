@@ -9,9 +9,9 @@ public class Main {
         StringTokenizer st = new StringTokenizer(br.readLine());
 
         int[] arr = {1, 1, 2, 2, 2, 8};
-        for (int num : arr) {
+        for (int n : arr) {
             int x = Integer.parseInt(st.nextToken());
-            System.out.print((num - x) + " ");
+            System.out.print((n - x) + " ");
         }
     }
 }
