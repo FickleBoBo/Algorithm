@@ -1,0 +1,49 @@
+package day_10.boj_16877;
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    static final int MX = 3000000;
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st;
+
+        int[] fibo = new int[32];  // 전처리로 미리 크기 계산
+        fibo[0] = fibo[1] = 1;
+        for (int i = 2; i < 32; i++) {
+            fibo[i] = fibo[i - 1] + fibo[i - 2];
+        }
+
+        int[] g = new int[1 + MX];
+        boolean[] vis = new boolean[16];  // 전처리로 미리 크기 계산
+        for (int i = 1; i <= MX; i++) {
+            Arrays.fill(vis, false);
+
+            for (int x : fibo) {
+                if (i >= x) vis[g[i - x]] = true;
+            }
+
+            int mex = 0;
+            while (vis[mex]) mex++;
+            g[i] = mex;
+        }
+
+        int nimsum = 0;
+
+        int n = Integer.parseInt(br.readLine());
+        st = new StringTokenizer(br.readLine());
+        while (n-- > 0) {
+            int p = Integer.parseInt(st.nextToken());
+            nimsum ^= g[p];
+        }
+
+        if (nimsum != 0) {
+            System.out.println("koosaga");
+        } else {
+            System.out.println("cubelover");
+        }
+    }
+}
