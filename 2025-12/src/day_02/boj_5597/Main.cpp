@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool visited[31];
+bool vis[31];
 
 int main() {
     ios::sync_with_stdio(0);
@@ -10,11 +10,11 @@ int main() {
     for (int i = 0; i < 28; i++) {
         int n;
         cin >> n;
-        visited[n] = true;
+        vis[n] = true;
     }
 
     for (int i = 1; i <= 30; i++) {
-        if (visited[i]) continue;
+        if (vis[i]) continue;
 
         cout << i << '\n';
     }
