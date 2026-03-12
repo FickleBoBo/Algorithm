@@ -26,19 +26,19 @@ public class Main {
             }
         }
 
-        boolean[][] visited = new boolean[n][m];
+        boolean[][] vis = new boolean[n][m];
         int[][] mark = new int[n][m];
         Queue<int[]> ice = new ArrayDeque<>();
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                if (grid[i][j] != 'X' && !visited[i][j]) {
-                    Queue<int[]> result = bfs(i, j, visited);
-                    ice.addAll(result);
+                if (grid[i][j] != 'X' && !vis[i][j]) {
+                    Queue<int[]> res = bfs(i, j, vis);
+                    ice.addAll(res);
                 }
             }
         }
-        bfs(ice, visited, mark);
+        bfs(ice, vis, mark);
 
         int max = 0;
         for (int i = 0; i < n; i++) {
@@ -50,56 +50,56 @@ public class Main {
         System.out.println(lowerBound(max, mark));
     }
 
-    static Queue<int[]> bfs(int sr, int sc, boolean[][] visited) {
+    static Queue<int[]> bfs(int sr, int sc, boolean[][] vis) {
         Queue<int[]> q = new ArrayDeque<>();
         q.offer(new int[]{sr, sc});
 
-        visited[sr][sc] = true;
+        vis[sr][sc] = true;
 
         Queue<int[]> ice = new ArrayDeque<>();
 
         while (!q.isEmpty()) {
-            int[] node = q.poll();
+            int[] cur = q.poll();
 
             for (int d = 0; d < 4; d++) {
-                int nr = node[0] + dr[d];
-                int nc = node[1] + dc[d];
+                int nr = cur[0] + dr[d];
+                int nc = cur[1] + dc[d];
 
                 if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
-                if (visited[nr][nc]) continue;
+                if (vis[nr][nc]) continue;
                 if (grid[nr][nc] == 'X') {
                     ice.offer(new int[]{nr, nc});
-                    visited[nr][nc] = true;
+                    vis[nr][nc] = true;
                     continue;
                 }
 
                 q.offer(new int[]{nr, nc});
-                visited[nr][nc] = true;
+                vis[nr][nc] = true;
             }
         }
 
         return ice;
     }
 
-    static void bfs(Queue<int[]> q, boolean[][] visited, int[][] mark) {
+    static void bfs(Queue<int[]> q, boolean[][] vis, int[][] mark) {
         int dist = 1;
 
         while (!q.isEmpty()) {
-            int size = q.size();
+            int sz = q.size();
 
-            while (size-- > 0) {
-                int[] node = q.poll();
-                mark[node[0]][node[1]] = dist;
+            while (sz-- > 0) {
+                int[] cur = q.poll();
+                mark[cur[0]][cur[1]] = dist;
 
                 for (int d = 0; d < 4; d++) {
-                    int nr = node[0] + dr[d];
-                    int nc = node[1] + dc[d];
+                    int nr = cur[0] + dr[d];
+                    int nc = cur[1] + dc[d];
 
                     if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
-                    if (grid[nr][nc] != 'X' || visited[nr][nc]) continue;
+                    if (grid[nr][nc] != 'X' || vis[nr][nc]) continue;
 
                     q.offer(new int[]{nr, nc});
-                    visited[nr][nc] = true;
+                    vis[nr][nc] = true;
                 }
             }
 
@@ -133,22 +133,22 @@ public class Main {
         Queue<int[]> q = new ArrayDeque<>();
         q.offer(new int[]{sr, sc});
 
-        boolean[][] visited = new boolean[n][m];
-        visited[sr][sc] = true;
+        boolean[][] vis = new boolean[n][m];
+        vis[sr][sc] = true;
 
         while (!q.isEmpty()) {
-            int[] node = q.poll();
-            if (node[0] == er && node[1] == ec) return true;
+            int[] cur = q.poll();
+            if (cur[0] == er && cur[1] == ec) return true;
 
             for (int d = 0; d < 4; d++) {
-                int nr = node[0] + dr[d];
-                int nc = node[1] + dc[d];
+                int nr = cur[0] + dr[d];
+                int nc = cur[1] + dc[d];
 
                 if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
-                if (mark[nr][nc] > max || visited[nr][nc]) continue;
+                if (mark[nr][nc] > max || vis[nr][nc]) continue;
 
                 q.offer(new int[]{nr, nc});
-                visited[nr][nc] = true;
+                vis[nr][nc] = true;
             }
         }
 

@@ -1,53 +1,32 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MAX = 100000;
-int dist[1 + MAX];
-int ways[1 + MAX];
+const int MX = 100000;
+int dist[1 + MX];
+int ways[1 + MX];
 
 void bfs(int n, int k) {
     queue<int> q;
     q.push(n);
 
-    fill(dist, dist + MAX + 1, -1);
+    memset(dist, -1, sizeof(dist));
     dist[n] = 0;
 
     ways[n] = 1;
 
     while (!q.empty()) {
-        int node = q.front();
+        int cur = q.front();
         q.pop();
 
-        int next1 = node - 1;
-        if (next1 >= 0) {
-            if (dist[next1] == -1) {
-                q.push(next1);
-                dist[next1] = dist[node] + 1;
-                ways[next1] = ways[node];
-            } else if (dist[next1] == dist[node] + 1) {
-                ways[next1] += ways[node];
-            }
-        }
-
-        int next2 = node + 1;
-        if (next2 <= MAX) {
-            if (dist[next2] == -1) {
-                q.push(next2);
-                dist[next2] = dist[node] + 1;
-                ways[next2] = ways[node];
-            } else if (dist[next2] == dist[node] + 1) {
-                ways[next2] += ways[node];
-            }
-        }
-
-        int next3 = node * 2;
-        if (next3 <= MAX) {
-            if (dist[next3] == -1) {
-                q.push(next3);
-                dist[next3] = dist[node] + 1;
-                ways[next3] = ways[node];
-            } else if (dist[next3] == dist[node] + 1) {
-                ways[next3] += ways[node];
+        for (int nxt : {cur - 1, cur + 1, cur * 2}) {
+            if (0 <= nxt && nxt <= MX) {
+                if (dist[nxt] == -1) {
+                    q.push(nxt);
+                    dist[nxt] = dist[cur] + 1;
+                    ways[nxt] = ways[cur];
+                } else if (dist[nxt] == dist[cur] + 1) {
+                    ways[nxt] += ways[cur];
+                }
             }
         }
     }

@@ -43,37 +43,37 @@ public class Main {
         Queue<Node> q = new ArrayDeque<>();
         q.offer(new Node(0, 0, 0, 0));
 
-        boolean[][][][] visited = new boolean[n][m][1 + k][2];
-        visited[0][0][0][0] = true;
+        boolean[][][][] vis = new boolean[n][m][1 + k][2];
+        vis[0][0][0][0] = true;
 
         int dist = 1;
 
         while (!q.isEmpty()) {
-            int size = q.size();
+            int sz = q.size();
 
-            while (size-- > 0) {
-                Node node = q.poll();
-                if (node.r == n - 1 && node.c == m - 1) return dist;
+            while (sz-- > 0) {
+                Node cur = q.poll();
+                if (cur.r == n - 1 && cur.c == m - 1) return dist;
 
                 boolean flag = false;
                 for (int d = 0; d < 4; d++) {
-                    int nr = node.r + dr[d];
-                    int nc = node.c + dc[d];
+                    int nr = cur.r + dr[d];
+                    int nc = cur.c + dc[d];
 
                     if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
 
                     if (grid[nr][nc] == '0') {
-                        if (visited[nr][nc][node.x][1 - node.day]) continue;
+                        if (vis[nr][nc][cur.x][1 - cur.day]) continue;
 
-                        q.offer(new Node(nr, nc, node.x, 1 - node.day));
-                        visited[nr][nc][node.x][1 - node.day] = true;
+                        q.offer(new Node(nr, nc, cur.x, 1 - cur.day));
+                        vis[nr][nc][cur.x][1 - cur.day] = true;
                     } else {
-                        if (node.day == 0) {
-                            if (node.x >= k) continue;
-                            if (visited[nr][nc][node.x + 1][1 - node.day]) continue;
+                        if (cur.day == 0) {
+                            if (cur.x >= k) continue;
+                            if (vis[nr][nc][cur.x + 1][1 - cur.day]) continue;
 
-                            q.offer(new Node(nr, nc, node.x + 1, 1 - node.day));
-                            visited[nr][nc][node.x + 1][1 - node.day] = true;
+                            q.offer(new Node(nr, nc, cur.x + 1, 1 - cur.day));
+                            vis[nr][nc][cur.x + 1][1 - cur.day] = true;
                         } else {
                             flag = true;
                         }
@@ -81,10 +81,10 @@ public class Main {
                 }
 
                 if (flag) {
-                    if (visited[node.r][node.c][node.x][1 - node.day]) continue;
+                    if (vis[cur.r][cur.c][cur.x][1 - cur.day]) continue;
 
-                    q.offer(new Node(node.r, node.c, node.x, 1 - node.day));
-                    visited[node.r][node.c][node.x][1 - node.day] = true;
+                    q.offer(new Node(cur.r, cur.c, cur.x, 1 - cur.day));
+                    vis[cur.r][cur.c][cur.x][1 - cur.day] = true;
                 }
             }
 

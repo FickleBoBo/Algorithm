@@ -5,7 +5,7 @@ int dr[4] = {-1, 0, 1, 0};
 int dc[4] = {0, 1, 0, -1};
 int n, m;
 char grid[1500][1500];
-bool visited[1500][1500];
+bool vis[1500][1500];
 int mark[1500][1500];
 vector<pair<int, int>> pos;
 queue<pair<int, int>> ice;
@@ -14,7 +14,7 @@ queue<pair<int, int>> bfs(int sr, int sc) {
     queue<pair<int, int>> q;
     q.push({sr, sc});
 
-    visited[sr][sc] = true;
+    vis[sr][sc] = true;
 
     queue<pair<int, int>> q2;
 
@@ -27,15 +27,15 @@ queue<pair<int, int>> bfs(int sr, int sc) {
             int nc = c + dc[d];
 
             if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
-            if (visited[nr][nc]) continue;
+            if (vis[nr][nc]) continue;
             if (grid[nr][nc] == 'X') {
                 q2.push({nr, nc});
-                visited[nr][nc] = true;
+                vis[nr][nc] = true;
                 continue;
             }
 
             q.push({nr, nc});
-            visited[nr][nc] = true;
+            vis[nr][nc] = true;
         }
     }
 
@@ -58,10 +58,10 @@ void bfs() {
                 int nc = c + dc[d];
 
                 if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
-                if (grid[nr][nc] != 'X' || visited[nr][nc]) continue;
+                if (grid[nr][nc] != 'X' || vis[nr][nc]) continue;
 
                 ice.push({nr, nc});
-                visited[nr][nc] = true;
+                vis[nr][nc] = true;
             }
         }
 
@@ -76,8 +76,8 @@ bool bfs(int mx) {
     queue<pair<int, int>> q;
     q.push({sr, sc});
 
-    memset(visited, 0, sizeof(visited));
-    visited[sr][sc] = true;
+    memset(vis, 0, sizeof(vis));
+    vis[sr][sc] = true;
 
     while (!q.empty()) {
         auto [r, c] = q.front();
@@ -90,10 +90,10 @@ bool bfs(int mx) {
             int nc = c + dc[d];
 
             if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
-            if (mark[nr][nc] > mx || visited[nr][nc]) continue;
+            if (mark[nr][nc] > mx || vis[nr][nc]) continue;
 
             q.push({nr, nc});
-            visited[nr][nc] = true;
+            vis[nr][nc] = true;
         }
     }
 
@@ -132,7 +132,7 @@ int main() {
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
-            if (grid[i][j] != 'X' && !visited[i][j]) {
+            if (grid[i][j] != 'X' && !vis[i][j]) {
                 queue<pair<int, int>> res = bfs(i, j);
                 while (!res.empty()) {
                     ice.push(res.front());

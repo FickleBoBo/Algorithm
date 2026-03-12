@@ -30,35 +30,35 @@ public class Main {
         Queue<int[]> q = new ArrayDeque<>();
         q.offer(new int[]{0, 0, 0});
 
-        boolean[][][] visited = new boolean[n][m][1 + k];
-        visited[0][0][0] = true;
+        boolean[][][] vis = new boolean[n][m][1 + k];
+        vis[0][0][0] = true;
 
         int dist = 1;
 
         while (!q.isEmpty()) {
-            int size = q.size();
+            int sz = q.size();
 
-            while (size-- > 0) {
-                int[] node = q.poll();
-                if (node[0] == n - 1 && node[1] == m - 1) return dist;
+            while (sz-- > 0) {
+                int[] cur = q.poll();
+                if (cur[0] == n - 1 && cur[1] == m - 1) return dist;
 
                 for (int d = 0; d < 4; d++) {
-                    int nr = node[0] + dr[d];
-                    int nc = node[1] + dc[d];
+                    int nr = cur[0] + dr[d];
+                    int nc = cur[1] + dc[d];
 
                     if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
 
                     if (grid[nr][nc] == '0') {
-                        if (visited[nr][nc][node[2]]) continue;
+                        if (vis[nr][nc][cur[2]]) continue;
 
-                        q.offer(new int[]{nr, nc, node[2]});
-                        visited[nr][nc][node[2]] = true;
+                        q.offer(new int[]{nr, nc, cur[2]});
+                        vis[nr][nc][cur[2]] = true;
                     } else {
-                        if (node[2] >= k) continue;
-                        if (visited[nr][nc][node[2] + 1]) continue;
+                        if (cur[2] >= k) continue;
+                        if (vis[nr][nc][cur[2] + 1]) continue;
 
-                        q.offer(new int[]{nr, nc, node[2] + 1});
-                        visited[nr][nc][node[2] + 1] = true;
+                        q.offer(new int[]{nr, nc, cur[2] + 1});
+                        vis[nr][nc][cur[2] + 1] = true;
                     }
                 }
             }

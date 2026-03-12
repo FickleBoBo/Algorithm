@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MAX = 100000;
-bool visited[1 + MAX];
-int prv[1 + MAX];
+const int MX = 100000;
+bool vis[1 + MX];
+int prv[1 + MX];
 
 void traceback(int dist, int k) {
     vector<int> v;
@@ -27,43 +27,30 @@ void bfs(int n, int k) {
     queue<int> q;
     q.push(n);
 
-    visited[n] = true;
-
-    memset(prv, -1, sizeof(prv));
+    vis[n] = true;
 
     int dist = 0;
 
-    while (!q.empty()) {
-        int size = q.size();
+    memset(prv, -1, sizeof(prv));
 
-        while (size-- > 0) {
-            int node = q.front();
+    while (!q.empty()) {
+        int sz = q.size();
+
+        while (sz-- > 0) {
+            int cur = q.front();
             q.pop();
 
-            if (node == k) {
+            if (cur == k) {
                 traceback(dist, k);
                 return;
             }
 
-            int next1 = node - 1;
-            if (next1 >= 0 && !visited[next1]) {
-                q.push(next1);
-                visited[next1] = true;
-                prv[next1] = node;
-            }
-
-            int next2 = node + 1;
-            if (next2 <= MAX && !visited[next2]) {
-                q.push(next2);
-                visited[next2] = true;
-                prv[next2] = node;
-            }
-
-            int next3 = node * 2;
-            if (next3 <= MAX && !visited[next3]) {
-                q.push(next3);
-                visited[next3] = true;
-                prv[next3] = node;
+            for (int nxt : {cur - 1, cur + 1, cur * 2}) {
+                if (0 <= nxt && nxt <= MX && !vis[nxt]) {
+                    q.push(nxt);
+                    vis[nxt] = true;
+                    prv[nxt] = cur;
+                }
             }
         }
 

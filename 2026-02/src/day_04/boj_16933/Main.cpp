@@ -5,7 +5,7 @@ int dr[4] = {-1, 0, 1, 0};
 int dc[4] = {0, 1, 0, -1};
 int n, m, k;
 char grid[1001][1001];
-bool visited[1001][1001][11][2];
+bool vis[1001][1001][11][2];
 
 struct Node {
     int r, c, x, day;
@@ -15,7 +15,7 @@ int bfs() {
     queue<Node> q;
     q.push({0, 0, 0, 0});
 
-    visited[0][0][0][0] = true;
+    vis[0][0][0][0] = true;
 
     int dist = 1;
 
@@ -36,17 +36,17 @@ int bfs() {
                 if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
 
                 if (grid[nr][nc] == '0') {
-                    if (visited[nr][nc][x][1 - day]) continue;
+                    if (vis[nr][nc][x][1 - day]) continue;
 
                     q.push({nr, nc, x, 1 - day});
-                    visited[nr][nc][x][1 - day] = true;
+                    vis[nr][nc][x][1 - day] = true;
                 } else {
                     if (day == 0) {
                         if (x >= k) continue;
-                        if (visited[nr][nc][x + 1][1 - day]) continue;
+                        if (vis[nr][nc][x + 1][1 - day]) continue;
 
                         q.push({nr, nc, x + 1, 1 - day});
-                        visited[nr][nc][x + 1][1 - day] = true;
+                        vis[nr][nc][x + 1][1 - day] = true;
                     } else {
                         flag = true;
                     }
@@ -54,10 +54,10 @@ int bfs() {
             }
 
             if (flag) {
-                if (visited[r][c][x][1 - day]) continue;
+                if (vis[r][c][x][1 - day]) continue;
 
                 q.push({r, c, x, 1 - day});
-                visited[r][c][x][1 - day] = true;
+                vis[r][c][x][1 - day] = true;
             }
         }
 

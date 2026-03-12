@@ -5,17 +5,13 @@ int dr[4] = {-1, 0, 1, 0};
 int dc[4] = {0, 1, 0, -1};
 int n, m;
 char grid[1001][1001];
-bool visited[1001][1001][2];
-
-struct Node {
-    int r, c, x;
-};
+bool vis[1001][1001][2];
 
 int bfs() {
-    queue<Node> q;
+    queue<tuple<int, int, int>> q;
     q.push({0, 0, 0});
 
-    visited[0][0][0] = true;
+    vis[0][0][0] = true;
 
     int dist = 1;
 
@@ -35,16 +31,16 @@ int bfs() {
                 if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
 
                 if (grid[nr][nc] == '0') {
-                    if (visited[nr][nc][x]) continue;
+                    if (vis[nr][nc][x]) continue;
 
                     q.push({nr, nc, x});
-                    visited[nr][nc][x] = true;
+                    vis[nr][nc][x] = true;
                 } else {
                     if (x > 0) continue;
-                    if (visited[nr][nc][x + 1]) continue;
+                    if (vis[nr][nc][x + 1]) continue;
 
                     q.push({nr, nc, x + 1});
-                    visited[nr][nc][x + 1] = true;
+                    vis[nr][nc][x + 1] = true;
                 }
             }
         }

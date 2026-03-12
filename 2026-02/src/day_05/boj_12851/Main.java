@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Main {
 
-    static final int MAX = 100_000;
+    static final int MX = 100_000;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -14,55 +14,55 @@ public class Main {
         int n = Integer.parseInt(st.nextToken());
         int k = Integer.parseInt(st.nextToken());
 
-        int[] result = bfs(n, k);
-        System.out.println(result[0]);
-        System.out.println(result[1]);
+        int[] res = bfs(n, k);
+        System.out.println(res[0]);
+        System.out.println(res[1]);
     }
 
     static int[] bfs(int n, int k) {
         Queue<Integer> q = new ArrayDeque<>();
         q.offer(n);
 
-        int[] dist = new int[1 + MAX];
+        int[] dist = new int[1 + MX];
         Arrays.fill(dist, -1);
         dist[n] = 0;
 
-        int[] ways = new int[1 + MAX];
+        int[] ways = new int[1 + MX];
         ways[n] = 1;
 
         while (!q.isEmpty()) {
-            int node = q.poll();
+            int cur = q.poll();
 
-            int next1 = node - 1;
-            if (next1 >= 0) {
-                if (dist[next1] == -1) {
-                    q.offer(next1);
-                    dist[next1] = dist[node] + 1;
-                    ways[next1] = ways[node];
-                } else if (dist[next1] == dist[node] + 1) {
-                    ways[next1] += ways[node];
+            int nxt1 = cur - 1;
+            if (nxt1 >= 0) {
+                if (dist[nxt1] == -1) {
+                    q.offer(nxt1);
+                    dist[nxt1] = dist[cur] + 1;
+                    ways[nxt1] = ways[cur];
+                } else if (dist[nxt1] == dist[cur] + 1) {
+                    ways[nxt1] += ways[cur];
                 }
             }
 
-            int next2 = node + 1;
-            if (next2 <= MAX) {
-                if (dist[next2] == -1) {
-                    q.offer(next2);
-                    dist[next2] = dist[node] + 1;
-                    ways[next2] = ways[node];
-                } else if (dist[next2] == dist[node] + 1) {
-                    ways[next2] += ways[node];
+            int nxt2 = cur + 1;
+            if (nxt2 <= MX) {
+                if (dist[nxt2] == -1) {
+                    q.offer(nxt2);
+                    dist[nxt2] = dist[cur] + 1;
+                    ways[nxt2] = ways[cur];
+                } else if (dist[nxt2] == dist[cur] + 1) {
+                    ways[nxt2] += ways[cur];
                 }
             }
 
-            int next3 = node * 2;
-            if (next3 <= MAX) {
-                if (dist[next3] == -1) {
-                    q.offer(next3);
-                    dist[next3] = dist[node] + 1;
-                    ways[next3] = ways[node];
-                } else if (dist[next3] == dist[node] + 1) {
-                    ways[next3] += ways[node];
+            int nxt3 = cur * 2;
+            if (nxt3 <= MX) {
+                if (dist[nxt3] == -1) {
+                    q.offer(nxt3);
+                    dist[nxt3] = dist[cur] + 1;
+                    ways[nxt3] = ways[cur];
+                } else if (dist[nxt3] == dist[cur] + 1) {
+                    ways[nxt3] += ways[cur];
                 }
             }
         }

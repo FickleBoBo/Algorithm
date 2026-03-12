@@ -7,17 +7,13 @@ int drh[8] = {-1, -2, -2, -1, 1, 2, 2, 1};
 int dch[8] = {-2, -1, 1, 2, 2, 1, -1, -2};
 int k, h, w;
 int grid[200][200];
-bool visited[200][200][31];
-
-struct Node {
-    int r, c, t;
-};
+bool vis[200][200][31];
 
 int bfs() {
-    queue<Node> q;
+    queue<tuple<int, int, int>> q;
     q.push({0, 0, 0});
 
-    visited[0][0][0] = true;
+    vis[0][0][0] = true;
 
     int dist = 0;
 
@@ -35,10 +31,10 @@ int bfs() {
                 int nc = c + dc[d];
 
                 if (nr < 0 || nr >= h || nc < 0 || nc >= w) continue;
-                if (grid[nr][nc] == 1 || visited[nr][nc][t]) continue;
+                if (grid[nr][nc] == 1 || vis[nr][nc][t]) continue;
 
                 q.push({nr, nc, t});
-                visited[nr][nc][t] = true;
+                vis[nr][nc][t] = true;
             }
 
             if (t == k) continue;
@@ -48,10 +44,10 @@ int bfs() {
                 int nc = c + dch[d];
 
                 if (nr < 0 || nr >= h || nc < 0 || nc >= w) continue;
-                if (grid[nr][nc] == 1 || visited[nr][nc][t + 1]) continue;
+                if (grid[nr][nc] == 1 || vis[nr][nc][t + 1]) continue;
 
                 q.push({nr, nc, t + 1});
-                visited[nr][nc][t + 1] = true;
+                vis[nr][nc][t + 1] = true;
             }
         }
 
