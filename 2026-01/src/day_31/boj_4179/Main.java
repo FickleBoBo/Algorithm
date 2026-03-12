@@ -34,11 +34,11 @@ public class Main {
             }
         }
 
-        int result = bfs(sr, sc, q);
-        if (result == -1) {
+        int res = bfs(sr, sc, q);
+        if (res == -1) {
             System.out.println("IMPOSSIBLE");
         } else {
-            System.out.println(result);
+            System.out.println(res);
         }
     }
 
@@ -46,20 +46,20 @@ public class Main {
         Queue<int[]> q = new ArrayDeque<>();
         q.offer(new int[]{sr, sc});
 
-        boolean[][] visited = new boolean[h][w];
-        visited[sr][sc] = true;
+        boolean[][] vis = new boolean[h][w];
+        vis[sr][sc] = true;
 
         int dist = 0;
 
         while (!q.isEmpty()) {
-            int size = fire.size();
+            int sz = fire.size();
 
-            while (size-- > 0) {
-                int[] node = fire.poll();
+            while (sz-- > 0) {
+                int[] cur = fire.poll();
 
                 for (int d = 0; d < 4; d++) {
-                    int nr = node[0] + dr[d];
-                    int nc = node[1] + dc[d];
+                    int nr = cur[0] + dr[d];
+                    int nc = cur[1] + dc[d];
 
                     if (nr < 0 || nr >= h || nc < 0 || nc >= w) continue;
                     if (grid[nr][nc] == '#' || grid[nr][nc] == 'F') continue;
@@ -69,20 +69,20 @@ public class Main {
                 }
             }
 
-            size = q.size();
-            while (size-- > 0) {
-                int[] node = q.poll();
-                if (node[0] == 0 || node[0] == h - 1 || node[1] == 0 || node[1] == w - 1) return dist + 1;
+            sz = q.size();
+            while (sz-- > 0) {
+                int[] cur = q.poll();
+                if (cur[0] == 0 || cur[0] == h - 1 || cur[1] == 0 || cur[1] == w - 1) return dist + 1;
 
                 for (int d = 0; d < 4; d++) {
-                    int nr = node[0] + dr[d];
-                    int nc = node[1] + dc[d];
+                    int nr = cur[0] + dr[d];
+                    int nc = cur[1] + dc[d];
 
                     if (nr < 0 || nr >= h || nc < 0 || nc >= w) continue;
-                    if (grid[nr][nc] != '.' || visited[nr][nc]) continue;
+                    if (grid[nr][nc] != '.' || vis[nr][nc]) continue;
 
                     q.offer(new int[]{nr, nc});
-                    visited[nr][nc] = true;
+                    vis[nr][nc] = true;
                 }
             }
 

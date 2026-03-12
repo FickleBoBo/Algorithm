@@ -10,12 +10,12 @@ public class Main {
         int b = Integer.parseInt(br.readLine());
         int c = Integer.parseInt(br.readLine());
 
-        int result = a * b * c;
+        int res = a * b * c;
         int[] cnt = new int[10];
 
-        while (result > 0) {
-            cnt[result % 10]++;
-            result /= 10;
+        while (res > 0) {
+            cnt[res % 10]++;
+            res /= 10;
         }
 
         for (int x : cnt) {

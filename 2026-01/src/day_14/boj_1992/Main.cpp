@@ -1,31 +1,31 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-char grid[64][64];
+char grid[65][65];
 
-bool check(int r1, int c1, int r2, int c2) {
-    for (int i = r1; i < r2; i++) {
-        for (int j = c1; j < c2; j++) {
-            if (grid[i][j] != grid[r1][c1]) return false;
+bool check(int sr, int sc, int er, int ec) {
+    for (int r = sr; r < er; r++) {
+        for (int c = sc; c < ec; c++) {
+            if (grid[r][c] != grid[sr][sc]) return false;
         }
     }
 
     return true;
 }
 
-void recur(int r1, int c1, int r2, int c2) {
-    if (check(r1, c1, r2, c2)) {
-        cout << grid[r1][c1];
+void dfs(int sr, int sc, int er, int ec) {
+    if (check(sr, sc, er, ec)) {
+        cout << grid[sr][sc];
     } else {
         cout << '(';
 
-        int mr = (r1 + r2) / 2;
-        int mc = (c1 + c2) / 2;
+        int mr = (sr + er) / 2;
+        int mc = (sc + ec) / 2;
 
-        recur(r1, c1, mr, mc);
-        recur(r1, mc, mr, c2);
-        recur(mr, c1, r2, mc);
-        recur(mr, mc, r2, c2);
+        dfs(sr, sc, mr, mc);
+        dfs(sr, mc, mr, ec);
+        dfs(mr, sc, er, mc);
+        dfs(mr, mc, er, ec);
 
         cout << ')';
     }
@@ -42,5 +42,5 @@ int main() {
         cin >> grid[i];
     }
 
-    recur(0, 0, n, n);
+    dfs(0, 0, n, n);
 }

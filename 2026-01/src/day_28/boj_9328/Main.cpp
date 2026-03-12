@@ -4,15 +4,16 @@ using namespace std;
 int dr[4] = {-1, 0, 1, 0};
 int dc[4] = {0, 1, 0, -1};
 char grid[102][102];
-bool visited[102][102];
+bool vis[102][102];
+bool hasKey[26];
 
-int bfs(int n, int m, vector<bool>& hasKey) {
+int bfs(int n, int m) {
     queue<pair<int, int>> q;
     q.push({0, 0});
 
     vector<queue<pair<int, int>>> doors(26);
 
-    visited[0][0] = true;
+    vis[0][0] = true;
 
     int cnt = 0;
 
@@ -27,7 +28,7 @@ int bfs(int n, int m, vector<bool>& hasKey) {
             int nc = c + dc[d];
 
             if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
-            if (grid[nr][nc] == '*' || visited[nr][nc]) continue;
+            if (grid[nr][nc] == '*' || vis[nr][nc]) continue;
 
             if ('A' <= grid[nr][nc] && grid[nr][nc] <= 'Z') {
                 if (!hasKey[grid[nr][nc] - 'A']) {
@@ -45,7 +46,7 @@ int bfs(int n, int m, vector<bool>& hasKey) {
             }
 
             q.push({nr, nc});
-            visited[nr][nc] = true;
+            vis[nr][nc] = true;
         }
     }
 
@@ -66,7 +67,7 @@ int main() {
         int n = h + 2;
         int m = w + 2;
 
-        memset(visited, 0, sizeof(visited));
+        memset(vis, 0, sizeof(vis));
         for (int i = 0; i < n; i++) {
             grid[i][0] = grid[i][m - 1] = '.';
         }
@@ -83,17 +84,16 @@ int main() {
             }
         }
 
-        vector<bool> hasKey(26);
-
         string s;
         cin >> s;
 
+        memset(hasKey, 0, sizeof(hasKey));
         if (!(s == "0")) {
             for (char c : s) {
                 hasKey[c - 'a'] = true;
             }
         }
 
-        cout << bfs(n, m, hasKey) << '\n';
+        cout << bfs(n, m) << '\n';
     }
 }

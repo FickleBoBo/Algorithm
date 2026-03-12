@@ -11,15 +11,15 @@ public class Main {
         int t = Integer.parseInt(br.readLine());
         while (t-- > 0) {
             Deque<Character> stack = new ArrayDeque<>();
-            boolean isPossible = true;
+            boolean flag = true;
 
-            String str = br.readLine();
-            for (char c : str.toCharArray()) {
+            String s = br.readLine();
+            for (char c : s.toCharArray()) {
                 if (c == '(') {
                     stack.push(c);
                 } else {
                     if (stack.isEmpty()) {
-                        isPossible = false;
+                        flag = false;
                         break;
                     } else {
                         stack.pop();
@@ -28,10 +28,10 @@ public class Main {
             }
 
             if (!stack.isEmpty()) {
-                isPossible = false;
+                flag = false;
             }
 
-            if (isPossible) {
+            if (flag) {
                 bw.write("YES\n");
             } else {
                 bw.write("NO\n");

@@ -5,13 +5,13 @@ int dr[4] = {-1, 0, 1, 0};
 int dc[4] = {0, 1, 0, -1};
 int h, w;
 char grid[1001][1001];
-bool visited[1001][1001];
+bool vis[1001][1001];
 
 int bfs(int sr, int sc, queue<pair<int, int>>& fire) {
     queue<pair<int, int>> q;
     q.push({sr, sc});
 
-    visited[sr][sc] = true;
+    vis[sr][sc] = true;
 
     int dist = 0;
 
@@ -46,10 +46,10 @@ int bfs(int sr, int sc, queue<pair<int, int>>& fire) {
                 int nc = c + dc[d];
 
                 if (nr < 0 || nr >= h || nc < 0 || nc >= w) continue;
-                if (grid[nr][nc] != '.' || visited[nr][nc]) continue;
+                if (grid[nr][nc] != '.' || vis[nr][nc]) continue;
 
                 q.push({nr, nc});
-                visited[nr][nc] = true;
+                vis[nr][nc] = true;
             }
         }
 
@@ -69,7 +69,7 @@ int main() {
     while (t--) {
         cin >> w >> h;
 
-        memset(visited, 0, sizeof(visited));
+        memset(vis, 0, sizeof(vis));
 
         int sr, sc;
         queue<pair<int, int>> q;

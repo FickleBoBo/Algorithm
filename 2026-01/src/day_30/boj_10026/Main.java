@@ -23,14 +23,14 @@ public class Main {
 
         boolean isBlind = false;
         for (int tc = 1; tc <= 2; tc++) {
-            boolean[][] visited = new boolean[n][n];
+            boolean[][] vis = new boolean[n][n];
             int cnt = 0;
 
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {
-                    if (visited[i][j]) continue;
+                    if (vis[i][j]) continue;
 
-                    bfs(i, j, visited, isBlind);
+                    bfs(i, j, vis, isBlind);
                     cnt++;
                 }
             }
@@ -41,24 +41,24 @@ public class Main {
         System.out.println(sb);
     }
 
-    static void bfs(int sr, int sc, boolean[][] visited, boolean isBlind) {
+    static void bfs(int sr, int sc, boolean[][] vis, boolean isBlind) {
         Queue<int[]> q = new ArrayDeque<>();
         q.offer(new int[]{sr, sc});
 
-        visited[sr][sc] = true;
+        vis[sr][sc] = true;
 
         while (!q.isEmpty()) {
-            int[] node = q.poll();
+            int[] cur = q.poll();
 
             for (int d = 0; d < 4; d++) {
-                int nr = node[0] + dr[d];
-                int nc = node[1] + dc[d];
+                int nr = cur[0] + dr[d];
+                int nc = cur[1] + dc[d];
 
                 if (nr < 0 || nr >= n || nc < 0 || nc >= n) continue;
-                if (!isSame(grid[sr][sc], grid[nr][nc], isBlind) || visited[nr][nc]) continue;
+                if (!isSame(grid[sr][sc], grid[nr][nc], isBlind) || vis[nr][nc]) continue;
 
                 q.offer(new int[]{nr, nc});
-                visited[nr][nc] = true;
+                vis[nr][nc] = true;
             }
         }
     }

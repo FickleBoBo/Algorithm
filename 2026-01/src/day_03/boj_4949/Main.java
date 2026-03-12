@@ -9,36 +9,30 @@ public class Main {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         while (true) {
-            String str = br.readLine();
-
-            if (str.equals(".")) break;
+            String s = br.readLine();
+            if (s.equals(".")) break;
 
             Deque<Character> stack = new ArrayDeque<>();
-            boolean isPossible = true;
+            boolean flag = true;
 
-            for (char c : str.toCharArray()) {
+            for (char c : s.toCharArray()) {
                 if (c == '(' || c == '[') {
                     stack.push(c);
                 } else if (c == ')' || c == ']') {
-                    if (stack.isEmpty()) {
-                        isPossible = false;
-                        break;
-                    }
-
-                    if (stack.peek() == '(' && c == ')' || stack.peek() == '[' && c == ']') {
+                    if (!stack.isEmpty() && (stack.peek() == '(' && c == ')' || stack.peek() == '[' && c == ']')) {
                         stack.pop();
                     } else {
-                        isPossible = false;
+                        flag = false;
                         break;
                     }
                 }
             }
 
             if (!stack.isEmpty()) {
-                isPossible = false;
+                flag = false;
             }
 
-            if (isPossible) {
+            if (flag) {
                 bw.write("yes\n");
             } else {
                 bw.write("no\n");

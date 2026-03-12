@@ -41,9 +41,9 @@ public class Main {
 
             boolean[] hasKey = new boolean[26];
 
-            String str = br.readLine();
-            if (!str.equals("0")) {
-                for (char c : str.toCharArray()) {
+            String s = br.readLine();
+            if (!s.equals("0")) {
+                for (char c : s.toCharArray()) {
                     hasKey[c - 'a'] = true;
                 }
             }
@@ -71,21 +71,21 @@ public class Main {
             doors[i] = new ArrayDeque<>();
         }
 
-        boolean[][] visited = new boolean[n][m];
-        visited[0][0] = true;
+        boolean[][] vis = new boolean[n][m];
+        vis[0][0] = true;
 
         int cnt = 0;
 
         while (!q.isEmpty()) {
-            int[] node = q.poll();
-            if (grid[node[0]][node[1]] == '$') cnt++;
+            int[] cur = q.poll();
+            if (grid[cur[0]][cur[1]] == '$') cnt++;
 
             for (int d = 0; d < 4; d++) {
-                int nr = node[0] + dr[d];
-                int nc = node[1] + dc[d];
+                int nr = cur[0] + dr[d];
+                int nc = cur[1] + dc[d];
 
                 if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
-                if (grid[nr][nc] == '*' || visited[nr][nc]) continue;
+                if (grid[nr][nc] == '*' || vis[nr][nc]) continue;
 
                 if (isDoor(grid[nr][nc])) {
                     if (!hasKey[grid[nr][nc] - 'A']) {
@@ -100,7 +100,7 @@ public class Main {
                 }
 
                 q.offer(new int[]{nr, nc});
-                visited[nr][nc] = true;
+                vis[nr][nc] = true;
             }
         }
 

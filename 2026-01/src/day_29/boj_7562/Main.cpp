@@ -4,13 +4,13 @@ using namespace std;
 int dr[8] = {-2, -2, -1, 1, 2, 2, 1, -1};
 int dc[8] = {-1, 1, 2, 2, 1, -1, -2, -2};
 int n;
-bool visited[300][300];
+bool vis[300][300];
 
 int bfs(int sr, int sc, int er, int ec) {
     queue<pair<int, int>> q;
     q.push({sr, sc});
 
-    visited[sr][sc] = true;
+    vis[sr][sc] = true;
 
     int dist = 0;
 
@@ -28,10 +28,10 @@ int bfs(int sr, int sc, int er, int ec) {
                 int nc = c + dc[d];
 
                 if (nr < 0 || nr >= n || nc < 0 || nc >= n) continue;
-                if (visited[nr][nc]) continue;
+                if (vis[nr][nc]) continue;
 
                 q.push({nr, nc});
-                visited[nr][nc] = true;
+                vis[nr][nc] = true;
             }
         }
 
@@ -52,7 +52,7 @@ int main() {
         int sr, sc, er, ec;
         cin >> n >> sr >> sc >> er >> ec;
 
-        memset(visited, 0, sizeof(visited));
+        memset(vis, 0, sizeof(vis));
 
         cout << bfs(sr, sc, er, ec) << '\n';
     }

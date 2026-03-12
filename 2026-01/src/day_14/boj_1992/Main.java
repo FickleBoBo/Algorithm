@@ -17,19 +17,19 @@ public class Main {
             grid[i] = br.readLine().toCharArray();
         }
 
-        recur(0, 0, n, n);
+        dfs(0, 0, n, n);
 
         System.out.println(sb);
     }
 
-    static void recur(int r1, int c1, int r2, int c2) {
+    static void dfs(int sr, int sc, int er, int ec) {
         boolean flag = true;
-        int color = grid[r1][c1];
+        int color = grid[sr][sc];
 
         out:
-        for (int i = r1; i < r2; i++) {
-            for (int j = c1; j < c2; j++) {
-                if (grid[i][j] != color) {
+        for (int r = sr; r < er; r++) {
+            for (int c = sc; c < ec; c++) {
+                if (grid[r][c] != color) {
                     flag = false;
                     break out;
                 }
@@ -37,17 +37,17 @@ public class Main {
         }
 
         if (flag) {
-            sb.append(grid[r1][c1]);
+            sb.append(grid[sr][sc]);
         } else {
             sb.append("(");
 
-            int mr = (r1 + r2) / 2;
-            int mc = (c1 + c2) / 2;
+            int mr = (sr + er) / 2;
+            int mc = (sc + ec) / 2;
 
-            recur(r1, c1, mr, mc);
-            recur(r1, mc, mr, c2);
-            recur(mr, c1, r2, mc);
-            recur(mr, mc, r2, c2);
+            dfs(sr, sc, mr, mc);
+            dfs(sr, mc, mr, ec);
+            dfs(mr, sc, er, mc);
+            dfs(mr, mc, er, ec);
 
             sb.append(")");
         }

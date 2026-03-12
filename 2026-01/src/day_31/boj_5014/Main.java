@@ -32,9 +32,9 @@ public class Main {
         int dist = 0;
 
         while (!q.isEmpty()) {
-            int size = q.size();
+            int sz = q.size();
 
-            while (size-- > 0) {
+            while (sz-- > 0) {
                 int cur = q.poll();
                 if (cur == g) return dist;
 

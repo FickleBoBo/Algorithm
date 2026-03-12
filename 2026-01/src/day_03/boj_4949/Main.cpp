@@ -8,7 +8,6 @@ int main() {
     while (true) {
         string s;
         getline(cin, s);
-
         if (s == ".") break;
 
         stack<char> st;
@@ -18,12 +17,7 @@ int main() {
             if (c == '(' || c == '[') {
                 st.push(c);
             } else if (c == ')' || c == ']') {
-                if (st.empty()) {
-                    flag = false;
-                    break;
-                }
-
-                if (st.top() == '(' && c == ')' || st.top() == '[' && c == ']') {
+                if (!st.empty() && (st.top() == '(' && c == ')' || st.top() == '[' && c == ']')) {
                     st.pop();
                 } else {
                     flag = false;

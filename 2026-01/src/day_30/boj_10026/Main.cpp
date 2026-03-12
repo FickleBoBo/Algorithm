@@ -5,7 +5,7 @@ int dr[4] = {-1, 0, 1, 0};
 int dc[4] = {0, 1, 0, -1};
 int n;
 char grid[101][101];
-bool visited[101][101];
+bool vis[101][101];
 
 bool isSame(char c1, char c2, bool isBlind) {
     if (!isBlind) return c1 == c2;
@@ -17,7 +17,7 @@ void bfs(int sr, int sc, bool isBlind) {
     queue<pair<int, int>> q;
     q.push({sr, sc});
 
-    visited[sr][sc] = true;
+    vis[sr][sc] = true;
 
     while (!q.empty()) {
         auto [r, c] = q.front();
@@ -28,10 +28,10 @@ void bfs(int sr, int sc, bool isBlind) {
             int nc = c + dc[d];
 
             if (nr < 0 || nr >= n || nc < 0 || nc >= n) continue;
-            if (!isSame(grid[sr][sc], grid[nr][nc], isBlind) || visited[nr][nc]) continue;
+            if (!isSame(grid[sr][sc], grid[nr][nc], isBlind) || vis[nr][nc]) continue;
 
             q.push({nr, nc});
-            visited[nr][nc] = true;
+            vis[nr][nc] = true;
         }
     }
 }
@@ -48,12 +48,12 @@ int main() {
 
     bool isBlind = false;
     for (int tc = 1; tc <= 2; tc++) {
-        memset(visited, 0, sizeof(visited));
+        memset(vis, 0, sizeof(vis));
         int cnt = 0;
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                if (visited[i][j]) continue;
+                if (vis[i][j]) continue;
 
                 bfs(i, j, isBlind);
                 cnt++;
