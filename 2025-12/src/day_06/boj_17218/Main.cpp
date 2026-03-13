@@ -2,16 +2,15 @@
 using namespace std;
 
 int dp[41][41];
+string res;
 
-string traceback(string& s1, string& s2) {
-    string res;
-
+void traceback(string& s1, string& s2) {
     int r = s1.size() - 1;
     int c = s2.size() - 1;
 
     while (r >= 0 && c >= 0) {
         if (s1[r] == s2[c]) {
-            res.push_back(s1[r]);
+            res += s1[r];
             r--;
             c--;
         } else {
@@ -24,7 +23,6 @@ string traceback(string& s1, string& s2) {
     }
 
     reverse(res.begin(), res.end());
-    return res;
 }
 
 int main() {
@@ -47,5 +45,6 @@ int main() {
         }
     }
 
-    cout << traceback(s1, s2);
+    traceback(s1, s2);
+    cout << res;
 }

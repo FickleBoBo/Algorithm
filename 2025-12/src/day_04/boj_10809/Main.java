@@ -7,10 +7,10 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
 
-        String str = br.readLine();
+        String s = br.readLine();
 
         for (int i = 0; i < 26; i++) {
-            sb.append(str.indexOf((char) (i + 'a'))).append(" ");
+            sb.append(s.indexOf((char) (i + 'a'))).append(" ");
         }
 
         System.out.println(sb);

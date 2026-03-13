@@ -8,9 +8,9 @@ int main() {
     int sum = 0;
 
     for (int i = 0; i < 5; i++) {
-        int n;
-        cin >> n;
-        sum += n * n;
+        int x;
+        cin >> x;
+        sum += x * x;
     }
 
     cout << sum % 10;

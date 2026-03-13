@@ -6,15 +6,15 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        char[] str1 = br.readLine().toCharArray();
-        char[] str2 = br.readLine().toCharArray();
-        int n = str1.length;
-        int m = str2.length;
+        char[] s1 = br.readLine().toCharArray();
+        char[] s2 = br.readLine().toCharArray();
+        int n = s1.length;
+        int m = s2.length;
 
         int[][] dp = new int[1 + n][1 + m];
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= m; j++) {
-                if (str1[i - 1] == str2[j - 1]) {
+                if (s1[i - 1] == s2[j - 1]) {
                     dp[i][j] = dp[i - 1][j - 1] + 1;
                 } else {
                     dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
@@ -22,18 +22,18 @@ public class Main {
             }
         }
 
-        System.out.println(traceback(str1, str2, dp));
+        System.out.println(traceback(s1, s2, dp));
     }
 
-    static String traceback(char[] str1, char[] str2, int[][] dp) {
+    static String traceback(char[] s1, char[] s2, int[][] dp) {
         StringBuilder sb = new StringBuilder();
 
-        int r = str1.length - 1;
-        int c = str2.length - 1;
+        int r = s1.length - 1;
+        int c = s2.length - 1;
 
         while (r >= 0 && c >= 0) {
-            if (str1[r] == str2[c]) {
-                sb.append(str1[r]);
+            if (s1[r] == s2[c]) {
+                sb.append(s1[r]);
                 r--;
                 c--;
             } else {

@@ -10,16 +10,16 @@ public class Main {
         int cnt = 0;
 
         out:
-        for (int i = 0; i < n; i++) {
-            String str = br.readLine();
-            boolean[] visited = new boolean[26];
-            char prev = '\u0000';
+        while (n-- > 0) {
+            String s = br.readLine();
+            boolean[] vis = new boolean[26];
+            char prv = '\u0000';
 
-            for (char c : str.toCharArray()) {
-                if (visited[c - 'a'] && c != prev) continue out;
+            for (char c : s.toCharArray()) {
+                if (vis[c - 'a'] && c != prv) continue out;
 
-                visited[c - 'a'] = true;
-                prev = c;
+                vis[c - 'a'] = true;
+                prv = c;
             }
 
             cnt++;

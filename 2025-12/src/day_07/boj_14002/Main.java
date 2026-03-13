@@ -19,14 +19,14 @@ public class Main {
         int[] dp = new int[n];
         Arrays.fill(dp, 1);
 
-        int[] prev = new int[n];
-        Arrays.fill(prev, -1);
+        int[] prv = new int[n];
+        Arrays.fill(prv, -1);
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < i; j++) {
                 if (arr[i] > arr[j] && dp[j] + 1 > dp[i]) {
                     dp[i] = dp[j] + 1;
-                    prev[i] = j;
+                    prv[i] = j;
                 }
             }
         }
@@ -41,16 +41,16 @@ public class Main {
         }
 
         System.out.println(max);
-        System.out.println(traceback(arr, prev, pos));
+        System.out.println(traceback(arr, prv, pos));
     }
 
-    static String traceback(int[] arr, int[] prev, int pos) {
+    static String traceback(int[] arr, int[] prv, int pos) {
         StringBuilder sb = new StringBuilder();
 
         Deque<Integer> stack = new ArrayDeque<>();
         while (pos != -1) {
             stack.push(arr[pos]);
-            pos = prev[pos];
+            pos = prv[pos];
         }
 
         while (!stack.isEmpty()) {

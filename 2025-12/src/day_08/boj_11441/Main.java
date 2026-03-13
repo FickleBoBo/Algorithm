@@ -23,11 +23,10 @@ public class Main {
         }
 
         int m = Integer.parseInt(br.readLine());
-        for (int i = 0; i < m; i++) {
+        while (m-- > 0) {
             st = new StringTokenizer(br.readLine());
             int start = Integer.parseInt(st.nextToken());
             int end = Integer.parseInt(st.nextToken());
-
             sb.append(psum[end] - psum[start - 1]).append("\n");
         }
 

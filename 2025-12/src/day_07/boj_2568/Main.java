@@ -21,25 +21,25 @@ public class Main {
         List<Integer> dp = new ArrayList<>();
 
         int[] pos = new int[n];
-        int[] prev = new int[n];
-        Arrays.fill(prev, -1);
+        int[] prv = new int[n];
+        Arrays.fill(prv, -1);
 
         for (int i = 0; i < n; i++) {
-            int num = map[i][0];
-            int idx = lowerBound(dp, num);
+            int x = map[i][0];
+            int idx = lowerBound(dp, x);
 
             if (idx == dp.size()) {
-                dp.add(num);
+                dp.add(x);
             } else {
-                dp.set(idx, num);
+                dp.set(idx, x);
             }
 
             pos[idx] = i;
-            if (idx > 0) prev[i] = pos[idx - 1];
+            if (idx > 0) prv[i] = pos[idx - 1];
         }
 
         System.out.println(n - dp.size());
-        System.out.println(traceback(map, prev, pos[dp.size() - 1]));
+        System.out.println(traceback(map, prv, pos[dp.size() - 1]));
     }
 
     static int lowerBound(List<Integer> list, int key) {
@@ -59,7 +59,7 @@ public class Main {
         return right;
     }
 
-    static String traceback(int[][] map, int[] prev, int pos) {
+    static String traceback(int[][] map, int[] prv, int pos) {
         StringBuilder sb = new StringBuilder();
 
         Set<Integer> set = new TreeSet<>();
@@ -69,11 +69,11 @@ public class Main {
 
         while (pos != -1) {
             set.remove(map[pos][0]);
-            pos = prev[pos];
+            pos = prv[pos];
         }
 
-        for (int num : set) {
-            sb.append(num).append("\n");
+        for (int x : set) {
+            sb.append(x).append("\n");
         }
 
         return sb.toString();

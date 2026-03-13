@@ -1,12 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<int> traceback(vector<int>& v, vector<int>& prev, int pos) {
+vector<int> traceback(vector<int>& v, vector<int>& prv, int pos) {
     vector<int> lis;
 
     while (pos != -1) {
         lis.push_back(v[pos]);
-        pos = prev[pos];
+        pos = prv[pos];
     }
 
     reverse(lis.begin(), lis.end());
@@ -24,13 +24,13 @@ int main() {
     for (int& x : v) cin >> x;
 
     vector<int> dp(n, 1);
-    vector<int> prev(n, -1);
+    vector<int> prv(n, -1);
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < i; j++) {
             if (v[i] > v[j] && dp[j] + 1 > dp[i]) {
                 dp[i] = dp[j] + 1;
-                prev[i] = j;
+                prv[i] = j;
             }
         }
     }
@@ -46,7 +46,7 @@ int main() {
 
     cout << mx << '\n';
 
-    vector<int> lis = traceback(v, prev, pos);
+    vector<int> lis = traceback(v, prv, pos);
     for (int x : lis) {
         cout << x << ' ';
     }

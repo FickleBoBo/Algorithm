@@ -5,12 +5,12 @@ int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
 
-    vector<bool> visited(42);
+    vector<bool> vis(42);
     for (int i = 0; i < 10; i++) {
         int x;
         cin >> x;
-        visited[x % 42] = true;
+        vis[x % 42] = true;
     }
 
-    cout << count(visited.begin(), visited.end(), true);
+    cout << count(vis.begin(), vis.end(), true);
 }

@@ -9,9 +9,9 @@ int main() {
     cin >> s;
 
     for (int i = 0; i < 26; i++) {
-        size_t pos = s.find((char)(i + 'a'));
+        int pos = s.find((char)(i + 'a'));
 
-        if (pos == string::npos) {
+        if (pos == -1) {
             cout << -1 << ' ';
         } else {
             cout << pos << ' ';

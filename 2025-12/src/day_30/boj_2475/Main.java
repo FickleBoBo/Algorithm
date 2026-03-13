@@ -10,8 +10,8 @@ public class Main {
 
         int sum = 0;
         for (int i = 0; i < 5; i++) {
-            int n = Integer.parseInt(st.nextToken());
-            sum += n * n;
+            int x = Integer.parseInt(st.nextToken());
+            sum += x * x;
         }
 
         System.out.println(sum % 10);

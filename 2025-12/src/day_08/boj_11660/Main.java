@@ -27,13 +27,12 @@ public class Main {
             }
         }
 
-        for (int i = 0; i < m; i++) {
+        while (m-- > 0) {
             st = new StringTokenizer(br.readLine());
             int x1 = Integer.parseInt(st.nextToken());
             int y1 = Integer.parseInt(st.nextToken());
             int x2 = Integer.parseInt(st.nextToken());
             int y2 = Integer.parseInt(st.nextToken());
-
             sb.append(psum[x2][y2] - psum[x2][y1 - 1] - psum[x1 - 1][y2] + psum[x1 - 1][y1 - 1]).append("\n");
         }
 

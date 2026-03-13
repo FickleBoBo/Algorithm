@@ -13,12 +13,11 @@ public class Main {
         int m = Integer.parseInt(st.nextToken());
 
         int[] arr = new int[n];
-        for (int i = 0; i < m; i++) {
+        while (m-- > 0) {
             st = new StringTokenizer(br.readLine());
             int start = Integer.parseInt(st.nextToken());
             int end = Integer.parseInt(st.nextToken());
             int num = Integer.parseInt(st.nextToken());
-
             Arrays.fill(arr, start - 1, end, num);
         }
 

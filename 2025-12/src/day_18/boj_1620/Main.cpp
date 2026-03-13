@@ -18,7 +18,7 @@ int main() {
         mp[name] = to_string(i);
     }
 
-    for (int i = 0; i < m; i++) {
+    while (m--) {
         string s;
         cin >> s;
         cout << mp[s] << '\n';

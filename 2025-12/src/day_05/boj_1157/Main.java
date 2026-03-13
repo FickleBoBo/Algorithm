@@ -6,10 +6,10 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        String str = br.readLine();
+        String s = br.readLine();
         int[] cnt = new int[26];
 
-        for (char c : str.toCharArray()) {
+        for (char c : s.toCharArray()) {
             cnt[Character.toLowerCase(c) - 'a']++;
         }
 

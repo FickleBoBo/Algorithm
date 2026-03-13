@@ -8,11 +8,11 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         Set<String> set = new HashSet<>();
-        String str = br.readLine();
+        String s = br.readLine();
 
-        for (int i = 0; i < str.length(); i++) {
-            for (int j = i; j < str.length(); j++) {
-                set.add(str.substring(i, j + 1));
+        for (int i = 0; i < s.length(); i++) {
+            for (int j = i; j < s.length(); j++) {
+                set.add(s.substring(i, j + 1));
             }
         }
 

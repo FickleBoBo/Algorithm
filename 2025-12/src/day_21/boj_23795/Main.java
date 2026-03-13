@@ -10,9 +10,7 @@ public class Main {
 
         while (true) {
             int n = Integer.parseInt(br.readLine());
-
             if (n == -1) break;
-
             sum += n;
         }
 

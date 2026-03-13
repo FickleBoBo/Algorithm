@@ -9,10 +9,9 @@ int main() {
     cin >> n >> m;
 
     vector<int> v(n);
-    for (int i = 0; i < m; i++) {
+    while (m--) {
         int s, e, x;
         cin >> s >> e >> x;
-
         fill(v.begin() + s - 1, v.begin() + e, x);
     }
 

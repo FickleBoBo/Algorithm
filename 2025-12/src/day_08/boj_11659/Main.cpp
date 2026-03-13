@@ -16,7 +16,7 @@ int main() {
         psum[i] = psum[i - 1] + v[i - 1];
     }
 
-    for (int i = 0; i < m; i++) {
+    while (m--) {
         int s, e;
         cin >> s >> e;
         cout << psum[e] - psum[s - 1] << '\n';

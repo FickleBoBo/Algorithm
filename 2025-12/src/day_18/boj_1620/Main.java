@@ -20,7 +20,7 @@ public class Main {
             map.put(name, String.valueOf(i));
         }
 
-        for (int i = 0; i < m; i++) {
+        while (m-- > 0) {
             String command = br.readLine();
             bw.write(map.get(command));
             bw.newLine();

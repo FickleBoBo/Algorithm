@@ -28,8 +28,8 @@ public class Main {
         }
 
         int max = 0;
-        for (int num : dp) {
-            max = Math.max(max, num);
+        for (int x : dp) {
+            max = Math.max(max, x);
         }
 
         System.out.println(n - max);

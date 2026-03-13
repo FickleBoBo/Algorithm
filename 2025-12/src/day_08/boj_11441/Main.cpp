@@ -19,7 +19,7 @@ int main() {
     int m;
     cin >> m;
 
-    for (int i = 0; i < m; i++) {
+    while (m--) {
         int s, e;
         cin >> s >> e;
         cout << psum[e] - psum[s - 1] << '\n';

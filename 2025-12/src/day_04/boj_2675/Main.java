@@ -13,9 +13,9 @@ public class Main {
         while (t-- > 0) {
             st = new StringTokenizer(br.readLine());
             int r = Integer.parseInt(st.nextToken());
-            String str = st.nextToken();
+            String s = st.nextToken();
 
-            for (char c : str.toCharArray()) {
+            for (char c : s.toCharArray()) {
                 sb.append(String.valueOf(c).repeat(r));
             }
             sb.append("\n");

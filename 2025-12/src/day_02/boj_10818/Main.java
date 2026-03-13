@@ -10,17 +10,13 @@ public class Main {
 
         int n = Integer.parseInt(br.readLine());
 
-        int[] arr = new int[n];
-        st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < n; i++) {
-            arr[i] = Integer.parseInt(st.nextToken());
-        }
-
         int min = 1_000_000;
         int max = -1_000_000;
-        for (int num : arr) {
-            min = Math.min(min, num);
-            max = Math.max(max, num);
+        st = new StringTokenizer(br.readLine());
+        while (n-- > 0) {
+            int x = Integer.parseInt(st.nextToken());
+            min = Math.min(min, x);
+            max = Math.max(max, x);
         }
 
         System.out.println(min + " " + max);

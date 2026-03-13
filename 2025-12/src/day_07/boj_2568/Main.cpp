@@ -26,7 +26,7 @@ int main() {
 
     vector<int> dp;
     vector<int> pos(n);
-    vector<int> prev(n, -1);
+    vector<int> prv(n, -1);
 
     for (int i = 0; i < n; i++) {
         int x = v[i].second;
@@ -40,12 +40,12 @@ int main() {
         }
 
         pos[idx] = i;
-        if (idx > 0) prev[i] = pos[idx - 1];
+        if (idx > 0) prv[i] = pos[idx - 1];
     }
 
     cout << n - dp.size() << '\n';
 
-    set<int> nonLis = traceback(v, prev, pos[dp.size() - 1]);
+    set<int> nonLis = traceback(v, prv, pos[dp.size() - 1]);
     for (int x : nonLis) {
         cout << x << '\n';
     }

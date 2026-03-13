@@ -11,10 +11,9 @@ int main() {
     vector<int> v(n);
     iota(v.begin(), v.end(), 1);
 
-    for (int i = 0; i < m; i++) {
+    while (m--) {
         int s, e;
         cin >> s >> e;
-
         reverse(v.begin() + s - 1, v.begin() + e);
     }
 

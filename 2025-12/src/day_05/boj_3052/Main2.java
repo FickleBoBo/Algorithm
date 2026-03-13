@@ -9,8 +9,8 @@ public class Main2 {
 
         Set<Integer> set = new HashSet<>();
         for (int i = 0; i < 10; i++) {
-            int num = Integer.parseInt(br.readLine());
-            set.add(num % 42);
+            int x = Integer.parseInt(br.readLine());
+            set.add(x % 42);
         }
 
         System.out.println(set.size());
