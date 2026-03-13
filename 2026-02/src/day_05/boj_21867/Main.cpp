@@ -12,7 +12,7 @@ int main() {
     string res;
     for (char c : s) {
         if (c == 'J' || c == 'A' || c == 'V') continue;
-        res.push_back(c);
+        res += c;
     }
 
     if (res.empty()) {

@@ -9,7 +9,7 @@ public class Main2 {
     static int[] dc = {0, 1, 0, -1};
     static int n, m;
     static char[][] grid;
-    static boolean[][] visited;
+    static boolean[][] vis;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -32,7 +32,7 @@ public class Main2 {
             }
         }
 
-        visited = new boolean[n][m];
+        vis = new boolean[n][m];
 
         int cnt = dfs(sr, sc);
         if (cnt > 0) {
@@ -43,7 +43,7 @@ public class Main2 {
     }
 
     static int dfs(int r, int c) {
-        visited[r][c] = true;
+        vis[r][c] = true;
         int cnt = 0;
         if (grid[r][c] == 'P') cnt++;
 
@@ -52,7 +52,7 @@ public class Main2 {
             int nc = c + dc[d];
 
             if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
-            if (grid[nr][nc] == 'X' || visited[nr][nc]) continue;
+            if (grid[nr][nc] == 'X' || vis[nr][nc]) continue;
 
             cnt += dfs(nr, nc);
         }

@@ -5,10 +5,10 @@ int dr[4] = {-1, 0, 1, 0};
 int dc[4] = {0, 1, 0, -1};
 int n, m;
 char grid[601][601];
-bool visited[601][601];
+bool vis[601][601];
 
 int dfs(int r, int c) {
-    visited[r][c] = true;
+    vis[r][c] = true;
     int cnt = grid[r][c] == 'P';
 
     for (int d = 0; d < 4; d++) {
@@ -16,7 +16,7 @@ int dfs(int r, int c) {
         int nc = c + dc[d];
 
         if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
-        if (grid[nr][nc] == 'X' || visited[nr][nc]) continue;
+        if (grid[nr][nc] == 'X' || vis[nr][nc]) continue;
 
         cnt += dfs(nr, nc);
     }

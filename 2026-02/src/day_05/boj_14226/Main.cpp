@@ -1,39 +1,39 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MAX = 1000;
-bool visited[1 + MAX][1 + MAX];
+const int MX = 1000;
+bool vis[1 + MX][1 + MX];
 
 int bfs(int s) {
     queue<pair<int, int>> q;
     q.push({1, 0});
 
-    visited[1][0] = true;
+    vis[1][0] = true;
 
     int dist = 0;
 
     while (!q.empty()) {
-        int size = q.size();
+        int sz = q.size();
 
-        while (size-- > 0) {
+        while (sz-- > 0) {
             auto [a, b] = q.front();
             q.pop();
 
             if (a == s) return dist;
 
-            if (!visited[a][a]) {
+            if (!vis[a][a]) {
                 q.push({a, a});
-                visited[a][a] = true;
+                vis[a][a] = true;
             }
 
-            if (a + b <= MAX && !visited[a + b][b]) {
+            if (a + b <= MX && !vis[a + b][b]) {
                 q.push({a + b, b});
-                visited[a + b][b] = true;
+                vis[a + b][b] = true;
             }
 
-            if (a > 0 && !visited[a - 1][b]) {
+            if (a > 0 && !vis[a - 1][b]) {
                 q.push({a - 1, b});
-                visited[a - 1][b] = true;
+                vis[a - 1][b] = true;
             }
         }
 

@@ -17,17 +17,17 @@ int main() {
         }
     }
 
-    for (int i = 0; i < k; i++) {
+    for (int j = 0; j < k; j++) {
         int mx = 0;
         int cnt = 0;
         int idx = 0;
 
-        for (int j = 0; j < n; j++) {
-            if (arr[j][i] > mx) {
-                mx = arr[j][i];
+        for (int i = 0; i < n; i++) {
+            if (arr[i][j] > mx) {
+                mx = arr[i][j];
                 cnt = 1;
-                idx = j;
-            } else if (arr[j][i] == mx) {
+                idx = i;
+            } else if (arr[i][j] == mx) {
                 cnt++;
             }
         }

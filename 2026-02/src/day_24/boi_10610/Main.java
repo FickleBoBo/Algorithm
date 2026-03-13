@@ -8,17 +8,17 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
 
-        String str = br.readLine();
+        String s = br.readLine();
         int sum = 0;
         boolean has0 = false;
 
-        for (char c : str.toCharArray()) {
+        for (char c : s.toCharArray()) {
             sum += c - '0';
             if (c == '0') has0 = true;
         }
 
         if (sum % 3 == 0 && has0) {
-            char[] arr = str.toCharArray();
+            char[] arr = s.toCharArray();
             Arrays.sort(arr);
 
             for (char c : arr) {

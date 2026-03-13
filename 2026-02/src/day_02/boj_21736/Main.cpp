@@ -5,13 +5,13 @@ int dr[4] = {-1, 0, 1, 0};
 int dc[4] = {0, 1, 0, -1};
 int n, m;
 char grid[601][601];
-bool visited[601][601];
+bool vis[601][601];
 
 int bfs(int sr, int sc) {
     queue<pair<int, int>> q;
     q.push({sr, sc});
 
-    visited[sr][sc] = true;
+    vis[sr][sc] = true;
 
     int cnt = 0;
 
@@ -26,10 +26,10 @@ int bfs(int sr, int sc) {
             int nc = c + dc[d];
 
             if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
-            if (grid[nr][nc] == 'X' || visited[nr][nc]) continue;
+            if (grid[nr][nc] == 'X' || vis[nr][nc]) continue;
 
             q.push({nr, nc});
-            visited[nr][nc] = true;
+            vis[nr][nc] = true;
         }
     }
 

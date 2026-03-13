@@ -38,14 +38,14 @@ public class Main {
         map.put('y', "yahoo");
         map.put('z', "zebra");
 
-        String str = br.readLine();
+        String s = br.readLine();
         boolean flag = true;
 
-        for (int i = 0; i < str.length(); i++) {
-            String code = map.get(str.charAt(i));
+        for (int i = 0; i < s.length(); i++) {
+            String code = map.get(s.charAt(i));
 
-            if (str.startsWith(code, i)) {
-                sb.append(str.charAt(i));
+            if (s.startsWith(code, i)) {
+                sb.append(s.charAt(i));
                 i += code.length() - 1;
             } else {
                 flag = false;

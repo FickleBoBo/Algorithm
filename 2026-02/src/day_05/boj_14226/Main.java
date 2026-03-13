@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Main {
 
-    static final int MAX = 1000;
+    static final int MX = 1000;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -18,31 +18,31 @@ public class Main {
         Queue<int[]> q = new ArrayDeque<>();
         q.offer(new int[]{1, 0});
 
-        boolean[][] visited = new boolean[1 + MAX][1 + MAX];
-        visited[1][0] = true;
+        boolean[][] vis = new boolean[1 + MX][1 + MX];
+        vis[1][0] = true;
 
         int dist = 0;
 
         while (!q.isEmpty()) {
-            int size = q.size();
+            int sz = q.size();
 
-            while (size-- > 0) {
-                int[] node = q.poll();
-                if (node[0] == s) return dist;
+            while (sz-- > 0) {
+                int[] cur = q.poll();
+                if (cur[0] == s) return dist;
 
-                if (!visited[node[0]][node[0]]) {
-                    q.offer(new int[]{node[0], node[0]});
-                    visited[node[0]][node[0]] = true;
+                if (!vis[cur[0]][cur[0]]) {
+                    q.offer(new int[]{cur[0], cur[0]});
+                    vis[cur[0]][cur[0]] = true;
                 }
 
-                if (node[0] + node[1] <= MAX && !visited[node[0] + node[1]][node[1]]) {
-                    q.offer(new int[]{node[0] + node[1], node[1]});
-                    visited[node[0] + node[1]][node[1]] = true;
+                if (cur[0] + cur[1] <= MX && !vis[cur[0] + cur[1]][cur[1]]) {
+                    q.offer(new int[]{cur[0] + cur[1], cur[1]});
+                    vis[cur[0] + cur[1]][cur[1]] = true;
                 }
 
-                if (node[0] > 0 && !visited[node[0] - 1][node[1]]) {
-                    q.offer(new int[]{node[0] - 1, node[1]});
-                    visited[node[0] - 1][node[1]] = true;
+                if (cur[0] > 0 && !vis[cur[0] - 1][cur[1]]) {
+                    q.offer(new int[]{cur[0] - 1, cur[1]});
+                    vis[cur[0] - 1][cur[1]] = true;
                 }
             }
 

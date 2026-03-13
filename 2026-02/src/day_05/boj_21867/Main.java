@@ -8,9 +8,9 @@ public class Main {
         StringBuilder sb = new StringBuilder();
 
         br.readLine();
-        String str = br.readLine();
+        String s = br.readLine();
 
-        for (char c : str.toCharArray()) {
+        for (char c : s.toCharArray()) {
             if (c == 'J' || c == 'A' || c == 'V') continue;
             sb.append(c);
         }

@@ -20,17 +20,17 @@ public class Main {
         }
 
         boolean[] check = new boolean[n];
-        for (int i = 0; i < k; i++) {
+        for (int j = 0; j < k; j++) {
             int max = 0;
             int cnt = 0;
             int idx = 0;
 
-            for (int j = 0; j < n; j++) {
-                if (arr[j][i] > max) {
-                    max = arr[j][i];
+            for (int i = 0; i < n; i++) {
+                if (arr[i][j] > max) {
+                    max = arr[i][j];
                     cnt = 1;
-                    idx = j;
-                } else if (arr[j][i] == max) {
+                    idx = i;
+                } else if (arr[i][j] == max) {
                     cnt++;
                 }
             }
