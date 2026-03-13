@@ -40,38 +40,38 @@ public class Main {
         Queue<int[]> q = new ArrayDeque<>();
         q.offer(new int[]{0, 0});
 
-        boolean[][] visited = new boolean[n][m];
-        visited[0][0] = true;
+        boolean[][] vis = new boolean[n][m];
+        vis[0][0] = true;
 
-        boolean[][] check = new boolean[n][m];
-        List<int[]> checkList = new ArrayList<>();
+        boolean[][] chk = new boolean[n][m];
+        List<int[]> chkList = new ArrayList<>();
 
         while (!q.isEmpty()) {
-            int[] node = q.poll();
+            int[] cur = q.poll();
 
             for (int d = 0; d < 4; d++) {
-                int nr = node[0] + dr[d];
-                int nc = node[1] + dc[d];
+                int nr = cur[0] + dr[d];
+                int nc = cur[1] + dc[d];
 
                 if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
-                if (visited[nr][nc]) continue;
+                if (vis[nr][nc]) continue;
                 if (grid[nr][nc] == 1) {
-                    if (check[nr][nc]) {
-                        checkList.add(new int[]{nr, nc});
+                    if (chk[nr][nc]) {
+                        chkList.add(new int[]{nr, nc});
                     } else {
-                        check[nr][nc] = true;
+                        chk[nr][nc] = true;
                     }
                     continue;
                 }
 
                 q.offer(new int[]{nr, nc});
-                visited[nr][nc] = true;
+                vis[nr][nc] = true;
             }
         }
 
-        if (checkList.isEmpty()) return false;
+        if (chkList.isEmpty()) return false;
 
-        for (int[] pos : checkList) {
+        for (int[] pos : chkList) {
             grid[pos[0]][pos[1]] = 0;
         }
 

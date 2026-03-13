@@ -3,13 +3,13 @@ using namespace std;
 
 int n;
 bool adj[101][101];
-bool visited[101];
+bool vis[101];
 
 int bfs(int x, int y) {
     queue<int> q;
     q.push(x);
 
-    visited[x] = true;
+    vis[x] = true;
 
     int dist = 0;
 
@@ -17,16 +17,16 @@ int bfs(int x, int y) {
         int sz = q.size();
 
         while (sz--) {
-            int node = q.front();
+            int cur = q.front();
             q.pop();
 
-            if (node == y) return dist;
+            if (cur == y) return dist;
 
-            for (int next = 1; next <= n; next++) {
-                if (!adj[node][next] || visited[next]) continue;
+            for (int nxt = 1; nxt <= n; nxt++) {
+                if (!adj[cur][nxt] || vis[nxt]) continue;
 
-                q.push(next);
-                visited[next] = true;
+                q.push(nxt);
+                vis[nxt] = true;
             }
         }
 
@@ -43,7 +43,7 @@ int main() {
     int x, y, m;
     cin >> n >> x >> y >> m;
 
-    for (int i = 0; i < m; i++) {
+    while (m--) {
         int u, v;
         cin >> u >> v;
         adj[u][v] = adj[v][u] = true;

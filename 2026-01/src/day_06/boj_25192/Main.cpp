@@ -11,15 +11,15 @@ int main() {
     set<string> st;
     int cnt = 0;
 
-    for (int i = 0; i < n; i++) {
-        string s;
-        cin >> s;
+    while (n--) {
+        string input;
+        cin >> input;
 
-        if (s == "ENTER") {
+        if (input == "ENTER") {
             cnt += st.size();
             st.clear();
         } else {
-            st.insert(s);
+            st.insert(input);
         }
     }
     cnt += st.size();

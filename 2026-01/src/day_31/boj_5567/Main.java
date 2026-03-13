@@ -20,7 +20,7 @@ public class Main {
             adj[i] = new ArrayList<>();
         }
 
-        for (int i = 0; i < m; i++) {
+        while (m-- > 0) {
             st = new StringTokenizer(br.readLine());
             int u = Integer.parseInt(st.nextToken());
             int v = Integer.parseInt(st.nextToken());
@@ -35,23 +35,23 @@ public class Main {
         Queue<Integer> q = new ArrayDeque<>();
         q.offer(1);
 
-        boolean[] visited = new boolean[1 + n];
-        visited[1] = true;
+        boolean[] vis = new boolean[1 + n];
+        vis[1] = true;
 
         int dist = 0;
         int cnt = 0;
 
         while (!q.isEmpty()) {
-            int size = q.size();
+            int sz = q.size();
 
-            while (size-- > 0) {
-                int node = q.poll();
+            while (sz-- > 0) {
+                int cur = q.poll();
 
-                for (int next : adj[node]) {
-                    if (visited[next]) continue;
+                for (int nxt : adj[cur]) {
+                    if (vis[nxt]) continue;
 
-                    q.offer(next);
-                    visited[next] = true;
+                    q.offer(nxt);
+                    vis[nxt] = true;
                     cnt++;
                 }
             }

@@ -6,7 +6,7 @@ import java.util.*;
 public class Main2 {
 
     static List<Integer>[] adj;
-    static boolean[] visited;
+    static boolean[] vis;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -20,7 +20,7 @@ public class Main2 {
             adj[i] = new ArrayList<>();
         }
 
-        for (int i = 0; i < m; i++) {
+        while (m-- > 0) {
             st = new StringTokenizer(br.readLine());
             int u = Integer.parseInt(st.nextToken());
             int v = Integer.parseInt(st.nextToken());
@@ -28,24 +28,24 @@ public class Main2 {
             adj[v].add(u);
         }
 
-        visited = new boolean[1 + n];
+        vis = new boolean[1 + n];
         int cnt = 0;
-        for (int node = 1; node <= n; node++) {
-            if (visited[node]) continue;
+        for (int cur = 1; cur <= n; cur++) {
+            if (vis[cur]) continue;
 
-            dfs(node);
+            dfs(cur);
             cnt++;
         }
 
         System.out.println(cnt);
     }
 
-    static void dfs(int node) {
-        visited[node] = true;
+    static void dfs(int cur) {
+        vis[cur] = true;
 
-        for (int next : adj[node]) {
-            if (visited[next]) continue;
-            dfs(next);
+        for (int nxt : adj[cur]) {
+            if (vis[nxt]) continue;
+            dfs(nxt);
         }
     }
 }

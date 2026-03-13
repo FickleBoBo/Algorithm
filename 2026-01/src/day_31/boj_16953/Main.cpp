@@ -5,8 +5,8 @@ int bfs(int a, int b) {
     queue<int> q;
     q.push(a);
 
-    set<int> visited;
-    visited.insert(a);
+    set<int> vis;
+    vis.insert(a);
 
     int dist = 1;
 
@@ -14,19 +14,19 @@ int bfs(int a, int b) {
         int sz = q.size();
 
         while (sz--) {
-            int node = q.front();
+            int cur = q.front();
             q.pop();
 
-            if (node == b) return dist;
+            if (cur == b) return dist;
 
-            if (node * 2LL <= b && !visited.count(node * 2)) {
-                q.push(node * 2);
-                visited.insert(node * 2);
+            if (cur * 2LL <= b && !vis.count(cur * 2)) {
+                q.push(cur * 2);
+                vis.insert(cur * 2);
             }
 
-            if (node * 10LL + 1 <= b && !visited.count(node * 10 + 1)) {
-                q.push(node * 10 + 1);
-                visited.insert(node * 10 + 1);
+            if (cur * 10LL + 1 <= b && !vis.count(cur * 10 + 1)) {
+                q.push(cur * 10 + 1);
+                vis.insert(cur * 10 + 1);
             }
         }
 

@@ -3,25 +3,25 @@ using namespace std;
 
 int n;
 bool adj[101][101];
-bool visited[101];
+bool vis[101];
 
 int bfs() {
     queue<int> q;
     q.push(1);
 
-    visited[1] = true;
+    vis[1] = true;
 
     int cnt = 0;
 
     while (!q.empty()) {
-        int node = q.front();
+        int cur = q.front();
         q.pop();
 
-        for (int next = 1; next <= n; next++) {
-            if (!adj[node][next] || visited[next]) continue;
+        for (int nxt = 1; nxt <= n; nxt++) {
+            if (!adj[cur][nxt] || vis[nxt]) continue;
 
-            q.push(next);
-            visited[next] = true;
+            q.push(nxt);
+            vis[nxt] = true;
             cnt++;
         }
     }
@@ -36,7 +36,7 @@ int main() {
     int m;
     cin >> n >> m;
 
-    for (int i = 0; i < m; i++) {
+    while (m--) {
         int u, v;
         cin >> u >> v;
         adj[u][v] = adj[v][u] = true;

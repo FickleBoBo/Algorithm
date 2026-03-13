@@ -19,7 +19,7 @@ public class Main {
             adj[i] = new ArrayList<>();
         }
 
-        for (int i = 0; i < m; i++) {
+        while (m-- > 0) {
             st = new StringTokenizer(br.readLine());
             int u = Integer.parseInt(st.nextToken());
             int v = Integer.parseInt(st.nextToken());
@@ -27,32 +27,32 @@ public class Main {
             adj[v].add(u);
         }
 
-        boolean[] visited = new boolean[1 + n];
+        boolean[] vis = new boolean[1 + n];
         int cnt = 0;
-        for (int node = 1; node <= n; node++) {
-            if (visited[node]) continue;
+        for (int cur = 1; cur <= n; cur++) {
+            if (vis[cur]) continue;
 
-            bfs(node, visited);
+            bfs(cur, vis);
             cnt++;
         }
 
         System.out.println(cnt);
     }
 
-    static void bfs(int start, boolean[] visited) {
+    static void bfs(int start, boolean[] vis) {
         Queue<Integer> q = new ArrayDeque<>();
         q.offer(start);
 
-        visited[start] = true;
+        vis[start] = true;
 
         while (!q.isEmpty()) {
-            int node = q.poll();
+            int cur = q.poll();
 
-            for (int next : adj[node]) {
-                if (visited[next]) continue;
+            for (int nxt : adj[cur]) {
+                if (vis[nxt]) continue;
 
-                q.offer(next);
-                visited[next] = true;
+                q.offer(nxt);
+                vis[nxt] = true;
             }
         }
     }

@@ -9,7 +9,7 @@ int main() {
     cin >> n >> m;
 
     unordered_map<string, int> mp;
-    for (int i = 0; i < n; i++) {
+    while (n--) {
         string s;
         cin >> s;
 
@@ -21,13 +21,13 @@ int main() {
     for (auto& [k, v] : mp) {
         list.push_back({k, v});
     }
-    sort(list.begin(), list.end(), [](const auto& a, const auto& b) {
+    sort(list.begin(), list.end(), [](auto& a, auto& b) {
         if (a.second != b.second) return a.second > b.second;
         if (a.first.size() != b.first.size()) return a.first.size() > b.first.size();
         return a.first < b.first;
     });
 
-    for (auto& x : list) {
-        cout << x.first << '\n';
+    for (auto& [k, _] : list) {
+        cout << k << '\n';
     }
 }

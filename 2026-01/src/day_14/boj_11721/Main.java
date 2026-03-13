@@ -7,14 +7,14 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
 
-        String str = br.readLine();
+        String s = br.readLine();
 
-        for (int i = 0; i < str.length(); i++) {
+        for (int i = 0; i < s.length(); i++) {
             if (i != 0 && i % 10 == 0) {
                 sb.append("\n");
             }
 
-            sb.append(str.charAt(i));
+            sb.append(s.charAt(i));
         }
 
         System.out.println(sb);

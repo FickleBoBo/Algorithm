@@ -5,12 +5,12 @@ int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
 
-    int prev = -1000000;
+    int prv = -1000000;
 
     int x;
     while (cin >> x) {
-        if (x >= prev) {
-            prev = x;
+        if (x >= prv) {
+            prv = x;
         } else {
             cout << "Bad";
             return 0;

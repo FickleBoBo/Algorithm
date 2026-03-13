@@ -7,16 +7,15 @@ public class Main3 {
 
     static int[] p;
 
-    static int[] make(int n) {
-        int[] arr = new int[1 + n];
+    static void make(int n) {
+        p = new int[1 + n];
         for (int i = 1; i <= n; i++) {
-            arr[i] = i;
+            p[i] = i;
         }
-        return arr;
     }
 
     static int find(int x) {
-        if (x == p[x]) return x;
+        if (p[x] == x) return x;
         return p[x] = find(p[x]);
     }
 
@@ -30,10 +29,9 @@ public class Main3 {
 
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
+        make(n);
 
-        p = make(n);
-
-        for (int i = 0; i < m; i++) {
+        while (m-- > 0) {
             st = new StringTokenizer(br.readLine());
             int u = Integer.parseInt(st.nextToken());
             int v = Integer.parseInt(st.nextToken());
@@ -41,8 +39,8 @@ public class Main3 {
         }
 
         int cnt = 0;
-        for (int node = 1; node <= n; node++) {
-            if (node == find(node)) cnt++;
+        for (int cur = 1; cur <= n; cur++) {
+            if (cur == find(cur)) cnt++;
         }
 
         System.out.println(cnt);

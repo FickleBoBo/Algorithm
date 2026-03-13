@@ -6,12 +6,12 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        String str = br.readLine();
+        String s = br.readLine();
         int sum = 0;
 
-        for (char c : str.toCharArray()) {
-            int n = c - '0';
-            sum += n * n * n * n * n;
+        for (char c : s.toCharArray()) {
+            int x = c - '0';
+            sum += x * x * x * x * x;
         }
 
         System.out.println(sum);

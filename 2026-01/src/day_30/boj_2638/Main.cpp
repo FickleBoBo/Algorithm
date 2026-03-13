@@ -5,14 +5,14 @@ int dr[4] = {-1, 0, 1, 0};
 int dc[4] = {0, 1, 0, -1};
 int n, m;
 int grid[100][100];
-bool visited[100][100];
-bool check[100][100];
+bool vis[100][100];
+bool chk[100][100];
 
 bool bfs() {
     queue<pair<int, int>> q;
     q.push({0, 0});
 
-    visited[0][0] = true;
+    vis[0][0] = true;
 
     vector<pair<int, int>> v;
 
@@ -25,18 +25,18 @@ bool bfs() {
             int nc = c + dc[d];
 
             if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
-            if (visited[nr][nc]) continue;
+            if (vis[nr][nc]) continue;
             if (grid[nr][nc] == 1) {
-                if (check[nr][nc]) {
+                if (chk[nr][nc]) {
                     v.push_back({nr, nc});
                 } else {
-                    check[nr][nc] = true;
+                    chk[nr][nc] = true;
                 }
                 continue;
             }
 
             q.push({nr, nc});
-            visited[nr][nc] = true;
+            vis[nr][nc] = true;
         }
     }
 
@@ -63,8 +63,8 @@ int main() {
 
     int time = 0;
     while (true) {
-        memset(visited, 0, sizeof(visited));
-        memset(check, 0, sizeof(check));
+        memset(vis, 0, sizeof(vis));
+        memset(chk, 0, sizeof(chk));
 
         bool flag = bfs();
 

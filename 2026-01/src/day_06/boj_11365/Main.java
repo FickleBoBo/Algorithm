@@ -8,11 +8,10 @@ public class Main {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         while (true) {
-            String str = br.readLine();
+            String s = br.readLine();
+            if (s.equals("END")) break;
 
-            if (str.equals("END")) break;
-
-            bw.write(new StringBuilder(str).reverse().toString());
+            bw.write(new StringBuilder(s).reverse().toString());
             bw.newLine();
         }
 

@@ -18,26 +18,26 @@ public class Main {
         Queue<Integer> q = new ArrayDeque<>();
         q.offer(a);
 
-        Set<Integer> visited = new HashSet<>();
-        visited.add(a);
+        Set<Integer> vis = new HashSet<>();
+        vis.add(a);
 
         int dist = 1;
 
         while (!q.isEmpty()) {
-            int size = q.size();
+            int sz = q.size();
 
-            while (size-- > 0) {
-                int node = q.poll();
-                if (node == b) return dist;
+            while (sz-- > 0) {
+                int cur = q.poll();
+                if (cur == b) return dist;
 
-                if (node * 2L <= b && !visited.contains(node * 2)) {
-                    q.offer(node * 2);
-                    visited.add(node * 2);
+                if (cur * 2L <= b && !vis.contains(cur * 2)) {
+                    q.offer(cur * 2);
+                    vis.add(cur * 2);
                 }
 
-                if (node * 10L + 1 <= b && !visited.contains(node * 10 + 1)) {
-                    q.offer(node * 10 + 1);
-                    visited.add(node * 10 + 1);
+                if (cur * 10L + 1 <= b && !vis.contains(cur * 10 + 1)) {
+                    q.offer(cur * 10 + 1);
+                    vis.add(cur * 10 + 1);
                 }
             }
 

@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Main {
 
-    static final int MAX = 4000;
+    static final int MX = 4000;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -14,12 +14,12 @@ public class Main {
 
         int[] arr = new int[n];
         int sum = 0;
-        int[] cnt = new int[MAX + 1 + MAX];
+        int[] cnt = new int[MX + 1 + MX];
 
         for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(br.readLine());
             sum += arr[i];
-            cnt[arr[i] + MAX]++;
+            cnt[arr[i] + MX]++;
         }
         Arrays.sort(arr);
 
@@ -39,7 +39,7 @@ public class Main {
         for (int i = 0; i < cnt.length; i++) {
             if (cnt[i] == max) cntMax--;
             if (cntMax == 0) {
-                mode = i - MAX;
+                mode = i - MX;
                 break;
             }
         }

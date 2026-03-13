@@ -2,14 +2,14 @@
 using namespace std;
 
 vector<int> adj[1001];
-bool visited[1001];
+bool vis[1001];
 
-void dfs(int node) {
-    visited[node] = true;
+void dfs(int cur) {
+    vis[cur] = true;
 
-    for (int next : adj[node]) {
-        if (visited[next]) continue;
-        dfs(next);
+    for (int nxt : adj[cur]) {
+        if (vis[nxt]) continue;
+        dfs(nxt);
     }
 }
 
@@ -20,7 +20,7 @@ int main() {
     int n, m;
     cin >> n >> m;
 
-    for (int i = 0; i < m; i++) {
+    while (m--) {
         int u, v;
         cin >> u >> v;
         adj[u].push_back(v);
@@ -28,10 +28,10 @@ int main() {
     }
 
     int cnt = 0;
-    for (int node = 1; node <= n; node++) {
-        if (visited[node]) continue;
+    for (int cur = 1; cur <= n; cur++) {
+        if (vis[cur]) continue;
 
-        dfs(node);
+        dfs(cur);
         cnt++;
     }
 

@@ -3,15 +3,15 @@ using namespace std;
 
 int n;
 bool adj[101][101];
-bool visited[101];
+bool vis[101];
 
-int dfs(int node) {
-    visited[node] = true;
+int dfs(int cur) {
+    vis[cur] = true;
     int cnt = 1;
 
-    for (int next = 1; next <= n; next++) {
-        if (!adj[node][next] || visited[next]) continue;
-        cnt += dfs(next);
+    for (int nxt = 1; nxt <= n; nxt++) {
+        if (!adj[cur][nxt] || vis[nxt]) continue;
+        cnt += dfs(nxt);
     }
 
     return cnt;
@@ -24,7 +24,7 @@ int main() {
     int m;
     cin >> n >> m;
 
-    for (int i = 0; i < m; i++) {
+    while (m--) {
         int u, v;
         cin >> u >> v;
         adj[u][v] = adj[v][u] = true;

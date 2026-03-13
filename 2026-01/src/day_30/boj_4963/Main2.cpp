@@ -26,6 +26,7 @@ int main() {
 
     while (true) {
         cin >> w >> h;
+
         if (w == 0 || h == 0) break;
 
         for (int i = 0; i < h; i++) {

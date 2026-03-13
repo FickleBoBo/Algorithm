@@ -11,8 +11,8 @@ public class Main {
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
 
-        String str = String.valueOf(n).repeat(n);
+        String s = String.valueOf(n).repeat(n);
 
-        System.out.println(str.substring(0, Math.min(str.length(), m)));
+        System.out.println(s.substring(0, Math.min(s.length(), m)));
     }
 }

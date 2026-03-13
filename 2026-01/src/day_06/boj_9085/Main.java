@@ -15,7 +15,7 @@ public class Main {
 
             int sum = 0;
             st = new StringTokenizer(br.readLine());
-            for (int i = 0; i < n; i++) {
+            while (n-- > 0) {
                 sum += Integer.parseInt(st.nextToken());
             }
 

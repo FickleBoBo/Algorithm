@@ -8,11 +8,11 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int prev = -1_000_000;
+        int prv = -1_000_000;
         while (st.hasMoreTokens()) {
             int x = Integer.parseInt(st.nextToken());
-            if (x >= prev) {
-                prev = x;
+            if (x >= prv) {
+                prv = x;
             } else {
                 System.out.println("Bad");
                 return;

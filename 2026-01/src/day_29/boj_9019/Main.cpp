@@ -1,66 +1,64 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool visited[10000];
-int prv[10000];
-char type[10000];
+const int MX = 10000;
+bool vis[MX];
+int prv[MX];
+char type[MX];
+string ans;
 
-string bfs(int a, int b) {
+void bfs(int a, int b) {
     queue<int> q;
     q.push(a);
 
-    visited[a] = true;
+    vis[a] = true;
 
     while (!q.empty()) {
-        int node = q.front();
+        int cur = q.front();
         q.pop();
 
-        if (node == b) {
-            string res;
-
-            while (prv[node] != -1) {
-                res.push_back(type[node]);
-                node = prv[node];
+        if (cur == b) {
+            while (prv[cur] != -1) {
+                ans += type[cur];
+                cur = prv[cur];
             }
 
-            reverse(res.begin(), res.end());
-            return res;
+            reverse(ans.begin(), ans.end());
+            return;
         }
 
-        int d1 = node * 2 % 10000;
-        if (!visited[d1]) {
+        int d1 = cur * 2 % 10000;
+        if (!vis[d1]) {
             q.push(d1);
-            visited[d1] = true;
-            prv[d1] = node;
+            vis[d1] = true;
+            prv[d1] = cur;
             type[d1] = 'D';
         }
 
-        int d2 = (node - 1 + 10000) % 10000;
-        if (!visited[d2]) {
+        int d2 = (cur - 1 + 10000) % 10000;
+        if (!vis[d2]) {
             q.push(d2);
-            visited[d2] = true;
-            prv[d2] = node;
+            vis[d2] = true;
+            prv[d2] = cur;
             type[d2] = 'S';
         }
 
-        int d3 = node % 1000 * 10 + node / 1000;
-        if (!visited[d3]) {
+        int d3 = cur % 1000 * 10 + cur / 1000;
+        if (!vis[d3]) {
             q.push(d3);
-            visited[d3] = true;
-            prv[d3] = node;
+            vis[d3] = true;
+            prv[d3] = cur;
             type[d3] = 'L';
         }
 
-        int d4 = node % 10 * 1000 + node / 10;
-        if (!visited[d4]) {
+        int d4 = cur % 10 * 1000 + cur / 10;
+        if (!vis[d4]) {
             q.push(d4);
-            visited[d4] = true;
-            prv[d4] = node;
+            vis[d4] = true;
+            prv[d4] = cur;
             type[d4] = 'R';
         }
     }
-
-    return "";
 }
 
 int main() {
@@ -74,10 +72,12 @@ int main() {
         int a, b;
         cin >> a >> b;
 
-        memset(visited, 0, sizeof(visited));
+        memset(vis, 0, sizeof(vis));
         memset(prv, -1, sizeof(prv));
         memset(type, 0, sizeof(type));
+        ans = "";
 
-        cout << bfs(a, b) << '\n';
+        bfs(a, b);
+        cout << ans << '\n';
     }
 }

@@ -57,20 +57,20 @@ public class Main {
         dist[sr][sc] = 0;
 
         while (!q.isEmpty()) {
-            int size = q.size();
+            int sz = q.size();
 
-            while (size-- > 0) {
-                int[] node = q.poll();
+            while (sz-- > 0) {
+                int[] cur = q.poll();
 
                 for (int d = 0; d < 4; d++) {
-                    int nr = node[0] + dr[d];
-                    int nc = node[1] + dc[d];
+                    int nr = cur[0] + dr[d];
+                    int nc = cur[1] + dc[d];
 
                     if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
                     if (grid[nr][nc] == 0 || dist[nr][nc] != -1) continue;
 
                     q.offer(new int[]{nr, nc});
-                    dist[nr][nc] = dist[node[0]][node[1]] + 1;
+                    dist[nr][nc] = dist[cur[0]][cur[1]] + 1;
                 }
             }
         }

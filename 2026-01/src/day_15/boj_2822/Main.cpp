@@ -13,15 +13,15 @@ int main() {
     sort(v.begin(), v.end());
 
     int sum = 0;
-    vector<bool> visited(8);
+    vector<bool> vis(8);
     for (int i = 3; i < 8; i++) {
         sum += v[i].first;
-        visited[v[i].second] = true;
+        vis[v[i].second] = true;
     }
 
     cout << sum << '\n';
     for (int i = 0; i < 8; i++) {
-        if (visited[i]) {
+        if (vis[i]) {
             cout << i + 1 << ' ';
         }
     }

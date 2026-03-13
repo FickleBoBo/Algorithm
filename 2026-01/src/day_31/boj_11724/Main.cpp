@@ -2,23 +2,23 @@
 using namespace std;
 
 vector<int> adj[1001];
-bool visited[1001];
+bool vis[1001];
 
 void bfs(int start) {
     queue<int> q;
     q.push(start);
 
-    visited[start] = true;
+    vis[start] = true;
 
     while (!q.empty()) {
-        int node = q.front();
+        int cur = q.front();
         q.pop();
 
-        for (int next : adj[node]) {
-            if (visited[next]) continue;
+        for (int nxt : adj[cur]) {
+            if (vis[nxt]) continue;
 
-            q.push(next);
-            visited[next] = true;
+            q.push(nxt);
+            vis[nxt] = true;
         }
     }
 }
@@ -30,7 +30,7 @@ int main() {
     int n, m;
     cin >> n >> m;
 
-    for (int i = 0; i < m; i++) {
+    while (m--) {
         int u, v;
         cin >> u >> v;
         adj[u].push_back(v);
@@ -38,10 +38,10 @@ int main() {
     }
 
     int cnt = 0;
-    for (int node = 1; node <= n; node++) {
-        if (visited[node]) continue;
+    for (int cur = 1; cur <= n; cur++) {
+        if (vis[cur]) continue;
 
-        bfs(node);
+        bfs(cur);
         cnt++;
     }
 

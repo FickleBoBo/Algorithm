@@ -18,5 +18,6 @@ int main() {
         cin >> x;
         sum2 += x;
     }
+
     cout << max(sum1, sum2);
 }

@@ -7,7 +7,7 @@ public class Main2 {
 
     static int n;
     static boolean[][] adj;
-    static boolean[] visited;
+    static boolean[] vis;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -15,10 +15,10 @@ public class Main2 {
 
         n = Integer.parseInt(br.readLine());
         adj = new boolean[1 + n][1 + n];
-        visited = new boolean[1 + n];
+        vis = new boolean[1 + n];
 
         int m = Integer.parseInt(br.readLine());
-        for (int i = 0; i < m; i++) {
+        while (m-- > 0) {
             st = new StringTokenizer(br.readLine());
             int u = Integer.parseInt(st.nextToken());
             int v = Integer.parseInt(st.nextToken());
@@ -28,13 +28,13 @@ public class Main2 {
         System.out.println(dfs(1) - 1);
     }
 
-    static int dfs(int node) {
-        visited[node] = true;
+    static int dfs(int cur) {
+        vis[cur] = true;
         int cnt = 1;
 
-        for (int next = 1; next <= n; next++) {
-            if (!adj[node][next] || visited[next]) continue;
-            cnt += dfs(next);
+        for (int nxt = 1; nxt <= n; nxt++) {
+            if (!adj[cur][nxt] || vis[nxt]) continue;
+            cnt += dfs(nxt);
         }
 
         return cnt;

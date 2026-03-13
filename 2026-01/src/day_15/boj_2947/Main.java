@@ -21,8 +21,8 @@ public class Main {
                     arr[j] = arr[j + 1];
                     arr[j + 1] = tmp;
 
-                    for (int n : arr) {
-                        sb.append(n).append(" ");
+                    for (int x : arr) {
+                        sb.append(x).append(" ");
                     }
                     sb.append("\n");
                 }

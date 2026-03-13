@@ -12,13 +12,13 @@ public class Main {
         set.add("ChongChong");
 
         int n = Integer.parseInt(br.readLine());
-        for (int i = 0; i < n; i++) {
+        while (n-- > 0) {
             st = new StringTokenizer(br.readLine());
-            String name1 = st.nextToken();
-            String name2 = st.nextToken();
+            String s1 = st.nextToken();
+            String s2 = st.nextToken();
 
-            if (set.contains(name1)) set.add(name2);
-            if (set.contains(name2)) set.add(name1);
+            if (set.contains(s1)) set.add(s2);
+            if (set.contains(s2)) set.add(s1);
         }
 
         System.out.println(set.size());

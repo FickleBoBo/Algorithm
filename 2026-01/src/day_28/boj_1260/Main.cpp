@@ -2,15 +2,15 @@
 using namespace std;
 
 vector<int> adj[1001];
-bool visited[1001];
+bool vis[1001];
 
-void dfs(int node) {
-    visited[node] = true;
-    cout << node << ' ';
+void dfs(int cur) {
+    vis[cur] = true;
+    cout << cur << ' ';
 
-    for (int next : adj[node]) {
-        if (visited[next]) continue;
-        dfs(next);
+    for (int nxt : adj[cur]) {
+        if (vis[nxt]) continue;
+        dfs(nxt);
     }
 }
 
@@ -18,19 +18,19 @@ void bfs(int start) {
     queue<int> q;
     q.push(start);
 
-    visited[start] = true;
+    vis[start] = true;
 
     while (!q.empty()) {
-        int node = q.front();
+        int cur = q.front();
         q.pop();
 
-        cout << node << ' ';
+        cout << cur << ' ';
 
-        for (int next : adj[node]) {
-            if (visited[next]) continue;
+        for (int nxt : adj[cur]) {
+            if (vis[nxt]) continue;
 
-            q.push(next);
-            visited[next] = true;
+            q.push(nxt);
+            vis[nxt] = true;
         }
     }
 }
@@ -42,7 +42,7 @@ int main() {
     int n, m, k;
     cin >> n >> m >> k;
 
-    for (int i = 0; i < m; i++) {
+    while (m--) {
         int u, v;
         cin >> u >> v;
         adj[u].push_back(v);
@@ -52,10 +52,11 @@ int main() {
         sort(adj[i].begin(), adj[i].end());
     }
 
+    memset(vis, 0, sizeof(vis));
     dfs(k);
 
     cout << '\n';
 
-    memset(visited, 0, sizeof(visited));
+    memset(vis, 0, sizeof(vis));
     bfs(k);
 }

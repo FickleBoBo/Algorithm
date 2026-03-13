@@ -1,19 +1,17 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int p[1001];
-
-void make(int n) {
-    for (int i = 1; i <= n; i++) p[i] = i;
-}
+vector<int> p(1001, -1);
 
 int find(int x) {
-    if (x == p[x]) return x;
+    if (p[x] < 0) return x;
     return p[x] = find(p[x]);
 }
 
 void unite(int x, int y) {
-    p[find(y)] = find(x);
+    x = find(x);
+    y = find(y);
+    if (x != y) p[y] = x;
 }
 
 int main() {
@@ -23,17 +21,15 @@ int main() {
     int n, m;
     cin >> n >> m;
 
-    make(n);
-
-    for (int i = 0; i < m; i++) {
+    while (m--) {
         int u, v;
         cin >> u >> v;
         unite(u, v);
     }
 
     int cnt = 0;
-    for (int node = 1; node <= n; node++) {
-        if (node == find(node)) cnt++;
+    for (int cur = 1; cur <= n; cur++) {
+        if (cur == find(cur)) cnt++;
     }
 
     cout << cnt;

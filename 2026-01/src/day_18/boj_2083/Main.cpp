@@ -8,7 +8,6 @@ int main() {
     while (true) {
         string name;
         int age, weight;
-
         cin >> name >> age >> weight;
 
         if (name == "#" && age == 0 && weight == 0) break;

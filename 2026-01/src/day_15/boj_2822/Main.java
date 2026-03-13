@@ -16,15 +16,15 @@ public class Main {
         Arrays.sort(arr, (o1, o2) -> Integer.compare(o1[1], o2[1]));
 
         int sum = 0;
-        boolean[] visited = new boolean[8];
+        boolean[] vis = new boolean[8];
         for (int i = 3; i < 8; i++) {
             sum += arr[i][1];
-            visited[arr[i][0]] = true;
+            vis[arr[i][0]] = true;
         }
 
         System.out.println(sum);
         for (int i = 0; i < 8; i++) {
-            if (visited[i]) {
+            if (vis[i]) {
                 sb.append(i + 1).append(" ");
             }
         }

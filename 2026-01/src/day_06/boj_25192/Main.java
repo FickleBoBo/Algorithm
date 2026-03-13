@@ -11,7 +11,7 @@ public class Main {
         Set<String> set = new HashSet<>();
         int cnt = 0;
 
-        for (int i = 0; i < n; i++) {
+        while (n-- > 0) {
             String input = br.readLine();
 
             if (input.equals("ENTER")) {

@@ -25,55 +25,55 @@ public class Main {
         Queue<Integer> q = new ArrayDeque<>();
         q.offer(a);
 
-        boolean[] visited = new boolean[10000];
-        visited[a] = true;
+        boolean[] vis = new boolean[10000];
+        vis[a] = true;
 
-        int[] prev = new int[10000];
-        Arrays.fill(prev, -1);
+        int[] prv = new int[10000];
+        Arrays.fill(prv, -1);
         char[] type = new char[10000];
 
         while (!q.isEmpty()) {
-            int node = q.poll();
-            if (node == b) {
+            int cur = q.poll();
+            if (cur == b) {
                 StringBuilder sb = new StringBuilder();
 
-                while (prev[node] != -1) {
-                    sb.append(type[node]);
-                    node = prev[node];
+                while (prv[cur] != -1) {
+                    sb.append(type[cur]);
+                    cur = prv[cur];
                 }
 
                 return sb.reverse().toString();
             }
 
-            int d1 = node * 2 % 10000;
-            if (!visited[d1]) {
+            int d1 = cur * 2 % 10000;
+            if (!vis[d1]) {
                 q.offer(d1);
-                visited[d1] = true;
-                prev[d1] = node;
+                vis[d1] = true;
+                prv[d1] = cur;
                 type[d1] = 'D';
             }
 
-            int d2 = (node - 1 + 10000) % 10000;
-            if (!visited[d2]) {
+            int d2 = (cur - 1 + 10000) % 10000;
+            if (!vis[d2]) {
                 q.offer(d2);
-                visited[d2] = true;
-                prev[d2] = node;
+                vis[d2] = true;
+                prv[d2] = cur;
                 type[d2] = 'S';
             }
 
-            int d3 = node % 1000 * 10 + node / 1000;
-            if (!visited[d3]) {
+            int d3 = cur % 1000 * 10 + cur / 1000;
+            if (!vis[d3]) {
                 q.offer(d3);
-                visited[d3] = true;
-                prev[d3] = node;
+                vis[d3] = true;
+                prv[d3] = cur;
                 type[d3] = 'L';
             }
 
-            int d4 = node % 10 * 1000 + node / 10;
-            if (!visited[d4]) {
+            int d4 = cur % 10 * 1000 + cur / 10;
+            if (!vis[d4]) {
                 q.offer(d4);
-                visited[d4] = true;
-                prev[d4] = node;
+                vis[d4] = true;
+                prv[d4] = cur;
                 type[d4] = 'R';
             }
         }

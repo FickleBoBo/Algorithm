@@ -5,25 +5,25 @@ import java.util.*;
 
 public class Main {
 
-    static final int MAX = 1000;
+    static final int MX = 1000;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        boolean[] visited = new boolean[MAX + 1 + MAX];
+        boolean[] vis = new boolean[MX + 1 + MX];
 
         int n = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < n; i++) {
+        while (n-- > 0) {
             int x = Integer.parseInt(st.nextToken());
-            visited[MAX + x] = true;
+            vis[MX + x] = true;
         }
 
-        for (int i = 0; i < visited.length; i++) {
-            if (visited[i]) {
-                sb.append(i - MAX).append(" ");
+        for (int i = 0; i < vis.length; i++) {
+            if (vis[i]) {
+                sb.append(i - MX).append(" ");
             }
         }
 

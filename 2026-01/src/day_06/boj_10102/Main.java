@@ -9,10 +9,10 @@ public class Main {
         int a = 0;
         int b = 0;
         int v = Integer.parseInt(br.readLine());
-        String str = br.readLine();
+        String s = br.readLine();
 
         for (int i = 0; i < v; i++) {
-            if (str.charAt(i) == 'A') {
+            if (s.charAt(i) == 'A') {
                 a++;
             } else {
                 b++;

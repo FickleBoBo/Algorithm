@@ -5,9 +5,9 @@ import java.util.*;
 
 public class Main {
 
-    static List<Integer>[] adj;
     static StringBuilder sb = new StringBuilder();
-    static boolean[] visited;
+    static List<Integer>[] adj;
+    static boolean[] vis;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -22,7 +22,7 @@ public class Main {
             adj[i] = new ArrayList<>();
         }
 
-        for (int i = 0; i < m; i++) {
+        while (m-- > 0) {
             st = new StringTokenizer(br.readLine());
             int u = Integer.parseInt(st.nextToken());
             int v = Integer.parseInt(st.nextToken());
@@ -33,24 +33,24 @@ public class Main {
             adj[i].sort(Comparator.naturalOrder());
         }
 
-        visited = new boolean[1 + n];
+        vis = new boolean[1 + n];
         dfs(k);
 
         sb.append("\n");
 
-        visited = new boolean[1 + n];
+        vis = new boolean[1 + n];
         bfs(k);
 
         System.out.println(sb);
     }
 
-    static void dfs(int node) {
-        visited[node] = true;
-        sb.append(node).append(" ");
+    static void dfs(int cur) {
+        vis[cur] = true;
+        sb.append(cur).append(" ");
 
-        for (int next : adj[node]) {
-            if (visited[next]) continue;
-            dfs(next);
+        for (int nxt : adj[cur]) {
+            if (vis[nxt]) continue;
+            dfs(nxt);
         }
     }
 
@@ -58,17 +58,17 @@ public class Main {
         Queue<Integer> q = new ArrayDeque<>();
         q.offer(start);
 
-        visited[start] = true;
+        vis[start] = true;
 
         while (!q.isEmpty()) {
-            int node = q.poll();
-            sb.append(node).append(" ");
+            int cur = q.poll();
+            sb.append(cur).append(" ");
 
-            for (int next : adj[node]) {
-                if (visited[next]) continue;
+            for (int nxt : adj[cur]) {
+                if (vis[nxt]) continue;
 
-                q.offer(next);
-                visited[next] = true;
+                q.offer(nxt);
+                vis[nxt] = true;
             }
         }
     }
