@@ -12,9 +12,9 @@ int main() {
         if (line == "#") break;
 
         int cnt = 0;
-        for (int i = 0; i < line.size(); i++) {
-            char c = tolower(line[i]);
+        for (char c : line) {
             if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') cnt++;
+            if (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') cnt++;
         }
 
         cout << cnt << '\n';

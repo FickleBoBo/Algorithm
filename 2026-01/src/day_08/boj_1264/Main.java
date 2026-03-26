@@ -12,9 +12,9 @@ public class Main {
             if (line.equals("#")) break;
 
             int cnt = 0;
-            for (int i = 0; i < line.length(); i++) {
-                char c = Character.toLowerCase(line.charAt(i));
+            for (char c : line.toCharArray()) {
                 if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') cnt++;
+                if (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') cnt++;
             }
 
             sb.append(cnt).append("\n");
