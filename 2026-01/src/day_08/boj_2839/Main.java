@@ -8,7 +8,7 @@ public class Main {
 
         int n = Integer.parseInt(br.readLine());
 
-        if (n >= 0 && n % 5 == 0) {
+        if (n % 5 == 0) {
             System.out.println(n / 5);
         } else if (n >= 3 && (n - 3) % 5 == 0) {
             System.out.println((n - 3) / 5 + 1);
