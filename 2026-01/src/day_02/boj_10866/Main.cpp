@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MX = 20000;
-int dq[MX];
-int s = MX / 2, e = MX / 2;
+const int MAX = 20000;
+int dq[MAX];
+int s = MAX / 2, e = MAX / 2;
 
 void push_front(int x) {
     dq[--s] = x;
@@ -45,36 +45,36 @@ int main() {
     cin >> n;
 
     while (n--) {
-        string c;
-        cin >> c;
+        string q;
+        cin >> q;
 
-        if (c == "push_front") {
+        if (q == "push_front") {
             int x;
             cin >> x;
             push_front(x);
-        } else if (c == "push_back") {
+        } else if (q == "push_back") {
             int x;
             cin >> x;
             push_back(x);
-        } else if (c == "pop_front") {
+        } else if (q == "pop_front") {
             if (empty()) {
                 cout << -1 << '\n';
             } else {
                 cout << front() << '\n';
                 pop_front();
             }
-        } else if (c == "pop_back") {
+        } else if (q == "pop_back") {
             if (empty()) {
                 cout << -1 << '\n';
             } else {
                 cout << back() << '\n';
                 pop_back();
             }
-        } else if (c == "size") {
+        } else if (q == "size") {
             cout << size() << '\n';
-        } else if (c == "empty") {
+        } else if (q == "empty") {
             cout << empty() << '\n';
-        } else if (c == "front") {
+        } else if (q == "front") {
             if (empty()) {
                 cout << -1 << '\n';
             } else {

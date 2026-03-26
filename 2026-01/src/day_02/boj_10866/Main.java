@@ -5,9 +5,9 @@ import java.util.*;
 
 public class Main {
 
-    static final int MX = 20000;
-    static int[] deque = new int[MX];
-    static int front = MX / 2, rear = MX / 2;
+    static final int MAX = 20000;
+    static int[] deque = new int[MAX];
+    static int front = MAX / 2, rear = MAX / 2;
 
     static void push_front(int x) {
         deque[--front] = x;
@@ -49,35 +49,35 @@ public class Main {
         int n = Integer.parseInt(br.readLine());
         while (n-- > 0) {
             st = new StringTokenizer(br.readLine());
-            String c = st.nextToken();
+            String q = st.nextToken();
 
-            if (c.equals("push_front")) {
+            if (q.equals("push_front")) {
                 int x = Integer.parseInt(st.nextToken());
                 push_front(x);
-            } else if (c.equals("push_back")) {
+            } else if (q.equals("push_back")) {
                 int x = Integer.parseInt(st.nextToken());
                 push_back(x);
-            } else if (c.equals("pop_front")) {
+            } else if (q.equals("pop_front")) {
                 if (empty()) {
                     sb.append("-1\n");
                 } else {
                     sb.append(pop_front()).append("\n");
                 }
-            } else if (c.equals("pop_back")) {
+            } else if (q.equals("pop_back")) {
                 if (empty()) {
                     sb.append("-1\n");
                 } else {
                     sb.append(pop_back()).append("\n");
                 }
-            } else if (c.equals("size")) {
+            } else if (q.equals("size")) {
                 sb.append(size()).append("\n");
-            } else if (c.equals("empty")) {
+            } else if (q.equals("empty")) {
                 if (empty()) {
                     sb.append("1\n");
                 } else {
                     sb.append("0\n");
                 }
-            } else if (c.equals("front")) {
+            } else if (q.equals("front")) {
                 if (empty()) {
                     sb.append("-1\n");
                 } else {
