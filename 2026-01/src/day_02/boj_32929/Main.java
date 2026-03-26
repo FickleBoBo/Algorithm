@@ -7,7 +7,6 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         int x = Integer.parseInt(br.readLine());
-
         System.out.println("UOS".charAt((x - 1) % 3));
     }
 }
