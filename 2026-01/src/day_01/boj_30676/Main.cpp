@@ -9,18 +9,18 @@ int main() {
     cin >> x;
 
     if (x >= 620) {
-        cout << "Red\n";
+        cout << "Red";
     } else if (x >= 590) {
-        cout << "Orange\n";
+        cout << "Orange";
     } else if (x >= 570) {
-        cout << "Yellow\n";
+        cout << "Yellow";
     } else if (x >= 495) {
-        cout << "Green\n";
+        cout << "Green";
     } else if (x >= 450) {
-        cout << "Blue\n";
+        cout << "Blue";
     } else if (x >= 425) {
-        cout << "Indigo\n";
+        cout << "Indigo";
     } else {
-        cout << "Violet\n";
+        cout << "Violet";
     }
 }
