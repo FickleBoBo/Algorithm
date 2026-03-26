@@ -9,10 +9,10 @@ public class Main {
 
         int n = Integer.parseInt(br.readLine());
         while (n-- > 0) {
-            String s = br.readLine();
+            String line = br.readLine();
 
-            bw.write(Character.toUpperCase(s.charAt(0)));
-            bw.write(s.substring(1));
+            bw.write(Character.toUpperCase(line.charAt(0)));
+            bw.write(line.substring(1));
             bw.newLine();
         }
 
