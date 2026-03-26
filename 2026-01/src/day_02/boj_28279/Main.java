@@ -5,9 +5,9 @@ import java.util.*;
 
 public class Main {
 
-    static final int MX = 2000000;
-    static int[] deque = new int[MX];
-    static int front = MX / 2, rear = MX / 2;
+    static final int MAX = 2000000;
+    static int[] deque = new int[MAX];
+    static int front = MAX / 2, rear = MAX / 2;
 
     static void push_front(int x) {
         deque[--front] = x;
@@ -49,35 +49,35 @@ public class Main {
         int n = Integer.parseInt(br.readLine());
         while (n-- > 0) {
             st = new StringTokenizer(br.readLine());
-            int c = Integer.parseInt(st.nextToken());
+            int q = Integer.parseInt(st.nextToken());
 
-            if (c == 1) {
+            if (q == 1) {
                 int x = Integer.parseInt(st.nextToken());
                 push_front(x);
-            } else if (c == 2) {
+            } else if (q == 2) {
                 int x = Integer.parseInt(st.nextToken());
                 push_back(x);
-            } else if (c == 3) {
+            } else if (q == 3) {
                 if (empty()) {
                     sb.append("-1\n");
                 } else {
                     sb.append(pop_front()).append("\n");
                 }
-            } else if (c == 4) {
+            } else if (q == 4) {
                 if (empty()) {
                     sb.append("-1\n");
                 } else {
                     sb.append(pop_back()).append("\n");
                 }
-            } else if (c == 5) {
+            } else if (q == 5) {
                 sb.append(size()).append("\n");
-            } else if (c == 6) {
+            } else if (q == 6) {
                 if (empty()) {
                     sb.append("1\n");
                 } else {
                     sb.append("0\n");
                 }
-            } else if (c == 7) {
+            } else if (q == 7) {
                 if (empty()) {
                     sb.append("-1\n");
                 } else {
