@@ -14,8 +14,8 @@ int main() {
 
         vector<pair<int, string>> v(n);
         for (auto& [amount, name] : v) cin >> name >> amount;
-        sort(v.begin(), v.end());
+        sort(v.rbegin(), v.rend());
 
-        cout << v.back().second << '\n';
+        cout << v.front().second << '\n';
     }
 }
