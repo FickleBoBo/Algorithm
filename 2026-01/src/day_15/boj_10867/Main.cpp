@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MX = 1000;
-bool vis[MX + 1 + MX];
+const int MAX = 1000;
+bool vis[MAX + 1 + MAX];
 
 int main() {
     ios::sync_with_stdio(0);
@@ -14,12 +14,12 @@ int main() {
     while (n--) {
         int x;
         cin >> x;
-        vis[MX + x] = true;
+        vis[MAX + x] = true;
     }
 
     for (int i = 0; i < sizeof(vis); i++) {
         if (vis[i]) {
-            cout << i - MX << ' ';
+            cout << i - MAX << ' ';
         }
     }
 }
