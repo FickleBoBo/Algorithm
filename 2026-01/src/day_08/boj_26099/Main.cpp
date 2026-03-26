@@ -8,7 +8,7 @@ int main() {
     long long n;
     cin >> n;
 
-    if (n >= 0 && n % 5 == 0) {
+    if (n % 5 == 0) {
         cout << n / 5;
     } else if (n >= 3 && (n - 3) % 5 == 0) {
         cout << (n - 3) / 5 + 1;
