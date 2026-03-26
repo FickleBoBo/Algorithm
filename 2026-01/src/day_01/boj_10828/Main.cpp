@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MX = 10000;
-int st[MX];
+const int MAX = 10000;
+int st[MAX];
 int pos = 0;
 
 void push(int x) {
@@ -33,23 +33,23 @@ int main() {
     cin >> n;
 
     while (n--) {
-        string c;
-        cin >> c;
+        string q;
+        cin >> q;
 
-        if (c == "push") {
+        if (q == "push") {
             int x;
             cin >> x;
             push(x);
-        } else if (c == "pop") {
+        } else if (q == "pop") {
             if (empty()) {
                 cout << -1 << '\n';
             } else {
                 cout << top() << '\n';
                 pop();
             }
-        } else if (c == "size") {
+        } else if (q == "size") {
             cout << size() << '\n';
-        } else if (c == "empty") {
+        } else if (q == "empty") {
             cout << empty() << '\n';
         } else {
             if (empty()) {

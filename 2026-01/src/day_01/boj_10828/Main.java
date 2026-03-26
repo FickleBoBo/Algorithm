@@ -5,8 +5,8 @@ import java.util.*;
 
 public class Main {
 
-    static final int MX = 10000;
-    static int[] stack = new int[MX];
+    static final int MAX = 10000;
+    static int[] stack = new int[MAX];
     static int pos = 0;
 
     static void push(int x) {
@@ -37,20 +37,20 @@ public class Main {
         int n = Integer.parseInt(br.readLine());
         while (n-- > 0) {
             st = new StringTokenizer(br.readLine());
-            String c = st.nextToken();
+            String q = st.nextToken();
 
-            if (c.equals("push")) {
+            if (q.equals("push")) {
                 int x = Integer.parseInt(st.nextToken());
                 push(x);
-            } else if (c.equals("pop")) {
+            } else if (q.equals("pop")) {
                 if (empty()) {
                     sb.append("-1\n");
                 } else {
                     sb.append(pop()).append("\n");
                 }
-            } else if (c.equals("size")) {
+            } else if (q.equals("size")) {
                 sb.append(size()).append("\n");
-            } else if (c.equals("empty")) {
+            } else if (q.equals("empty")) {
                 if (empty()) {
                     sb.append("1\n");
                 } else {
