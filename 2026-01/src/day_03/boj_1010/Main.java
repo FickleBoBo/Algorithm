@@ -23,7 +23,6 @@ public class Main {
             st = new StringTokenizer(br.readLine());
             int n = Integer.parseInt(st.nextToken());
             int m = Integer.parseInt(st.nextToken());
-
             sb.append(dp[m][n]).append("\n");
         }
 
