@@ -11,7 +11,6 @@ int main() {
     for (int i = 0; i < 10; i++) {
         int s, e;
         cin >> s >> e;
-
         reverse(v.begin() + s - 1, v.begin() + e);
     }
 
