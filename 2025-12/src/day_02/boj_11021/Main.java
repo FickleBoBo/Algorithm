@@ -13,7 +13,6 @@ public class Main {
             st = new StringTokenizer(br.readLine());
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
-
             System.out.printf("Case #%d: %d\n", tc, a + b);
         }
     }
