@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MX = 1000;
-bool vis[1 + MX][1 + MX];
+const int MAX = 1000;
+bool vis[1 + MAX][1 + MAX];
 
 int bfs(int s) {
     queue<pair<int, int>> q;
@@ -26,7 +26,7 @@ int bfs(int s) {
                 vis[a][a] = true;
             }
 
-            if (a + b <= MX && !vis[a + b][b]) {
+            if (a + b <= MAX && !vis[a + b][b]) {
                 q.push({a + b, b});
                 vis[a + b][b] = true;
             }
