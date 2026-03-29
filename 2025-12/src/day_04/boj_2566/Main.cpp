@@ -11,11 +11,11 @@ int main() {
 
     for (int i = 1; i <= 9; i++) {
         for (int j = 1; j <= 9; j++) {
-            int n;
-            cin >> n;
+            int num;
+            cin >> num;
 
-            if (n > mx) {
-                mx = n;
+            if (num > mx) {
+                mx = num;
                 row = i;
                 col = j;
             }
