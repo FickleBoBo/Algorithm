@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MX = 100000;
-bool vis[1 + MX];
+const int MAX = 100000;
+bool vis[1 + MAX];
 
 int bfs(int n, int k) {
     queue<int> q;
@@ -22,7 +22,7 @@ int bfs(int n, int k) {
             if (cur == k) return dist;
 
             for (int nxt : {cur - 1, cur + 1, cur * 2}) {
-                if (0 <= nxt && nxt <= MX && !vis[nxt]) {
+                if (0 <= nxt && nxt <= MAX && !vis[nxt]) {
                     q.push(nxt);
                     vis[nxt] = true;
                 }

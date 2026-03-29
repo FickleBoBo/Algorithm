@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Main {
 
-    static final int MX = 100_000;
+    static final int MAX = 100_000;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -21,7 +21,7 @@ public class Main {
         Queue<Integer> q = new ArrayDeque<>();
         q.offer(n);
 
-        boolean[] vis = new boolean[1 + MX];
+        boolean[] vis = new boolean[1 + MAX];
         vis[n] = true;
 
         int dist = 0;
@@ -40,13 +40,13 @@ public class Main {
                 }
 
                 int nxt2 = cur + 1;
-                if (nxt2 <= MX && !vis[nxt2]) {
+                if (nxt2 <= MAX && !vis[nxt2]) {
                     q.offer(nxt2);
                     vis[nxt2] = true;
                 }
 
                 int nxt3 = cur * 2;
-                if (nxt3 <= MX && !vis[nxt3]) {
+                if (nxt3 <= MAX && !vis[nxt3]) {
                     q.offer(nxt3);
                     vis[nxt3] = true;
                 }
