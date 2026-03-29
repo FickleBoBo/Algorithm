@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MX = 100000;
-int dist[1 + MX];
-int ways[1 + MX];
+const int MAX = 100000;
+int dist[1 + MAX];
+int ways[1 + MAX];
 
 void bfs(int n, int k) {
     queue<int> q;
@@ -19,7 +19,7 @@ void bfs(int n, int k) {
         q.pop();
 
         for (int nxt : {cur - 1, cur + 1, cur * 2}) {
-            if (0 <= nxt && nxt <= MX) {
+            if (0 <= nxt && nxt <= MAX) {
                 if (dist[nxt] == -1) {
                     q.push(nxt);
                     dist[nxt] = dist[cur] + 1;
