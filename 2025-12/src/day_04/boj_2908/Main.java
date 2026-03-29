@@ -8,9 +8,9 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        String revA = new StringBuilder(st.nextToken()).reverse().toString();
-        String revB = new StringBuilder(st.nextToken()).reverse().toString();
+        String a = new StringBuilder(st.nextToken()).reverse().toString();
+        String b = new StringBuilder(st.nextToken()).reverse().toString();
 
-        System.out.println(Math.max(Integer.parseInt(revA), Integer.parseInt(revB)));
+        System.out.println(Math.max(Integer.parseInt(a), Integer.parseInt(b)));
     }
 }
