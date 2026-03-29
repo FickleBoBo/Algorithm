@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MX = 100000;
-vector<int> adj[1 + MX];
-bool vis[1 + MX];
-int order[1 + MX];
+const int MAX = 100000;
+vector<int> adj[1 + MAX];
+bool vis[1 + MAX];
+int order[1 + MAX];
 
 void bfs(int start) {
     queue<int> q;
