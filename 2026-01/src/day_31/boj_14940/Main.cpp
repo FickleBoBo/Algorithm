@@ -19,22 +19,18 @@ void bfs(int sr, int sc) {
     dist[sr][sc] = 0;
 
     while (!q.empty()) {
-        int sz = q.size();
+        auto [r, c] = q.front();
+        q.pop();
 
-        while (sz--) {
-            auto [r, c] = q.front();
-            q.pop();
+        for (int d = 0; d < 4; d++) {
+            int nr = r + dr[d];
+            int nc = c + dc[d];
 
-            for (int d = 0; d < 4; d++) {
-                int nr = r + dr[d];
-                int nc = c + dc[d];
+            if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
+            if (grid[nr][nc] == 0 || dist[nr][nc] != -1) continue;
 
-                if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
-                if (grid[nr][nc] == 0 || dist[nr][nc] != -1) continue;
-
-                q.push({nr, nc});
-                dist[nr][nc] = dist[r][c] + 1;
-            }
+            q.push({nr, nc});
+            dist[nr][nc] = dist[r][c] + 1;
         }
     }
 }
