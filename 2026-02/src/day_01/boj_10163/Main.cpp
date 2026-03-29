@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MX = 1001;
-int grid[MX][MX];
-int cnt[MX];
+const int MAX = 1001;
+int grid[MAX][MAX];
+int cnt[MAX];
 
 int main() {
     ios::sync_with_stdio(0);
@@ -23,8 +23,8 @@ int main() {
         }
     }
 
-    for (int i = 0; i < MX; i++) {
-        for (int j = 0; j < MX; j++) {
+    for (int i = 0; i < MAX; i++) {
+        for (int j = 0; j < MAX; j++) {
             cnt[grid[i][j]]++;
         }
     }
