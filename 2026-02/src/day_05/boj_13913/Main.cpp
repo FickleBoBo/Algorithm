@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MX = 100000;
-bool vis[1 + MX];
-int prv[1 + MX];
+const int MAX = 100000;
+bool vis[1 + MAX];
+int prv[1 + MAX];
 
 void traceback(int dist, int k) {
     vector<int> v;
@@ -46,7 +46,7 @@ void bfs(int n, int k) {
             }
 
             for (int nxt : {cur - 1, cur + 1, cur * 2}) {
-                if (0 <= nxt && nxt <= MX && !vis[nxt]) {
+                if (0 <= nxt && nxt <= MAX && !vis[nxt]) {
                     q.push(nxt);
                     vis[nxt] = true;
                     prv[nxt] = cur;
