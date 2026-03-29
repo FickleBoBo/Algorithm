@@ -14,7 +14,6 @@ public class Main {
             st = new StringTokenizer(br.readLine());
             int c = Integer.parseInt(st.nextToken());
             int v = Integer.parseInt(st.nextToken());
-
             sb.append("You get ").append(c / v).append(" piece(s) and your dad gets ").append(c % v).append(" piece(s).\n");
         }
 
