@@ -11,12 +11,12 @@ public class Main {
 
         int n = Integer.parseInt(br.readLine());
         for (int i = 0; i < n; i++) {
-            String name = br.readLine();
-            map.put(name, map.getOrDefault(name, 0) + 1);
+            String s = br.readLine();
+            map.put(s, map.getOrDefault(s, 0) + 1);
         }
         for (int i = 0; i < n - 1; i++) {
-            String name = br.readLine();
-            map.put(name, map.getOrDefault(name, 0) - 1);
+            String s = br.readLine();
+            map.put(s, map.get(s) - 1);
         }
 
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
