@@ -8,7 +8,6 @@ public class Main {
         StringBuilder sb = new StringBuilder();
 
         String s = br.readLine();
-
         for (int i = 0; i < 26; i++) {
             sb.append(s.indexOf((char) (i + 'a'))).append(" ");
         }
