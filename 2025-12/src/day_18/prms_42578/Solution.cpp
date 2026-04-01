@@ -9,7 +9,7 @@ int solution(vector<vector<string>> clothes) {
     for (auto& c : clothes) mp[c[1]]++;
 
     int ans = 1;
-    for (auto& [k, v] : mp) {
+    for (auto& [_, v] : mp) {
         ans *= v + 1;
     }
 
