@@ -9,14 +9,14 @@ int main() {
     cin >> n >> m;
 
     unordered_set<string> st1;
-    for (int i = 0; i < n; i++) {
+    while (n--) {
         string s;
         cin >> s;
         st1.insert(s);
     }
 
     unordered_set<string> st2;
-    for (int i = 0; i < m; i++) {
+    while (m--) {
         string s;
         cin >> s;
         st2.insert(s);

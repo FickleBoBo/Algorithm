@@ -13,20 +13,20 @@ public class Main {
         int m = Integer.parseInt(st.nextToken());
 
         Set<String> tset = new TreeSet<>();
-        for (int i = 0; i < n; i++) {
+        while (n-- > 0) {
             tset.add(br.readLine());
         }
 
         Set<String> hset = new HashSet<>();
-        for (int i = 0; i < m; i++) {
+        while (m-- > 0) {
             hset.add(br.readLine());
         }
 
         tset.retainAll(hset);
 
         sb.append(tset.size()).append("\n");
-        for (String str : tset) {
-            sb.append(str).append("\n");
+        for (String s : tset) {
+            sb.append(s).append("\n");
         }
 
         System.out.println(sb);
