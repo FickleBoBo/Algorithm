@@ -12,13 +12,8 @@ int main() {
     bool isDesc = true;
 
     for (int i = 1; i < 8; i++) {
-        if (v[i] < v[i - 1]) {
-            isAsc = false;
-        }
-
-        if (v[i] > v[i - 1]) {
-            isDesc = false;
-        }
+        if (v[i] < v[i - 1]) isAsc = false;
+        if (v[i] > v[i - 1]) isDesc = false;
     }
 
     if (isAsc) {

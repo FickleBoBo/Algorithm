@@ -17,13 +17,8 @@ public class Main {
         boolean isDesc = true;
 
         for (int i = 1; i < 8; i++) {
-            if (arr[i] < arr[i - 1]) {
-                isAsc = false;
-            }
-
-            if (arr[i] > arr[i - 1]) {
-                isDesc = false;
-            }
+            if (arr[i] < arr[i - 1]) isAsc = false;
+            if (arr[i] > arr[i - 1]) isDesc = false;
         }
 
         if (isAsc) {
