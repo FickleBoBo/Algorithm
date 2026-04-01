@@ -11,12 +11,12 @@ public class Main {
 
         while (true) {
             st = new StringTokenizer(br.readLine());
-            int[] sides = {Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())};
-            Arrays.sort(sides);
+            int[] arr = {Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())};
+            Arrays.sort(arr);
 
-            if (sides[0] == 0) break;
+            if (arr[0] == 0) break;
 
-            if (sides[0] * sides[0] + sides[1] * sides[1] == sides[2] * sides[2]) {
+            if (arr[0] * arr[0] + arr[1] * arr[1] == arr[2] * arr[2]) {
                 bw.write("right\n");
             } else {
                 bw.write("wrong\n");
