@@ -21,8 +21,8 @@ public class Main {
         }
 
         while (m-- > 0) {
-            String command = br.readLine();
-            bw.write(map.get(command));
+            String s = br.readLine();
+            bw.write(map.get(s));
             bw.newLine();
         }
 
