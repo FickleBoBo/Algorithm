@@ -13,8 +13,8 @@ int main() {
     while (t--) {
         string s1, s2;
         cin >> s1 >> s2;
-        memset(cnt, 0, sizeof(cnt));
 
+        memset(cnt, 0, sizeof(cnt));
         for (char c : s1) cnt[c - 'a']++;
         for (char c : s2) cnt[c - 'a']--;
 

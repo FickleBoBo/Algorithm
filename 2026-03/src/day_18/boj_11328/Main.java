@@ -16,7 +16,6 @@ public class Main {
             String s2 = st.nextToken();
 
             int[] cnt = new int[26];
-
             for (char c : s1.toCharArray()) {
                 cnt[c - 'a']++;
             }
