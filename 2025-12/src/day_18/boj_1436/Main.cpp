@@ -10,7 +10,7 @@ int main() {
 
     int x = 666;
     while (true) {
-        if (to_string(x).find("666") != string::npos) {
+        if (to_string(x).find("666") != -1) {
             n--;
 
             if (n == 0) break;
