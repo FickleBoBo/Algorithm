@@ -13,7 +13,7 @@ int main() {
     while (n--) {
         string s;
         cin >> s;
-        if (string(s.end() - 6, s.end()) == "Cheese") {
+        if (s.size() >= 6 && s.substr(s.size() - 6) == "Cheese") {
             st.insert(s);
         }
     }
