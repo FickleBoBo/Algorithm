@@ -12,7 +12,6 @@ int main() {
     for (string& x : v) cin >> x;
 
     int mn = 32;
-
     for (int r = 0; r <= n - 8; r++) {
         for (int c = 0; c <= m - 8; c++) {
             int isWhite = 0;  // 맨 왼쪽 위 칸을 흰색으로 둘 경우
