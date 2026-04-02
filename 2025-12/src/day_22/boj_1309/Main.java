@@ -4,7 +4,7 @@ import java.io.*;
 
 public class Main {
 
-    static int MOD = 9901;
+    static final int MOD = 9901;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -13,7 +13,6 @@ public class Main {
 
         int[][] dp = new int[1 + n][2];
         dp[0][0] = 1;
-
         for (int i = 1; i <= n; i++) {
             dp[i][0] = (dp[i - 1][0] + dp[i - 1][1]) % MOD;
             dp[i][1] = (2 * dp[i - 1][0] + dp[i - 1][1]) % MOD;
