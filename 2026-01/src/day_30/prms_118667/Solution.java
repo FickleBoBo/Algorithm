@@ -34,21 +34,17 @@ class Solution {
 
     static Queue<Integer> arrToQueue(int[] arr) {
         Queue<Integer> q = new ArrayDeque<>();
-
-        for (int n : arr) {
-            q.offer(n);
+        for (int x : arr) {
+            q.offer(x);
         }
-
         return q;
     }
 
     static long addition(int[] arr) {
         long sum = 0;
-
-        for (int n : arr) {
-            sum += n;
+        for (int x : arr) {
+            sum += x;
         }
-
         return sum;
     }
 }
