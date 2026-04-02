@@ -21,7 +21,7 @@ int main() {
         }
     }
 
-    for (const string& s : st) {
-        cout << s << '\n';
+    for (const string& name : st) {
+        cout << name << '\n';
     }
 }
