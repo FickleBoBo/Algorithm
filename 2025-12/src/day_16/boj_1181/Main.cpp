@@ -15,11 +15,11 @@ int main() {
         return a < b;
     });
 
-    string prev = "";
+    string prv = "";
     for (string& s : v) {
-        if (s == prev) continue;
+        if (s == prv) continue;
 
         cout << s << '\n';
-        prev = s;
+        prv = s;
     }
 }

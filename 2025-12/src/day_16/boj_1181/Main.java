@@ -19,13 +19,13 @@ public class Main {
             return o1.compareTo(o2);
         });
 
-        String prev = "";
-        for (String str : arr) {
-            if (str.equals(prev)) continue;
+        String prv = "";
+        for (String s : arr) {
+            if (s.equals(prv)) continue;
 
-            bw.write(str);
+            bw.write(s);
             bw.newLine();
-            prev = str;
+            prv = s;
         }
 
         bw.flush();
