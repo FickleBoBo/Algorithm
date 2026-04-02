@@ -15,8 +15,8 @@ class Solution {
             for (int j = 0; j < map[i].length; j++) {
                 if (map[i][j] == 0) continue;
 
-                int result = bfs(i, j, map.length, map[i].length, map);
-                list.add(result);
+                int res = bfs(i, j, map.length, map[i].length, map);
+                list.add(res);
             }
         }
         list.sort(Comparator.naturalOrder());
@@ -41,20 +41,18 @@ class Solution {
     }
 
     static int bfs(int r, int c, int n, int m, int[][] map) {
-        int sum = 0;
-
         Queue<int[]> q = new ArrayDeque<>();
         q.offer(new int[]{r, c});
 
-        sum += map[r][c];
+        int sum = map[r][c];
         map[r][c] = 0;
 
         while (!q.isEmpty()) {
-            int[] node = q.poll();
+            int[] cur = q.poll();
 
             for (int d = 0; d < 4; d++) {
-                int nr = node[0] + dr[d];
-                int nc = node[1] + dc[d];
+                int nr = cur[0] + dr[d];
+                int nc = cur[1] + dc[d];
 
                 if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
                 if (map[nr][nc] == 0) continue;

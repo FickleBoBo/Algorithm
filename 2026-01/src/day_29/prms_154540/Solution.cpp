@@ -9,12 +9,10 @@ int dr[4] = {-1, 0, 1, 0};
 int dc[4] = {0, 1, 0, -1};
 
 int bfs(int r, int c, int n, int m, vector<vector<int>>& grid) {
-    int sum = 0;
-
     queue<pair<int, int>> q;
     q.push({r, c});
 
-    sum += grid[r][c];
+    int sum = grid[r][c];
     grid[r][c] = 0;
 
     while (!q.empty()) {
