@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MX = 10;
+const int MAX = 10;
 int n;
-vector<pair<int, int>> poslist[MX * 2];
-bool d[MX * 2];  // 좌상에서 우하 방향 대각선
+vector<pair<int, int>> poslist[MAX * 2];
+bool d[MAX * 2];  // 좌상에서 우하 방향 대각선
 int cnt;
 
 void solve(int idx, int depth) {

@@ -5,15 +5,15 @@ import java.util.*;
 
 public class Main {
 
-    static final int MX = 10;
+    static final int MAX = 10;
     static int n;
-    static boolean[] d = new boolean[MX * 2];  // 좌상에서 우하 방향 대각선
+    static boolean[] d = new boolean[MAX * 2];  // 좌상에서 우하 방향 대각선
     static int cnt;
 
-    static List<int[]>[] poslist = new ArrayList[MX * 2];
+    static List<int[]>[] poslist = new ArrayList[MAX * 2];
 
     static {
-        for (int i = 0; i < MX * 2; i++) {
+        for (int i = 0; i < MAX * 2; i++) {
             poslist[i] = new ArrayList<>();
         }
     }
