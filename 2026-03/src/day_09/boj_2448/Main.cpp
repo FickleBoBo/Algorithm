@@ -1,8 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MX = 3072;
-bool vis[MX][MX * 2];
+bool vis[3072][3072 * 2];
 
 void dfs(int sr, int sc, int n) {
     if (n == 3) {
