@@ -17,8 +17,8 @@ public class Main {
             st = new StringTokenizer(br.readLine());
             int start = Integer.parseInt(st.nextToken());
             int end = Integer.parseInt(st.nextToken());
-            int num = Integer.parseInt(st.nextToken());
-            Arrays.fill(arr, start - 1, end, num);
+            int x = Integer.parseInt(st.nextToken());
+            Arrays.fill(arr, start - 1, end, x);
         }
 
         for (int x : arr) {
