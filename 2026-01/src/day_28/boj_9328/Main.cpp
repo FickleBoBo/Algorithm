@@ -33,6 +33,7 @@ int bfs(int n, int m) {
             if ('A' <= grid[nr][nc] && grid[nr][nc] <= 'Z') {
                 if (!hasKey[grid[nr][nc] - 'A']) {
                     doors[grid[nr][nc] - 'A'].push({nr, nc});
+                    vis[nr][nc] = true;
                     continue;
                 }
             }

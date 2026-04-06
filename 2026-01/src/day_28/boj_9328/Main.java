@@ -90,6 +90,7 @@ public class Main {
                 if (isDoor(grid[nr][nc])) {
                     if (!hasKey[grid[nr][nc] - 'A']) {
                         doors[grid[nr][nc] - 'A'].offer(new int[]{nr, nc});
+                        vis[nr][nc] = true;
                         continue;
                     }
                 }
