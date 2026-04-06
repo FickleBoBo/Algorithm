@@ -16,7 +16,6 @@ class Solution {
             ans = Math.max(ans, dp[len][i]);
         }
 
-
         return ans;
     }
 }
