@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Main {
 
-    static int MAX_PRICE = 1_000_000_000;
+    static int MAX = 1_000_000_000;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -25,7 +25,7 @@ public class Main {
             price[i] = Integer.parseInt(st.nextToken());
         }
 
-        long minPrice = MAX_PRICE;
+        long minPrice = MAX;
         long sum = 0;
         for (int i = 0; i < n - 1; i++) {
             minPrice = Math.min(minPrice, price[i]);

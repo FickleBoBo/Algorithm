@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MAX_PRICE = 1000000000;
+const int MAX = 1000000000;
 
 int main() {
     ios::sync_with_stdio(0);
@@ -16,7 +16,7 @@ int main() {
     vector<long long> price(n);
     for (long long& x : price) cin >> x;
 
-    long long mn = MAX_PRICE;
+    long long mn = MAX;
     long long sum = 0;
     for (int i = 0; i < n - 1; i++) {
         mn = min(mn, price[i]);
