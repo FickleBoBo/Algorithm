@@ -19,7 +19,7 @@ public class Main {
             }
         }
 
-        boolean[] check = new boolean[n];
+        boolean[] chk = new boolean[n];
         for (int j = 0; j < k; j++) {
             int max = 0;
             int cnt = 0;
@@ -36,12 +36,12 @@ public class Main {
             }
 
             if (cnt == 1) {
-                check[idx] = true;
+                chk[idx] = true;
             }
         }
 
         int cnt = 0;
-        for (boolean flag : check) {
+        for (boolean flag : chk) {
             if (flag) cnt++;
         }
 

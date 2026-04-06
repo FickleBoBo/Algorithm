@@ -1,8 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int arr[2000][2000];
-bool check[2000];
+const int MAX = 2000;
+int arr[MAX][MAX];
+bool chk[MAX];
 
 int main() {
     ios::sync_with_stdio(0);
@@ -33,13 +34,13 @@ int main() {
         }
 
         if (cnt == 1) {
-            check[idx] = true;
+            chk[idx] = true;
         }
     }
 
     int cnt = 0;
     for (int i = 0; i < n; i++) {
-        if (check[i]) cnt++;
+        if (chk[i]) cnt++;
     }
 
     cout << cnt;
