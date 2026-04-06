@@ -6,27 +6,27 @@ import java.util.*;
 public class Main2 {
 
     static final int MAX = 10_000_000;
+    static boolean[] vis = new boolean[MAX + 1 + MAX];
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        boolean[] visited = new boolean[MAX + 1 + MAX];
 
         int n = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < n; i++) {
+        while (n-- > 0) {
             int x = Integer.parseInt(st.nextToken());
-            visited[x + MAX] = true;
+            vis[x + MAX] = true;
         }
 
         int m = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < m; i++) {
+        while (m-- > 0) {
             int x = Integer.parseInt(st.nextToken());
 
-            if (visited[x + MAX]) {
+            if (vis[x + MAX]) {
                 sb.append("1 ");
             } else {
                 sb.append("0 ");

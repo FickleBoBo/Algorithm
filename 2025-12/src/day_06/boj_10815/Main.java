@@ -20,7 +20,7 @@ public class Main {
 
         int m = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < m; i++) {
+        while (m-- > 0) {
             int x = Integer.parseInt(st.nextToken());
 
             if (Arrays.binarySearch(arr, x) >= 0) {

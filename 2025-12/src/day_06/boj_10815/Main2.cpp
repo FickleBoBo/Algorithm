@@ -2,7 +2,7 @@
 using namespace std;
 
 const int MAX = 10000000;
-bool visited[20000001];
+bool vis[MAX + 1 + MAX];
 
 int main() {
     ios::sync_with_stdio(0);
@@ -11,18 +11,18 @@ int main() {
     int n;
     cin >> n;
 
-    for (int i = 0; i < n; i++) {
+    while (n--) {
         int x;
         cin >> x;
-        visited[x + MAX] = true;
+        vis[x + MAX] = true;
     }
 
     int m;
     cin >> m;
 
-    for (int i = 0; i < m; i++) {
+    while (m--) {
         int x;
         cin >> x;
-        cout << visited[x + MAX] << ' ';
+        cout << vis[x + MAX] << ' ';
     }
 }

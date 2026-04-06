@@ -13,14 +13,13 @@ public class Main3 {
 
         int n = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < n; i++) {
-            int x = Integer.parseInt(st.nextToken());
-            set.add(x);
+        while (n-- > 0) {
+            set.add(Integer.parseInt(st.nextToken()));
         }
 
         int m = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < m; i++) {
+        while (m-- > 0) {
             int x = Integer.parseInt(st.nextToken());
 
             if (set.contains(x)) {

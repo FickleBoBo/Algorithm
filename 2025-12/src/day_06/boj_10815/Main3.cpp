@@ -5,11 +5,12 @@ int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
 
+    unordered_set<int> st;
+
     int n;
     cin >> n;
 
-    unordered_set<int> st;
-    for (int i = 0; i < n; i++) {
+    while (n--) {
         int x;
         cin >> x;
         st.insert(x);
@@ -18,7 +19,7 @@ int main() {
     int m;
     cin >> m;
 
-    for (int i = 0; i < m; i++) {
+    while (m--) {
         int x;
         cin >> x;
         cout << st.count(x) << ' ';
