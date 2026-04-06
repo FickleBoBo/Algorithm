@@ -5,11 +5,12 @@ int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
 
+    unordered_map<int, int> mp;
+
     int n;
     cin >> n;
 
-    unordered_map<int, int> mp;
-    for (int i = 0; i < n; i++) {
+    while (n--) {
         int x;
         cin >> x;
         mp[x]++;
@@ -18,13 +19,12 @@ int main() {
     int m;
     cin >> m;
 
-    for (int i = 0; i < m; i++) {
+    while (m--) {
         int x;
         cin >> x;
 
-        auto it = mp.find(x);
-        if (it != mp.end()) {
-            cout << it->second << ' ';
+        if (mp.count(x)) {
+            cout << mp[x] << ' ';
         } else {
             cout << "0 ";
         }

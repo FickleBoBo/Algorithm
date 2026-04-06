@@ -13,14 +13,14 @@ public class Main3 {
 
         int n = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < n; i++) {
+        while (n-- > 0) {
             int x = Integer.parseInt(st.nextToken());
             map.put(x, map.getOrDefault(x, 0) + 1);
         }
 
         int m = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < m; i++) {
+        while (m-- > 0) {
             int x = Integer.parseInt(st.nextToken());
             sb.append(map.getOrDefault(x, 0)).append(" ");
         }

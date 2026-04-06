@@ -15,7 +15,7 @@ int main() {
     int m;
     cin >> m;
 
-    for (int i = 0; i < m; i++) {
+    while (m--) {
         int x;
         cin >> x;
         cout << upper_bound(v.begin(), v.end(), x) - lower_bound(v.begin(), v.end(), x) << ' ';
