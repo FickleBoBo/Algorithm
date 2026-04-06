@@ -4,12 +4,15 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
+
+    static final int MAX = 1001;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        int[][] grid = new int[1001][1001];
+        int[][] grid = new int[MAX][MAX];
 
         int n = Integer.parseInt(br.readLine());
         for (int i = 1; i <= n; i++) {
@@ -27,8 +30,8 @@ public class Main {
         }
 
         int[] cnt = new int[1 + n];
-        for (int i = 0; i <= 1000; i++) {
-            for (int j = 0; j <= 1000; j++) {
+        for (int i = 0; i < MAX; i++) {
+            for (int j = 0; j < MAX; j++) {
                 cnt[grid[i][j]]++;
             }
         }
