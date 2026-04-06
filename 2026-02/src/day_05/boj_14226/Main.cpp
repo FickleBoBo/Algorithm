@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MAX = 1000;
-bool vis[1 + MAX][1 + MAX];
+const int MAX = 1001;
+bool vis[MAX][MAX];
 
 int bfs(int s) {
     queue<pair<int, int>> q;
