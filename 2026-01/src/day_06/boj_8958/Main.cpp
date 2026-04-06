@@ -13,21 +13,21 @@ int main() {
         cin >> s;
 
         int sum = 0;
-        char prev = '\0';
+        char prv = '\0';
         int idx = 0;
         for (int i = 0; i < s.size(); i++) {
             if (s[i] == 'O') {
-                if (prev == 'X') {
+                if (prv == 'X') {
                     idx = i;
                 }
             } else {
-                if (prev == 'O') {
+                if (prv == 'O') {
                     int len = i - idx;
                     sum += len * (len + 1) / 2;
                 }
             }
 
-            prev = s[i];
+            prv = s[i];
         }
 
         if (s.back() == 'O') {
