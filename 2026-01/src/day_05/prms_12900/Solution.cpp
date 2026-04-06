@@ -1,8 +1,3 @@
-#include <string>
-#include <vector>
-
-using namespace std;
-
 const int MOD = 1000000007;
 int dp[60001] = {0, 1, 2};
 
