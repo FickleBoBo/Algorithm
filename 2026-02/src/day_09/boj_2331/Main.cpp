@@ -15,7 +15,7 @@ int main() {
     while (true) {
         mp[cur] = idx;
 
-        int next = 0;
+        int nxt = 0;
         while (cur > 0) {
             int r = cur % 10;
             int tmp = 1;
@@ -23,17 +23,16 @@ int main() {
                 tmp *= r;
             }
 
-            next += tmp;
+            nxt += tmp;
             cur /= 10;
         }
 
-        auto it = mp.find(next);
-        if (it != mp.end()) {
-            cout << it->second - 1;
+        if (mp.count(nxt)) {
+            cout << mp[nxt] - 1;
             return 0;
         }
 
         idx++;
-        cur = next;
+        cur = nxt;
     }
 }

@@ -18,7 +18,7 @@ public class Main {
         while (true) {
             map.put(cur, idx);
 
-            int next = 0;
+            int nxt = 0;
             while (cur > 0) {
                 int r = cur % 10;
                 int tmp = 1;
@@ -26,17 +26,17 @@ public class Main {
                     tmp *= r;
                 }
 
-                next += tmp;
+                nxt += tmp;
                 cur /= 10;
             }
 
-            if (map.containsKey(next)) {
-                System.out.println(map.get(next) - 1);
+            if (map.containsKey(nxt)) {
+                System.out.println(map.get(nxt) - 1);
                 return;
             }
 
             idx++;
-            cur = next;
+            cur = nxt;
         }
     }
 }
