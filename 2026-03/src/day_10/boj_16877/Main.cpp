@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MX = 3000000;
+const int MAX = 3000000;
 int fibo[32];  // 전처리로 미리 크기 계산
-int g[1 + MX];
+int g[1 + MAX];
 bool vis[16];  // 전처리로 미리 크기 계산
 
 int main() {
@@ -15,7 +15,7 @@ int main() {
         fibo[i] = fibo[i - 1] + fibo[i - 2];
     }
 
-    for (int i = 1; i <= MX; i++) {
+    for (int i = 1; i <= MAX; i++) {
         memset(vis, 0, sizeof(vis));
 
         for (int x : fibo) {
