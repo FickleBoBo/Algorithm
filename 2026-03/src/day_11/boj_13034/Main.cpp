@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MX = 1000;
-int g[1 + MX];
+const int MAX = 1000;
+int g[1 + MAX];
 bool vis[16];  // 전처리로 미리 크기 계산
 
 int main() {
