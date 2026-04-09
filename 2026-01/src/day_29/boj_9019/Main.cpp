@@ -5,6 +5,7 @@ const int MAX = 10000;
 bool vis[MAX];
 int prv[MAX];
 char type[MAX];
+string ans;
 
 void bfs(int a, int b) {
     queue<int> q;
@@ -17,7 +18,6 @@ void bfs(int a, int b) {
         q.pop();
 
         if (cur == b) {
-            string ans;
             while (prv[cur] != -1) {
                 ans += type[cur];
                 cur = prv[cur];
