@@ -19,18 +19,18 @@ public class Main {
 
         int x = Integer.parseInt(br.readLine());
 
-        int left = 0;
-        int right = n - 1;
+        int l = 0;
+        int r = n - 1;
         int cnt = 0;
-        while (left < right) {
-            if (arr[left] + arr[right] < x) {
-                left++;
-            } else if (arr[left] + arr[right] > x) {
-                right--;
+        while (l < r) {
+            if (arr[l] + arr[r] < x) {
+                l++;
+            } else if (arr[l] + arr[r] > x) {
+                r--;
             } else {
                 cnt++;
-                left++;
-                right--;
+                l++;
+                r--;
             }
         }
 
