@@ -9,7 +9,7 @@ int main() {
     cin >> t;
 
     while (t--) {
-        stack<int> st;
+        stack<char> st;
         bool flag = true;
 
         string s;
