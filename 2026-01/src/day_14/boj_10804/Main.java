@@ -23,7 +23,6 @@ public class Main {
                 int tmp = arr[s];
                 arr[s] = arr[e];
                 arr[e] = tmp;
-
                 s++;
                 e--;
             }
