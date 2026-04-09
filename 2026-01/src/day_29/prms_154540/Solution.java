@@ -40,12 +40,12 @@ class Solution {
         return map;
     }
 
-    static int bfs(int r, int c, int n, int m, int[][] map) {
+    static int bfs(int sr, int sc, int n, int m, int[][] map) {
         Queue<int[]> q = new ArrayDeque<>();
-        q.offer(new int[]{r, c});
+        q.offer(new int[]{sr, sc});
 
-        int sum = map[r][c];
-        map[r][c] = 0;
+        int sum = map[sr][sc];
+        map[sr][sc] = 0;
 
         while (!q.isEmpty()) {
             int[] cur = q.poll();

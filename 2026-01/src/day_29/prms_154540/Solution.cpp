@@ -8,12 +8,12 @@ using namespace std;
 int dr[4] = {-1, 0, 1, 0};
 int dc[4] = {0, 1, 0, -1};
 
-int bfs(int r, int c, int n, int m, vector<vector<int>>& grid) {
+int bfs(int sr, int sc, int n, int m, vector<vector<int>>& grid) {
     queue<pair<int, int>> q;
-    q.push({r, c});
+    q.push({sr, sc});
 
-    int sum = grid[r][c];
-    grid[r][c] = 0;
+    int sum = grid[sr][sc];
+    grid[sr][sc] = 0;
 
     while (!q.empty()) {
         auto [r, c] = q.front();
