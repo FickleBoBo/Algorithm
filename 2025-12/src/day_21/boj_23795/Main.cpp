@@ -8,11 +8,11 @@ int main() {
     int sum = 0;
 
     while (true) {
-        int n;
-        cin >> n;
+        int x;
+        cin >> x;
 
-        if (n == -1) break;
-        sum += n;
+        if (x == -1) break;
+        sum += x;
     }
 
     cout << sum;

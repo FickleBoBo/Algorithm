@@ -9,9 +9,9 @@ public class Main {
         int sum = 0;
 
         while (true) {
-            int n = Integer.parseInt(br.readLine());
-            if (n == -1) break;
-            sum += n;
+            int x = Integer.parseInt(br.readLine());
+            if (x == -1) break;
+            sum += x;
         }
 
         System.out.println(sum);
