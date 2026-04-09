@@ -15,7 +15,6 @@ public class Main {
         st = new StringTokenizer(br.readLine());
         while (n-- > 0) {
             int x = Integer.parseInt(st.nextToken());
-
             ys += (x / 30 + 1) * 10;
             ms += (x / 60 + 1) * 15;
         }
