@@ -8,18 +8,18 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int a = Integer.parseInt(st.nextToken());
-        int b = Integer.parseInt(st.nextToken());
+        long a = Long.parseLong(st.nextToken());
+        long b = Long.parseLong(st.nextToken());
 
         System.out.println(lcm(a, b));
     }
 
-    static int gcd(int a, int b) {
+    static long gcd(long a, long b) {
         if (b == 0) return a;
         return gcd(b, a % b);
     }
 
-    static long lcm(int a, int b) {
-        return (long) a / gcd(a, b) * b;
+    static long lcm(long a, long b) {
+        return a / gcd(a, b) * b;
     }
 }
