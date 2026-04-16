@@ -26,7 +26,7 @@ int bfs(int s) {
                 vis[a][a] = true;
             }
 
-            if (a + b <= MAX && !vis[a + b][b]) {
+            if (a + b < MAX && !vis[a + b][b]) {
                 q.push({a + b, b});
                 vis[a + b][b] = true;
             }
