@@ -1,16 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<int> traceback(vector<int>& v, vector<int>& prv, int pos) {
-    vector<int> lis;
+vector<int> lis;
 
+void traceback(vector<int>& v, vector<int>& prv, int pos) {
     while (pos != -1) {
         lis.push_back(v[pos]);
         pos = prv[pos];
     }
 
     reverse(lis.begin(), lis.end());
-    return lis;
 }
 
 int main() {
@@ -42,9 +41,9 @@ int main() {
         if (idx > 0) prv[i] = pos[idx - 1];
     }
 
-    cout << dp.size() << '\n';
+    traceback(v, prv, pos[dp.size() - 1]);
 
-    vector<int> lis = traceback(v, prv, pos[dp.size() - 1]);
+    cout << dp.size() << '\n';
     for (int x : lis) {
         cout << x << ' ';
     }
