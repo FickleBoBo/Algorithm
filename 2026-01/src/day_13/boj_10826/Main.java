@@ -16,6 +16,7 @@ public class Main {
         BigInteger[] dp = new BigInteger[1 + n];
         dp[0] = BigInteger.ZERO;
         dp[1] = BigInteger.ONE;
+
         for (int i = 2; i <= n; i++) {
             dp[i] = dp[i - 1].add(dp[i - 2]);
         }
