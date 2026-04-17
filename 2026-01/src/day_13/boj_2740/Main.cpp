@@ -1,9 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int a[100][100];
-int b[100][100];
-int res[100][100];
+const int MAX = 100;
+int a[MAX][MAX];
+int b[MAX][MAX];
+int res[MAX][MAX];
 
 int main() {
     ios::sync_with_stdio(0);
