@@ -10,13 +10,13 @@ public class Main {
 
         int n = Integer.parseInt(br.readLine());
 
-        int[][] map = new int[n][2];
+        int[][] arr = new int[n][2];
         for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
-            map[i][0] = Integer.parseInt(st.nextToken());
-            map[i][1] = Integer.parseInt(st.nextToken());
+            arr[i][0] = Integer.parseInt(st.nextToken());
+            arr[i][1] = Integer.parseInt(st.nextToken());
         }
-        Arrays.sort(map, (o1, o2) -> Integer.compare(o1[1], o2[1]));
+        Arrays.sort(arr, (o1, o2) -> Integer.compare(o1[1], o2[1]));
 
         List<Integer> dp = new ArrayList<>();
 
@@ -25,7 +25,7 @@ public class Main {
         Arrays.fill(prv, -1);
 
         for (int i = 0; i < n; i++) {
-            int x = map[i][0];
+            int x = arr[i][0];
             int idx = lowerBound(dp, x);
 
             if (idx == dp.size()) {
@@ -39,7 +39,7 @@ public class Main {
         }
 
         System.out.println(n - dp.size());
-        System.out.println(traceback(map, prv, pos[dp.size() - 1]));
+        System.out.println(traceback(arr, prv, pos[dp.size() - 1]));
     }
 
     static int lowerBound(List<Integer> list, int key) {
@@ -59,16 +59,16 @@ public class Main {
         return right;
     }
 
-    static String traceback(int[][] map, int[] prv, int pos) {
+    static String traceback(int[][] arr, int[] prv, int pos) {
         StringBuilder sb = new StringBuilder();
 
         Set<Integer> set = new TreeSet<>();
-        for (int i = 0; i < map.length; i++) {
-            set.add(map[i][0]);
+        for (int i = 0; i < arr.length; i++) {
+            set.add(arr[i][0]);
         }
 
         while (pos != -1) {
-            set.remove(map[pos][0]);
+            set.remove(arr[pos][0]);
             pos = prv[pos];
         }
 

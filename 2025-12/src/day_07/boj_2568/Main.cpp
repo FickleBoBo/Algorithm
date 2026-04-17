@@ -1,16 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-set<int> traceback(vector<pair<int, int>>& v, vector<int>& prev, int pos) {
-    set<int> st;
+set<int> st;
+
+void traceback(vector<pair<int, int>>& v, vector<int>& prv, int pos) {
     for (auto p : v) st.insert(p.second);
 
     while (pos != -1) {
         st.erase(v[pos].second);
-        pos = prev[pos];
+        pos = prv[pos];
     }
-
-    return st;
 }
 
 int main() {
@@ -43,10 +42,10 @@ int main() {
         if (idx > 0) prv[i] = pos[idx - 1];
     }
 
-    cout << n - dp.size() << '\n';
+    traceback(v, prv, pos[dp.size() - 1]);
 
-    set<int> nonLis = traceback(v, prv, pos[dp.size() - 1]);
-    for (int x : nonLis) {
+    cout << n - dp.size() << '\n';
+    for (int x : st) {
         cout << x << '\n';
     }
 }
