@@ -7,31 +7,31 @@ class Solution {
         Queue<Integer> q = new ArrayDeque<>();
         q.offer(x);
 
-        boolean[] visited = new boolean[y * 3];
-        visited[x] = true;
+        boolean[] vis = new boolean[y * 3];
+        vis[x] = true;
 
         int dist = 0;
 
         while (!q.isEmpty()) {
-            int size = q.size();
+            int sz = q.size();
 
-            while (size-- > 0) {
-                int node = q.poll();
-                if (node == y) return dist;
+            while (sz-- > 0) {
+                int cur = q.poll();
+                if (cur == y) return dist;
 
-                if (node + n <= y && !visited[node + n]) {
-                    q.add(node + n);
-                    visited[node + n] = true;
+                if (cur + n <= y && !vis[cur + n]) {
+                    q.offer(cur + n);
+                    vis[cur + n] = true;
                 }
 
-                if (node * 2 <= y && !visited[node * 2]) {
-                    q.add(node * 2);
-                    visited[node * 2] = true;
+                if (cur * 2 <= y && !vis[cur * 2]) {
+                    q.offer(cur * 2);
+                    vis[cur * 2] = true;
                 }
 
-                if (node * 3 <= y && !visited[node * 3]) {
-                    q.add(node * 3);
-                    visited[node * 3] = true;
+                if (cur * 3 <= y && !vis[cur * 3]) {
+                    q.offer(cur * 3);
+                    vis[cur * 3] = true;
                 }
             }
 

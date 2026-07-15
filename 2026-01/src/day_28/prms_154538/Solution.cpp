@@ -8,8 +8,8 @@ int solution(int x, int y, int n) {
     queue<int> q;
     q.push(x);
 
-    vector<bool> visited(y * 3);
-    visited[x] = true;
+    vector<bool> vis(y * 3);
+    vis[x] = true;
 
     int dist = 0;
 
@@ -17,24 +17,24 @@ int solution(int x, int y, int n) {
         int sz = q.size();
 
         while (sz--) {
-            int node = q.front();
+            int cur = q.front();
             q.pop();
 
-            if (node == y) return dist;
+            if (cur == y) return dist;
 
-            if (node + n <= y && !visited[node + n]) {
-                q.push(node + n);
-                visited[node + n] = true;
+            if (cur + n <= y && !vis[cur + n]) {
+                q.push(cur + n);
+                vis[cur + n] = true;
             }
 
-            if (node * 2 <= y && !visited[node * 2]) {
-                q.push(node * 2);
-                visited[node * 2] = true;
+            if (cur * 2 <= y && !vis[cur * 2]) {
+                q.push(cur * 2);
+                vis[cur * 2] = true;
             }
 
-            if (node * 3 <= y && !visited[node * 3]) {
-                q.push(node * 3);
-                visited[node * 3] = true;
+            if (cur * 3 <= y && !vis[cur * 3]) {
+                q.push(cur * 3);
+                vis[cur * 3] = true;
             }
         }
 
