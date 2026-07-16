@@ -3,7 +3,7 @@ using namespace std;
 
 const int MAX = 9999;
 bool isPrime[1 + MAX];
-bool visited[1 + MAX];
+bool vis[1 + MAX];
 
 void sieve() {
     fill(isPrime, isPrime + MAX + 1, true);
@@ -22,7 +22,7 @@ int bfs(int a, int b) {
     queue<int> q;
     q.push(a);
 
-    visited[a] = true;
+    vis[a] = true;
 
     int dist = 0;
 
@@ -30,35 +30,35 @@ int bfs(int a, int b) {
         int sz = q.size();
 
         while (sz--) {
-            int node = q.front();
+            int cur = q.front();
             q.pop();
 
-            if (node == b) return dist;
+            if (cur == b) return dist;
 
             for (int i = 0; i < 10; i++) {
-                int n1 = node / 10 * 10 + i;                         // 일의 자리 변경
-                int n2 = node / 100 * 100 + i * 10 + node % 10;      // 십의 자리 변경
-                int n3 = node / 1000 * 1000 + i * 100 + node % 100;  // 백의 자리 변경
-                int n4 = i * 1000 + node % 1000;                     // 천의 자리 변경
+                int n1 = cur / 10 * 10 + i;                        // 일의 자리 변경
+                int n2 = cur / 100 * 100 + i * 10 + cur % 10;      // 십의 자리 변경
+                int n3 = cur / 1000 * 1000 + i * 100 + cur % 100;  // 백의 자리 변경
+                int n4 = i * 1000 + cur % 1000;                    // 천의 자리 변경
 
-                if (isPrime[n1] && !visited[n1]) {
+                if (isPrime[n1] && !vis[n1]) {
                     q.push(n1);
-                    visited[n1] = true;
+                    vis[n1] = true;
                 }
 
-                if (isPrime[n2] && !visited[n2]) {
+                if (isPrime[n2] && !vis[n2]) {
                     q.push(n2);
-                    visited[n2] = true;
+                    vis[n2] = true;
                 }
 
-                if (isPrime[n3] && !visited[n3]) {
+                if (isPrime[n3] && !vis[n3]) {
                     q.push(n3);
-                    visited[n3] = true;
+                    vis[n3] = true;
                 }
 
-                if (n4 >= 1000 && isPrime[n4] && !visited[n4]) {
+                if (n4 >= 1000 && isPrime[n4] && !vis[n4]) {
                     q.push(n4);
-                    visited[n4] = true;
+                    vis[n4] = true;
                 }
             }
         }
@@ -82,7 +82,7 @@ int main() {
         int a, b;
         cin >> a >> b;
 
-        memset(visited, 0, sizeof(visited));
+        memset(vis, 0, sizeof(vis));
 
         int dist = bfs(a, b);
         if (dist == -1) {

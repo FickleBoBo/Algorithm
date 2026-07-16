@@ -51,42 +51,42 @@ public class Main {
         Queue<Integer> q = new ArrayDeque<>();
         q.offer(a);
 
-        boolean[] visited = new boolean[1 + MAX];
-        visited[a] = true;
+        boolean[] vis = new boolean[1 + MAX];
+        vis[a] = true;
 
         int dist = 0;
 
         while (!q.isEmpty()) {
-            int size = q.size();
+            int sz = q.size();
 
-            while (size-- > 0) {
-                int node = q.poll();
-                if (node == b) return dist;
+            while (sz-- > 0) {
+                int cur = q.poll();
+                if (cur == b) return dist;
 
                 for (int i = 0; i < 10; i++) {
-                    int num1 = node / 10 * 10 + i;  // 일의 자리 변경
-                    int num2 = node / 100 * 100 + i * 10 + node % 10;  // 십의 자리 변경
-                    int num3 = node / 1000 * 1000 + i * 100 + node % 100;  // 백의 자리 변경
-                    int num4 = i * 1000 + node % 1000;  // 천의 자리 변경
+                    int num1 = cur / 10 * 10 + i;  // 일의 자리 변경
+                    int num2 = cur / 100 * 100 + i * 10 + cur % 10;  // 십의 자리 변경
+                    int num3 = cur / 1000 * 1000 + i * 100 + cur % 100;  // 백의 자리 변경
+                    int num4 = i * 1000 + cur % 1000;  // 천의 자리 변경
 
-                    if (isPrime[num1] && !visited[num1]) {
+                    if (isPrime[num1] && !vis[num1]) {
                         q.offer(num1);
-                        visited[num1] = true;
+                        vis[num1] = true;
                     }
 
-                    if (isPrime[num2] && !visited[num2]) {
+                    if (isPrime[num2] && !vis[num2]) {
                         q.offer(num2);
-                        visited[num2] = true;
+                        vis[num2] = true;
                     }
 
-                    if (isPrime[num3] && !visited[num3]) {
+                    if (isPrime[num3] && !vis[num3]) {
                         q.offer(num3);
-                        visited[num3] = true;
+                        vis[num3] = true;
                     }
 
-                    if (num4 >= 1_000 && isPrime[num4] && !visited[num4]) {
+                    if (num4 >= 1000 && isPrime[num4] && !vis[num4]) {
                         q.offer(num4);
-                        visited[num4] = true;
+                        vis[num4] = true;
                     }
                 }
             }
