@@ -6,22 +6,22 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        char[] str = br.readLine().toCharArray();
+        char[] s = br.readLine().toCharArray();
 
         int len = 0;  // 윈도우 크기
-        for (char c : str) {
+        for (char c : s) {
             if (c == 'a') len++;
         }
 
         int cnt = 0;  // 초기 윈도우 내 a의 개수
         for (int i = 0; i < len; i++) {
-            if (str[i] == 'a') cnt++;
+            if (s[i] == 'a') cnt++;
         }
 
         int max = cnt;  // 윈도우 내 a의 개수가 가장 많은 경우
-        for (int i = 0; i < str.length; i++) {
-            if (str[i] == 'a') cnt--;
-            if (str[(i + len) % str.length] == 'a') cnt++;
+        for (int i = 0; i < s.length; i++) {
+            if (s[i] == 'a') cnt--;
+            if (s[(i + len) % s.length] == 'a') cnt++;
 
             max = Math.max(max, cnt);
         }
