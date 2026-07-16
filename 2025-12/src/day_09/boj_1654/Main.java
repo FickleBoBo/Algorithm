@@ -27,8 +27,8 @@ public class Main {
             long mid = (left + right) / 2;
 
             long cnt = 0;
-            for (int n : arr) {
-                cnt += n / mid;
+            for (int x : arr) {
+                cnt += x / mid;
             }
 
             if (cnt >= key) {
