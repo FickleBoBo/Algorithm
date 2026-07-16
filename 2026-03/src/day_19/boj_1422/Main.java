@@ -9,11 +9,11 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int n = Integer.parseInt(st.nextToken());
         int k = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
 
-        String[] arr = new String[n];
-        for (int i = 0; i < n; i++) {
+        String[] arr = new String[k];
+        for (int i = 0; i < k; i++) {
             arr[i] = br.readLine();
         }
 
@@ -28,7 +28,7 @@ public class Main {
             return (o2 + o1).compareTo(o1 + o2);
         });
 
-        for (int i = 0; i < k - n; i++) {
+        for (int i = 0; i < n - k; i++) {
             pq.offer(arr[0]);
         }
 

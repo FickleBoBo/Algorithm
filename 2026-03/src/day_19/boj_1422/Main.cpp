@@ -11,10 +11,10 @@ int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
 
-    int n, k;
-    cin >> n >> k;
+    int k, n;
+    cin >> k >> n;
 
-    vector<string> v(n);
+    vector<string> v(k);
     for (string& s : v) cin >> s;
 
     priority_queue<string, vector<string>, cmp> pq;
@@ -28,7 +28,7 @@ int main() {
         return b + a < a + b;
     });
 
-    for (int i = 0; i < k - n; i++) {
+    for (int i = 0; i < n - k; i++) {
         pq.push(v[0]);
     }
 
