@@ -8,11 +8,11 @@ public class Main {
 
         int n = Integer.parseInt(br.readLine());
         for (int i = 1; i <= n; i++) {
-            int num = i;
-            int sum = num;
-            while (num > 0) {
-                sum += num % 10;
-                num /= 10;
+            int x = i;
+            int sum = x;
+            while (x > 0) {
+                sum += x % 10;
+                x /= 10;
             }
 
             if (sum == n) {
