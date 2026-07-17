@@ -23,10 +23,10 @@ public class Main2 {
             }
         }
 
-        int[][] result = binPow(mat, b);
+        int[][] res = binPow(mat, b);
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                sb.append(result[i][j]).append(" ");
+                sb.append(res[i][j]).append(" ");
             }
             sb.append("\n");
         }
