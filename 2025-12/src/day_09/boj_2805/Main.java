@@ -28,8 +28,8 @@ public class Main {
             int mid = (left + right) / 2;
 
             long sum = 0;
-            for (int n : arr) {
-                sum += Math.max(n - mid, 0);
+            for (int x : arr) {
+                sum += Math.max(x - mid, 0);
             }
 
             if (sum >= key) {

@@ -9,8 +9,8 @@ int upper_bound_param(vector<int>& v, int key) {
         int mid = (left + right) / 2;
 
         long long sum = 0;
-        for (int n : v) {
-            sum += max(n - mid, 0);
+        for (int x : v) {
+            sum += max(x - mid, 0);
         }
 
         if (sum >= key) {
