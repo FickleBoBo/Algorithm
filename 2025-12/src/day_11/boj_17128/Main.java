@@ -31,7 +31,7 @@ public class Main {
         }
 
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < q; i++) {
+        while (q-- > 0) {
             int x = Integer.parseInt(st.nextToken());
 
             int idx1 = (x - 4 + n) % n;

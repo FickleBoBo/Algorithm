@@ -23,7 +23,7 @@ int main() {
         sum += x;
     }
 
-    for (int i = 0; i < q; i++) {
+    while (q--) {
         int x;
         cin >> x;
 
