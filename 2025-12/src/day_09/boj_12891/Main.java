@@ -20,7 +20,7 @@ public class Main {
         int s = Integer.parseInt(st.nextToken());
         int p = Integer.parseInt(st.nextToken());
 
-        char[] str = br.readLine().toCharArray();
+        char[] arr = br.readLine().toCharArray();
 
         int[] cnt = new int[4];
         st = new StringTokenizer(br.readLine());
@@ -29,35 +29,35 @@ public class Main {
         }
 
         // 만들 수 있는 비밀번호의 종류의 수
-        int result = 0;
+        int res = 0;
 
         // 초기 윈도우에 대해 카운팅 배열 갱신
         for (int i = 0; i < p; i++) {
-            cnt[map.get(str[i])]--;
+            cnt[map.get(arr[i])]--;
         }
 
         // 초기 윈도우로 만들 수 있는 비밀번호면 카운팅
         if (isPossible(cnt)) {
-            result++;
+            res++;
         }
 
         for (int i = 0; i < s - p; i++) {
             // 윈도우 이동
-            cnt[map.get(str[i])]++;
-            cnt[map.get(str[i + p])]--;
+            cnt[map.get(arr[i])]++;
+            cnt[map.get(arr[i + p])]--;
 
             // 이동 후 만들 수 있는 비밀번호면 카운팅
             if (isPossible(cnt)) {
-                result++;
+                res++;
             }
         }
 
-        System.out.println(result);
+        System.out.println(res);
     }
 
     static boolean isPossible(int[] arr) {
-        for (int n : arr) {
-            if (n > 0) return false;
+        for (int x : arr) {
+            if (x > 0) return false;
         }
         return true;
     }

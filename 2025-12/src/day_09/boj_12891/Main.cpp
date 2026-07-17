@@ -20,7 +20,7 @@ int main() {
     mp['T'] = 3;
 
     // 만들 수 있는 비밀번호의 종류의 수
-    int result = 0;
+    int res = 0;
 
     // 초기 윈도우에 대해 카운팅 배열 갱신
     for (int i = 0; i < plen; i++) {
@@ -29,7 +29,7 @@ int main() {
 
     // 초기 윈도우로 만들 수 있는 비밀번호면 카운팅
     if (*max_element(cnt.begin(), cnt.end()) <= 0) {
-        result++;
+        res++;
     }
 
     for (int i = 0; i < slen - plen; i++) {
@@ -39,9 +39,9 @@ int main() {
 
         // 이동 후 만들 수 있는 비밀번호면 카운팅
         if (*max_element(cnt.begin(), cnt.end()) <= 0) {
-            result++;
+            res++;
         }
     }
 
-    cout << result;
+    cout << res;
 }
