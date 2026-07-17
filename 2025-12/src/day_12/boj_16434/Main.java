@@ -47,8 +47,8 @@ public class Main {
         while (left < right) {
             long mid = left + (right - left) / 2;
 
-            boolean result = simul(map, new Hero(mid, hAtk));
-            if (!result) {
+            boolean res = simul(map, new Hero(mid, hAtk));
+            if (!res) {
                 left = mid + 1;
             } else {
                 right = mid;
