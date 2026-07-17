@@ -14,7 +14,7 @@ int main() {
     int l = 0;
     int r = n - 1;
     int sum = INT_MAX;
-    pair<int, int> ans{};
+    pair<int, int> ans;
 
     while (l < r) {
         if (v[l] + v[r] > 0) {
