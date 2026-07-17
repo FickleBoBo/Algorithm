@@ -20,7 +20,7 @@ int main() {
             if (j < day) {
                 dp[i][j] = dp[i - 1][j];
             } else {
-                dp[i][j] = max(dp[i - 1][j - day] + +page, dp[i - 1][j]);
+                dp[i][j] = max(dp[i - 1][j - day] + page, dp[i - 1][j]);
             }
         }
     }
