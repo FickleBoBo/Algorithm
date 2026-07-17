@@ -32,7 +32,7 @@ public class Main {
                 if (dp[i] == null) {
                     dp[i] = tmp;
                 } else {
-                    dp[i] = min(dp[i], tmp);
+                    dp[i] = findMin(dp[i], tmp);
                 }
             }
         }
@@ -46,7 +46,7 @@ public class Main {
         System.out.println(sb);
     }
 
-    static String min(String a, String b) {
+    static String findMin(String a, String b) {
         if (a.length() != b.length()) return a.length() > b.length() ? b : a;
         return a.compareTo(b) > 0 ? b : a;
     }
