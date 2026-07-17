@@ -2,7 +2,7 @@
 using namespace std;
 
 // 벡터를 p1, p2로 분할한 세 구간 중 key가 존재하는지 리턴
-bool solve(const vector<int>& v, int p1, int p2, int key) {
+bool solve(vector<int>& v, int p1, int p2, int key) {
     return binary_search(v.begin(), v.begin() + p1, key) || binary_search(v.begin() + p1 + 1, v.begin() + p2, key) ||
            binary_search(v.begin() + p2 + 1, v.end(), key);
 }
