@@ -28,10 +28,10 @@ int main() {
     }
 
     int cnt = 0;
-    for (int cur = 1; cur <= n; cur++) {
-        if (vis[cur]) continue;
+    for (int node = 1; node <= n; node++) {
+        if (vis[node]) continue;
 
-        dfs(cur);
+        dfs(node);
         cnt++;
     }
 

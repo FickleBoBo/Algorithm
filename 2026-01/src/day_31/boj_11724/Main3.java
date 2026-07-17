@@ -39,8 +39,8 @@ public class Main3 {
         }
 
         int cnt = 0;
-        for (int cur = 1; cur <= n; cur++) {
-            if (cur == find(cur)) cnt++;
+        for (int node = 1; node <= n; node++) {
+            if (node == find(node)) cnt++;
         }
 
         System.out.println(cnt);

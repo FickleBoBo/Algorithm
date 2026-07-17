@@ -28,8 +28,8 @@ int main() {
     }
 
     int cnt = 0;
-    for (int cur = 1; cur <= n; cur++) {
-        if (cur == find(cur)) cnt++;
+    for (int node = 1; node <= n; node++) {
+        if (node == find(node)) cnt++;
     }
 
     cout << cnt;
