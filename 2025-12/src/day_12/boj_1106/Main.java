@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Main {
 
-    static final int MAX = 100_000;
+    static final int INF = 100_000;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -23,7 +23,7 @@ public class Main {
         }
 
         int[][] dp = new int[1 + n][1 + c + 100];
-        Arrays.fill(dp[0], 1, dp[0].length, MAX);
+        Arrays.fill(dp[0], 1, dp[0].length, INF);
         for (int i = 1; i <= n; i++) {
             int cost = costs[i];
             int person = people[i];
@@ -37,7 +37,7 @@ public class Main {
             }
         }
 
-        int min = MAX;
+        int min = INF;
         for (int j = c; j <= c + 100; j++) {
             min = Math.min(min, dp[n][j]);
         }

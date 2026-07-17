@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MAX = 100000;
+const int INF = 100000;
 int dp[21][1101];
 
 int main() {
@@ -14,7 +14,7 @@ int main() {
     vector<pair<int, int>> a(n);
     for (auto& [cost, person] : a) cin >> cost >> person;
 
-    fill(dp[0] + 1, dp[0] + 1101, MAX);
+    fill(dp[0] + 1, dp[0] + 1101, INF);
     for (int i = 1; i <= n; i++) {
         auto [cost, person] = a[i - 1];
 
@@ -27,7 +27,7 @@ int main() {
         }
     }
 
-    int mn = MAX;
+    int mn = INF;
     for (int j = c; j <= c + 100; j++) {
         mn = min(mn, dp[n][j]);
     }
