@@ -9,7 +9,6 @@ public class Main {
         StringTokenizer st = new StringTokenizer(br.readLine(), "-");
 
         int ans = sum(st.nextToken());
-
         while (st.hasMoreTokens()) {
             ans -= sum(st.nextToken());
         }
@@ -17,7 +16,6 @@ public class Main {
         System.out.println(ans);
     }
 
-    // 숫자와 +로만 이루어진 식의 합 리턴
     static int sum(String token) {
         StringTokenizer st = new StringTokenizer(token, "+");
 

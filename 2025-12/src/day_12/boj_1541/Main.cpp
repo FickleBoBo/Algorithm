@@ -1,28 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// 숫자와 +로만 이루어진 식의 합 리턴
-int sum(string& s) {
-    vector<string> v;
-    string cur;
-    for (char c : s) {
-        if (c == '+') {
-            v.push_back(cur);
-            cur.clear();
-        } else {
-            cur += c;
-        }
-    }
-    v.push_back(cur);
-
-    int res = 0;
-    for (string& x : v) {
-        res += stoi(x);
-    }
-
-    return res;
-}
-
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
@@ -30,22 +8,24 @@ int main() {
     string s;
     cin >> s;
 
-    vector<string> v;
-    string cur;
+    int ans = 0;
+    int sign = 1;
+    int tmp = 0;
+
     for (char c : s) {
-        if (c == '-') {
-            v.push_back(cur);
-            cur.clear();
+        if (c == '+' || c == '-') {
+            ans += tmp * sign;
+            tmp = 0;
+
+            if (c == '-') {
+                sign = -1;
+            }
         } else {
-            cur += c;
+            tmp *= 10;
+            tmp += c - '0';
         }
     }
-    v.push_back(cur);
-
-    int ans = sum(v[0]);
-    for (int i = 1; i < v.size(); i++) {
-        ans -= sum(v[i]);
-    }
+    ans += tmp * sign;
 
     cout << ans;
 }
