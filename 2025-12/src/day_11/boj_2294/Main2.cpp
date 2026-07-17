@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MAX = 10001;
+const int INF = 10001;
 int dp[10001];
 
 int main() {
@@ -14,14 +14,14 @@ int main() {
     vector<int> coins(n);
     for (int& x : coins) cin >> x;
 
-    fill(dp + 1, dp + 10001, MAX);  // 어떤 동전도 사용하지 않았을 때 0원을 만드는 경우는 사용한 동전은 0개
+    fill(dp + 1, dp + 10001, INF);  // 어떤 동전도 사용하지 않았을 때 0원을 만드는 경우는 사용한 동전은 0개
     for (int coin : coins) {
         for (int j = coin; j <= k; j++) {
             dp[j] = min(dp[j - coin] + 1, dp[j]);
         }
     }
 
-    if (dp[k] == MAX) {
+    if (dp[k] == INF) {
         cout << -1;
     } else {
         cout << dp[k];

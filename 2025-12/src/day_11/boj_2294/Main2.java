@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Main2 {
 
-    static final int MAX = 10_001;
+    static final int INF = 10_001;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -20,14 +20,14 @@ public class Main2 {
         }
 
         int[] dp = new int[1 + k];
-        Arrays.fill(dp, 1, k + 1, MAX);  // 어떤 동전도 사용하지 않았을 때 0원을 만드는 경우는 사용한 동전은 0개
+        Arrays.fill(dp, 1, k + 1, INF);  // 어떤 동전도 사용하지 않았을 때 0원을 만드는 경우는 사용한 동전은 0개
         for (int coin : coins) {
             for (int j = coin; j <= k; j++) {
                 dp[j] = Math.min(dp[j - coin] + 1, dp[j]);
             }
         }
 
-        if (dp[k] == MAX) {
+        if (dp[k] == INF) {
             System.out.println(-1);
         } else {
             System.out.println(dp[k]);
