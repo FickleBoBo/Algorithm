@@ -8,18 +8,18 @@ int main() {
     string s, t;
     cin >> s >> t;
     int slen = s.size();
-    int len = t.size();
+    int tlen = t.size();
 
-    while (len > slen) {
-        if (t[len - 1] == 'A') {
-            len--;
+    while (tlen > slen) {
+        if (t[tlen - 1] == 'A') {
+            tlen--;
         } else {
-            len--;
-            reverse(t.begin(), t.begin() + len);
+            tlen--;
+            reverse(t.begin(), t.begin() + tlen);
         }
     }
 
-    for (int i = 0; i < len; i++) {
+    for (int i = 0; i < tlen; i++) {
         if (s[i] != t[i]) {
             cout << 0;
             return 0;
