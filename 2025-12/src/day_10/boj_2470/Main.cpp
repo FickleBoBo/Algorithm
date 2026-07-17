@@ -13,7 +13,7 @@ int main() {
     sort(v.begin(), v.end());
 
     int sum = INT_MAX;
-    pair<int, int> ans{};
+    pair<int, int> ans;
 
     for (int i = 0; i < n - 1; i++) {
         int idx1 = lower_bound(v.begin() + i + 1, v.end(), -v[i]) - v.begin();
