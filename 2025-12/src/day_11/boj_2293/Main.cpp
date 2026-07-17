@@ -13,22 +13,22 @@ int main() {
     vector<int> coins(n);
     for (int& x : coins) cin >> x;
 
-    int prev = 0;
+    int prv = 0;
     int cur = 1;
     dp[0][0] = 1;  // 어떤 동전도 사용하지 않았을 때 0원을 만드는 경우는 1가지
     for (int coin : coins) {
         for (int j = 0; j <= k; j++) {
             if (j < coin) {
-                dp[cur][j] = dp[prev][j];
+                dp[cur][j] = dp[prv][j];
             } else {
-                dp[cur][j] = dp[prev][j] + dp[cur][j - coin];
+                dp[cur][j] = dp[prv][j] + dp[cur][j - coin];
             }
         }
 
         // 롤링
-        prev ^= 1;
+        prv ^= 1;
         cur ^= 1;
     }
 
-    cout << dp[prev][k];
+    cout << dp[prv][k];
 }
