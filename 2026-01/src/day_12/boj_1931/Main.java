@@ -10,23 +10,23 @@ public class Main {
 
         int n = Integer.parseInt(br.readLine());
 
-        int[][] map = new int[n][2];
+        int[][] arr = new int[n][2];
         for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
-            map[i][0] = Integer.parseInt(st.nextToken());
-            map[i][1] = Integer.parseInt(st.nextToken());
+            arr[i][0] = Integer.parseInt(st.nextToken());
+            arr[i][1] = Integer.parseInt(st.nextToken());
         }
-        Arrays.sort(map, (o1, o2) -> {
+        Arrays.sort(arr, (o1, o2) -> {
             if (o1[1] != o2[1]) return Integer.compare(o1[1], o2[1]);
             return Integer.compare(o1[0], o2[0]);
         });
 
-        int end = 0;
+        int last = 0;
         int cnt = 0;
         for (int i = 0; i < n; i++) {
-            if (map[i][0] < end) continue;
+            if (arr[i][0] < last) continue;
 
-            end = map[i][1];
+            last = arr[i][1];
             cnt++;
         }
 

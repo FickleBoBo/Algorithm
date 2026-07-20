@@ -9,15 +9,15 @@ int main() {
     cin >> n;
 
     vector<pair<int, int>> v(n);
-    for (auto& [a, b] : v) cin >> b >> a;
+    for (auto& [e, s] : v) cin >> s >> e;
     sort(v.begin(), v.end());
 
-    int end = 0;
+    int last = 0;
     int cnt = 0;
-    for (int i = 0; i < n; i++) {
-        if (v[i].second < end) continue;
+    for (auto [e, s] : v) {
+        if (s < last) continue;
 
-        end = v[i].first;
+        last = e;
         cnt++;
     }
 
