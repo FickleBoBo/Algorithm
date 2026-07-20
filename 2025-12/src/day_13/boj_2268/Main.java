@@ -44,7 +44,7 @@ public class Main {
 
         tree = new long[4 * n];
 
-        for (int i = 0; i < m; i++) {
+        while (m-- > 0) {
             st = new StringTokenizer(br.readLine());
             int t = Integer.parseInt(st.nextToken());
             int a = Integer.parseInt(st.nextToken());

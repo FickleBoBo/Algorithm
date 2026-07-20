@@ -37,7 +37,7 @@ int main() {
     int n, m;
     cin >> n >> m;
 
-    for (int i = 0; i < m; i++) {
+    while (m--) {
         int t, a, b;
         cin >> t >> a >> b;
 
