@@ -6,13 +6,13 @@ import java.util.*;
 public class Main {
 
     static StringBuilder sb = new StringBuilder();
-    static final int MX = 1 + 1000 * 15;
-    static final int ROOT = 0;
+    static final int MAX = 2 + 1000 * 15;
+    static final int ROOT = 1;
     static int unused = ROOT + 1;
-    static Map<String, Integer>[] nxt = new TreeMap[MX];
+    static Map<String, Integer>[] nxt = new TreeMap[MAX];
 
     static {
-        for (int i = 0; i < MX; i++) {
+        for (int i = 1; i < MAX; i++) {
             nxt[i] = new TreeMap<>();
         }
     }
