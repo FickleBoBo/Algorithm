@@ -1,11 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MX = 1 + 10000 * 10;
-const int ROOT = 0;
+const int MAX = 2 + 10000 * 10;
+const int ROOT = 1;
 int unused;
-int nxt[MX][10];
-bool chk[MX];
+int nxt[MAX][10];
+bool chk[MAX];
 
 void init() {
     unused = ROOT + 1;

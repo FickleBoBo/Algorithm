@@ -4,16 +4,16 @@ import java.io.*;
 
 public class Main {
 
-    static final int MX = 1 + 10000 * 10;
-    static final int ROOT = 0;
+    static final int MAX = 2 + 10000 * 10;
+    static final int ROOT = 1;
     static int unused;
     static int[][] nxt;
     static boolean[] chk;
 
     static void init() {
         unused = ROOT + 1;
-        nxt = new int[MX][10];
-        chk = new boolean[MX];
+        nxt = new int[MAX][10];
+        chk = new boolean[MAX];
     }
 
     static boolean insert(String s) {
