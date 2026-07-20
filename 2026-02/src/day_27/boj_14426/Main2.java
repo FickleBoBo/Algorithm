@@ -5,10 +5,10 @@ import java.util.*;
 
 public class Main2 {
 
-    static final int MX = 1 + 10000 * 500;
-    static final int ROOT = 0;
+    static final int MAX = 2 + 10000 * 500;
+    static final int ROOT = 1;
     static int unused = ROOT + 1;
-    static int[][] nxt = new int[MX][26];
+    static int[][] nxt = new int[MAX][26];
 
     static void insert(String s) {
         int cur = ROOT;
