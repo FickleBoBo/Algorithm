@@ -43,7 +43,7 @@ public class Main {
         StringTokenizer st;
 
         int n = Integer.parseInt(br.readLine());
-        for (int i = 0; i < n; i++) {
+        while (n-- > 0) {
             st = new StringTokenizer(br.readLine());
             int t = Integer.parseInt(st.nextToken());
             int x = Integer.parseInt(st.nextToken());

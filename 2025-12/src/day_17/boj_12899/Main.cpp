@@ -39,7 +39,7 @@ int main() {
     int n;
     cin >> n;
 
-    for (int i = 0; i < n; i++) {
+    while (n--) {
         int t, x;
         cin >> t >> x;
 
