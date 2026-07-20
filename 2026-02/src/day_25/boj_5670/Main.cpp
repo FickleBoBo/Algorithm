@@ -1,12 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MX = 1 + 1000000;
-const int ROOT = 0;
+const int MAX = 2 + 1000000;
+const int ROOT = 1;
 int unused;
-int nxt[MX][26];
-bool chk[MX];
-int cnt[MX];  // 자식 노드의 수
+int nxt[MAX][26];
+bool chk[MAX];
+int cnt[MAX];  // 자식 노드의 수
 int sum;
 
 void init() {
