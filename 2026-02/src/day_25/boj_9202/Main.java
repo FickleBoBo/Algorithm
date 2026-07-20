@@ -4,17 +4,17 @@ import java.io.*;
 
 public class Main {
 
-    static final int MX = 1 + 300000 * 8;
-    static final int ROOT = 0;
+    static final int MAX = 2 + 300000 * 8;
+    static final int ROOT = 1;
     static int unused = ROOT + 1;
-    static int[][] nxt = new int[MX][26];
-    static int[] chk = new int[MX];
+    static int[][] nxt = new int[MAX][26];
+    static int[] chk = new int[MAX];
     static int mark = 2;
 
     static int[] dr = {-1, -1, -1, 0, 1, 1, 1, 0};
     static int[] dc = {-1, 0, 1, 1, 1, 0, -1, -1};
     static char[][] grid = new char[4][4];
-    static boolean[][] visited = new boolean[4][4];
+    static boolean[][] vis = new boolean[4][4];
     static int[] score = {0, 0, 0, 1, 1, 2, 3, 5, 11};
 
     static int point;  // 최대 점수
@@ -32,7 +32,7 @@ public class Main {
     }
 
     static void find(int r, int c, int cur, StringBuilder word) {
-        visited[r][c] = true;
+        vis[r][c] = true;
 
         if (0 < chk[cur] && chk[cur] < mark) {
             chk[cur] = mark;
@@ -49,7 +49,7 @@ public class Main {
             int nc = c + dc[d];
 
             if (nr < 0 || nr >= 4 || nc < 0 || nc >= 4) continue;
-            if (visited[nr][nc]) continue;
+            if (vis[nr][nc]) continue;
 
             int idx = grid[nr][nc] - 'A';
             if (nxt[cur][idx] == 0) continue;
@@ -59,7 +59,7 @@ public class Main {
             word.deleteCharAt(word.length() - 1);
         }
 
-        visited[r][c] = false;
+        vis[r][c] = false;
     }
 
     static void solve(int r, int c) {

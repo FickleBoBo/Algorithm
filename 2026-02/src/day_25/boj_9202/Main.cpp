@@ -1,17 +1,17 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MX = 1 + 300000 * 8;
-const int ROOT = 0;
+const int MAX = 2 + 300000 * 8;
+const int ROOT = 1;
 int unused = ROOT + 1;
-int nxt[MX][26];
-int chk[MX];
+int nxt[MAX][26];
+int chk[MAX];
 int mark = 2;
 
 int dr[8] = {-1, -1, -1, 0, 1, 1, 1, 0};
 int dc[8] = {-1, 0, 1, 1, 1, 0, -1, -1};
 char grid[5][5];
-bool visited[4][4];
+bool vis[5][5];
 int score[9] = {0, 0, 0, 1, 1, 2, 3, 5, 11};
 
 int point;       // 최대 점수
@@ -29,7 +29,7 @@ void insert(string& s) {
 }
 
 void find(int r, int c, int cur, string& s) {
-    visited[r][c] = true;
+    vis[r][c] = true;
 
     if (0 < chk[cur] && chk[cur] < mark) {
         chk[cur] = mark;
@@ -46,7 +46,7 @@ void find(int r, int c, int cur, string& s) {
         int nc = c + dc[d];
 
         if (nr < 0 || nr >= 4 || nc < 0 || nc >= 4) continue;
-        if (visited[nr][nc]) continue;
+        if (vis[nr][nc]) continue;
 
         int idx = grid[nr][nc] - 'A';
         if (nxt[cur][idx] == 0) continue;
@@ -56,7 +56,7 @@ void find(int r, int c, int cur, string& s) {
         s.pop_back();
     }
 
-    visited[r][c] = false;
+    vis[r][c] = false;
 }
 
 void solve(int r, int c) {
@@ -64,7 +64,7 @@ void solve(int r, int c) {
     if (nxt[ROOT][idx] == 0) return;
 
     string s;
-    s.push_back(grid[r][c]);
+    s += grid[r][c];
     find(r, c, nxt[ROOT][idx], s);
 }
 
