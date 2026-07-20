@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MX = 1 + 500 * 80;
-const int ROOT = 0;
+const int MAX = 2 + 500 * 80;
+const int ROOT = 1;
 int unused = ROOT + 1;
-map<string, int> nxt[MX];
+map<string, int> nxt[MAX];
 
 void insert(auto& v) {
     int cur = ROOT;
@@ -14,13 +14,13 @@ void insert(auto& v) {
     }
 }
 
-void print(int cur, int depth) {
+void dfs(int cur, int depth) {
     for (auto& [k, v] : nxt[cur]) {
         for (int i = 0; i < depth; i++) {
             cout << " ";
         }
         cout << k << '\n';
-        print(v, depth + 1);
+        dfs(v, depth + 1);
     }
 }
 
@@ -52,5 +52,5 @@ int main() {
         insert(v);
     }
 
-    print(ROOT, 0);
+    dfs(ROOT, 0);
 }
