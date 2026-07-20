@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MIN = 1;
-const int MAX = 1000000000;
-int arr[100001];
-pair<int, int> tree[4 * 100000];
+const int MAX = 100000;
+const int INF = 1000000000;
+int arr[1 + MAX];
+pair<int, int> tree[4 * MAX];
 
 pair<int, int> merge(pair<int, int> a, pair<int, int> b) {
     return {min(a.first, b.first), max(a.second, b.second)};
@@ -24,7 +24,7 @@ void init(int node, int start, int end) {
 }
 
 pair<int, int> query(int node, int start, int end, int left, int right) {
-    if (left > end || right < start) return {MAX, MIN};
+    if (left > end || right < start) return {INF, -INF};
     if (left <= start && end <= right) return tree[node];
 
     int mid = (start + end) / 2;
@@ -47,7 +47,7 @@ int main() {
 
     init(1, 1, n);
 
-    for (int i = 0; i < m; i++) {
+    while (m--) {
         int a, b;
         cin >> a >> b;
 

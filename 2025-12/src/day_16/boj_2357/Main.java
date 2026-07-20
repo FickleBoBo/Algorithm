@@ -5,8 +5,7 @@ import java.util.*;
 
 public class Main {
 
-    static final int MIN = 1;
-    static final int MAX = 1_000_000_000;
+    static final int INF = 1_000_000_000;
 
     static class Node {
         int min;
@@ -39,7 +38,7 @@ public class Main {
     }
 
     static Node query(int node, int start, int end, int left, int right) {
-        if (left > end || right < start) return new Node(MAX, MIN);
+        if (left > end || right < start) return new Node(INF, -INF);
         if (left <= start && end <= right) return tree[node];
 
         int mid = (start + end) / 2;
@@ -65,13 +64,13 @@ public class Main {
         tree = new Node[4 * n];
         init(1, 1, n);
 
-        for (int i = 0; i < m; i++) {
+        while (m-- > 0) {
             st = new StringTokenizer(br.readLine());
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
 
-            Node result = query(1, 1, n, a, b);
-            sb.append(result.min).append(" ").append(result.max).append("\n");
+            Node res = query(1, 1, n, a, b);
+            sb.append(res.min).append(" ").append(res.max).append("\n");
         }
 
         System.out.println(sb);
