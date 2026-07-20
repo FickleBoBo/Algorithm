@@ -68,7 +68,7 @@ public class Main {
             tree = new int[4 * n];
             init(1, 1, n);
 
-            for (int i = 0; i < k; i++) {
+            while (k-- > 0) {
                 st = new StringTokenizer(br.readLine());
                 String order = st.nextToken();
                 int a = Integer.parseInt(st.nextToken());
@@ -77,11 +77,11 @@ public class Main {
                 if (order.equals("C")) {
                     update(1, 1, n, a, Integer.signum(b));
                 } else {
-                    int result = queryMul(1, 1, n, a, b);
+                    int res = queryMul(1, 1, n, a, b);
 
-                    if (result > 0) {
+                    if (res > 0) {
                         sb.append("+");
-                    } else if (result < 0) {
+                    } else if (res < 0) {
                         sb.append("-");
                     } else {
                         sb.append("0");

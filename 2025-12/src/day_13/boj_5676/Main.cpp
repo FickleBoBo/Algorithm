@@ -1,8 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int arr[100001];
-int tree[4 * 100000];
+const int MAX = 100000;
+int arr[1 + MAX];
+int tree[4 * MAX];
 
 void init(int node, int start, int end) {
     if (start == end) {
@@ -58,12 +59,12 @@ int main() {
 
         init(1, 1, n);
 
-        for (int i = 0; i < k; i++) {
-            string command;
+        while (k--) {
+            string order;
             int a, b;
-            cin >> command >> a >> b;
+            cin >> order >> a >> b;
 
-            if (command == "C") {
+            if (order == "C") {
                 update(1, 1, n, a, (b > 0) - (b < 0));
             } else {
                 int res = queryMul(1, 1, n, a, b);
