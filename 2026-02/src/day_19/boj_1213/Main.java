@@ -7,15 +7,15 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
 
-        String str = br.readLine();
+        String s = br.readLine();
 
         int[] cnt = new int[26];
-        for (char c : str.toCharArray()) {
+        for (char c : s.toCharArray()) {
             cnt[c - 'A']++;
         }
 
         boolean flag = true;
-        if (str.length() % 2 == 0) {
+        if (s.length() % 2 == 0) {
             for (int x : cnt) {
                 if (x % 2 == 1) {
                     flag = false;
