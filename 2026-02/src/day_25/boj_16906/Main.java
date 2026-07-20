@@ -5,11 +5,11 @@ import java.util.*;
 
 public class Main {
 
-    static final int MX = 1 + 1000;
-    static final int ROOT = 0;
+    static final int MAX = 2 + 1000;
+    static final int ROOT = 1;
     static int unused = ROOT + 1;
-    static int[][] nxt = new int[MX][2];
-    static boolean[] chk = new boolean[MX];
+    static int[][] nxt = new int[MAX][2];
+    static boolean[] chk = new boolean[MAX];
 
     static void insert(int cur, int l, StringBuilder word) {
         if (chk[cur]) return;
@@ -18,7 +18,7 @@ public class Main {
             if (cur != unused - 1) return;
 
             chk[cur] = true;
-            list.add(word.toString());
+            words.add(word.toString());
             success = true;
             return;
         }
@@ -34,7 +34,7 @@ public class Main {
     }
 
     static boolean success;  // 욱제어 삽입 성공 여부
-    static List<String> list = new ArrayList<>();  // 욱제어를 저장한 리스트
+    static List<String> words = new ArrayList<>();  // 욱제어를 저장한 리스트
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -43,7 +43,7 @@ public class Main {
         int n = Integer.parseInt(br.readLine());
 
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < n; i++) {
+        while (n-- > 0) {
             int x = Integer.parseInt(st.nextToken());
             StringBuilder word = new StringBuilder();
             success = false;
@@ -56,7 +56,7 @@ public class Main {
         }
 
         System.out.println(1);
-        for (String word : list) {
+        for (String word : words) {
             System.out.println(word);
         }
     }

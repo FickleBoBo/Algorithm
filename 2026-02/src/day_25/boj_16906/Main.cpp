@@ -1,11 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MX = 1 + 1000;
-const int ROOT = 0;
+const int MAX = 2 + 1000;
+const int ROOT = 1;
 int unused = ROOT + 1;
-int nxt[MX][2];
-bool chk[MX];
+int nxt[MAX][2];
+bool chk[MAX];
 
 vector<string> v;  // 욱제어를 저장한 벡터
 bool success;      // 욱제어 삽입 성공 여부
