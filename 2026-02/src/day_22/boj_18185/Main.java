@@ -14,19 +14,19 @@ public class Main {
         st = new StringTokenizer(br.readLine());
         for (int i = 2; i < 2 + n; i++) {
             int x = Integer.parseInt(st.nextToken());
-            int[] prev = cnt[i - 1];
+            int[] prv = cnt[i - 1];
 
-            if (x >= prev[0]) {
-                cnt[i][1] = prev[0];
-                x -= prev[0];
+            if (x >= prv[0]) {
+                cnt[i][1] = prv[0];
+                x -= prv[0];
             } else {
                 cnt[i][1] = x;
                 continue;
             }
 
-            if (x >= prev[1]) {
-                cnt[i][2] = prev[1];
-                x -= prev[1];
+            if (x >= prv[1]) {
+                cnt[i][2] = prv[1];
+                x -= prv[1];
             } else {
                 cnt[i][2] = x;
                 continue;
