@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Main {
 
-    static final int MAX = 1_000_000_000;
+    static final int INF = 1_000_000_000;
 
     static int[] arr;
     static int[] tree;
@@ -40,7 +40,7 @@ public class Main {
     }
 
     static int queryMin(int node, int start, int end, int left, int right) {
-        if (left > end || right < start) return MAX;
+        if (left > end || right < start) return INF;
         if (left <= start && end <= right) return tree[node];
 
         int mid = (start + end) / 2;
@@ -67,7 +67,7 @@ public class Main {
         init(1, 1, n);
 
         int m = Integer.parseInt(br.readLine());
-        for (int i = 0; i < m; i++) {
+        while (m-- > 0) {
             st = new StringTokenizer(br.readLine());
             int t = Integer.parseInt(st.nextToken());
             int a = Integer.parseInt(st.nextToken());
