@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MX = 1 + 100000 * 10;
-const int ROOT = 0;
+const int MAX = 2 + 100000 * 10;
+const int ROOT = 1;
 int unused = ROOT + 1;
-int nxt[MX][26];
+int nxt[MAX][26];
 unordered_map<string, int> mp;  // key를 닉네임으로 가입한 유저의 수(value)
 
 void insert(string& s) {

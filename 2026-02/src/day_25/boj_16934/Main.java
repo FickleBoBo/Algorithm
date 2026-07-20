@@ -5,10 +5,10 @@ import java.util.*;
 
 public class Main {
 
-    static final int MX = 1 + 100000 * 10;
-    static final int ROOT = 0;
+    static final int MAX = 2 + 100000 * 10;
+    static final int ROOT = 1;
     static int unused = ROOT + 1;
-    static int[][] nxt = new int[MX][26];
+    static int[][] nxt = new int[MAX][26];
     static Map<String, Integer> map = new HashMap<>();  // key를 닉네임으로 가입한 유저의 수(value)
 
     static void insert(String s) {
