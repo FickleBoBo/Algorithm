@@ -1,8 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int arr[100001];
-long long tree[4 * 100000];
+const int MAX = 100000;
+int arr[1 + MAX];
+long long tree[4 * MAX];
 
 void init(int node, int start, int end) {
     if (start == end) {
@@ -57,7 +58,7 @@ int main() {
 
     init(1, 1, n);
 
-    for (int i = 0; i < q; i++) {
+    while (q--) {
         int x, y, a, b;
         cin >> x >> y >> a >> b;
 
