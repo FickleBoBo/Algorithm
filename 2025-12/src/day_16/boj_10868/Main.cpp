@@ -1,9 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MAX = 1000000000;
-int arr[100001];
-int tree[4 * 100000];
+const int MAX = 100000;
+const int INF = 1000000000;
+int arr[1 + MAX];
+int tree[4 * MAX];
 
 void init(int node, int start, int end) {
     if (start == end) {
@@ -19,7 +20,7 @@ void init(int node, int start, int end) {
 }
 
 int queryMin(int node, int start, int end, int left, int right) {
-    if (left > end || right < start) return MAX;
+    if (left > end || right < start) return INF;
     if (left <= start && end <= right) return tree[node];
 
     int mid = (start + end) / 2;
@@ -42,7 +43,7 @@ int main() {
 
     init(1, 1, n);
 
-    for (int i = 0; i < m; i++) {
+    while (m--) {
         int a, b;
         cin >> a >> b;
         cout << queryMin(1, 1, n, a, b) << '\n';
