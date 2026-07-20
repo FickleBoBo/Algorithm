@@ -5,14 +5,14 @@ import java.util.*;
 
 public class Main {
 
-    static final int MX = 1 + 100000 * 32;
-    static final int ROOT = 0;
+    static final int MAX = 2 + 100000 * 32;
+    static final int ROOT = 1;
     static int unused;
     static int[][] nxt;
 
     static void init() {
         unused = ROOT + 1;
-        nxt = new int[MX][2];
+        nxt = new int[MAX][2];
     }
 
     static void insert(int x) {
@@ -58,9 +58,7 @@ public class Main {
 
             st = new StringTokenizer(br.readLine());
             while (n-- > 0) {
-                int x = Integer.parseInt(st.nextToken());
-                pxor ^= x;
-
+                pxor ^= Integer.parseInt(st.nextToken());
                 max = Math.max(max, find(pxor));
                 insert(pxor);
             }

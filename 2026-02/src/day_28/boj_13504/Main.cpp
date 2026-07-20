@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MX = 1 + 100000 * 32;
-const int ROOT = 0;
+const int MAX = 2 + 100000 * 32;
+const int ROOT = 1;
 int unused;
-int nxt[MX][2];
+int nxt[MAX][2];
 
 void init() {
     unused = ROOT + 1;
@@ -57,8 +57,8 @@ int main() {
         while (n--) {
             int x;
             cin >> x;
-            pxor ^= x;
 
+            pxor ^= x;
             mx = max(mx, find(pxor));
             insert(pxor);
         }
