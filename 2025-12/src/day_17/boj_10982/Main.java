@@ -23,7 +23,7 @@ public class Main {
             }
 
             int[][] dp = new int[2][1 + sumA];  // 롤링 배열
-            int prev = 0;
+            int prv = 0;
             int cur = 1;
             for (int i = 0; i < n; i++) {
                 int a = aarr[i];
@@ -31,20 +31,20 @@ public class Main {
 
                 for (int j = 0; j <= sumA; j++) {
                     if (j < a) {
-                        dp[cur][j] = dp[prev][j] + b;
+                        dp[cur][j] = dp[prv][j] + b;
                     } else {
-                        dp[cur][j] = Math.min(dp[prev][j - a], dp[prev][j] + b);
+                        dp[cur][j] = Math.min(dp[prv][j - a], dp[prv][j] + b);
                     }
                 }
 
                 // 롤링
-                prev ^= 1;
+                prv ^= 1;
                 cur ^= 1;
             }
 
             int min = Integer.MAX_VALUE;
             for (int j = 0; j <= sumA; j++) {
-                min = Math.min(min, Math.max(j, dp[prev][j]));  // 롤링 때문에 최신값이 prev에 있음
+                min = Math.min(min, Math.max(j, dp[prv][j]));  // 롤링 때문에 최신값이 prev에 있음
             }
 
             sb.append(min).append("\n");

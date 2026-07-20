@@ -21,25 +21,25 @@ int main() {
         for (auto [a, b] : v) sum += a;
 
         memset(dp, 0, sizeof(dp));
-        int prev = 0;
+        int prv = 0;
         int cur = 1;
         for (auto [a, b] : v) {
             for (int j = 0; j <= sum; j++) {
                 if (j < a) {
-                    dp[cur][j] = dp[prev][j] + b;
+                    dp[cur][j] = dp[prv][j] + b;
                 } else {
-                    dp[cur][j] = min(dp[prev][j - a], dp[prev][j] + b);
+                    dp[cur][j] = min(dp[prv][j - a], dp[prv][j] + b);
                 }
             }
 
             // 롤링
-            prev ^= 1;
+            prv ^= 1;
             cur ^= 1;
         }
 
         int mn = INT_MAX;
         for (int j = 0; j <= sum; j++) {
-            mn = min(mn, max(j, dp[prev][j]));  // 롤링 때문에 최신값이 prev에 있음
+            mn = min(mn, max(j, dp[prv][j]));  // 롤링 때문에 최신값이 prev에 있음
         }
 
         cout << mn << '\n';
