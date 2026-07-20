@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MX = 4000;
+const int MAX = 4000;
 
 int main() {
     ios::sync_with_stdio(0);
@@ -17,8 +17,8 @@ int main() {
     int sum = 0;
     for (int x : v) sum += x;
 
-    vector<int> cnt(MX + 1 + MX);
-    for (int x : v) cnt[x + MX]++;
+    vector<int> cnt(MAX + 1 + MAX);
+    for (int x : v) cnt[x + MAX]++;
 
     int mx = 0;     // 최빈값의 최댓값
     int cntMx = 0;  // 최빈값의 최댓값이 등장한 횟수
@@ -36,7 +36,7 @@ int main() {
     for (int i = 0; i < cnt.size(); i++) {
         if (cnt[i] == mx) cntMx--;
         if (cntMx == 0) {
-            mode = i - MX;
+            mode = i - MAX;
             break;
         }
     }
