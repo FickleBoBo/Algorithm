@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MX = 1 + 1000 * 20;
-const int ROOT = 0;
+const int MAX = 2 + 1000 * 20;
+const int ROOT = 1;
 int unused;
-int nxt[MX][128];
-bool chk[MX];
-int cnt[MX];    // 해당 노드의 자손 노드(해당 노드 포함) 중 지워야 하는 파일의 수
-bool mark[MX];  // 지우면 안되는 파일의 접두어에 해당하는 노드들 체크
+int nxt[MAX][128];
+bool chk[MAX];
+int cnt[MAX];    // 해당 노드의 자손 노드(해당 노드 포함) 중 지워야 하는 파일의 수
+bool mark[MAX];  // 지우면 안되는 파일의 접두어에 해당하는 노드들 체크
 
 void init() {
     unused = ROOT + 1;

@@ -4,8 +4,8 @@ import java.io.*;
 
 public class Main {
 
-    static final int MX = 1 + 1000 * 20;
-    static final int ROOT = 0;
+    static final int MAX = 2 + 1000 * 20;
+    static final int ROOT = 1;
     static int unused;
     static int[][] nxt;
     static boolean[] chk;
@@ -14,10 +14,10 @@ public class Main {
 
     static void init() {
         unused = ROOT + 1;
-        nxt = new int[MX][128];
-        chk = new boolean[MX];
-        cnt = new int[MX];
-        mark = new boolean[MX];
+        nxt = new int[MAX][128];
+        chk = new boolean[MAX];
+        cnt = new int[MAX];
+        mark = new boolean[MAX];
     }
 
     static void insert(String s) {
