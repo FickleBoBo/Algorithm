@@ -1,11 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MX = 1 + 200000 * 32;
-const int ROOT = 0;
+const int MAX = 2 + 200000 * 32;
+const int ROOT = 1;
 int unused = ROOT + 1;
-int nxt[MX][2];
-int cnt[MX];
+int nxt[MAX][2];
+int cnt[MAX];
 
 void insert(int x) {
     int cur = ROOT;

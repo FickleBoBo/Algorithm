@@ -5,11 +5,11 @@ import java.util.*;
 
 public class Main {
 
-    static final int MX = 1 + 200000 * 32;
-    static final int ROOT = 0;
+    static final int MAX = 2 + 200000 * 32;
+    static final int ROOT = 1;
     static int unused = ROOT + 1;
-    static int[][] nxt = new int[MX][2];
-    static int[] cnt = new int[MX];
+    static int[][] nxt = new int[MAX][2];
+    static int[] cnt = new int[MAX];
 
     static void insert(int x) {
         int cur = ROOT;
