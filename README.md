@@ -37,8 +37,7 @@ _One day One Problem_
 └── src/
     └── day_XX/
         └── {출처}_{문제번호}/
-            ├── Main.java (또는 Solution.java)
-            └── README.md
+            └── Main.java (또는 Solution.java)
 ```
 
 - 표준입출력 채점(BOJ, Codeforces, SWEA, Softeer) → `Main.{java,cpp}`
