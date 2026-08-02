@@ -14,7 +14,7 @@ static void dfs(int idx, int maxLen, int sum, vector<int>& picks, vector<tuple<i
         return;
     }
 
-    auto& [di, ir, st] = v[idx];
+    auto [di, ir, st] = v[idx];
     if (picks[0] > 0) {
         picks[0]--;
         dfs(idx + 1, maxLen, sum + di, picks, v);

@@ -25,7 +25,7 @@ int solution(vector<int> picks, vector<string> minerals) {
     sort(v.rbegin(), v.rend());
 
     int ans = 0;
-    for (auto& [di, ir, st] : v) {
+    for (auto [di, ir, st] : v) {
         if (picks[0] > 0) {
             ans += di + ir + st;
             picks[0]--;
