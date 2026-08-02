@@ -10,13 +10,14 @@ class Solution {
         }
 
         long ans = 0;
-        for (int w : map.keySet()) {
-            long cnt = map.get(w);
+        for (Map.Entry<Integer, Integer> e : map.entrySet()) {
+            int k = e.getKey();
+            long v = e.getValue();
 
-            ans += cnt * (cnt - 1) / 2;  // 같은 거리에 위치하는 경우
-            ans += cnt * map.getOrDefault(w * 2, 0);  // 4m, 2m에 위치하는 경우
-            if (w % 2 == 0) ans += cnt * map.getOrDefault(w * 3 / 2, 0);  // 3m, 2m에 위치하는 경우
-            if (w % 3 == 0) ans += cnt * map.getOrDefault(w * 4 / 3, 0);  // 4m, 3m에 위치하는 경우
+            ans += v * (v - 1) / 2;  // 같은 거리에 위치하는 경우
+            ans += v * map.getOrDefault(k * 2, 0);  // 4m, 2m에 위치하는 경우
+            if (k % 2 == 0) ans += v * map.getOrDefault(k * 3 / 2, 0);  // 3m, 2m에 위치하는 경우
+            if (k % 3 == 0) ans += v * map.getOrDefault(k * 4 / 3, 0);  // 4m, 3m에 위치하는 경우
         }
 
         return ans;
