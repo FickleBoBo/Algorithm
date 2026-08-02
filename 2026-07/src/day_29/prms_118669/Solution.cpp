@@ -46,16 +46,16 @@ vector<int> dijkstra(vector<int>& gates) {
 }
 
 vector<int> solution(int n, vector<vector<int>> paths, vector<int> gates, vector<int> summits) {
-    for (auto& path : paths) {
-        adj[path[0]].push_back({path[2], path[1]});
-        adj[path[1]].push_back({path[2], path[0]});
+    for (auto& p : paths) {
+        adj[p[0]].push_back({p[2], p[1]});
+        adj[p[1]].push_back({p[2], p[0]});
     }
 
-    for (int gate : gates) {
-        isGate[gate] = true;
+    for (int g : gates) {
+        isGate[g] = true;
     }
-    for (int summit : summits) {
-        isSummit[summit] = true;
+    for (int s : summits) {
+        isSummit[s] = true;
     }
 
     return dijkstra(gates);

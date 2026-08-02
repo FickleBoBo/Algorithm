@@ -26,18 +26,18 @@ class Solution {
         for (int i = 1; i <= n; i++) {
             adj[i] = new ArrayList<>();
         }
-        for (int[] path : paths) {
-            adj[path[0]].add(new Node(path[1], path[2]));
-            adj[path[1]].add(new Node(path[0], path[2]));
+        for (int[] p : paths) {
+            adj[p[0]].add(new Node(p[1], p[2]));
+            adj[p[1]].add(new Node(p[0], p[2]));
         }
 
         boolean[] isGate = new boolean[1 + n];
         boolean[] isSummit = new boolean[1 + n];
-        for (int gate : gates) {
-            isGate[gate] = true;
+        for (int g : gates) {
+            isGate[g] = true;
         }
-        for (int summit : summits) {
-            isSummit[summit] = true;
+        for (int s : summits) {
+            isSummit[s] = true;
         }
 
         return dijkstra(gates, n, adj, isGate, isSummit);
