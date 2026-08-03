@@ -1,0 +1,17 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main(void) {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+
+    string s;
+    int n;
+    cin >> s >> n;
+
+    while (n--) {
+        cout << s;
+    }
+}
