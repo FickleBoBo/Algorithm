@@ -1,8 +1,4 @@
-#include <algorithm>
-#include <string>
-#include <tuple>
-#include <vector>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 int solution(vector<int> picks, vector<string> minerals) {

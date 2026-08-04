@@ -1,7 +1,4 @@
-#include <algorithm>
-#include <unordered_set>
-#include <vector>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 int solution(vector<int> nums) {

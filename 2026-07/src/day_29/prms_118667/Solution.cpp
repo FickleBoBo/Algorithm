@@ -1,6 +1,4 @@
-#include <queue>
-#include <vector>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 int solution(vector<int> queue1, vector<int> queue2) {

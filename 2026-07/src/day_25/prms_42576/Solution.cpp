@@ -1,7 +1,4 @@
-#include <string>
-#include <unordered_map>
-#include <vector>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 string solution(vector<string> participant, vector<string> completion) {

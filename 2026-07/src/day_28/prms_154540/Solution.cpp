@@ -1,8 +1,4 @@
-#include <algorithm>
-#include <queue>
-#include <string>
-#include <vector>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 int dr[4] = {-1, 0, 1, 0};

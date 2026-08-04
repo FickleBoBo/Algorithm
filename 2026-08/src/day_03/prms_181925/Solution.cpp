@@ -1,6 +1,4 @@
-#include <string>
-#include <vector>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 string solution(vector<int> numLog) {

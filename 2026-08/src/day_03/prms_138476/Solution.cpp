@@ -1,7 +1,4 @@
-#include <algorithm>
-#include <unordered_map>
-#include <vector>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 int solution(int k, vector<int> tangerine) {

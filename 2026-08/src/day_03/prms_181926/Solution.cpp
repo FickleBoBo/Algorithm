@@ -1,5 +1,4 @@
-#include <string>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 int solution(int n, string control) {

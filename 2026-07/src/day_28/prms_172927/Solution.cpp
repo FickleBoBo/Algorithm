@@ -1,9 +1,4 @@
-#include <algorithm>
-#include <climits>
-#include <string>
-#include <tuple>
-#include <vector>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 int ans = INT_MAX;

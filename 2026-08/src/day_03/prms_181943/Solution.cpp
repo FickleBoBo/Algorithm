@@ -1,5 +1,4 @@
-#include <string>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 string solution(string my_string, string overwrite_string, int s) {

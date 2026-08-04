@@ -1,6 +1,4 @@
-#include <unordered_map>
-#include <vector>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 long long solution(vector<int> weights) {

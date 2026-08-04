@@ -1,6 +1,4 @@
-#include <stack>
-#include <string>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 int solution(string s) {

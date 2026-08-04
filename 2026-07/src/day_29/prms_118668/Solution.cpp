@@ -1,6 +1,4 @@
-#include <algorithm>
-#include <vector>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 const int INF = 1'000'000'000;

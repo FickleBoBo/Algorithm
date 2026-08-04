@@ -1,6 +1,4 @@
-#include <numeric>
-#include <vector>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 vector<int> solution(int numer1, int denom1, int numer2, int denom2) {

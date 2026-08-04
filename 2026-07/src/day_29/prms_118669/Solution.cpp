@@ -1,7 +1,4 @@
-#include <algorithm>
-#include <queue>
-#include <vector>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 const int INF = 10'000'001;
